@@ -1,0 +1,782 @@
+| <release>61</release>
+
+
+
+|===[ MOVEMENT / MELEE ATTACKS ]================================================
+
+| Move / attack north
+|
+action........ MOVE_N
+binding_1..... NUMPAD_8
+binding_2..... ARROW_UP
+
+| Move / attack northeast
+|
+action........ MOVE_NE
+binding_1..... NUMPAD_9
+binding_2..... SHIFT + ARROW_UP
+
+| Move / attack east
+|
+action........ MOVE_E
+binding_1..... NUMPAD_6
+binding_2..... ARROW_RIGHT
+
+| Move / attack southeast
+|
+action........ MOVE_SE
+binding_1..... NUMPAD_3
+binding_2..... SHIFT + ARROW_RIGHT
+
+| Move / attack south
+|
+action........ MOVE_S
+binding_1..... NUMPAD_2
+binding_2..... ARROW_DOWN
+
+| Move / attack southwest
+|
+action........ MOVE_SW
+binding_1..... NUMPAD_1
+binding_2..... SHIFT + ARROW_DOWN
+
+| Move / attack west
+|
+action........ MOVE_W
+binding_1..... NUMPAD_4
+binding_2..... ARROW_LEFT
+
+| Move / attack northwest
+|
+action........ MOVE_NW
+binding_1..... NUMPAD_7
+binding_2..... SHIFT + ARROW_LEFT
+
+| Autoattack
+|
+action........ AUTOATTACK
+binding_1..... A
+binding_2..... 
+
+
+
+|===[ MAP / NAVIGATION ]========================================================
+
+| Examine
+|
+action........ EXAMINE
+binding_1..... TAB
+binding_2..... 
+
+| Autopilot / Level map
+|
+action........ AUTOPILOT
+binding_1..... P
+binding_2..... NUMPAD_PLUS
+
+| Autoexplore
+|
+action........ EXPLORE
+binding_1..... E
+binding_2..... 
+
+| Continuous autoexplore
+|
+action........ EXPLORE_CONTINUOUS
+binding_1..... CTRL + E
+binding_2..... B
+
+| Autopilot to unlooted container
+|
+action........ AUTOPILOT_CONTAINER
+binding_1..... CTRL + C
+binding_2..... N
+
+| Autopilot to undisabled trap
+|
+action........ AUTOPILOT_TRAP
+binding_1..... CTRL + T
+binding_2..... 
+
+| Set map point
+|
+action........ SET_MAP_POINT
+binding_1..... M
+binding_2..... 
+
+| Block / unblock area from autopilot
+|
+action........ AUTOPILOT_BLOCK
+binding_1..... O
+binding_2..... 
+
+| Clear all autopilot blocks
+|
+action........ AUTOPILOT_CLEAR
+binding_1..... CTRL + O
+binding_2..... 
+
+
+
+|===[ TARGETING / RANGED ATTACKS ]==============================================
+
+| Fire ranged
+|
+action........ FIRE
+binding_1..... F
+binding_2..... 
+
+| Shoot or reach attack marked target
+|
+action........ ATTACK_MARKED
+binding_1..... R
+binding_2..... 
+
+| Swap ammunition
+|
+action........ SWAP_AMMUNITION
+binding_1..... Q
+binding_2..... 
+
+| Change ammo automatically
+|
+action........ AUTOAMMO
+binding_1..... CTRL + Q
+binding_2..... 
+
+
+
+|===[ TALENTS ]=================================================================
+
+| Use talent
+|
+action........ TALENT
+binding_1..... X
+binding_2..... 
+
+| Use talent at marked target
+|
+action........ TALENT_MARKED
+binding_1..... T
+binding_2..... 
+
+
+
+|===[ RESTING ]=================================================================
+
+| Rest 1 round
+|
+action........ REST
+binding_1..... NUMPAD_5
+binding_2..... Z
+
+| Rest until healed
+|
+action........ REST_UNTIL_HEALED
+binding_1..... NUMPAD_DIVIDE
+binding_2..... S
+
+| Rest until restored
+|
+action........ REST_UNTIL_RESTORED
+binding_1..... NUMPAD_MULTIPLY
+binding_2..... D
+
+| Full rest
+|
+action........ REST_FULL
+binding_1..... NUMPAD_MINUS
+binding_2..... V
+
+
+
+|===[ ITEMS / INVENTORY ]=======================================================
+
+| Inventory
+|
+action........ INVENTORY
+binding_1..... ENTER
+binding_2..... I
+
+| Get items from current location
+|
+action........ GET
+binding_1..... G
+binding_2..... 
+
+| Loot items from level
+|
+action........ LOOT_LEVEL
+binding_1..... SPACE
+binding_2..... 
+
+| Loot manager
+|
+action........ LOOT_MANAGER
+binding_1..... SHIFT + ENTER
+binding_2..... 
+
+| Swap weapon set
+|
+action........ SWAP_WEAPONS
+binding_1..... W
+binding_2..... 
+
+
+
+|===[ MISCELLANEOUS ]===========================================================
+
+| Yell
+|
+action........ YELL
+binding_1..... Y
+binding_2..... 
+
+
+
+|===[ INTERFACE ]===============================================================
+
+| Character sheet
+|
+action........ CHARACTER_SHEET
+binding_1..... C
+binding_2..... 
+
+| Game menu
+|
+action........ GAME_MENU
+binding_1..... ESC
+binding_2..... 
+
+| Keyboard help
+|
+action........ HELP
+binding_1..... H
+binding_2..... 
+
+| Scroll log up
+|
+action........ LOG_UP
+binding_1..... PAGE_UP
+binding_2..... 
+
+| Scroll log down
+|
+action........ LOG_DOWN
+binding_1..... PAGE_DOWN
+binding_2..... 
+
+| Display log
+|
+action........ LOG
+binding_1..... L
+binding_2..... 
+
+| Quickslots / items on ground
+|
+action........ SWITCH_SIDEPANEL
+binding_1..... BACKSPACE
+binding_2..... 
+
+| Mundane ground items in sidepanel
+|
+action........ TOGGLE_MUNDANE
+binding_1..... CTRL + BACKSPACE
+binding_2..... 
+
+| Screenshot
+|
+action........ SCREENSHOT
+binding_1..... F12
+binding_2..... 
+
+| Mapshot
+|
+action........ MAPSHOT
+binding_1..... CTRL + F12
+binding_2..... 
+
+| Toggle tiles
+|
+action........ TOGGLE_TILES
+binding_1..... HOME
+binding_2..... 
+
+| Toggle sound
+|
+action........ TOGGLE_SOUND
+binding_1..... END
+binding_2..... 
+
+| Toggle low health warning
+|
+action........ TOGGLE_WARNING
+binding_1..... CTRL + W
+binding_2..... 
+
+
+
+|===[ COMPANIONS ]==============================================================
+
+| Toggle companion list
+|
+action........ TOGGLE_COMPANIONS
+binding_1..... INSERT
+binding_2..... F11
+
+| Toggle expendables list
+|
+action........ TOGGLE_EXPENDABLES
+binding_1..... CTRL + INSERT
+binding_2..... CTRL + F11
+
+| Command companion 01
+|
+action........ COMPANION_01
+binding_1..... CTRL + 1
+binding_2..... 
+
+| Command companion 02
+|
+action........ COMPANION_02
+binding_1..... CTRL + 2
+binding_2..... 
+
+| Command companion 03
+|
+action........ COMPANION_03
+binding_1..... CTRL + 3
+binding_2..... 
+
+| Command companion 04
+|
+action........ COMPANION_04
+binding_1..... CTRL + 4
+binding_2..... 
+
+| Command companion 05
+|
+action........ COMPANION_05
+binding_1..... CTRL + 5
+binding_2..... 
+
+| Command companion 06
+|
+action........ COMPANION_06
+binding_1..... CTRL + 6
+binding_2..... 
+
+| Command companion 07
+|
+action........ COMPANION_07
+binding_1..... CTRL + 7
+binding_2..... 
+
+| Command companion 08
+|
+action........ COMPANION_08
+binding_1..... CTRL + 8
+binding_2..... 
+
+| Command companion 09
+|
+action........ COMPANION_09
+binding_1..... CTRL + 9
+binding_2..... 
+
+| Command companion 10
+|
+action........ COMPANION_10
+binding_1..... CTRL + 0
+binding_2..... 
+
+| Command companion 11
+|
+action........ COMPANION_11
+binding_1..... CTRL + F1
+binding_2..... 
+
+| Command companion 12
+|
+action........ COMPANION_12
+binding_1..... CTRL + F2
+binding_2..... 
+
+| Command companion 13
+|
+action........ COMPANION_13
+binding_1..... CTRL + F3
+binding_2..... 
+
+| Command companion 14
+|
+action........ COMPANION_14
+binding_1..... CTRL + F4
+binding_2..... 
+
+| Command companion 15
+|
+action........ COMPANION_15
+binding_1..... CTRL + F5
+binding_2..... 
+
+| Command companion 16
+|
+action........ COMPANION_16
+binding_1..... CTRL + F6
+binding_2..... 
+
+| Command companion 17
+|
+action........ COMPANION_17
+binding_1..... CTRL + F7
+binding_2..... 
+
+| Command companion 18
+|
+action........ COMPANION_18
+binding_1..... CTRL + F8
+binding_2..... 
+
+| Command companion 19
+|
+action........ COMPANION_19
+binding_1..... CTRL + F9
+binding_2..... 
+
+| Command companion 20
+|
+action........ COMPANION_20
+binding_1..... CTRL + F10
+binding_2..... 
+
+| Command all companions
+|
+action........ COMPANION_ALL
+binding_1..... DELETE
+binding_2..... NUMPAD_0
+
+| Command all expendables
+|
+action........ COMPANION_EXPENDABLES
+binding_1..... CTRL + DELETE
+binding_2..... CTRL + NUMPAD_0
+
+| Companion tactics 01
+|
+action........ TACTICS_01
+binding_1..... ALT + 1
+binding_2..... 
+
+| Companion tactics 02
+|
+action........ TACTICS_02
+binding_1..... ALT + 2
+binding_2..... 
+
+| Companion tactics 03
+|
+action........ TACTICS_03
+binding_1..... ALT + 3
+binding_2..... 
+
+| Companion tactics 04
+|
+action........ TACTICS_04
+binding_1..... ALT + 4
+binding_2..... 
+
+| Companion tactics 05
+|
+action........ TACTICS_05
+binding_1..... ALT + 5
+binding_2..... 
+
+| Companion tactics 06
+|
+action........ TACTICS_06
+binding_1..... ALT + 6
+binding_2..... 
+
+| Companion tactics 07
+|
+action........ TACTICS_07
+binding_1..... ALT + 7
+binding_2..... 
+
+| Companion tactics 08
+|
+action........ TACTICS_08
+binding_1..... ALT + 8
+binding_2..... 
+
+| Companion tactics 09
+|
+action........ TACTICS_09
+binding_1..... ALT + 9
+binding_2..... 
+
+| Companion tactics 10
+|
+action........ TACTICS_10
+binding_1..... ALT + 0
+binding_2..... 
+
+| Companion tactics all
+|
+action........ TACTICS_ALL
+binding_1..... ALT + DELETE
+binding_2..... ALT + NUMPAD_0
+
+
+
+|===[ QUICKSLOTS ]==============================================================
+
+| Quickslots manager
+|
+action........ QUICKSLOTS_MANAGER
+binding_1..... CTRL + ENTER
+binding_2..... 
+
+| Quickslot 01
+|
+action........ QUICKSLOT_01
+binding_1..... 1
+binding_2..... 
+
+| Quickslot 02
+|
+action........ QUICKSLOT_02
+binding_1..... 2
+binding_2..... 
+
+| Quickslot 03
+|
+action........ QUICKSLOT_03
+binding_1..... 3
+binding_2..... 
+
+| Quickslot 04
+|
+action........ QUICKSLOT_04
+binding_1..... 4
+binding_2..... 
+
+| Quickslot 05
+|
+action........ QUICKSLOT_05
+binding_1..... 5
+binding_2..... 
+
+| Quickslot 06
+|
+action........ QUICKSLOT_06
+binding_1..... 6
+binding_2..... 
+
+| Quickslot 07
+|
+action........ QUICKSLOT_07
+binding_1..... 7
+binding_2..... 
+
+| Quickslot 08
+|
+action........ QUICKSLOT_08
+binding_1..... 8
+binding_2..... 
+
+| Quickslot 09
+|
+action........ QUICKSLOT_09
+binding_1..... 9
+binding_2..... 
+
+| Quickslot 10
+|
+action........ QUICKSLOT_10
+binding_1..... 0
+binding_2..... 
+
+| Quickslot 11
+|
+action........ QUICKSLOT_11
+binding_1..... F1
+binding_2..... 
+
+| Quickslot 12
+|
+action........ QUICKSLOT_12
+binding_1..... F2
+binding_2..... 
+
+| Quickslot 13
+|
+action........ QUICKSLOT_13
+binding_1..... F3
+binding_2..... 
+
+| Quickslot 14
+|
+action........ QUICKSLOT_14
+binding_1..... F4
+binding_2..... 
+
+| Quickslot 15
+|
+action........ QUICKSLOT_15
+binding_1..... F5
+binding_2..... 
+
+| Quickslot 16
+|
+action........ QUICKSLOT_16
+binding_1..... F6
+binding_2..... 
+
+| Quickslot 17
+|
+action........ QUICKSLOT_17
+binding_1..... F7
+binding_2..... 
+
+| Quickslot 18
+|
+action........ QUICKSLOT_18
+binding_1..... F8
+binding_2..... 
+
+| Quickslot 19
+|
+action........ QUICKSLOT_19
+binding_1..... F9
+binding_2..... 
+
+| Quickslot 20
+|
+action........ QUICKSLOT_20
+binding_1..... F10
+binding_2..... 
+
+| Quickslot 21
+|
+action........ QUICKSLOT_21
+binding_1..... SHIFT + 1
+binding_2..... 
+
+| Quickslot 22
+|
+action........ QUICKSLOT_22
+binding_1..... SHIFT + 2
+binding_2..... 
+
+| Quickslot 23
+|
+action........ QUICKSLOT_23
+binding_1..... SHIFT + 3
+binding_2..... 
+
+| Quickslot 24
+|
+action........ QUICKSLOT_24
+binding_1..... SHIFT + 4
+binding_2..... 
+
+| Quickslot 25
+|
+action........ QUICKSLOT_25
+binding_1..... SHIFT + 5
+binding_2..... 
+
+| Quickslot 26
+|
+action........ QUICKSLOT_26
+binding_1..... SHIFT + 6
+binding_2..... 
+
+| Quickslot 27
+|
+action........ QUICKSLOT_27
+binding_1..... SHIFT + 7
+binding_2..... 
+
+| Quickslot 28
+|
+action........ QUICKSLOT_28
+binding_1..... SHIFT + 8
+binding_2..... 
+
+| Quickslot 29
+|
+action........ QUICKSLOT_29
+binding_1..... SHIFT + 9
+binding_2..... 
+
+| Quickslot 30
+|
+action........ QUICKSLOT_30
+binding_1..... SHIFT + 0
+binding_2..... 
+
+| Quickslot 31
+|
+action........ QUICKSLOT_31
+binding_1..... SHIFT + F1
+binding_2..... 
+
+| Quickslot 32
+|
+action........ QUICKSLOT_32
+binding_1..... SHIFT + F2
+binding_2..... 
+
+| Quickslot 33
+|
+action........ QUICKSLOT_33
+binding_1..... SHIFT + F3
+binding_2..... 
+
+| Quickslot 34
+|
+action........ QUICKSLOT_34
+binding_1..... SHIFT + F4
+binding_2..... 
+
+| Quickslot 35
+|
+action........ QUICKSLOT_35
+binding_1..... SHIFT + F5
+binding_2..... 
+
+| Quickslot 36
+|
+action........ QUICKSLOT_36
+binding_1..... SHIFT + F6
+binding_2..... 
+
+| Quickslot 37
+|
+action........ QUICKSLOT_37
+binding_1..... SHIFT + F7
+binding_2..... 
+
+| Quickslot 38
+|
+action........ QUICKSLOT_38
+binding_1..... SHIFT + F8
+binding_2..... 
+
+| Quickslot 39
+|
+action........ QUICKSLOT_39
+binding_1..... SHIFT + F9
+binding_2..... 
+
+| Quickslot 40
+|
+action........ QUICKSLOT_40
+binding_1..... SHIFT + F10
+binding_2..... 
+
+
+
