@@ -1,0 +1,167 @@
+
+<
+  function ready()
+    OpenSkills()
+    AnnounceDamage()
+  end
+>
+
+##########
+# Turn 0 #
+##########
+<
+  local need_skills_opened = true
+  function OpenSkills()
+    if you.turns() == 0 and need_skills_opened then
+    crawl.sendkeys("!d10" .. string.char(13) .. "Lair D11-12 Orc D13-15 S-Runes V1-4 Depths" .. string.char(13))
+    need_skills_opened = false
+    you.set_training_target("Fighting",18)
+    you.set_training_target("Maces & Flails",18)
+    you.set_training_target("Axes",18)
+    you.set_training_target("Polearms",20)
+    you.set_training_target("Staves",12)
+    you.set_training_target("Unarmed Combat",18)
+    you.set_training_target("Throwing",9)
+    you.set_training_target("Short Blades",14)
+    you.set_training_target("Long Blades",18)
+    you.set_training_target("Ranged Weapons",18)
+    you.set_training_target("Armour",9)
+    you.set_training_target("Dodging",4)
+    you.set_training_target("Shields",9)
+    you.set_training_target("Stealth",3.5)
+    you.set_training_target("Spellcasting",18)
+    you.set_training_target("Conjurations",20)
+    you.set_training_target("Hexes",6)
+    you.set_training_target("Summonings",6)
+    you.set_training_target("Necromancy",6)
+    you.set_training_target("Forgecraft",6)
+    you.set_training_target("Translocations",9)
+    you.set_training_target("Alchemy",3)
+    you.set_training_target("Fire Magic",18)
+    you.set_training_target("Air Magic",6)
+    you.set_training_target("Ice Magic",18)
+    you.set_training_target("Earth Magic",18)
+    you.set_training_target("Invocations",6)
+    you.set_training_target("Evocations",3)
+    you.set_training_target("Shapeshifting",7)
+    crawl.sendkeys("m","!")
+    end
+  end
+>
+
+###############
+# Damage Calc #
+###############
+<
+  local previous_hp = 0
+  local previous_mp = 0
+  local previous_form = ""
+  local was_berserk_last_turn = false
+
+  function AnnounceDamage()
+    local current_hp, max_hp = you.hp()
+    local current_mp, max_mp = you.mp()
+    --Things that increase hp/mp temporarily really mess with this
+    local current_form = you.transform()
+    local you_are_berserk = you.berserk()
+    local max_hp_increased = false
+    local max_hp_decreased = false
+
+    if (current_form ~= previous_form) then
+      if (previous_form:find("dragon") or
+          previous_form:find("statue") or
+          previous_form:find("tree") or
+          previous_form:find("ice")) or
+          previous_form:find("hydra")then
+        max_hp_decreased = true
+      elseif (current_form:find("dragon") or
+          current_form:find("statue") or
+          current_form:find("tree") or
+          previous_form:find("ice")) or
+          previous_form:find("hydra")then
+        max_hp_increased = true
+      end
+    end
+    if (was_berserk_last_turn and not you_are_berserk) then
+      max_hp_decreased = true
+    elseif (you_are_berserk and not was_berserk_last_turn) then
+      max_hp_increased = true
+    end
+
+    --crawl.mpr(string.format("previous_form is: %s", previous_form))
+    --crawl.mpr(string.format("current_form is: %s", current_form))
+    --crawl.mpr(string.format("max_hp_increased is: %s", max_hp_increased and "True" or "False"))
+    --crawl.mpr(string.format("max_hp_decreased is: %s", max_hp_decreased and "True" or "False"))
+
+    --crawl.mpr(string:format("you_are_berserk is: %s", you_are_berserk and "True" or "False"))
+    --crawl.mpr(string:format("was_berserk_last_turn is: %s", was_berserk_last_turn and "True" or "False"))
+
+    --Skips message on initializing game
+    if previous_hp > 0 then
+      local hp_difference = previous_hp - current_hp
+      local mp_difference = previous_mp - current_mp
+
+      if max_hp_increased or max_hp_decreased then
+        if max_hp_increased then
+          crawl.mpr("<green>You now have [" .. current_hp .. "/" .. max_hp .. "] hp.</green>")
+        else
+          crawl.mpr("<yellow>You now have [" .. current_hp .. "/" .. max_hp .. "] hp.</yellow>")
+        end
+      else
+        --On losing health
+        if (current_hp < previous_hp) then
+          if hp_difference >= (max_hp * 0.30) then
+            crawl.mpr("<red>MASSIVE DAMAGE!!</red>")
+          elseif hp_difference >= (max_hp * 0.20) then
+            crawl.mpr("<lightred>You take " .. hp_difference .. " damage, and have [" .. current_hp .. "/" .. max_hp .. "] hp.</lightred>")
+          elseif hp_difference >= (max_hp * 0.10) then
+            crawl.mpr("<yellow>You take " .. hp_difference .. " damage, and have [" .. current_hp .. "/" .. max_hp .. "] hp.</yellow>")
+          elseif hp_difference >= (max_hp * 0.05) then
+            crawl.mpr("<lightgrey>You take " .. hp_difference .. " damage, and have [" .. current_hp .. "/" .. max_hp .. "] hp.</lightgrey>")
+          else
+            crawl.mpr("<green>You take " .. hp_difference .. " damage, and have [" .. current_hp .. "/" .. max_hp .. "] hp.</green>")
+          end
+        end
+
+        --On gaining health
+        if (current_hp > previous_hp) then
+          --Removes the negative sign
+          local health_inturn = (0 - hp_difference)
+          if (health_inturn > 1) and not (current_hp == max_hp) then
+            if current_hp <= (max_hp * 0.30) then
+              crawl.mpr('<darkgrey>You gain ' .. health_inturn .. ' hp,</darkgrey> <red>and have [' .. current_hp .. '/' .. max_hp .. '] hp.</red>')
+            elseif current_hp <= (max_hp * 0.50) then
+              crawl.mpr('<yellow>You gain ' .. health_inturn .. ' hp,</yellow> <lightred>and have [' .. current_hp .. '/' .. max_hp .. '] hp.</lightred>')
+            elseif current_hp <= (max_hp * 0.70) then
+              crawl.mpr('<lightgreen>You gain ' .. health_inturn .. ' hp,</lightgreen> <green>and have [' .. current_hp .. '/' .. max_hp .. '] hp.</green>')
+            elseif current_hp <= (max_hp * 0.90) then
+              crawl.mpr('<white>You gain ' .. health_inturn .. ' hp</white>, <lightgreen>and have [' .. current_hp .. '/' .. max_hp ..'] hp.</lightgreen>')
+            else
+              crawl.mpr('<lightgreen>You gain ' .. health_inturn .. ' hp, and have [' .. current_hp .. '/' .. max_hp .. '] hp.</lightgreen>')
+            end
+          end
+          if (current_hp == max_hp) then
+            crawl.mpr('<white>HP Full. [' .. current_hp .. '/' .. max_hp .. '] hp.</white>')
+          end
+        end
+
+        --On losing magic
+        if current_mp < previous_mp then
+          if current_mp <= (max_mp / 4) then
+            crawl.mpr("<red>You now have [" .. current_mp .. "/" ..max_mp .."] mp.</red>")
+          elseif current_mp <= (max_mp / 2) then
+            crawl.mpr("<yellow>You now have [" .. current_mp .. "/" ..max_mp .."] mp.</yellow>")
+          else
+            crawl.mpr("<green>You now have [" .. current_mp .. "/" ..max_mp .."] mp.</green>")
+          end
+        end
+      end
+    end
+
+    --Set previous hp/mp and form at end of turn
+    previous_hp = current_hp
+    previous_mp = current_mp
+    previous_form = current_form
+    was_berserk_last_turn = you_are_berserk
+  end
+>
