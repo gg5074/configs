@@ -1,0 +1,18 @@
+[
+  { "rule": "クマネズミ", "active": true, "whitelist": true, "attitude": 3, "proximity": 0, "category": 0, "movement_mode": 2 },
+  { "rule": "グース", "active": true, "whitelist": true, "attitude": 3, "proximity": 0, "category": 0, "movement_mode": 2 },
+  { "rule": "アメンボ", "active": true, "whitelist": true, "attitude": 3, "proximity": 0, "category": 0, "movement_mode": 2 },
+  { "rule": "*ミズカマキリ*", "active": true, "whitelist": true, "attitude": 3, "proximity": 0, "category": 0, "movement_mode": 2 },
+  { "rule": "*アリ", "active": true, "whitelist": false, "attitude": 3, "proximity": 25, "category": 0, "movement_mode": 2 },
+  { "rule": "*ハチ", "active": true, "whitelist": false, "attitude": 3, "proximity": 35, "category": 0, "movement_mode": 2 },
+  { "rule": "*バチ", "active": true, "whitelist": false, "attitude": 3, "proximity": 35, "category": 0, "movement_mode": 2 },
+  { "rule": "無脳ゾンビ", "active": true, "whitelist": false, "attitude": 0, "proximity": 10, "category": 0, "movement_mode": 2 },
+  { "rule": "爬行ゾンビ", "active": true, "whitelist": false, "attitude": 0, "proximity": 20, "category": 0, "movement_mode": 2 },
+  { "rule": "子供ゾンビ", "active": true, "whitelist": false, "attitude": 0, "proximity": 40, "category": 0, "movement_mode": 2 },
+  { "rule": "水泳ゾンビ", "active": true, "whitelist": false, "attitude": 0, "proximity": 50, "category": 0, "movement_mode": 2 },
+  { "rule": "ゾンビ", "active": true, "whitelist": false, "attitude": 0, "proximity": 50, "category": 0, "movement_mode": 2 },
+  { "rule": "肥満ゾンビ", "active": true, "whitelist": false, "attitude": 0, "proximity": 50, "category": 0, "movement_mode": 2 },
+  { "rule": "ゾンビシカ", "active": true, "whitelist": false, "attitude": 0, "proximity": 50, "category": 0, "movement_mode": 2 },
+  { "rule": "*狂人", "active": true, "whitelist": false, "attitude": 0, "proximity": 45, "category": 0, "movement_mode": 2 },
+  { "rule": "高速ロボット", "active": true, "whitelist": true, "attitude": 3, "proximity": 0, "category": 0, "movement_mode": 2 }
+]
