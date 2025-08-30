@@ -1,0 +1,182 @@
+monitor.................. 0
+
+tile_size................ 32
+
+tiles_32_horizontal...... 29
+tiles_32_vertical........ 19
+
+tiles_48_horizontal...... 27
+tiles_48_vertical........ 11
+
+tiles_64_horizontal...... 11
+tiles_64_vertical........ 9
+
+zoom..................... 83
+
+fullscreen............... Y
+
+enlarged_infobox......... Y
+
+push_scroll.............. N
+examine_push_scroll...... N
+symbols.................. Y
+splashes................. Y
+block_colors............. Y
+
+brighter_darkvision...... Y
+
+furniture_animations..... Y
+
+title_font............... Georgia
+
+game_font................ UD デジタル 教科書体 NP-B
+game_font_height......... 18
+game_font_row_factor..... 130
+
+book_font................ UD デジタル 教科書体 NP-B
+book_font_height......... 18
+book_font_row_factor..... 70
+
+highlight_player......... 3
+
+wiggle................... Y
+wiggle_synchronous....... N
+wiggle_speed............. 1
+wiggle_depth............. 2
+wiggle_pause............. 18
+wiggle_horizontal_1...... Y
+wiggle_horizontal_2...... Y
+
+death_splash............. Y
+bright_health_bars....... Y
+health_bar_frames........ Y
+white_friendly........... N
+blue_summoned............ Y
+flash_damaged............ Y
+speech_bubbles........... Y
+bubble_factor............ 90
+offscreen_warning........ Y
+never_flee............... N
+never_blink.............. N
+flora_overgrowth......... Y
+number_animated.......... Y
+
+ascii.................... N
+ascii_font............... UD デジタル 教科書体 NP-B
+ascii_font_height........ 19
+ascii_y_adjust........... 0
+ascii_wall_style......... 0
+ascii_floor_style........ 1
+ascii_furniture_style.... 0
+ascii_creature_style..... 1
+ascii_item_style......... 0
+ascii_block_adjust....... 0
+
+sound_effects............ Y
+master_volume............ 25
+volume_map............... 100
+volume_creature.......... 100
+volume_heartbeat......... 100
+volume_footstep.......... 100
+volume_effect............ 100
+volume_combat............ 100
+volume_ambient........... 50
+volume_music............. 100
+volume_ui................ 50
+sound_panning............ Y
+sound_continuous_walk.... N
+sound_autopilot.......... N
+sound_dungeon_ambience... 5
+sound_captions........... 3
+sound_hooves............. Y
+
+mouse.................... Y
+mouse_hide_cursor........ N
+mouse_tooltips........... Y
+
+controller............... N
+controller_id............ 0
+controller_dpad.......... N
+controller_swap_rest..... N
+controller_stick_1_x..... 1
+controller_stick_1_y..... 2
+controller_stick_2_x..... 5
+controller_stick_2_y..... 4
+controller_trigger_left.. 3
+controller_trigger_right. 3
+controller_a............. 1
+controller_b............. 2
+controller_x............. 3
+controller_y............. 4
+controller_bumper_left... 5
+controller_bumper_right.. 6
+controller_view.......... 7
+controller_menu.......... 8
+controller_stick_1....... 9
+controller_stick_2....... 10
+controller_deadzone...... 20
+
+auto_swap_to_melee....... Y
+autoattack_health........ 30
+marked_health............ 0
+auto_swap_to_shooting.... Y
+swap_shooting_distance... 5
+autoammo_default......... Y
+advanced_autoammo........ Y
+bump_wall_door_close..... Y
+furniture_with_control... N
+log_top_add.............. Y
+pick_all_ammunition...... Y
+pick_trapkits............ Y
+hide_bones............... Y
+auto_quickslots.......... Y
+auto_use_key............. Y
+auto_open_door........... Y
+never_trap_teleport...... N
+
+divide_potions_default... Y
+divide_potions_minimum... 3
+divide_ammo_default...... Y
+companion_auto_regroup... Y
+companion_auto_follow.... Y
+companion_disable_force.. Y
+
+auto_map_points.......... Y
+draw_continuous_walk..... Y
+draw_autopilot........... Y
+autopilot_delay.......... 20
+stop_mildly_hostiles..... Y
+stop_companion_hostiles.. N
+stop_continuous_explore.. Y
+auto_autopilot_blocks.... Y
+auto_clear_blocks........ Y
+autoexplore_creatures.... Y
+
+health_warning........... Y
+health_threshold_1....... 50
+health_threshold_2....... 25
+health_threshold_3....... 25
+health_duration.......... 2
+health_cooldown.......... 8
+health_flash_bar......... Y
+health_flash_frame....... Y
+health_flash_threshold... 30
+
+easy_exit_lists.......... Y
+letters_backpack......... Y
+letters_loot............. Y
+letters_level_loot....... Y
+letters_equipment........ Y
+letters_quickslots....... Y
+letters_loot_manager..... N
+letters_talents.......... Y
+
+create_obituary.......... Y
+create_map_collection.... Y
+send_obituary............ N
+
+default_name............. -
+
+email.................... -
+
+steam_screenshots........ N
