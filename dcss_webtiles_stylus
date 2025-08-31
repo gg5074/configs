@@ -1,0 +1,35 @@
+* {
+font-family: "UD デジタル 教科書体 N-B", system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+#stats_titleline{
+display:none;
+}
+
+#stats_noise > span:nth-child(3){
+display:none;
+}
+
+#stats_rightcolumn > div:nth-child(4) > span:nth-child(1){
+display:none;
+}
+
+span.stats_caption:nth-of-type(3){
+display:none;
+}
+
+#stats_time_caption{
+display:none;
+}
+
+#stats_hpline > .stats_caption{
+display:none;
+}
+
+#stats_mpline > .stats_caption{
+display:none;
+}
+
+#left_column > .action-panel{
+display:none;
+}
