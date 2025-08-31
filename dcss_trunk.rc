@@ -35,7 +35,7 @@ function init_config()
   --CONFIG.announce = {hp_loss_limit = 0, hp_gain_limit = 0, mp_loss_limit = 0, mp_gain_limit = 0, hp_first = true, same_line = true, always_both = true}
 
   -- color-inscribe.lua
-  CONFIG.colorize_inscriptions = true -- Colorize inscriptions on pickup
+  CONFIG.colorize_inscriptions = false -- Colorize inscriptions on pickup
 
   -- drop-inferior.lua
   CONFIG.drop_inferior = true -- Mark items for drop when better item picked up
@@ -2992,7 +2992,6 @@ mp_colour = 100:green, 99:lightgray, 75:yellow, 50:lightred, 25:red
 hp_warning = 50
 mp_warning = 30
 
-# enemy_hp_colour = lightgrey lightgreen brown yellow lightmagenta lightred
 tile_show_threat_levels = trivial, easy, tough, nasty, unusual
 tile_show_demon_tier = true
 always_show_zot = true
@@ -3033,10 +3032,8 @@ skill_focus = true
 skill_focus = false
 : end
 
-# travel_delay = 1
 explore_delay = 15
 view_delay = 550
-# show_blood = false
 level_map_cursor_step = 8
 warn_hatches = true
 travel_open_doors = approach
@@ -3120,9 +3117,7 @@ more += You are unable to access your magic
 flash += is a mimic
 more += You kill.*(entropy weaver|orb of (fire|winter|entropy)|Bai Suzhen)
 more += (?<!(into|through)) a shaft
-# more += The shaft crumbles and collapses
 more += You blink
-# more += You have something to identify
 
 : if you.xl() <= 14 then
 more += You feel a bit more experienced
@@ -3147,9 +3142,7 @@ more += Doom befalls you
 more += You feel a malign power afflict you
 more += shimmers and splits apart
 flash += You are too injured to fight recklessly
-# more += MASSIVE DAMAGE
 flash += MASSIVE DAMAGE
-# more += BIG DAMAGE
 flash += BIG DAMAGE
 flash += LOW HITPOINT WARNING
 flash += LOW MAGIC WARNING
@@ -3184,7 +3177,6 @@ more += You are too injured to fight blindly
 more += The blast of calcifying dust hits (?!your)
 more += Space warps horribly.*around you
 more += Space bends around you
-# flash += watched by something
 more += Your limbs have turned to stone
 more += Your body becomes as fragile as glass
 more += lethally poison
@@ -3317,20 +3309,12 @@ stop += scroll labelled,potion labelled
 stop += You see here.*scrolls? of enchant weapon
 : end
 
-: if you.xl() <= 24 then
-stop += You see here.*(sacred scourge|trishula)
-# stop += You see here.*(crystal plate armour|golden dragon scales)
-# more += The golden dragon scales are intact enough to wear
-: end
-
 : if you.xl() <= 16 then
 stop += You see here.*(scrolls? of identify)
-# stop += You see here.*(shadow dragon scales|pearl dragon scales|storm dragon scales)
 : end
 
 : if you.xl() <= 14 then
 stop += You see here.*(ring of|the ring|amulet)
-# stop += You see here.*(shield|hat|cloak|scarf|gloves|boots|plate armour)
 : end
 
 : if you.xl() <= 12 and you.race() ~= "Mummy" and you.race() ~= "Demonspawn" and you.race() ~= "Revenant" and you.race() ~= "Poltergeist" and you.transform() ~= "death" and you.transform() ~= "vampire" then
@@ -3342,7 +3326,6 @@ more += Found.*(Vehumet|Sif Muna)
 : end
 
 : if you.xl() <= 10 then
-# stop += You see here.*(quicksilver dragon scales|ice dragon scales|chain mail|fire dragon scales|swamp dragon scales)
 more += Found.*(Ashenzari|Beogh|Cheibriados|Fedhas Madash|Gozag|Hepliaklqana|Ignis|Jiyva|Makhleb|Nemelex Xobeh|Okawaru|Qazlal|Ru|Trog|Uskayaw|Wu Jian|Yredelemnul)
 : end
 
@@ -3496,15 +3479,12 @@ more += adder (?!zombie|draugr|simulacrum).*into view
 dump_on_save = true
 dump_message_count = 120
 note_hp_percent = 20
-# note_all_skill_levels = true
 user_note_prefix = 
 
 note_items += of experience,of resistance,archmagi,crystal plate armour,pearl dragon scales,granite talisman,talisman of death
 note_messages += You pass through the gate
 note_messages += cast.*Abyss
 note_messages += BOSS
-
-# dump_item_origins = none
 
 dump_order  = header,hiscore,stats,misc,apostles,mutations,overview,inventory,skills,spells
 dump_order += messages,screenshot,monlist,kills
@@ -3537,7 +3517,7 @@ ae = <butterflies, summoning, phantom mirror, horn of Geryon, box of beasts, sac
 : end
 
 : if you.race() ~= "Djinni" and (you.god() == "Okawaru" or you.god() == "Trog" or you.god() == "The Shining One" or you.god() == "Elyvilon" or you.god() == "Zin") then
-ae = <book
+ae = <book of, parchment of
 : end
 
 ae += moonshine
@@ -3618,8 +3598,8 @@ ai += swamp dragon scale:rPois
 ai += storm dragon scale:rElec
 ai += pearl dragon scale:rN+
 ai += shadow dragon scale:Stlth+
-ai += staff of conjuration:Irresistible Damage -20%
-ai += staff of earth:Physical Damage -5%
+ai += staff of conjuration:IrresistibleDmg-20%
+ai += staff of earth:PhysicalDmg-5%
 ai += staff of fire:rF+
 ai += staff of cold:rC+
 ai += staff of poison:rPois
