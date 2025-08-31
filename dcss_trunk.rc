@@ -3182,6 +3182,7 @@ more += Your body becomes as fragile as glass
 more += lethally poison
 # more += The acid corrodes (?!your)you
 more += You are covered in intense liquid fire
+more += You feel drained
 
 : if you.res_shock() <= 0 then
 more += You are engulfed in a thunderstorm
