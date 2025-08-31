@@ -3146,6 +3146,7 @@ more += hell_effect:
 more += Doom befalls you
 more += You feel a malign power afflict you
 more += shimmers and splits apart
+flash += You are too injured to fight recklessly
 # more += MASSIVE DAMAGE
 flash += MASSIVE DAMAGE
 # more += BIG DAMAGE
@@ -3342,7 +3343,7 @@ more += Found.*(Vehumet|Sif Muna)
 
 : if you.xl() <= 10 then
 # stop += You see here.*(quicksilver dragon scales|ice dragon scales|chain mail|fire dragon scales|swamp dragon scales)
-more += Found.*(Ashenzari|Beogh|Cheibriados|Gozag|Hepliaklqana|Jiyva|Makhleb|Nemelex Xobeh|Okawaru|Qazlal|Ru|Trog|Uskayaw|Wu Jian|Yredelemnul)
+more += Found.*(Ashenzari|Beogh|Cheibriados|Fedhas Madash|Gozag|Hepliaklqana|Ignis|Jiyva|Makhleb|Nemelex Xobeh|Okawaru|Qazlal|Ru|Trog|Uskayaw|Wu Jian|Yredelemnul)
 : end
 
 : if you.xl() <= 6 then
