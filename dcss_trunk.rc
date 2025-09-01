@@ -79,20 +79,21 @@ function init_config()
 
     -- Only alert a plain talisman if its min_skill <= Shapeshifting + talisman_lvl_diff
     talisman_lvl_diff = you.class() == "Shapeshifter" and 27 or 6, -- 27 for Shapeshifter, 6 for everyone else
-    
+
     -- Each non-useless item is alerted once.
     one_time = {
-      "pair of gloves", "pair of boots", "cloak", "scarf", "hat", "ring of", "amulet",
-      "partisan", "demon trident", "trishula", "bardiche",
 #      "broad axe", "morningstar", "eveningstar", "demon whip", "sacred scourge",
 #      "executioner's axe", "giant spiked club", "lajatang",
 #      "quick blade", "eudemon blade", "demon blade", "double sword", "triple sword",
 #      "triple crossbow", "hand cannon", "staff of", "orb of",
+      "partisan", "demon trident", "trishula", "bardiche",
+      "condenser vane", "Gell's gravitambourine", "phantom mirror", "box of beasts", "sack of spiders",
+      "pair of gloves", "pair of boots", "cloak", "scarf", " hat ", "ring of", "amulet",
       "buckler", "kite shield", "tower shield", "wand of digging",
       "crystal plate armour", "gold dragon scales", "storm dragon scales", "swamp dragon scales",
       "quicksilver dragon scales", "pearl dragon scales", "shadow dragon scales"
     }, -- CONFIG.alert.one_time (do not remove this comment)
-    
+
     -- Only do one-time alerts if your skill >= this value, in weap_school/armour/shield
     OTA_require_skill = { weapon = 4, armour = 3, shield = 0 }
   } -- CONFIG.alert (do not remove this comment)
@@ -139,7 +140,7 @@ function init_config()
     same_type_ranged = 1.0, -- Pickup ranged weap of same type if DPS ratio > `same_type_ranged`
     accuracy_weight = 0.33 -- Treat +1 Accuracy as +`accuracy_weight` DPS
   } -- TUNING.weap.pickup (do not remove this comment)
-  
+
   TUNING.weap.alert = {
     -- Alerts for weapons not requiring an extra hand
     pure_dps = 1.0, -- Alert if DPS ratio > `pure_dps`
@@ -1487,7 +1488,7 @@ function init_pa_main()
     loaded_pa_weapons = true
     init_pa_weapons()
   end
-  
+
   if CONFIG.debug_init then
     if loaded_pa_armour then crawl.mpr("pa-armour loaded") end
     if loaded_pa_misc then crawl.mpr("pa-misc loaded") end
@@ -2318,7 +2319,7 @@ function pa_alert_armour(it, unworn_inv_item)
     if it.artefact then
       return it.is_identified and pa_alert_item(it, "Artefact shield", EMOJI.ARTEFACT, CONFIG.fm_alert.shields)
     end
-  
+
     local sh = items.equipped_at("offhand")
     if not is_shield(sh) then return false end
     if has_ego(it) and get_ego(it) ~= get_ego(sh) then
@@ -2332,7 +2333,7 @@ function pa_alert_armour(it, unworn_inv_item)
     if it.artefact then
       return it.is_identified and pa_alert_item(it, "Artefact aux armour", EMOJI.ARTEFACT, CONFIG.fm_alert.aux_armour)
     end
-  
+
     local all_equipped, num_slots = get_equipped_aux(it.subtype())
     if #all_equipped < num_slots then
       if unworn_inv_item then
