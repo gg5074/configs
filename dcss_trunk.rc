@@ -3100,6 +3100,7 @@ more += Your rain of reagents ends
 more += You don't.*that spell
 more += You fail to use your ability
 more += You miscast.*(Blink|Borgnjor|Door|Invisibility)
+flash += You miscast
 more += You can't (read|drink|do)
 more += You cannot.*while unable to breathe
 more += You cannot.*in your current state
@@ -3150,6 +3151,7 @@ flash += BIG DAMAGE
 more += Dropped below
 flash += LOW HITPOINT WARNING
 flash += LOW MAGIC WARNING
+more += You don't have enough magic to cast this spell
 more += You stop ascending the stairs
 flash += You stop ascending the stairs
 more += surroundings become eerily quiet
@@ -3315,7 +3317,7 @@ stop += You see here.*scrolls? of enchant weapon
 : end
 
 : if you.xl() <= 16 then
-stop += You see here.*(scrolls? of identify)
+stop += You see here.*(scrolls? of identify|ring of.*\+6)
 : end
 
 : if you.xl() <= 14 then
@@ -3619,7 +3621,7 @@ ai += (?<!the) \+0 (falchion|long sword|quarterstaff|buckler|troll leather armou
 : end
 
 : if you.xl() > 12 then
-ai += (?<!the) \+[1-3] (dagger|short sword|club|whip|hand axe|spear|sling|shortbow|stone|animal skin|robe|leather armour) (?!("|of)):zz
+ai += (?<!the) \+[1-3] (dagger|short sword|club|whip|hand axe|spear|sling|shortbow|animal skin|robe|leather armour) (?!("|of)):zz
 : end
 
 : if you.xl() > 14 then
