@@ -2,8 +2,14 @@ sound_on = true
 one_SDL_sound_channel = true
 sound_volume = 0.07
 sound_fade_time = 2.8
+
+# osp.nemelex.cards
 sound_pack += https://osp.nemelex.cards/build/latest.zip:["init.txt"]
+
 # sound_pack += https://sound-packs.nemelex.cards/Autofire/BindTheEarth/BindTheEarth.zip
+# github.com/Autofire/BindTheEarth
+# starmen.net/mother2/soundfx/
+# 037 Heal, 040 Stat increase, 041 Stat decrease
 
 # github.com/brianfaires/crawl-rc/blob/main/buehler.rc
 # config, constants, emojis, persistent-data, util, announce-damage, color-inscribe, drop-inferior, fm-disable, inscribe-stats, misc-alerts, remind-id, startup, pa-main, pa-data, pa-util, pa-armour, pa-misc, pa-weapons
@@ -3211,6 +3217,40 @@ more += Chaos surges forth from piles of flesh
 flash += You feel the power of Zot begin to focus
 # more += You hear a sizzling splash
 more += heals the
+
+# crawl.chaosforge.org/Chaos_Knight_of_Xom_Guide#Xom_rc_file
+more += .* erupts in a glittering mayhem of colour
+more += .* evaporates and reforms as
+more += "Time to have some fun!"
+more += "Fight to survive, mortal."
+more += "Let's see if it's strong enough to survive yet."
+more += You hear Xom's maniacal laughter.
+more += Xom feels like there should be more of you to share with the Dungeon.
+more += Xom gently smashes a mirror over your
+more += Xom displaces most of your magic for a moment.
+more += Xom reveals to you one of the great and terrible secrets of magic.
+more += Xom curiously channels energy out of your body.
+more += Xom picks up your mind and accidentally drops it.
+more += Xom gives you a terrible headache.
+more += "You don't need this, do you?"
+more += Your magic slithers out of your reeling mind!
+more += Your power and thoughts are overwhelmed by magic-eaters manifest!
+more += Your magic wrenches itself out of your
+more += Your magic flows out through your
+more += Your magic rips itself out through your
+more += "Heh heh heh..."
+more += Xom's power touches on your mind for a moment.
+more += Xom titters.
+more += "Stumble well, my pet!"
+more += Xom's power touches upon your body and mind for a moment.
+more += Xom decides to rearrange the pieces.
+more += "First here, now there."
+more += "This might be better!"
+more += "This is how I like it!"
+more += "The weather's been a little too boring around here."
+more += Xom asks Qazlal to spice things up a little.
+more += mostly cloudy.
+more += (The|Your).*falls away!
 
 # Others
 # github.com/crawl/crawl/blob/master/crawl-ref/source/god-abil.cc
