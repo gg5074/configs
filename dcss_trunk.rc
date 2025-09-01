@@ -3162,6 +3162,7 @@ more += That really hurt
 more += You convulse
 more += Your body is wracked with pain
 more += offers itself to Yredelemnul
+more += smites (?!your)you
 more += You are (blasted|electrocuted)
 more += You are.*confused
 more += You are blinded
@@ -3180,7 +3181,7 @@ more += Space bends around you
 more += Your limbs have turned to stone
 more += Your body becomes as fragile as glass
 more += lethally poison
-# more += The acid corrodes (?!your)you
+flash += The acid corrodes (?!your)you
 more += You are covered in intense liquid fire
 more += You feel drained
 
@@ -3294,7 +3295,6 @@ more += You have finished (your manual|forgetting about)
 more += You pick up a manual of
 
 stop += You see here the
-stop += You see here.*(war axe|broad axe|whip|mace|flail|ningstar|trident|partisan).*holy
 more += You see here.*(of experience|of acquirement)
 more += [7-9] potions of mutation
 
@@ -3340,9 +3340,7 @@ more += Found.*(The Shining One|Zin)
 
 # Uniques and baddies
 # github.com/crawl/crawl/blob/master/crawl-ref/source/mon-gear.cc
-flash += is (wielding|wearing) the
-flash += wielding.*of (distortion|chaos)
-flash += quivering silver
+unusual_monster_items += ( the |distortion|chaos|silver)
 more += (undying armoury|antique champion|torpor snail|nekomata|oblivion hound|acid blob|entropy weaver|ghost moth|death knight|eye of devastation) (?!zombie|draugr|simulacrum).*into view
 more += Bai Suzhen roars in fury and transforms into a fierce dragon
 flash += Bai Suzhen roars in fury and transforms into a fierce dragon
@@ -3408,8 +3406,6 @@ more += ((ancient|dread) lich|demonspawn warmonger|oni incarcerator|draconian st
 : end
 
 : if you.xl() <= 24 then
-flash += wielding.*of chaos
-flash += carrying a wand of acid
 more += hits you (?!Your).*of (distortion|chaos)
 more += warns you (?!Your).*of (distortion|chaos)
 more += ((deep elf|draconian) annihilator|tengu reaver|air elemental|void ooze) (?!zombie|draugr|simulacrum).*into view
@@ -3433,10 +3429,14 @@ more += halazid warlock gestures wildly while chanting
 more += slime creatures merge to form a (very large|enormous|titanic)
 : end
 
+# github.com/crawl/crawl/commit/e02c2b2bd47e38273f95c7b2855e43783a19ae70
+vulnerable:acid:24
+vulnerable:(venom|flaming|freezing|electrocution|draining|vampiric|pain):20
+
 : if you.xl() <= 20 then
-flash += is wielding.*of (venom|flaming|freezing|electrocution|draining|vampiric|pain)
-flash += is wielding.*of (spectral|heavy|\+[5-9])
-flash += carrying a wand of (paralysis|roots|light)
+# unusual_monster_items += of (venom|flaming|freezing|electrocution|draining|vampiric|pain)
+unusual_monster_items += of (spectral|heavy|\+[5-9])
+unusual_monster_items += wand of (paralysis|roots|light)
 more += (deep elf master archer|boggart|bunyips|stone giant|ironbound beastmaster) (?!zombie|draugr|simulacrum).*into view
 more += (formless jellyfish|broodmother|spark wasp|orb spider|nagaraja|merfolk (javelineer|impaler)) (?!zombie|draugr|simulacrum).*into view
 # Paralysis/Petrify/Banish
@@ -3445,20 +3445,19 @@ more += (?<!spectral) (jorogumo|vampire knight|basilisk|catoblepas|deep elf (sor
 : end
 
 : if you.xl() <= 16 then
-flash += carrying a wand of (charming|polymorph)
+unusual_monster_items += wand of (charming|polymorph)
 more += (raven|yaktaurs?|cyclops|hydra|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma) (?!zombie|draugr|simulacrum).*into view
 more += (ghoul|skyshark|freezing wraith|cyan ugly|shock serpent|arcanist|radroach|tarantella|pharaoh ant) (?!zombie|draugr|simulacrum).*into view
 flash += (radroach|meliai) (?!zombie|draugr|simulacrum).*into view
 : end
 
 : if you.xl() <= 13 then
-unusual_monster_items += demon trident,trishula,halberd,partisan,glaive,bardiche,javelin,large rock,longbow,arbalest,hand cannon,triple crossbow
-flash += is wielding.*(glaive|bardiche|giant club|giant spiked club|executioner's axe|triple sword|triple crossbow)
+unusual_monster_items += triple sword,executioner's axe,demon trident,trishula,halberd,partisan,glaive,bardiche,longbow,arbalest,hand cannon,triple crossbow
 more += (orange demon|rust devil|ice devil|komodo dragon) (?!zombie|draugr|simulacrum).*into view
 : end
 
 : if you.xl() <= 10 then
-flash += is wielding.*(partisan|great sword)
+unusual_monster_items += partisan,great sword
 more += (brain worm|queen bee|gnoll bouda|centaurs?|komodo dragon) (?!zombie|draugr|simulacrum).*into view
 : end
 
