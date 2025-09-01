@@ -3,7 +3,7 @@ one_SDL_sound_channel = true
 sound_volume = 0.07
 sound_fade_time = 2.8
 sound_pack += https://osp.nemelex.cards/build/latest.zip:["init.txt"]
-sound_pack += https://sound-packs.nemelex.cards/Autofire/BindTheEarth/BindTheEarth.zip
+# sound_pack += https://sound-packs.nemelex.cards/Autofire/BindTheEarth/BindTheEarth.zip
 
 # github.com/brianfaires/crawl-rc/blob/main/buehler.rc
 # config, constants, emojis, persistent-data, util, announce-damage, color-inscribe, drop-inferior, fm-disable, inscribe-stats, misc-alerts, remind-id, startup, pa-main, pa-data, pa-util, pa-armour, pa-misc, pa-weapons
@@ -90,6 +90,7 @@ function init_config()
       "condenser vane", "Gell's gravitambourine", "phantom mirror", "box of beasts", "sack of spiders",
       "pair of gloves", "pair of boots", "cloak", "scarf", " hat ", "ring of", "amulet",
       "buckler", "kite shield", "tower shield", "wand of digging",
+      "chain mail", "plate armour",
       "crystal plate armour", "gold dragon scales", "storm dragon scales", "swamp dragon scales",
       "quicksilver dragon scales", "pearl dragon scales", "shadow dragon scales"
     }, -- CONFIG.alert.one_time (do not remove this comment)
