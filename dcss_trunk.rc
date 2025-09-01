@@ -82,9 +82,12 @@ function init_config()
     
     -- Each non-useless item is alerted once.
     one_time = {
-      "pair of gloves", "pair of boots", "cloak", "scarf", "hat",
-      "partisan", "demon trident", "trishula",
+      "pair of gloves", "pair of boots", "cloak", "scarf", "hat", "ring of", "amulet",
+      "partisan", "demon trident", "trishula", "bardiche",
 #      "broad axe", "morningstar", "eveningstar", "demon whip", "sacred scourge",
+#      "executioner's axe", "giant spiked club", "lajatang",
+#      "quick blade", "eudemon blade", "demon blade", "double sword", "triple sword",
+#      "triple crossbow", "hand cannon", "staff of", "orb of",
       "buckler", "kite shield", "tower shield", "wand of digging",
       "crystal plate armour", "gold dragon scales", "storm dragon scales", "swamp dragon scales",
       "quicksilver dragon scales", "pearl dragon scales", "shadow dragon scales"
@@ -3144,6 +3147,7 @@ more += shimmers and splits apart
 flash += You are too injured to fight recklessly
 flash += MASSIVE DAMAGE
 flash += BIG DAMAGE
+more += Dropped below
 flash += LOW HITPOINT WARNING
 flash += LOW MAGIC WARNING
 more += You stop ascending the stairs
