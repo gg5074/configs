@@ -16,6 +16,7 @@ CONFIG = {}
 TUNING = {}
 WEAPON_BRAND_BONUSES = {}
 
+
 function init_config()
   CONFIG = {}
 
@@ -31,19 +32,20 @@ function init_config()
     mp_gain_limit = 2, -- Announce when MP gain >= this
     hp_first = true, -- Show HP first in the message
     same_line = true, -- Show HP/MP on the same line
-    always_both = false, -- If showing one, show both
+    always_both = true, -- If showing one, show both
     very_low_hp = 0.10 -- At this % of max HP, show all HP changes and mute % HP alerts
   } -- CONFIG.announce (do not remove this comment)
   -- Alternative: Displays meters every turn at bottom of msg window
   --CONFIG.announce = {hp_loss_limit = 0, hp_gain_limit = 0, mp_loss_limit = 0, mp_gain_limit = 0, hp_first = true, same_line = true, always_both = true}
 
   -- color-inscribe.lua
-  CONFIG.colorize_inscriptions = false -- Colorize inscriptions on pickup
+  CONFIG.colorize_inscriptions = true -- Colorize inscriptions on pickup
 
   -- drop-inferior.lua
   CONFIG.drop_inferior = true -- Mark items for drop when better item picked up
+  CONFIG.msg_on_inscribe = true -- Show a message when an item is marked for drop
 
-  -- fm-disable.lua: Disable built-in force_mores that can't just be -='d
+  -- fm-disable.lua: Disable built-in force_mores that can't be easily removed
   CONFIG.fm_disable = true -- Skip more prompts for messages configured in fm-disable.lua
 
   -- inscribe-stats.lua: Inscribe stats on pickup and adjust each turn
@@ -52,6 +54,7 @@ function init_config()
   CONFIG.inscribe_dps_type = DMG_TYPE.plain -- How to calc dmg for weapon inscriptions
 
   -- misc-alerts.lua
+  CONFIG.alert_low_hp_threshold = 0.35 -- % max HP to alert; 0 to disable
   CONFIG.alert_remove_faith = true -- Reminder to remove amulet at max piety
   CONFIG.alert_spell_level_changes = true -- Alert when you gain additional spell levels
 
@@ -84,7 +87,7 @@ function init_config()
 
     -- Only alert a plain talisman if its min_skill <= Shapeshifting + talisman_lvl_diff
     talisman_lvl_diff = you.class() == "Shapeshifter" and 27 or 6, -- 27 for Shapeshifter, 6 for everyone else
-
+    
     -- Each non-useless item is alerted once.
     one_time = {
 #      "broad axe", "morningstar", "eveningstar", "demon whip", "sacred scourge",
@@ -3054,6 +3057,11 @@ function c_assign_invletter(it)
   if c_assign_invletter_remind_identify then c_assign_invletter_remind_identify(it) end
   if c_assign_invletter_drop_inferior then c_assign_invletter_drop_inferior(it) end
   if c_assign_invletter_color_inscribe then c_assign_invletter_color_inscribe(it) end
+
+  -- Calls with possible return values
+  local ret_val = nil
+  if c_assign_invletter_weapon_slots then ret_val = c_assign_invletter_weapon_slots(it) end
+  if ret_val then return ret_val end
 end
 
 function c_message(text, channel)
@@ -3070,7 +3078,7 @@ function c_answer_prompt(prompt)
     return true end
   if prompt == "Die?" then
     return false
-  end
+  end  
 end
 
 function ready()
