@@ -39,7 +39,7 @@ function init_config()
   --CONFIG.announce = {hp_loss_limit = 0, hp_gain_limit = 0, mp_loss_limit = 0, mp_gain_limit = 0, hp_first = true, same_line = true, always_both = true}
 
   -- color-inscribe.lua
-  CONFIG.colorize_inscriptions = true -- Colorize inscriptions on pickup
+  CONFIG.colorize_inscriptions = false -- Colorize inscriptions on pickup
 
   -- drop-inferior.lua
   CONFIG.drop_inferior = true -- Mark items for drop when better item picked up
@@ -3856,31 +3856,31 @@ ai += staff of air:rElec
 ai += staff of death:rN+
 
 : if you.xl() > 4 then
-ai += (?<!the) \+0 (dagger|short sword|club|whip|giant club|giant spiked|hand axe|spear|sling|shortbow|stone|animal skin|robe|leather armour) (?!("|of))~~DROP_ME
+ai += (?<!the) \+0 (dagger|short sword|club|whip|giant club|giant spiked|hand axe|spear|sling|shortbow|stone|animal skin|robe|leather armour) (?!("|of)):~~DROP_ME
 : end
 
 : if you.xl() > 8 then
-ai += (?<!the) \+0 (falchion|long sword|quarterstaff|buckler|troll leather armour|ring mail|scale mail) (?!("|of))~~DROP_ME
+ai += (?<!the) \+0 (falchion|long sword|quarterstaff|buckler|troll leather armour|ring mail|scale mail) (?!("|of)):~~DROP_ME
 : end
 
 : if you.xl() > 12 then
-ai += (?<!the) \+[1-3] (dagger|short sword|club|whip|hand axe|spear|sling|shortbow|animal skin|robe|leather armour) (?!("|of))~~DROP_ME
+ai += (?<!the) \+[1-3] (dagger|short sword|club|whip|hand axe|spear|sling|shortbow|animal skin|robe|leather armour) (?!("|of)):~~DROP_ME
 : end
 
 : if you.xl() > 14 then
-ai += (?<!the) \+[1-3] (falchion|long sword|quarterstaff|buckler|troll leather armour|ring mail|scale mail) (?!("|of))~~DROP_ME
+ai += (?<!the) \+[1-3] (falchion|long sword|quarterstaff|buckler|troll leather armour|ring mail|scale mail) (?!("|of)):~~DROP_ME
 : end
 
 : if you.xl() > 16 then
-ai += (?<!the) \+0 (mace|flail|war axe|trident|kite shield|chain mail|plate armour|helmet|pair of boots|cloak|pair of gloves) (?!("|of))~~DROP_ME
+ai += (?<!the) \+0 (mace|flail|war axe|trident|kite shield|chain mail|plate armour|helmet|pair of boots|cloak|pair of gloves) (?!("|of)):~~DROP_ME
 : end
 
 : if you.xl() > 20 then
-ai += (?<!the) \+0 (dire flail|great mace|battleaxe|executioner's axe|halberd|scythe|glaive|bardiche|tower shield|steam dragon scales|acid dragon scales|swamp dragon scales) (?!("|of))~~DROP_ME
+ai += (?<!the) \+0 (dire flail|great mace|battleaxe|executioner's axe|halberd|scythe|glaive|bardiche|tower shield|steam dragon scales|acid dragon scales|swamp dragon scales) (?!("|of)):~~DROP_ME
 : end
 
 : if you.xl() > 22 then
-ai += (?<!the) \+0 (fire dragon scales|ice dragon scales) (?!("|of))~~DROP_ME
+ai += (?<!the) \+0 (fire dragon scales|ice dragon scales) (?!("|of)):~~DROP_ME
 : end
 
 gear_slot ^= (war axe|broad axe|whip|mace|flail|ningstar|scourge|trident|trishula|partisan|halberd|glaive|bardiche|staff) : abW
@@ -4018,7 +4018,7 @@ macros += M y ff
 macros += M \{NP0} vf
 macros += M O aa
 macros += M K ab
-macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stai\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!moons\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stai\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!moons\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 macros += M P *fin_shop\{32}&&\{32}!!moons\{32}&&\{32}!!carri\{13}
 macros += M S *f<<scrol\{32}||\{32}potio>>\{32}&&\{32}!!moons\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 macros += M % *f<<misc\{32}||\{32}wand\{32}||\{32}throwin>>\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
