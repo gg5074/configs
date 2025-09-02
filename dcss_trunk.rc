@@ -92,7 +92,7 @@ function init_config()
       "partisan", "demon trident", "trishula", "bardiche",
       "condenser vane", "Gell's gravitambourine", "phantom mirror", "box of beasts", "sack of spiders",
       "pair of gloves", "pair of boots", "cloak", "scarf", " hat ", "ring of", "amulet",
-#      "+6 ring of strength", "+6 ring of dexterity",
+      "6 ring of strength", "6 ring of dexterity",
       "buckler", "kite shield", "tower shield", "wand of digging",
       "chain mail", "plate armour",
       "crystal plate armour", "gold dragon scales", "storm dragon scales", "swamp dragon scales",
@@ -3255,6 +3255,7 @@ more += (The|Your).*falls away!
 more += Found a faded altar of an unknown god
 more += Found a staircase to the Ecumenical Temple
 stop += There is a portal to a secret trove of treasure here
+stop += Found a runed translucent door
 more += Found a gateway leading.*Abyss
 more += The mighty Pandemonium lord.*resides here
 more += The tension of great conflict fills the air
@@ -3919,4 +3920,3 @@ bindkey = [L] CMD_MAP_EXIT_MAP
 bindkey = [N] CMD_MAP_EXIT_MAP
 bindkey = [U] CMD_MAP_EXIT_MAP
 bindkey = [Y] CMD_MAP_EXIT_MAP
-
