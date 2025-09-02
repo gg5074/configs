@@ -2,10 +2,7 @@ sound_on = true
 one_SDL_sound_channel = true
 sound_volume = 0.07
 sound_fade_time = 2.8
-
-# osp.nemelex.cards
 sound_pack += https://osp.nemelex.cards/build/latest.zip:["init.txt"]
-
 # sound_pack += https://sound-packs.nemelex.cards/Autofire/BindTheEarth/BindTheEarth.zip
 # github.com/Autofire/BindTheEarth
 # starmen.net/mother2/soundfx/
@@ -95,6 +92,7 @@ function init_config()
       "partisan", "demon trident", "trishula", "bardiche",
       "condenser vane", "Gell's gravitambourine", "phantom mirror", "box of beasts", "sack of spiders",
       "pair of gloves", "pair of boots", "cloak", "scarf", " hat ", "ring of", "amulet",
+#      "+6 ring of strength", "+6 ring of dexterity",
       "buckler", "kite shield", "tower shield", "wand of digging",
       "chain mail", "plate armour",
       "crystal plate armour", "gold dragon scales", "storm dragon scales", "swamp dragon scales",
@@ -239,7 +237,7 @@ ALL_MISSILES = {
   " stone", "boomerang", "silver javelin", "javelin", "large rock", "throwing net",
 } -- ALL_MISSILES (do not remove this comment)
 
--- Could be removed after https://github.com/crawl/crawl/issues/4606 is addressed
+-- Could be removed after github.com/crawl/crawl/issues/4606 is addressed
 ALL_SPELLBOOKS = {
   "parchment of", "book of", "Necronomicon", "Grand Grimoire", "tome of obsoleteness", "Everburning Encyclopedia",
   "Ozocubu's Autobiography", "Maxwell's Memoranda", "Young Poisoner's Handbook", "Fen Folio",
@@ -867,7 +865,7 @@ end
 
 ############################ Begin lua/features/announce-damage.lua ############################
 {
------ Announce changes in HP/MP; modified from https://github.com/magus/dcss -----
+----- Announce changes in HP/MP; modified from github.com/magus/dcss -----
 local prev -- contains all previous hp/mp values
 
 local function create_meter(perc, full, part, empty, border)
@@ -3921,3 +3919,4 @@ bindkey = [L] CMD_MAP_EXIT_MAP
 bindkey = [N] CMD_MAP_EXIT_MAP
 bindkey = [U] CMD_MAP_EXIT_MAP
 bindkey = [Y] CMD_MAP_EXIT_MAP
+
