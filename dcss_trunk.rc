@@ -90,10 +90,10 @@ function init_config()
     
     -- Each non-useless item is alerted once.
     one_time = {
-#      "broad axe", "morningstar", "eveningstar", "demon whip", "sacred scourge",
-#      "executioner's axe", "giant spiked club", "lajatang",
-#      "quick blade", "eudemon blade", "demon blade", "double sword", "triple sword",
-#      "triple crossbow", "hand cannon", "staff of", "orb of",
+      "broad axe", "morningstar", "eveningstar", "demon whip", "sacred scourge",
+      "executioner's axe", "giant spiked club", "lajatang",
+      "quick blade", "eudemon blade", "demon blade", "double sword", "triple sword",
+      "triple crossbow", "hand cannon", "staff of", "orb of",
       "partisan", "demon trident", "trishula", "bardiche",
       "condenser vane", "Gell's gravitambourine", "phantom mirror", "box of beasts", "sack of spiders",
       "pair of gloves", "pair of boots", "cloak", "scarf", " hat ", "ring of", "amulet",
