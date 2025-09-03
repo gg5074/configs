@@ -34,7 +34,7 @@ function init_config()
     mp_gain_limit = 2, -- Announce when MP gain >= this
     hp_first = true, -- Show HP first in the message
     same_line = true, -- Show HP/MP on the same line
-    always_both = true, -- If showing one, show both
+    always_both = false, -- If showing one, show both
     very_low_hp = 0.10 -- At this % of max HP, show all HP changes and mute % HP alerts
   } -- CONFIG.announce (do not remove this comment)
   -- Alternative: Displays meters every turn at bottom of msg window
@@ -56,7 +56,7 @@ function init_config()
   CONFIG.inscribe_dps_type = DMG_TYPE.plain -- How to calc dmg for weapon inscriptions
 
   -- misc-alerts.lua
-  CONFIG.alert_low_hp_threshold = 0.35 -- % max HP to alert; 0 to disable
+  CONFIG.alert_low_hp_threshold = 0.50 -- % max HP to alert; 0 to disable
   CONFIG.alert_remove_faith = true -- Reminder to remove amulet at max piety
   CONFIG.alert_spell_level_changes = true -- Alert when you gain additional spell levels
 
@@ -3359,7 +3359,7 @@ more += shimmers and splits apart
 flash += You are too injured to fight recklessly
 flash += MASSIVE DAMAGE
 flash += BIG DAMAGE
-more += Dropped below
+# more += Dropped below
 flash += LOW HITPOINT WARNING
 flash += LOW MAGIC WARNING
 more += You don't have enough magic to cast this spell
@@ -3700,7 +3700,7 @@ more += (?<!spectral) (jorogumo|vampire knight|basilisk|catoblepas|deep elf (sor
 : if you.xl() <= 16 then
 unusual_monster_items += wand of (charming|polymorph)
 more += (raven|yaktaurs?|cyclops|hydra|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma) (?!zombie|draugr|simulacrum).*into view
-more += (ghoul|skyshark|freezing wraith|cyan ugly|shock serpent|arcanist|radroach|tarantella|pharaoh ant) (?!zombie|draugr|simulacrum).*into view
+more += (ghoul|dire elephant|skyshark|freezing wraith|cyan ugly|shock serpent|arcanist|radroach|tarantella|pharaoh ant) (?!zombie|draugr|simulacrum).*into view
 flash += (radroach|meliai) (?!zombie|draugr|simulacrum).*into view
 : end
 
