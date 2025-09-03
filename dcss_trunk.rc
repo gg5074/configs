@@ -8,6 +8,8 @@ sound_pack += https://osp.nemelex.cards/build/latest.zip:["init.txt"]
 # starmen.net/mother2/soundfx/
 # 037 Heal, 040 Stat increase, 041 Stat decrease
 
+# ch_force_autopickup failed: [string ".rc"]:394:attempt to index local 'skill' (a nil value)
+# debug_dump(1) morgue:pastebin.com/raw/ZKdesQH0
 # github.com/brianfaires/crawl-rc/blob/main/buehler.rc
 # config, constants, emojis, persistent-data, util, announce-damage, color-inscribe, drop-inferior, fm-disable, inscribe-stats, misc-alerts, remind-id, startup, pa-main, pa-data, pa-util, pa-armour, pa-misc, pa-weapons
 ############################ Begin lua/config.lua ############################
@@ -3281,6 +3283,7 @@ flash += You hear.*very (nearby|distant)
 flash += You hear.*(quick|urgent|loud (?!squeak)|rising multitudes|rapid|thunderous|frantic|ear-piercing|full choir)
 more += Found.*(bazaar|trove|phantasmal|sand-covered|glowing drain|flagged portal|gauntlet|frozen archway|dark tunnel|crumbling gateway|ruined gateway|magical portal|ziggurat)
 more += You enter a wizard's laboratory
+flash += Hurry and find it
 more += The walls and floor vibrate strangely for a moment
 
 # Expiring effects
@@ -3458,6 +3461,7 @@ more += Found a faded altar of an unknown god
 more += Found a staircase to the Ecumenical Temple
 stop += There is a portal to a secret trove of treasure here
 stop += Found a runed translucent door
+flash += There is a.*(staircase to the|gate to (?!one)|hole to|gate lead)
 more += Found a gateway leading.*Abyss
 more += The mighty Pandemonium lord.*resides here
 more += The tension of great conflict fills the air
