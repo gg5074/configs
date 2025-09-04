@@ -11,6 +11,12 @@ sound_pack += https://osp.nemelex.cards/build/latest.zip:["init.txt"]
 # ch_force_autopickup failed: [string ".rc"]:394:attempt to index local 'skill' (a nil value)
 # You see here a staff of necromancy, the necromancy staff of Sloth
 # debug_dump(1) morgue:https://pastebin.com/raw/SyDrHhTg, https://pastebin.com/raw/e5qSJXMh
+#       "condenser vane", "Gell's gravitambourine", "phantom mirror", "box of beasts", "sack of spiders",
+#      "quick blade", "eudemon blade", "demon blade", "double sword", "triple sword",
+#      "triple crossbow", "hand cannon", "staff of", "orb of",
+#      "broad axe", "morningstar", "eveningstar", "demon whip", "sacred scourge",
+#      "executioner's axe", "giant spiked club", "lajatang",
+#      "partisan", "demon trident", "trishula", "bardiche",
 
 # github.com/brianfaires/crawl-rc/blob/main/buehler.rc
 # config, constants, emojis, persistent-data, util, announce-damage, color-inscribe, drop-inferior, fm-disable, inscribe-stats, misc-alerts, remind-id, startup, pa-main, pa-data, pa-util, pa-armour, pa-misc, pa-weapons
@@ -94,12 +100,6 @@ function init_config()
     
     -- Each non-useless item is alerted once.
     one_time = {
-      "broad axe", "morningstar", "eveningstar", "demon whip", "sacred scourge",
-      "executioner's axe", "giant spiked club", "lajatang",
-      "quick blade", "eudemon blade", "demon blade", "double sword", "triple sword",
-      "triple crossbow", "hand cannon", "staff of", "orb of",
-      "partisan", "demon trident", "trishula", "bardiche",
-      "condenser vane", "Gell's gravitambourine", "phantom mirror", "box of beasts", "sack of spiders",
       "pair of gloves", "pair of boots", "cloak", "scarf", " hat ", "ring of", "amulet",
       "6 ring of strength", "6 ring of dexterity",
       "buckler", "kite shield", "tower shield", "wand of digging",
@@ -114,21 +114,21 @@ function init_config()
 
   -- Which alerts generate a force_more
   CONFIG.fm_alert = {
-    early_weap = false,       -- Good weapons found early
-    upgrade_weap = false,     -- Better DPS / weapon_score
+    early_weap = true,       -- Good weapons found early
+    upgrade_weap = true,     -- Better DPS / weapon_score
     weap_ego = false,         -- New or diff egos
     body_armour = false,
     shields = true,
-    aux_armour = false,
+    aux_armour = true,
     armour_ego = true,        -- New or diff egos
-    high_score_weap = false,  -- Highest damage found
+    high_score_weap = true,  -- Highest damage found
     high_score_armour = true, -- Highest AC found
     one_time_alerts = true,
     artefact = false,         -- Any artefact
     trained_artefacts = true, -- Only for artefacts where you have corresponding skill > 0
     orbs = false,
     talismans = you.class() == "Shapeshifter", -- True for shapeshifter, false for everyone else
-    staff_resists = false
+    staff_resists = true
   } -- CONFIG.fm_alert (do not remove this comment)
 
 
@@ -1572,7 +1572,7 @@ function init_startup()
   if you.turns() == 0 then
     ---- Skill menu on startup (by rwbarton, edits by buehler) ----
     if CONFIG.show_skills_on_startup then
-      local show_skills_on_startup = (you.race() ~= "Gnoll" and you.race() ~= "Djinni")
+      local show_skills_on_startup = (you.race() ~= "Gnoll")
       if show_skills_on_startup then
         crawl.sendkeys("!d10" .. string.char(13) .. "Lair D11-12 Orc D13-15 S-Runes V1-4 Depths" .. string.char(13))
         you.set_training_target("Fighting",18)
@@ -3919,11 +3919,11 @@ gear_slot ^= (ring of see invisible|the ring .* SInv) : vighVIGH
 gear_slot ^= (ring of willpower|the ring .* Will\+) : wmlhWMlH
 gear_slot ^= (ring of flight|the ring .* Fly) : lhfyLHFY
 
-gear_slot += armour:ABCDEFGHIJKLMNOPQRSTUVWXYZ
-gear_slot += shield:ABCDEFGHIJKLMNOPQRSTUVWXYZ
-gear_slot += orb:ABCDEFGHIJKLMNOPQRSTUVWXYZ
-gear_slot += amulet:ABCDEFGHIJKLMNOPQRSTUVWXYZ
-gear_slot += talisman:ABCDEFGHIJKLMNOPQRSTUVWXYZ
+gear_slot ^= armour:ABCDEFGHIJKLMNOPQRSTUVWXYZ
+gear_slot ^= shield:ABCDEFGHIJKLMNOPQRSTUVWXYZ
+gear_slot ^= orb:ABCDEFGHIJKLMNOPQRSTUVWXYZ
+gear_slot ^= amulet:ABCDEFGHIJKLMNOPQRSTUVWXYZ
+gear_slot ^= talisman:ABCDEFGHIJKLMNOPQRSTUVWXYZ
 
 ##############
 ### Macros ###
