@@ -9,7 +9,7 @@ sound_pack += https://osp.nemelex.cards/build/latest.zip:["init.txt"]
 # 037 Heal, 040 Stat increase, 041 Stat decrease
 
 # ch_force_autopickup failed: [string ".rc"]:394:attempt to index local 'skill' (a nil value)
-# You see here a staff of necromancy
+# You see here a staff of necromancy, the necromancy staff of Sloth
 # debug_dump(1) morgue:https://pastebin.com/raw/SyDrHhTg, https://pastebin.com/raw/e5qSJXMh
 
 # github.com/brianfaires/crawl-rc/blob/main/buehler.rc
@@ -1572,7 +1572,7 @@ function init_startup()
   if you.turns() == 0 then
     ---- Skill menu on startup (by rwbarton, edits by buehler) ----
     if CONFIG.show_skills_on_startup then
-      local show_skills_on_startup = (you.race() ~= "Gnoll" or you.class() == "Wanderer")
+      local show_skills_on_startup = (you.race() ~= "Gnoll" and you.race() ~= "Djinni")
       if show_skills_on_startup then
         crawl.sendkeys("!d10" .. string.char(13) .. "Lair D11-12 Orc D13-15 S-Runes V1-4 Depths" .. string.char(13))
         you.set_training_target("Fighting",18)
