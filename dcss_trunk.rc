@@ -9,7 +9,9 @@ sound_pack += https://osp.nemelex.cards/build/latest.zip:["init.txt"]
 # 037 Heal, 040 Stat increase, 041 Stat decrease
 
 # ch_force_autopickup failed: [string ".rc"]:394:attempt to index local 'skill' (a nil value)
-# debug_dump(1) morgue:pastebin.com/raw/ZKdesQH0
+# You see here a staff of necromancy
+# debug_dump(1) morgue:https://pastebin.com/raw/SyDrHhTg, https://pastebin.com/raw/e5qSJXMh
+
 # github.com/brianfaires/crawl-rc/blob/main/buehler.rc
 # config, constants, emojis, persistent-data, util, announce-damage, color-inscribe, drop-inferior, fm-disable, inscribe-stats, misc-alerts, remind-id, startup, pa-main, pa-data, pa-util, pa-armour, pa-misc, pa-weapons
 ############################ Begin lua/config.lua ############################
@@ -3461,7 +3463,7 @@ more += Found a faded altar of an unknown god
 more += Found a staircase to the Ecumenical Temple
 stop += There is a portal to a secret trove of treasure here
 stop += Found a runed translucent door
-flash += There is a.*(staircase to the|gate to (?!one)|hole to|gate lead)
+flash += There is a (staircase to the|gate to|hole to|gate lead|gateway)
 more += Found a gateway leading.*Abyss
 more += The mighty Pandemonium lord.*resides here
 more += The tension of great conflict fills the air
@@ -3492,6 +3494,17 @@ more += You add the spells?.*(Apportation|Blink)
 
 : if you.xl() >= 26 then
 more += You add the spells?.*(Beckoning|Golubria|Vhi's Electric|Manifold Assault|Fugue of the|Animate Dead|Death Channel|Awaken Armour)
+: end
+
+# Miscast:Nameless Horror:HD(2*Int/3) HD15 MaxHP160 Speed10 AC8 Attack30(Antimagic)
+: if you.xl() >= 16 and you.intelligence() <= 25 then
+more += You add the spells?.*(Summon Cactus Giant|Summon Hydra|Summon Horrible Things|Dragon's Call)
+: end
+
+# Miscast:-Move -Tele
+# reddit.com/r/dcss/comments/1m4xpsr/a_compendium_of_strange_and_unusual_techniques/
+: if you.xl() >= 20 then
+more += You add the spells?.*(Dispersal|Gell's Gavotte|Manifold Assault|Translocation)
 : end
 
 # interrupt_travel += <activity_interrupt_type>
@@ -3699,7 +3712,7 @@ more += (?<!spectral) (jorogumo|vampire knight|basilisk|catoblepas|deep elf (sor
 
 : if you.xl() <= 16 then
 unusual_monster_items += wand of (charming|polymorph)
-more += (raven|yaktaurs?|cyclops|hydra|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma) (?!zombie|draugr|simulacrum).*into view
+more += (raven|yaktaurs?|cyclops|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma) (?!zombie|draugr|simulacrum).*into view
 more += (ghoul|dire elephant|skyshark|freezing wraith|cyan ugly|shock serpent|arcanist|radroach|tarantella|pharaoh ant) (?!zombie|draugr|simulacrum).*into view
 flash += (radroach|meliai) (?!zombie|draugr|simulacrum).*into view
 : end
