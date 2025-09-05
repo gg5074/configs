@@ -7,8 +7,13 @@ sound_pack += https://sound-packs.nemelex.cards/Autofire/BindTheEarth/BindTheEar
 
 # ch_force_autopickup failed: [string ".rc"]:394:attempt to index local 'skill' (a nil value)
 # You see here a staff of necromancy, the necromancy staff of Sloth
-# debug_dump(1) morgue:https://pastebin.com/raw/SyDrHhTg, https://pastebin.com/raw/e5qSJXMh
-# staff of death,  necromancy = "Necromancy"
+# debug_dump(1):https://pastebin.com/raw/SyDrHhTg, https://pastebin.com/raw/e5qSJXMh
+# staff of death, necromancy = "Necromancy"
+
+# ch_force_autopickup failed: [string ".rc"]:194:attempt to compare number with nil
+# You see here a buckler
+# debug_dump(1):https://pastebin.com/raw/DcG3ySU9
+# max_shields = 8.0
 
 #      "condenser vane", "Gell's gravitambourine", "phantom mirror", "box of beasts", "sack of spiders",
 #      "quick blade", "eudemon blade", "demon blade", "double sword", "triple sword",
