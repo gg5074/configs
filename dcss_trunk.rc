@@ -3286,7 +3286,7 @@ interrupt_travel -= sense_monster
 stop += timed_portal:
 stop += You hear.*(nearby|distant)
 flash += You hear.*very (nearby|distant)
-flash += You hear.*(quick|urgent|loud (?!squeak)|rising multitudes|rapid|thunderous|frantic|ear-piercing|full choir)
+flash += You hear.*(quick|urgent|loud (?!(squeak|rustle))|rising multitudes|rapid|thunderous|frantic|ear-piercing|full choir)
 more += Found.*(bazaar|trove|phantasmal|sand-covered|glowing drain|flagged portal|gauntlet|frozen archway|dark tunnel|crumbling gateway|ruined gateway|magical portal|ziggurat)
 more += You enter a wizard's laboratory
 flash += Hurry and find it
@@ -3732,10 +3732,12 @@ more += (brain worm|queen bee|gnoll bouda|centaurs?|komodo dragon) (?!zombie|dra
 : end
 
 : if you.xl() <= 6 then
-unusual_monster_items += spear,(?<!demon) trident,sling,shortbow,orcbow
-more += (wyvern|ogre|gnoll) (?!zombie|draugr|simulacrum).*into view
+# unusual_monster_items += spear,(?<!demon) trident,sling,shortbow,orcbow
 more += (bombardier beetle|sky beast|electric eel|sleepcap) (?!zombie|draugr|simulacrum).*into view
 more += orc (wizard|priest|warrior) (?!zombie|draugr|simulacrum).*into view
+flash += orc (wizard|priest|warrior) (?!zombie|draugr|simulacrum).*into view
+more += (wyvern|ogre|gnoll) (?!zombie|draugr|simulacrum).*into view
+flash += (wyvern|ogre|gnoll) (?!zombie|draugr|simulacrum).*into view
 flash += killer bees? (?!zombie|draugr|simulacrum).*into view
 : end
 
