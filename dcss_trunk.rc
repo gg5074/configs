@@ -3463,11 +3463,12 @@ more += (The|Your).*falls away!
 
 # Others
 # github.com/crawl/crawl/blob/master/crawl-ref/source/god-abil.cc
+# github.com/crawl/crawl/blob/master/crawl-ref/source/dat/descript/features.txt
 more += Found a faded altar of an unknown god
 more += Found a staircase to the Ecumenical Temple
 stop += There is a portal to a secret trove of treasure here
 stop += Found a runed translucent door
-flash += There is a (staircase to the|gate to|hole to|gate lead|gateway).*(?!(back|down|Ecumenical))
+flash += There is a (staircase to the|gate to|hole to|gate lead|gateway).*(?!(back|down|out|Ecumenical))
 more += Found a gateway leading.*Abyss
 more += The mighty Pandemonium lord.*resides here
 more += The tension of great conflict fills the air
@@ -3722,12 +3723,12 @@ flash += (radroach|meliai) (?!zombie|draugr|simulacrum).*into view
 : end
 
 : if you.xl() <= 13 then
-unusual_monster_items += triple sword,executioner's axe,demon trident,trishula,halberd,partisan,glaive,bardiche,longbow,arbalest,hand cannon,triple crossbow
+unusual_monster_items += triple sword,executioner's axe,halberd,glaive,bardiche,arbalest,hand cannon,triple crossbow
 more += (orange demon|rust devil|ice devil|komodo dragon) (?!zombie|draugr|simulacrum).*into view
 : end
 
 : if you.xl() <= 10 then
-unusual_monster_items += partisan,great sword
+unusual_monster_items += great sword,demon trident,partisan,trishula,longbow
 more += (brain worm|queen bee|gnoll bouda|centaurs?|komodo dragon) (?!zombie|draugr|simulacrum).*into view
 : end
 
