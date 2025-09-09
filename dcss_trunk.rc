@@ -3,7 +3,7 @@ one_SDL_sound_channel = true
 sound_volume = 0.07
 sound_fade_time = 2.6
 sound_pack += https://osp.nemelex.cards/build/latest.zip:["init.txt"]
-# sound_pack += https://sound-packs.nemelex.cards/Autofire/BindTheEarth/BindTheEarth.zip
+sound_pack += https://sound-packs.nemelex.cards/Autofire/BindTheEarth/BindTheEarth.zip
 
 # ch_force_autopickup failed: [string ".rc"]:394:attempt to index local 'skill' (a nil value)
 # You see here a staff of necromancy, the necromancy staff of Sloth
@@ -3357,7 +3357,9 @@ confirm_action += Conjure Ball Lightning, Chain Lightning
 # github.com/crawl/crawl/blob/master/crawl-ref/source/beam.cc
 flash += mutation:
 more += You feel vulnerable to
-more += Cherry-coloured flames burn away your fire resistance
+# flash += Cherry-coloured flames burn away your fire resistance
+more += The klown pie hits you
+flash += The klown pie hits you
 more += hell_effect:
 more += Doom befalls you
 more += You feel a malign power afflict you
@@ -3795,9 +3797,9 @@ ae = <book of, parchment of
 
 ae += moonshine
 
-: if you.race() ~= "Troll" and you.race() ~= "Oni" then
-ae += large rock
-: end
+# : if you.race() ~= "Troll" and you.race() ~= "Oni" then
+# ae += large rock
+# : end
 
 : if you.xl() > 4 then
 ae += stone
