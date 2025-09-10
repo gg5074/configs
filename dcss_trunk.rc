@@ -73,7 +73,7 @@ function init_config()
 
   -- remind-id.lua:Before finding scroll of ID, stop travel on new largest stack size, starting with:
   CONFIG.stop_on_scrolls_count = 2 -- Stop on a stack of this many un-ID'd scrolls
-  CONFIG.stop_on_pots_count = 3 -- Stop on a stack of this many un-ID'd potions
+  CONFIG.stop_on_pots_count = 2 -- Stop on a stack of this many un-ID'd potions
 
   -- startup.lua: Startup features
   CONFIG.show_skills_on_startup = true
@@ -3367,9 +3367,12 @@ more += shimmers and splits apart
 flash += You are too injured to fight recklessly
 flash += MASSIVE DAMAGE
 flash += BIG DAMAGE
-# more += Dropped below
 flash += LOW HITPOINT WARNING
+
+: if not (you.race() == "Minotaur" or you.race() == "Troll") then
 flash += LOW MAGIC WARNING
+: end
+
 more += You don't have enough magic to cast this spell
 more += You stop ascending the stairs
 flash += You stop ascending the stairs
@@ -3387,7 +3390,7 @@ more += That really hurt
 more += You convulse
 more += Your body is wracked with pain
 more += offers itself to Yredelemnul
-more += smites (?!your)you
+flash += smites (?!your)you
 more += You are (blasted|electrocuted)
 more += You are.*confused
 more += You are blinded
@@ -3470,7 +3473,7 @@ more += Found a faded altar of an unknown god
 more += Found a staircase to the Ecumenical Temple
 stop += There is a portal to a secret trove of treasure here
 stop += Found a runed translucent door
-flash += There is a (staircase to the|gate to|hole to|gate lead|gateway).*(?!(back|down|out|Ecumenical))
+flash += There is a (staircase to the (?!(Ecumenical))|gate to|hole to|gate lead|gateway).*(?!(back|down|out))
 more += Found a gateway leading.*Abyss
 more += The mighty Pandemonium lord.*resides here
 more += The tension of great conflict fills the air
@@ -3595,7 +3598,7 @@ stop += You see here.*(ring of|the ring|amulet)
 more += Found.*(Elyvilon|The Shining One|Zin)
 : end
 
-: if you.xl() <= 12 and  not (you.race() == "Minotaur" or you.race() == "Troll") then
+: if you.xl() <= 12 and not (you.race() == "Minotaur" or you.race() == "Troll") then
 more += Found.*(Vehumet|Sif Muna)
 : end
 
@@ -3797,9 +3800,9 @@ ae = <book of, parchment of
 
 ae += moonshine
 
-# : if you.race() ~= "Troll" and you.race() ~= "Oni" then
-# ae += large rock
-# : end
+: if you.race() ~= "Troll" and you.race() ~= "Oni" then
+ae += large rock
+: end
 
 : if you.xl() > 4 then
 ae += stone
@@ -3886,7 +3889,7 @@ ai += (?<!the) \+0 (dagger|short sword|club|whip|giant club|giant spiked|hand ax
 : end
 
 : if you.xl() > 8 then
-ai += (?<!the) \+0 (falchion|long sword|quarterstaff|buckler|troll leather armour|ring mail|scale mail) (?!("|of)):~~DROP_ME
+ai += (?<!the) \+0 (falchion|long sword|quarterstaff|troll leather armour|ring mail|scale mail) (?!("|of)):~~DROP_ME
 : end
 
 : if you.xl() > 12 then
@@ -3894,19 +3897,19 @@ ai += (?<!the) \+[1-3] (dagger|short sword|club|whip|hand axe|spear|sling|shortb
 : end
 
 : if you.xl() > 14 then
-ai += (?<!the) \+[1-3] (falchion|long sword|quarterstaff|buckler|troll leather armour|ring mail|scale mail) (?!("|of)):~~DROP_ME
+ai += (?<!the) \+[1-3] (falchion|long sword|quarterstaff|troll leather armour|ring mail|scale mail) (?!("|of)):~~DROP_ME
 : end
 
 : if you.xl() > 16 then
-ai += (?<!the) \+0 (mace|flail|war axe|trident|kite shield|chain mail|plate armour|helmet|pair of boots|cloak|pair of gloves) (?!("|of)):~~DROP_ME
+ai += (?<!the) \+0 (mace|flail|war axe|trident|buckler|chain mail|plate armour|helmet|pair of boots|cloak|pair of gloves) (?!("|of)):~~DROP_ME
 : end
 
 : if you.xl() > 20 then
-ai += (?<!the) \+0 (dire flail|great mace|battleaxe|executioner's axe|halberd|scythe|glaive|bardiche|tower shield|steam dragon scales|acid dragon scales|swamp dragon scales) (?!("|of)):~~DROP_ME
+ai += (?<!the) \+0 (dire flail|great mace|battleaxe|executioner's axe|halberd|scythe|glaive|bardiche|kite shield|steam dragon scales|acid dragon scales|swamp dragon scales) (?!("|of)):~~DROP_ME
 : end
 
 : if you.xl() > 22 then
-ai += (?<!the) \+0 (fire dragon scales|ice dragon scales) (?!("|of)):~~DROP_ME
+ai += (?<!the) \+0 (tower shield|fire dragon scales|ice dragon scales) (?!("|of)):~~DROP_ME
 : end
 
 gear_slot ^= (war axe|broad axe|whip|mace|flail|ningstar|scourge|trident|trishula|partisan|halberd|glaive|bardiche|staff) : abW
