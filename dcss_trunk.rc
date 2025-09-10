@@ -1305,6 +1305,8 @@ end
 local FM_DISABLES = {
   "need to enable at least one skill for training",
   "Okawaru grants you throwing weapons",
+  "Okawaru offers you a choice",
+  "You can now deal lightning-fast blows",
 } -- FM_DISABLES (do not remove this comment)
 
 function c_message_fm_disable(text, _)
