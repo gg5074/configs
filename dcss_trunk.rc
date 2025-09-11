@@ -3475,7 +3475,7 @@ more += Found a faded altar of an unknown god
 more += Found a staircase to the Ecumenical Temple
 stop += There is a portal to a secret trove of treasure here
 stop += Found a runed translucent door
-flash += There is a (staircase to the (?!(Ecumenical))|gate to|hole to|gate lead|gateway).*(?!(back|down|out))
+flash += There is a (staircase to the (?!(Ecumenical))|gate to|hole to|gate leading to|gateway (?!(back|out)))
 more += Found a gateway leading.*Abyss
 more += The mighty Pandemonium lord.*resides here
 more += The tension of great conflict fills the air
@@ -3597,15 +3597,15 @@ stop += You see here.*(ring of|the ring|amulet)
 : end
 
 : if you.xl() <= 12 and you.race() ~= "Mummy" and you.race() ~= "Demonspawn" and you.race() ~= "Revenant" and you.race() ~= "Poltergeist" and you.transform() ~= "death" and you.transform() ~= "vampire" then
-more += Found.*(Elyvilon|The Shining One|Zin)
+flash += Found.*(Elyvilon|The Shining One|Zin)
 : end
 
 : if you.xl() <= 12 and not (you.race() == "Minotaur" or you.race() == "Troll") then
-more += Found.*(Vehumet|Sif Muna)
+flash += Found.*(Vehumet|Sif Muna)
 : end
 
 : if you.xl() <= 10 then
-more += Found.*(Ashenzari|Beogh|Cheibriados|Fedhas Madash|Gozag|Hepliaklqana|Ignis|Jiyva|Makhleb|Nemelex Xobeh|Okawaru|Qazlal|Ru|Trog|Uskayaw|Wu Jian|Yredelemnul)
+flash += Found.*(Ashenzari|Beogh|Cheibriados|Fedhas Madash|Gozag|Hepliaklqana|Ignis|Jiyva|Makhleb|Nemelex Xobeh|Okawaru|Qazlal|Ru|Trog|Uskayaw|Wu Jian|Yredelemnul)
 : end
 
 : if you.xl() <= 6 then
@@ -3613,7 +3613,7 @@ stop += [2-4] (scrolls|potions) labelled
 : end
 
 : if you.xl() > 18 and you.race() ~= "Mummy" and you.race() ~= "Demonspawn" and you.race() ~= "Revenant" and you.race() ~= "Poltergeist" and you.transform() ~= "death" and you.transform() ~= "vampire" then
-more += Found.*(The Shining One|Zin)
+flash += Found.*(The Shining One|Zin)
 : end
 
 # Uniques and baddies
@@ -3636,8 +3636,8 @@ flash += You hear a (sizzling sound|grinding noise)
 more += (?<!(executioner|orb guardians?))(?-i:[A-Z]).*into view
 flash += (?<!(executioner|orb guardians?))(?-i:[A-Z]).*into view
 
-more += (boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy)).*into view
-flash += (boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy)).*into view
+more += (Lernaean hydra|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy)).*into view
+flash += (Lernaean hydra|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy)).*into view
 
 more += The shining eye gazes at you
 
