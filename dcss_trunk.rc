@@ -3358,6 +3358,8 @@ confirm_action += Conjure Ball Lightning, Chain Lightning
 # github.com/crawl/crawl/blob/master/crawl-ref/source/dat/database/monspell.txt
 # github.com/crawl/crawl/blob/master/crawl-ref/source/beam.cc
 flash += mutation:
+more += The horns on your head grow some more
+more += The horns on your head shrink a bit
 more += You feel vulnerable to
 # flash += Cherry-coloured flames burn away your fire resistance
 more += The klown pie hits you
