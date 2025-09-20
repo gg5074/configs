@@ -3280,6 +3280,10 @@ ignore += your breath back
 ignore += engulfed in a cloud of smoke
 ignore += engulfed in white fluffiness
 ignore += safely over a trap
+ignore += The lock glows eerily
+ignore += Heavy smoke blows from the lock
+ignore += The gate opens wide
+ignore += With a soft hiss the gate opens wide
 interrupt_travel -= sense_monster
 
 # crawl.chaosforge.org/Portal
@@ -3338,7 +3342,8 @@ more += enough magic points
 more += You don't have the energy to cast that spell
 more += You are unable to access your magic
 flash += is a mimic
-more += You kill.*(entropy weaver|orb of (fire|winter|entropy)|Bai Suzhen)
+# more += You kill.*(entropy weaver|orb of (fire|winter|entropy))
+more += You kill.*(Bai Suzhen)
 more += (?<!(into|through)) a shaft
 more += You blink
 
@@ -4018,14 +4023,15 @@ end
 }
 macros += M T ===travel_open
 
+# reddit.com/r/dcss/comments/1ngwfhl/the_most_useful_dcss_command/ne77ryd/
 {
 function smart_stairs()
     local feat = view.feature_at(0, 0)
-    if feat:find("stairs_down") or feat:find("escape_hatch_down") then
+    if feat:find("stairs_down") or feat:find("hatch_down") or feat:find("enter") then
         crawl.sendkeys(">")
-    elseif feat:find("stairs_up") or feat:find("escape_hatch_up") or feat:find("exit_") then
+    elseif feat:find("stairs_up") or feat:find("hatch_up") or feat:find("exit") or feat:find("return") then
         crawl.sendkeys("<")
-    elseif feat:find("enter_") or feat:find("exit_") or feat:find("transporter") or feat:find("altar") then
+    elseif feat:find("portal") or feat:find("shop") or feat:find("transit") or feat:find("altar") then
         crawl.sendkeys(">")
     else
         crawl.mpr("No stairs here.")
