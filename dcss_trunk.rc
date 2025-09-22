@@ -3680,7 +3680,7 @@ flash += (angel|daeva|fravashi).*into view
 
 # Lee's Rapid Deconstruction
 : if you.race() == "Gargoyle" or you.race() == "Revenant" or you.transform() == "statue" then
-more += (deep elf elementalist|deep troll earth mage).*into view
+more += (kobold geomancer|deep elf elementalist|deep troll earth mage).*into view
 : end
 
 # crawl.chaosforge.org/Reaching
@@ -3877,14 +3877,14 @@ ai += tin of tremorstones:Evo 2.5 6 11 18, 5x5 6d6 40%
 ai += lightning rod:(2+PreUses)d(0.75*Evo+46.25)/3, 2d16(Evo 1)
 
 ai += ring of magical power:MP+9
-ai += quicksilver dragon scale:Will+
-ai += gold dragon scale:rF+, rC+, rPois
-ai += fire dragon scale:rF++, rC-
-ai += ice dragon scale:rC++, rF-
-ai += swamp dragon scale:rPois
-ai += storm dragon scale:rElec
-ai += pearl dragon scale:rN+
-ai += shadow dragon scale:Stlth+
+ai += quicksilver dragon scales (?!("|of)):Will+
+ai += gold dragon scales (?!("|of)):rF+, rC+, rPois
+ai += fire dragon scales (?!("|of)):rF++, rC-
+ai += ice dragon scales (?!("|of)):rC++, rF-
+ai += swamp dragon scales (?!("|of)):rPois
+ai += storm dragon scales (?!("|of)):rElec
+ai += pearl dragon scales (?!("|of)):rN+
+ai += shadow dragon scales (?!("|of)):Stlth+
 ai += staff of conjuration:IrresistibleDmg-20%
 ai += staff of earth:PhysicalDmg-5%
 ai += staff of fire:rF+
