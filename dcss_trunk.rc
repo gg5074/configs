@@ -1307,6 +1307,10 @@ local FM_DISABLES = {
   "Okawaru grants you throwing weapons",
   "Okawaru offers you a choice",
   "You can now deal lightning-fast blows",
+  "The lock glows eerily",
+  "Heavy smoke blows from the lock",
+  "The gate opens wide",
+  "With a soft hiss the gate opens wide",
 } -- FM_DISABLES (do not remove this comment)
 
 function c_message_fm_disable(text, _)
@@ -3280,10 +3284,6 @@ ignore += your breath back
 ignore += engulfed in a cloud of smoke
 ignore += engulfed in white fluffiness
 ignore += safely over a trap
-ignore += The lock glows eerily
-ignore += Heavy smoke blows from the lock
-ignore += The gate opens wide
-ignore += With a soft hiss the gate opens wide
 interrupt_travel -= sense_monster
 
 # crawl.chaosforge.org/Portal
@@ -3367,8 +3367,8 @@ more += The horns on your head grow some more
 more += The horns on your head shrink a bit
 more += You feel vulnerable to
 # flash += Cherry-coloured flames burn away your fire resistance
-more += The klown pie hits you
-flash += The klown pie hits you
+more += The klown pie hits you (?!but)
+flash += The klown pie hits you (?!but)
 more += hell_effect:
 more += Doom befalls you
 more += You feel a malign power afflict you
@@ -3387,6 +3387,7 @@ more += You stop ascending the stairs
 flash += You stop ascending the stairs
 more += surroundings become eerily quiet
 flash += surroundings become eerily quiet
+flash += You hear a loud "Zot"
 more += A malevolent force fills
 more += An alarm trap emits a blaring wail
 more += A sentinel's mark forms upon you
