@@ -118,7 +118,7 @@ function init_config()
 
   -- Which alerts generate a force_more
   CONFIG.fm_alert = {
-    early_weap = true,       -- Good weapons found early
+    early_weap = false,       -- Good weapons found early
     upgrade_weap = true,     -- Better DPS / weapon_score
     weap_ego = false,         -- New or diff egos
     body_armour = false,
@@ -3341,6 +3341,7 @@ more += You can't unwield
 more += enough magic points
 more += You don't have the energy to cast that spell
 more += You are unable to access your magic
+more += You assume a fearsome visage
 flash += is a mimic
 # more += You kill.*(entropy weaver|orb of (fire|winter|entropy))
 more += You kill.*(Bai Suzhen)
@@ -3707,11 +3708,12 @@ more += (vault (warden|sentinel)|merfolk (avatar|siren)) (?!zombie|draugr|simula
 more += (executioner|guardian serpent|draconian shifter|ironbound convoker|deep troll shaman|death cob) (?!zombie|draugr|simulacrum).*into view
 more += (kobold fleshcrafter|phantasmal warrior|iron giant) (?!zombie|draugr|simulacrum).*into view
 more += (halazid warlock|glowing orange brain|apocalypse crab|moth of wrath) (?!zombie|draugr|simulacrum).*into view
+flash += (halazid warlock) (?!zombie|draugr|simulacrum).*into view
 more += (player|('s|s')) ghost.*into view
 more += guardian serpent coils itself and waves its upper body at you, guardian serpent weaves intricate patterns
 more += ironbound convoker begins to recite a word of recall
 more += kobold fleshcrafter chants and writhes
-more += halazid warlock gestures wildly while chanting
+more += halazid warlock gestures
 more += slime creatures merge to form a (very large|enormous|titanic)
 : end
 
@@ -3946,6 +3948,7 @@ gear_slot ^= shield:ABCDEFGHIJKLMNOPQRSTUVWXYZ
 gear_slot ^= orb:ABCDEFGHIJKLMNOPQRSTUVWXYZ
 gear_slot ^= amulet:ABCDEFGHIJKLMNOPQRSTUVWXYZ
 gear_slot ^= talisman:ABCDEFGHIJKLMNOPQRSTUVWXYZ
+consumable_shortcut += throwing:abcdefghijklmnopqrstuwxyz
 
 ##############
 ### Macros ###
