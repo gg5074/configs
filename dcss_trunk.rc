@@ -125,7 +125,7 @@ function init_config()
     shields = true,
     aux_armour = true,
     armour_ego = true,        -- New or diff egos
-    high_score_weap = true,  -- Highest damage found
+    high_score_weap = false,  -- Highest damage found
     high_score_armour = true, -- Highest AC found
     one_time_alerts = true,
     artefact = false,         -- Any artefact
@@ -3422,7 +3422,7 @@ more += Your body becomes as fragile as glass
 more += lethally poison
 flash += The acid corrodes (?!your)you
 more += You are covered in intense liquid fire
-more += You feel drained
+flash += You feel drained
 
 : if you.res_shock() <= 0 then
 more += You are engulfed in a thunderstorm
@@ -3594,7 +3594,7 @@ stop += scroll labelled,potion labelled
 : end
 
 : if you.xl() >= 10 then
-stop += You see here.*scrolls? of enchant weapon
+stop += You see here.*scrolls? of (enchant weapon|brand weapon)
 : end
 
 : if you.xl() <= 16 then
@@ -3948,7 +3948,7 @@ gear_slot ^= shield:ABCDEFGHIJKLMNOPQRSTUVWXYZ
 gear_slot ^= orb:ABCDEFGHIJKLMNOPQRSTUVWXYZ
 gear_slot ^= amulet:ABCDEFGHIJKLMNOPQRSTUVWXYZ
 gear_slot ^= talisman:ABCDEFGHIJKLMNOPQRSTUVWXYZ
-consumable_shortcut += throwing:abcdefghijklmnopqrstuwxyz
+consumable_shortcut += javelin:abcdefghijklmnopqrstuwxyz
 
 ##############
 ### Macros ###
