@@ -1585,7 +1585,7 @@ function init_startup()
       local show_skills_on_startup = (you.race() ~= "Gnoll")
       if show_skills_on_startup then
         crawl.sendkeys("!d10" .. string.char(13) .. "Lair D11-12 Orc D13-15 S-Runes V1-4 Depths" .. string.char(13))
-        you.set_training_target("Fighting",18)
+        you.set_training_target("Fighting",26)
         you.set_training_target("Maces & Flails",18)
         you.set_training_target("Axes",18)
         you.set_training_target("Polearms",20)
@@ -3265,6 +3265,8 @@ travel_open_doors = approach
 explore_stop = greedy_pickup_smart
 explore_stop += stairs,shops,altars,portals,branches,runed_doors,glowing_items,artefacts,runes
 
+combo += MiFi . trident
+
 ############
 # Messages #
 ############
@@ -3747,6 +3749,8 @@ more += (orange demon|rust devil|ice devil|komodo dragon) (?!zombie|draugr|simul
 : if you.xl() <= 10 then
 unusual_monster_items += great sword,demon trident,partisan,trishula,longbow
 more += (brain worm|queen bee|gnoll bouda|centaurs?|komodo dragon) (?!zombie|draugr|simulacrum).*into view
+more += killer bees? (?!zombie|draugr|simulacrum).*into view
+flash += killer bees? (?!zombie|draugr|simulacrum).*into view
 : end
 
 : if you.xl() <= 6 then
@@ -3756,7 +3760,6 @@ more += orc (wizard|priest|warrior) (?!zombie|draugr|simulacrum).*into view
 flash += orc (wizard|priest|warrior) (?!zombie|draugr|simulacrum).*into view
 more += (wyvern|ogre|gnoll) (?!zombie|draugr|simulacrum).*into view
 flash += (wyvern|ogre|gnoll) (?!zombie|draugr|simulacrum).*into view
-flash += killer bees? (?!zombie|draugr|simulacrum).*into view
 : end
 
 : if you.xl() <= 4 and you.race() ~= "Gargoyle" and you.race() ~= "Revenant" and you.race() ~= "Poltergeist" and you.race() ~= "Mummy" and you.race() ~= "Djinni" then
