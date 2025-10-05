@@ -3737,7 +3737,7 @@ more += (?<!spectral) (jorogumo|vampire knight|basilisk|catoblepas|deep elf (sor
 : if you.xl() <= 16 then
 unusual_monster_items += wand of (charming|polymorph)
 more += (raven|yaktaurs?|cyclops|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma) (?!zombie|draugr|simulacrum).*into view
-more += (ghoul|dire elephant|skyshark|freezing wraith|cyan ugly|shock serpent|arcanist|radroach|tarantella|pharaoh ant) (?!zombie|draugr|simulacrum).*into view
+more += (kobold blastminer|ghoul|dire elephant|skyshark|freezing wraith|cyan ugly|shock serpent|arcanist|radroach|tarantella|pharaoh ant) (?!zombie|draugr|simulacrum).*into view
 flash += (radroach|meliai) (?!zombie|draugr|simulacrum).*into view
 : end
 
@@ -3748,18 +3748,18 @@ more += (orange demon|rust devil|ice devil|komodo dragon) (?!zombie|draugr|simul
 
 : if you.xl() <= 10 then
 unusual_monster_items += great sword,demon trident,partisan,trishula,longbow
-more += (brain worm|queen bee|gnoll bouda|centaurs?|komodo dragon) (?!zombie|draugr|simulacrum).*into view
-more += killer bees? (?!zombie|draugr|simulacrum).*into view
-flash += killer bees? (?!zombie|draugr|simulacrum).*into view
+more += (wyvern|brain worm|queen bee|gnoll bouda|centaurs?|komodo dragon) (?!zombie|draugr|simulacrum).*into view
 : end
 
 : if you.xl() <= 6 then
 # unusual_monster_items += spear,(?<!demon) trident,sling,shortbow,orcbow
 more += (bombardier beetle|sky beast|electric eel|sleepcap) (?!zombie|draugr|simulacrum).*into view
+# more += killer bees? (?!zombie|draugr|simulacrum).*into view
+flash += killer bees? (?!zombie|draugr|simulacrum).*into view
 more += orc (wizard|priest|warrior) (?!zombie|draugr|simulacrum).*into view
 flash += orc (wizard|priest|warrior) (?!zombie|draugr|simulacrum).*into view
-more += (wyvern|ogre|gnoll) (?!zombie|draugr|simulacrum).*into view
-flash += (wyvern|ogre|gnoll) (?!zombie|draugr|simulacrum).*into view
+more += (ogre|gnoll) (?!zombie|draugr|simulacrum).*into view
+flash += (ogre|gnoll) (?!zombie|draugr|simulacrum).*into view
 : end
 
 : if you.xl() <= 4 and you.race() ~= "Gargoyle" and you.race() ~= "Revenant" and you.race() ~= "Poltergeist" and you.race() ~= "Mummy" and you.race() ~= "Djinni" then
