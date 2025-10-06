@@ -3734,6 +3734,11 @@ more += (fenstrider witch|orc sorcerer|ogre mage|occultist|great orb of eyes|sph
 more += (?<!spectral) (jorogumo|vampire knight|basilisk|catoblepas|deep elf (sorcerer|demonologist)) (?!zombie|draugr|simulacrum).*into view
 : end
 
+: if you.xl() <= 18 then
+more += (water nymph) (?!zombie|draugr|simulacrum).*into view
+flash += The water rises up and strikes you
+: end
+
 : if you.xl() <= 16 then
 unusual_monster_items += wand of (charming|polymorph)
 more += (raven|yaktaurs?|cyclops|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma) (?!zombie|draugr|simulacrum).*into view
