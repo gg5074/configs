@@ -3266,6 +3266,7 @@ explore_stop = greedy_pickup_smart
 explore_stop += stairs,shops,altars,portals,branches,runed_doors,glowing_items,artefacts,runes
 
 combo += MiFi . trident
+# combo += DECj
 
 ############
 # Messages #
@@ -3793,10 +3794,10 @@ dump_order += notes,vaults,skill_gains,action_counts,turns_by_place
 ##############
 # github.com/crawl/crawl/blob/master/crawl-ref/settings/advanced_optioneering.txt
 # github.com/crawl/crawl/blob/master/crawl-ref/source/dat/defaults/autopickup_exceptions.txt
-autopickup = $?!:"/}(
 
 drop_disables_autopickup = true
 
+autopickup = $?!+:"/}(
 ae := autopickup_exceptions
 ae += <gem, rune of zot
 
