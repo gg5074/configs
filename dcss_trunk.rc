@@ -3489,6 +3489,7 @@ stop += There is a portal to a secret trove of treasure here
 stop += Found a runed translucent door
 flash += There is a (staircase to the (?!(Ecumenical))|gate to|hole to|gate leading to|gateway (?!(back|out)))
 more += Found a gateway leading.*Abyss
+more += and a gateway leading out appears
 more += The mighty Pandemonium lord.*resides here
 more += The tension of great conflict fills the air
 more += You have reached level
@@ -3621,7 +3622,8 @@ flash += Found.*(Ashenzari|Beogh|Cheibriados|Fedhas Madash|Gozag|Hepliaklqana|Ig
 : end
 
 : if you.xl() <= 6 then
-stop += [2-4] (scrolls|potions) labelled
+stop += [2-4] scrolls labelled
+stop += [2-4] .* potions
 : end
 
 : if you.xl() > 18 and you.race() ~= "Mummy" and you.race() ~= "Demonspawn" and you.race() ~= "Revenant" and you.race() ~= "Poltergeist" and you.transform() ~= "death" and you.transform() ~= "vampire" then
@@ -3743,8 +3745,8 @@ flash += The water rises up and strikes you
 : if you.xl() <= 16 then
 unusual_monster_items += wand of (charming|polymorph)
 more += (raven|yaktaurs?|cyclops|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma) (?!zombie|draugr|simulacrum).*into view
-more += (kobold blastminer|ghoul|dire elephant|skyshark|freezing wraith|cyan ugly|shock serpent|arcanist|radroach|tarantella|pharaoh ant) (?!zombie|draugr|simulacrum).*into view
-flash += (radroach|meliai) (?!zombie|draugr|simulacrum).*into view
+more += (kobold blastminer|ghoul|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant) (?!zombie|draugr|simulacrum).*into view
+flash += (cyan ugly|radroach|meliai) (?!zombie|draugr|simulacrum).*into view
 : end
 
 : if you.xl() <= 13 then
