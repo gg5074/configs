@@ -11,14 +11,13 @@ sound_pack += https://sound-packs.nemelex.cards/Autofire/BindTheEarth/BindTheEar
 # staff of death, necromancy = "Necromancy"
 
 # ch_force_autopickup failed: [string ".rc"]:194:attempt to compare number with nil
-# You see here a buckler
+# You see here a buckler, tower shield
 # debug_dump(1):https://pastebin.com/raw/DcG3ySU9
 # max_shields = 8.0
 
 #      "condenser vane", "Gell's gravitambourine", "phantom mirror", "box of beasts", "sack of spiders",
 #      "quick blade", "eudemon blade", "demon blade", "double sword", "triple sword",
 #      "triple crossbow", "hand cannon", "staff of", "orb of",
-#      "broad axe", "morningstar", "eveningstar", "demon whip", "sacred scourge",
 #      "executioner's axe", "giant spiked club", "lajatang",
 
 # github.com/brianfaires/crawl-rc/blob/main/buehler.rc
@@ -103,9 +102,10 @@ function init_config()
     
     -- Each non-useless item is alerted once.
     one_time = {
-      "pair of gloves", "pair of boots", "cloak", "scarf", " hat ", "ring of", "amulet",
+      "pair of gloves", "pair of gloves of", "pair of boots", "cloak", "scarf", " hat ", "ring of", "amulet",
       "6 ring of strength", "6 ring of dexterity",
       "partisan", "demon trident", "trishula", "bardiche",
+      "broad axe", "morningstar", "eveningstar", "demon whip", "sacred scourge",
       "buckler", "kite shield", "tower shield", "wand of digging",
       "chain mail", "plate armour",
       "crystal plate armour", "gold dragon scales", "storm dragon scales", "swamp dragon scales",
@@ -1586,11 +1586,11 @@ function init_startup()
       if show_skills_on_startup then
         crawl.sendkeys("!d10" .. string.char(13) .. "Lair D11-12 Orc D13-15 S-Runes V1-4 Depths" .. string.char(13))
         you.set_training_target("Fighting",26)
-        you.set_training_target("Maces & Flails",18)
+        you.set_training_target("Maces & Flails",16)
         you.set_training_target("Axes",18)
         you.set_training_target("Polearms",20)
         you.set_training_target("Staves",12)
-        you.set_training_target("Unarmed Combat",18)
+        you.set_training_target("Unarmed Combat",26)
         you.set_training_target("Throwing",9)
         you.set_training_target("Short Blades",14)
         you.set_training_target("Long Blades",18)
@@ -1599,8 +1599,8 @@ function init_startup()
         you.set_training_target("Dodging",4)
         you.set_training_target("Shields",9)
         you.set_training_target("Stealth",3.5)
-        you.set_training_target("Spellcasting",18)
-        you.set_training_target("Conjurations",20)
+        you.set_training_target("Spellcasting",26)
+        you.set_training_target("Conjurations",26)
         you.set_training_target("Hexes",6)
         you.set_training_target("Summonings",6)
         you.set_training_target("Necromancy",6)
@@ -3371,8 +3371,8 @@ more += The horns on your head grow some more
 more += The horns on your head shrink a bit
 more += You feel vulnerable to
 # flash += Cherry-coloured flames burn away your fire resistance
-more += The klown pie hits you (?!but)
-flash += The klown pie hits you (?!but)
+more += The klown pie hits you! (?!but)
+flash += The klown pie hits you! (?!but)
 more += hell_effect:
 more += Doom befalls you
 more += You feel a malign power afflict you
@@ -3493,7 +3493,7 @@ more += and a gateway leading out appears
 more += The mighty Pandemonium lord.*resides here
 more += The tension of great conflict fills the air
 more += You have reached level
-more += You can now (?!(pass|merge))
+more += You (can|may) now (?!(pass|merge))
 more += protects you from harm
 more += Trog grants you a weapon
 more += You feel your soul grow
@@ -3588,6 +3588,8 @@ more += You pick up a manual of
 stop += You see here the
 more += You see here.*(of experience|of acquirement)
 more += [7-9] potions of mutation
+stop += [2-4] scrolls labelled
+stop += [2-4] .* potions
 
 : if you.xl() >= 20 then
 stop += You see here.*scrolls? of enchant armour
@@ -3621,11 +3623,6 @@ flash += Found.*(Vehumet|Sif Muna)
 flash += Found.*(Ashenzari|Beogh|Cheibriados|Fedhas Madash|Gozag|Hepliaklqana|Ignis|Jiyva|Makhleb|Nemelex Xobeh|Okawaru|Qazlal|Ru|Trog|Uskayaw|Wu Jian|Yredelemnul)
 : end
 
-: if you.xl() <= 6 then
-stop += [2-4] scrolls labelled
-stop += [2-4] .* potions
-: end
-
 : if you.xl() > 18 and you.race() ~= "Mummy" and you.race() ~= "Demonspawn" and you.race() ~= "Revenant" and you.race() ~= "Poltergeist" and you.transform() ~= "death" and you.transform() ~= "vampire" then
 flash += Found.*(The Shining One|Zin)
 : end
@@ -3647,8 +3644,11 @@ flash += changes into,Something shouts
 flash += You hear a (sizzling sound|grinding noise)
 : end
 
-more += (?<!(executioner|orb guardians?))(?-i:[A-Z]).*into view
-flash += (?<!(executioner|orb guardians?))(?-i:[A-Z]).*into view
+more += (?<!(Executioner|Orb guardian))(?-i:[A-Z]).*into view
+flash += (?<!(Executioner|Orb guardian))(?-i:[A-Z]).*into view
+
+# more += (?-i:[A-Z].*(?<!(xecutioner|rb Guardian) comes? into view
+# flash += (?-i:[A-Z].*(?<!(xecutioner|rb Guardian) comes? into view
 
 more += (Lernaean hydra|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy)).*into view
 flash += (Lernaean hydra|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy)).*into view
@@ -3703,8 +3703,8 @@ more += warns you (?!Your).*of (distortion|chaos)
 more += ((deep elf|draconian) annihilator|tengu reaver|air elemental|void ooze) (?!zombie|draugr|simulacrum).*into view
 more += ((?<!(ancient|dread)) lich|shadow dragon|juggernaut|caustic shrike|wyrmhole) (?!zombie|draugr|simulacrum).*into view
 # Agony
-more += (imperial myrmidons|necromancer).*into view
-flash += (imperial myrmidons|necromancer).*into view
+more += (imperial myrmidons|necromancer) (?!zombie|draugr|simulacrum).*into view
+flash += (imperial myrmidons|necromancer) (?!zombie|draugr|simulacrum).*into view
 : end
 
 : if you.xl() <= 22 then
@@ -3719,6 +3719,7 @@ more += guardian serpent coils itself and waves its upper body at you, guardian 
 more += ironbound convoker begins to recite a word of recall
 more += kobold fleshcrafter chants and writhes
 more += halazid warlock gestures
+more += ironbound mechanist forges a skittering defender to stand by its side
 more += slime creatures merge to form a (very large|enormous|titanic)
 : end
 
@@ -3866,7 +3867,7 @@ ai += scrolls? of teleportation:@r2, 3-5T, Zot8-14T
 ai += scrolls? of blinking:@r3
 ai += enchant armour:@r4
 ai += enchant weapon:@r5
-ai += scrolls? of fear:Q*f, 40Will90% 60Will73% ++41-80
+ai += scrolls? of fear:Q*f, 40Will90% 60Will73% ++41-80, !r
 ai += scrolls? of silence:30Turns
 ai += scrolls? of noise:25 Alarm40 FireStor25 FulmPris20 Qaz16 Shout12 IMB10
 # ai += scrolls? of fog:!r
