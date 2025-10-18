@@ -1614,7 +1614,7 @@ function init_startup()
         you.set_training_target("Invocations",6)
         you.set_training_target("Evocations",3)
         you.set_training_target("Shapeshifting",7)
-        crawl.sendkeys("m")
+        crawl.sendkeys("m","C","a")
       end
     end
   
@@ -3706,6 +3706,7 @@ more += ((ancient|dread) lich|demonspawn warmonger|oni incarcerator|draconian st
 : end
 
 : if you.xl() <= 24 then
+unusual_monster_items += of (acid)
 more += hits you (?!Your).*of (distortion|chaos)
 more += warns you (?!Your).*of (distortion|chaos)
 more += ((deep elf|draconian) annihilator|tengu reaver|air elemental|void ooze) (?!zombie|draugr|simulacrum).*into view
@@ -3736,7 +3737,7 @@ vulnerable:acid:24
 vulnerable:(venom|flaming|freezing|electrocution|draining|vampiric|pain):20
 
 : if you.xl() <= 20 then
-# unusual_monster_items += of (venom|flaming|freezing|electrocution|draining|vampiric|pain)
+unusual_monster_items += of (venom|flaming|freezing|electrocution|draining|vampiric|pain)
 unusual_monster_items += of (spectral|heavy|\+[5-9])
 unusual_monster_items += wand of (paralysis|roots|light)
 more += (deep elf master archer|boggart|bunyips|stone giant|ironbound beastmaster) (?!zombie|draugr|simulacrum).*into view
@@ -3768,7 +3769,7 @@ unusual_monster_items += great sword,demon trident,partisan,trishula,longbow
 more += (wyvern|brain worm|queen bee|gnoll bouda|centaurs?|komodo dragon) (?!zombie|draugr|simulacrum).*into view
 : end
 
-: if you.xl() <= 6 then
+: if you.xl() <= 7 then
 # unusual_monster_items += spear,(?<!demon) trident,sling,shortbow,orcbow
 more += (bombardier beetle|sky beast|electric eel|sleepcap) (?!zombie|draugr|simulacrum).*into view
 # more += killer bees? (?!zombie|draugr|simulacrum).*into view
