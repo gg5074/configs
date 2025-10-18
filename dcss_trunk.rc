@@ -3200,6 +3200,8 @@ tile_show_player_species = true
 
 tile_player_status_icons = slow, constr, fragile, petr, mark, will/2, haste, weak, corr, might, brill, -move
 
+cloud_status = true
+
 action_panel_font_size = 19
 action_panel_font_family = UD デジタル 教科書体 N-B
 action_panel_orientation = vertical
@@ -3646,8 +3648,11 @@ flash += changes into,Something shouts
 flash += You hear a (sizzling sound|grinding noise)
 : end
 
+: if you.xl() <= 25 then
 more += (?-i:[A-Z]).*into view
 flash += (?-i:[A-Z]).*into view
+: end
+
 more += (?<!(Executioner|Orb Guardian))(?-i:[A-Z]).*into view
 flash += (?<!(Executioner|Orb Guardian))(?-i:[A-Z]).*into view
 more += (?-i:[A-Z].*(?<!(xecutioner|rb Guardian)).*into view
