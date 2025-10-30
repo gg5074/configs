@@ -3212,7 +3212,7 @@ menu := menu_colour
 # menu ^= lightgrey:scrolls? of (poison|torment|immolation|vulnerability|noise)
 
 msc := message_colour
-msc ^= lightgrey:( miss | misses |no damage|fail to reach past)
+msc ^= lightgrey:( miss | misses |no damage|fail to reach past|returns to the grave)
 
 hp_colour = 100:green, 99:lightgray, 75:yellow, 50:lightred, 25:red
 mp_colour = 100:green, 99:lightgray, 75:yellow, 50:lightred, 25:red
@@ -3377,7 +3377,7 @@ more += You feel vulnerable to
 more += The klown pie hits you! (?!but)
 flash += The klown pie hits you! (?!but)
 more += hell_effect:
-more += Doom befalls you
+more += Doom befalls (?!your)you
 more += You feel a malign power afflict you
 more += shimmers and splits apart
 flash += You are too injured to fight recklessly
@@ -3879,6 +3879,8 @@ ai += enchant weapon:@r5
 ai += scrolls? of fear:Q*f, 40Will90% 60Will73% ++41-80, !r
 ai += scrolls? of silence:30Turns
 ai += scrolls? of noise:25 Alarm40 FireStor25 FulmPris20 Qaz16 Shout12 IMB10
+consumable_shortcut += scroll of revelation:R
+# ai += scrolls? of revelation:!r
 # ai += scrolls? of fog:!r
 # ai += scrolls? of summoning:!r
 # ai += scrolls? of butterflies:!r
