@@ -3352,7 +3352,7 @@ flash += is a mimic
 more += You kill.*(Bai Suzhen)
 more += (?<!(into|through)) a shaft
 more += You blink
-more += bursts into living lightning
+more += (?<!Your raiju) bursts into living lightning
 
 : if you.xl() <= 14 then
 more += You feel a bit more experienced
@@ -3504,6 +3504,7 @@ more += Makhleb will allow you to brand your body
 more += You are dragged down into the Crucible of Flesh
 more += Ru believes you are ready to make a new sacrifice
 flash += You offer up the Black Torch's flame
+more += Your bound.*is destroyed
 more += The heavenly storm settles
 more += Beogh will now send orc apostles to challenge you
 more += the orc apostle comes into view
@@ -3796,6 +3797,7 @@ note_items += of experience,of resistance,archmagi,crystal plate armour,pearl dr
 note_messages += You pass through the gate
 note_messages += cast.*Abyss
 note_messages += BOSS
+note_messages += Yredelemnul refuses to let your conquest
 
 dump_order  = header,hiscore,stats,misc,apostles,mutations,overview,inventory,skills,spells
 dump_order += messages,screenshot,monlist,kills
