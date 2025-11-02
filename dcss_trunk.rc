@@ -15,6 +15,7 @@ sound_pack += https://sound-packs.nemelex.cards/Autofire/BindTheEarth/BindTheEar
 # debug_dump(1):https://pastebin.com/raw/DcG3ySU9
 # max_shields = 8.0
 
+# Treasure Trove 15%: +[4-8] demon trident, demon whip, demon blade
 #      "condenser vane", "Gell's gravitambourine", "phantom mirror", "box of beasts", "sack of spiders",
 #      "quick blade", "eudemon blade", "double sword", "triple sword",
 #      "triple crossbow", "hand cannon", "staff of", "orb of",
