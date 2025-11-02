@@ -1614,7 +1614,10 @@ function init_startup()
         you.set_training_target("Invocations",6)
         you.set_training_target("Evocations",3)
         you.set_training_target("Shapeshifting",7)
-        crawl.sendkeys("m","C","a")
+        crawl.sendkeys("m")
+        crawl.sendkeys("C")
+        crawl.sendkeys("c")
+        crawl.sendkeys("a")
       end
     end
   
