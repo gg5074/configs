@@ -16,7 +16,7 @@ sound_pack += https://sound-packs.nemelex.cards/Autofire/BindTheEarth/BindTheEar
 # max_shields = 8.0
 
 #      "condenser vane", "Gell's gravitambourine", "phantom mirror", "box of beasts", "sack of spiders",
-#      "quick blade", "eudemon blade", "demon blade", "double sword", "triple sword",
+#      "quick blade", "eudemon blade", "double sword", "triple sword",
 #      "triple crossbow", "hand cannon", "staff of", "orb of",
 #      "executioner's axe", "giant spiked club", "lajatang",
 
@@ -105,7 +105,7 @@ function init_config()
       "pair of gloves", "pair of gloves of", "pair of boots", "cloak", "scarf", " hat ", "ring of", "amulet of",
       "6 ring of strength", "6 ring of dexterity", "Cigotuvi's embrace",
       "partisan", "demon trident", "trishula", "bardiche",
-      "broad axe", "morningstar", "eveningstar", "demon whip", "sacred scourge",
+      "broad axe", "morningstar", "eveningstar", "demon whip", "sacred scourge", "demon blade",
       "buckler", "kite shield", "tower shield", "wand of digging",
       "chain mail", "plate armour",
       "crystal plate armour", "gold dragon scales", "storm dragon scales", "swamp dragon scales",
@@ -118,17 +118,17 @@ function init_config()
 
   -- Which alerts generate a force_more
   CONFIG.fm_alert = {
-    early_weap = false,       -- Good weapons found early
+    early_weap = true,       -- Good weapons found early
     upgrade_weap = true,     -- Better DPS / weapon_score
-    weap_ego = false,         -- New or diff egos
-    body_armour = false,
+    weap_ego = true,         -- New or diff egos
+    body_armour = true,
     shields = true,
     aux_armour = true,
     armour_ego = true,        -- New or diff egos
-    high_score_weap = false,  -- Highest damage found
+    high_score_weap = true,  -- Highest damage found
     high_score_armour = true, -- Highest AC found
     one_time_alerts = true,
-    artefact = false,         -- Any artefact
+    artefact = true,         -- Any artefact
     trained_artefacts = true, -- Only for artefacts where you have corresponding skill > 0
     orbs = false,
     talismans = you.class() == "Shapeshifter", -- True for shapeshifter, false for everyone else
@@ -3766,7 +3766,7 @@ flash += (cyan ugly|radroach|meliai) (?!zombie|draugr|simulacrum).*into view
 
 : if you.xl() <= 13 then
 unusual_monster_items += triple sword,executioner's axe,halberd,glaive,bardiche,arbalest,hand cannon,triple crossbow
-more += (orange demon|rust devil|ice devil|komodo dragon) (?!zombie|draugr|simulacrum).*into view
+more += (two-headed ogre|kobold geomancer|orange demon|rust devil|ice devil|komodo dragon) (?!zombie|draugr|simulacrum).*into view
 : end
 
 : if you.xl() <= 10 then
