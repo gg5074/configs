@@ -95,14 +95,14 @@ function init_config()
     weapons = true,
     orbs = true,
     staff_resists = true,
-    talismans = true,
+    talismans = false,
 
     -- Only alert a plain talisman if its min_skill <= Shapeshifting + talisman_lvl_diff
     talisman_lvl_diff = you.class() == "Shapeshifter" and 27 or 6, -- 27 for Shapeshifter, 6 for everyone else
     
     -- Each non-useless item is alerted once.
     one_time = {
-      "pair of gloves", "pair of gloves of", "pair of boots", "cloak", "scarf", " hat ", "ring of", "amulet",
+      "pair of gloves", "pair of gloves of", "pair of boots", "cloak", "scarf", " hat ", "ring of", "amulet of",
       "6 ring of strength", "6 ring of dexterity", "Cigotuvi's embrace",
       "partisan", "demon trident", "trishula", "bardiche",
       "broad axe", "morningstar", "eveningstar", "demon whip", "sacred scourge",
