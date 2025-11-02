@@ -3659,8 +3659,8 @@ flash += (?<!(Executioner|Orb Guardian))(?-i:[A-Z]).*into view
 more += (?-i:[A-Z].*(?<!(xecutioner|rb Guardian)).*into view
 flash += (?-i:[A-Z].*(?<!(xecutioner|rb Guardian)).*into view
 
-more += (Lernaean hydra|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy)).*into view
-flash += (Lernaean hydra|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy)).*into view
+more += (lernaean hydra|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy)).*into view
+flash += (lernaean hydra|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy)).*into view
 
 more += The shining eye gazes at you
 
@@ -3738,7 +3738,7 @@ vulnerable:acid:24
 vulnerable:(venom|flaming|freezing|electrocution|draining|vampiric|pain):20
 
 : if you.xl() <= 20 then
-unusual_monster_items += of (venom|flaming|freezing|electrocution|draining|vampiric|pain)
+unusual_monster_items += of (electrocution|draining|vampiric|pain)
 unusual_monster_items += of (spectral|heavy|\+[5-9])
 unusual_monster_items += wand of (paralysis|roots|light)
 more += (deep elf master archer|boggart|bunyips|stone giant|ironbound beastmaster) (?!zombie|draugr|simulacrum).*into view
@@ -3749,6 +3749,7 @@ more += (?<!spectral) (jorogumo|vampire knight|basilisk|catoblepas|deep elf (sor
 : end
 
 : if you.xl() <= 18 then
+unusual_monster_items += of (venom|flaming|freezing)
 more += (water nymph) (?!zombie|draugr|simulacrum).*into view
 flash += The water rises up and strikes you
 : end
@@ -3938,15 +3939,19 @@ ai += (?<!the) \+[1-3] (falchion|long sword|quarterstaff|troll leather armour|ri
 : end
 
 : if you.xl() > 16 then
-ai += (?<!the) \+0 (mace|flail|war axe|trident|buckler|chain mail|plate armour|helmet|pair of boots|cloak|pair of gloves) (?!("|of)):~~DROP_ME
+ai += (?<!the) \+0 (mace|flail|war axe|trident|chain mail|plate armour|helmet|pair of boots|cloak|pair of gloves) (?!("|of)):~~DROP_ME
 : end
 
 : if you.xl() > 20 then
-ai += (?<!the) \+0 (dire flail|great mace|battleaxe|executioner's axe|halberd|scythe|glaive|bardiche|kite shield|steam dragon scales|acid dragon scales|swamp dragon scales) (?!("|of)):~~DROP_ME
+ai += (?<!the) \+0 (dire flail|great mace|battleaxe|executioner's axe|halberd|scythe|glaive|bardiche|buckler|steam dragon scales|acid dragon scales|swamp dragon scales) (?!("|of)):~~DROP_ME
 : end
 
 : if you.xl() > 22 then
-ai += (?<!the) \+0 (tower shield|fire dragon scales|ice dragon scales) (?!("|of)):~~DROP_ME
+ai += (?<!the) \+0 (kite shield|fire dragon scales|ice dragon scales) (?!("|of)):~~DROP_ME
+: end
+
+: if you.xl() > 24 then
+ai += (?<!the) \+0 (morningstar|broad axe|partisan|tower shield) (?!("|of)):~~DROP_ME
 : end
 
 gear_slot ^= (war axe|broad axe|whip|mace|flail|ningstar|scourge|trident|trishula|partisan|halberd|glaive|bardiche|staff) : abW
