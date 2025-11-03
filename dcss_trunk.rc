@@ -3298,14 +3298,15 @@ interrupt_travel -= sense_monster
 # crawl.chaosforge.org/Portal
 # github.com/crawl/crawl/tree/master/crawl-ref/source/dat/des/portals
 # very nearby: 7–13, nearby: 14–20, distant: 21–27, very distant: 28+
-stop += timed_portal:
-stop += You hear.*(nearby|distant)
+flash += timed_portal:
+flash += You hear.*(nearby|distant)
 flash += You hear.*very (nearby|distant)
 flash += You hear.*(quick|urgent|loud (creaking of a portcullis|crackling of a melting archway)|rising multitudes|rapid|thunderous|frantic|ear-piercing|full choir)
 more += Found.*(bazaar|trove|phantasmal|sand-covered|glowing drain|flagged portal|gauntlet|frozen archway|dark tunnel|crumbling gateway|ruined gateway|magical portal|ziggurat)
 more += You enter a wizard's laboratory
 flash += Hurry and find it
 more += The walls and floor vibrate strangely for a moment
+flash += The walls and floor vibrate strangely for a moment
 
 # Expiring effects
 more += Your transformation is almost over
@@ -3377,10 +3378,11 @@ flash += mutation:
 more += The horns on your head grow some more
 more += The horns on your head shrink a bit
 more += You feel vulnerable to
-# flash += Cherry-coloured flames burn away your fire resistance
+flash += Cherry-coloured flames burn away your fire resistance
 more += The klown pie hits you! (?!but)
 flash += The klown pie hits you! (?!but)
 more += hell_effect:
+flash += hell_effect:
 more += Doom befalls (?!your)you
 more += You feel a malign power afflict you
 more += shimmers and splits apart
@@ -3660,8 +3662,8 @@ flash += (?-i:[A-Z]).*into view
 
 more += (?<!(Executioner|Orb Guardian))(?-i:[A-Z]).*into view
 flash += (?<!(Executioner|Orb Guardian))(?-i:[A-Z]).*into view
-more += (?-i:[A-Z].*(?<!(xecutioner|rb Guardian)).*into view
-flash += (?-i:[A-Z].*(?<!(xecutioner|rb Guardian)).*into view
+more += (?-i:[A-Z])(?<!(xecutioner|rb Guardian)).*into view
+flash += (?-i:[A-Z])(?<!(xecutioner|rb Guardian)).*into view
 
 more += (lernaean hydra|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy)).*into view
 flash += (lernaean hydra|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy)).*into view
@@ -3760,7 +3762,7 @@ flash += The water rises up and strikes you
 
 : if you.xl() <= 16 then
 unusual_monster_items += wand of (charming|polymorph)
-more += (raven|yaktaurs?|cyclops|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma) (?!zombie|draugr|simulacrum).*into view
+more += (raven|centaur warrior|yaktaurs?|cyclops|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma) (?!zombie|draugr|simulacrum).*into view
 more += (kobold blastminer|ghoul|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant) (?!zombie|draugr|simulacrum).*into view
 flash += (cyan ugly|radroach|meliai) (?!zombie|draugr|simulacrum).*into view
 : end
