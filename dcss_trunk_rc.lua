@@ -3216,7 +3216,7 @@ menu := menu_colour
 # menu ^= lightgrey:scrolls? of (poison|torment|immolation|vulnerability|noise)
 
 msc := message_colour
-msc ^= lightgrey:( miss | misses |no damage|fail to reach past|returns to the grave)
+msc ^= lightgrey:( miss | misses |no damage|fail to reach past|returns to the grave|disappears in a puff of smoke)
 
 hp_colour = 100:green, 99:lightgray, 75:yellow, 50:lightred, 25:red
 mp_colour = 100:green, 99:lightgray, 75:yellow, 50:lightred, 25:red
@@ -3357,7 +3357,8 @@ more += (?<!(into|through)) a shaft
 more += You blink
 more += (?<!Your raiju) bursts into living lightning
 more += blinks into view
-more += blinks!
+more += (?<!(draconian|shifter|annihilator) blinks!
+flash += (draconian|shifter|annihilator) blinks!
 
 : if you.xl() <= 14 then
 more += You feel a bit more experienced
@@ -3461,9 +3462,15 @@ flash += You feel the power of Zot begin to focus
 # more += You hear a sizzling splash
 more += heals the
 more += flies into a frenzy
+flash += flies into a frenzy
 more += You .*seems to speed up
+
+: if you.xl() < 20 then
 more += seems to grow stronger
-more += suddenly seems more resistant
+: end
+
+# more += suddenly seems more resistant
+more += You reflect.*with the mirror! The mirror clouds!
 
 # crawl.chaosforge.org/Chaos_Knight_of_Xom_Guide#Xom_rc_file
 more += .* erupts in a glittering mayhem of colour
@@ -3553,7 +3560,7 @@ more += You add the spells?.*(Dispersal|Gell's Gavotte|Manifold Assault|Transloc
 : end
 
 # interrupt_travel += <activity_interrupt_type>
-stop ^= Your spellspark servitor fades away,Your battlesphere wavers and loses cohesion
+stop ^= Your.*disappears in a puff of smoke,Your spellspark servitor fades away,Your battlesphere wavers and loses cohesion
 
 {
 function c_answer_prompt(prompt)
@@ -3667,7 +3674,7 @@ flash += changes into,Something shouts
 flash += You hear a (sizzling sound|grinding noise)
 : end
 
-: if you.xl() <= 25 then
+: if you.xl() < 25 then
 more += (?-i:[A-Z]).*into view
 flash += (?-i:[A-Z]).*into view
 : end
@@ -3729,7 +3736,7 @@ unusual_monster_items += of (acid)
 more += hits you (?!Your).*of (distortion|chaos)
 more += warns you (?!Your).*of (distortion|chaos)
 more += ((deep elf|draconian) annihilator|tengu reaver|air elemental|void ooze) (?!zombie|draugr|simulacrum).*into view
-more += ((?<!(ancient|dread)) lich|shadow dragon|juggernaut|caustic shrike|wyrmhole) (?!zombie|draugr|simulacrum).*into view
+more += ((?<!(ancient|dread)) lich|shadow dragon|juggernaut|caustic shrike|wyrmhole|spriggan berserker) (?!zombie|draugr|simulacrum).*into view
 # Agony
 more += (imperial myrmidons|necromancer) (?!zombie|draugr|simulacrum).*into view
 flash += (imperial myrmidons|necromancer) (?!zombie|draugr|simulacrum).*into view
@@ -3890,6 +3897,7 @@ ai += potions? of cancellation:@q3
 ai += potions? of haste:@q4
 ai += potions? of magic:@q5, 10-37MP
 ai += potions? of mutation:@q6
+consumable_shortcut += potion of mutation:t
 ai += potions? of ambrosia:3-5HPMP/T
 ai += potions? of lignification:1.5xHP (20+XL/2)AC rPo Torm0 Ev0 -MoBlTe GearWeapShie
 # ai += potions? of invisibility:!q
@@ -3901,6 +3909,7 @@ ai += enchant weapon:@r5
 ai += scrolls? of fear:Q*f, 40Will90% 60Will73% ++41-80, !r
 ai += scrolls? of silence:30Turns
 ai += scrolls? of noise:25 Alarm40 FireStor25 FulmPris20 Qaz16 Shout12 IMB10
+consumable_shortcut += scroll of noise:n
 consumable_shortcut += scroll of revelation:R
 # ai += scrolls? of revelation:!r
 # ai += scrolls? of fog:!r
