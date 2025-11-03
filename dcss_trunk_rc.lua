@@ -3357,6 +3357,7 @@ more += (?<!(into|through)) a shaft
 more += You blink
 more += (?<!Your raiju) bursts into living lightning
 more += blinks into view
+more += blinks!
 
 : if you.xl() <= 14 then
 more += You feel a bit more experienced
@@ -3459,6 +3460,7 @@ more += Chaos surges forth from piles of flesh
 flash += You feel the power of Zot begin to focus
 # more += You hear a sizzling splash
 more += heals the
+more += flies into a frenzy
 more += You .*seems to speed up
 more += seems to grow stronger
 more += suddenly seems more resistant
@@ -3762,6 +3764,7 @@ more += (formless jellyfish|broodmother|spark wasp|orb spider|nagaraja|merfolk (
 # Paralysis/Petrify/Banish
 more += (fenstrider witch|orc sorcerer|ogre mage|occultist|great orb of eyes|sphinx (?!zombie|draugr|simulacrum)).*into view
 more += (?<!spectral) (jorogumo|vampire knight|basilisk|catoblepas|deep elf (sorcerer|demonologist)) (?!zombie|draugr|simulacrum).*into view
+flash += The boggart gestures wildly while chanting
 : end
 
 : if you.xl() <= 18 then
