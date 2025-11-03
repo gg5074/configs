@@ -3298,15 +3298,14 @@ interrupt_travel -= sense_monster
 # crawl.chaosforge.org/Portal
 # github.com/crawl/crawl/tree/master/crawl-ref/source/dat/des/portals
 # very nearby: 7–13, nearby: 14–20, distant: 21–27, very distant: 28+
-flash += timed_portal:
-flash += You hear.*(nearby|distant)
+stop += timed_portal:
+stop += You hear.*(nearby|distant)
 flash += You hear.*very (nearby|distant)
 flash += You hear.*(quick|urgent|loud (creaking of a portcullis|crackling of a melting archway)|rising multitudes|rapid|thunderous|frantic|ear-piercing|full choir)
 more += Found.*(bazaar|trove|phantasmal|sand-covered|glowing drain|flagged portal|gauntlet|frozen archway|dark tunnel|crumbling gateway|ruined gateway|magical portal|ziggurat)
 more += You enter a wizard's laboratory
 flash += Hurry and find it
 more += The walls and floor vibrate strangely for a moment
-flash += The walls and floor vibrate strangely for a moment
 
 # Expiring effects
 more += Your transformation is almost over
@@ -3358,6 +3357,7 @@ more += You kill.*(Bai Suzhen)
 more += (?<!(into|through)) a shaft
 more += You blink
 more += (?<!Your raiju) bursts into living lightning
+more += blinks into view
 
 : if you.xl() <= 14 then
 more += You feel a bit more experienced
@@ -3378,12 +3378,12 @@ flash += mutation:
 more += The horns on your head grow some more
 more += The horns on your head shrink a bit
 more += You feel vulnerable to
-flash += Cherry-coloured flames burn away your fire resistance
+# flash += Cherry-coloured flames burn away your fire resistance
 more += The klown pie hits you! (?!but)
 flash += The klown pie hits you! (?!but)
 more += hell_effect:
-flash += hell_effect:
 more += Doom befalls (?!your)you
+more += You feel an ill-omen
 more += You feel a malign power afflict you
 more += shimmers and splits apart
 flash += You are too injured to fight recklessly
@@ -3418,19 +3418,24 @@ more += You are (blasted|electrocuted)
 more += You are.*confused
 more += You are blinded
 flash += You stumble backwards
+more += grabs (?!your)you
 flash += grabs (?!your)you
+more += roots grab (?!your)you
 flash += roots grab (?!your)you
+flash += constricts (?!your)you
 more += wrath finds you
 more += god:(sends|finds|silent|anger)
 more += You feel a surge of divine spite
 more += disloyal to dabble
 more += lose consciousness
 more += You are too injured to fight blindly
+more += You feel your attacks grow feeble
 more += The blast of calcifying dust hits (?!your)
 more += Space warps horribly.*around you
 more += Space bends around you
 more += Your limbs have turned to stone
 more += Your body becomes as fragile as glass
+flash += You feel very sick
 more += lethally poison
 flash += The acid corrodes (?!your)you
 more += You are covered in intense liquid fire
@@ -3447,6 +3452,7 @@ more += You are engulfed in excruciating misery
 more += Strange energies course through your body
 more += You feel strangely unstable
 more += (?<!Your (shadowghast|vampire)) flickers and vanishes
+flash += (?!Your).*flickers and vanishes
 more += is no longer charmed
 more += You have lost all your
 flash += volcano erupts with a roar
@@ -3454,6 +3460,9 @@ more += Chaos surges forth from piles of flesh
 flash += You feel the power of Zot begin to focus
 # more += You hear a sizzling splash
 more += heals the
+more += You .*seems to speed up
+more += seems to grow stronger
+more += suddenly seems more resistant
 
 # crawl.chaosforge.org/Chaos_Knight_of_Xom_Guide#Xom_rc_file
 more += .* erupts in a glittering mayhem of colour
@@ -3517,7 +3526,7 @@ more += the orc apostle comes into view
 more += falls to his knees and submits
 more += Your prayer is nearing its end
 more += You reach the end of your prayer and your brethren are recalled
-more += You now have enough gold to
+stop += You now have enough gold to
 more += Your bribe of.*has been exhausted
 more += Ashenzari invites you to partake
 more += you knowledge of
@@ -3641,6 +3650,8 @@ flash += Found.*(The Shining One|Zin)
 # github.com/crawl/crawl/blob/master/crawl-ref/source/mon-gear.cc
 unusual_monster_items += ( the |distortion|chaos|silver)
 more += (undying armoury|antique champion|torpor snail|nekomata|oblivion hound|acid blob|entropy weaver|ghost moth|death knight|eye of devastation) (?!zombie|draugr|simulacrum).*into view
+more += 's illusion shouts
+flash += 's illusion shouts
 more += Bai Suzhen roars in fury and transforms into a fierce dragon
 flash += Bai Suzhen roars in fury and transforms into a fierce dragon
 more += Xak'krixis conjures a prism
@@ -3662,8 +3673,8 @@ flash += (?-i:[A-Z]).*into view
 
 more += (?<!(Executioner|Orb Guardian))(?-i:[A-Z]).*into view
 flash += (?<!(Executioner|Orb Guardian))(?-i:[A-Z]).*into view
-more += (?-i:[A-Z])(?<!(xecutioner|rb Guardian)).*into view
-flash += (?-i:[A-Z])(?<!(xecutioner|rb Guardian)).*into view
+more += (?-i:[A-Z].*(?<!(xecutioner|rb Guardian)).*into view
+flash += (?-i:[A-Z].*(?<!(xecutioner|rb Guardian)).*into view
 
 more += (lernaean hydra|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy)).*into view
 flash += (lernaean hydra|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy)).*into view
@@ -3762,7 +3773,7 @@ flash += The water rises up and strikes you
 
 : if you.xl() <= 16 then
 unusual_monster_items += wand of (charming|polymorph)
-more += (raven|centaur warrior|yaktaurs?|cyclops|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma) (?!zombie|draugr|simulacrum).*into view
+more += (raven|yaktaurs?|cyclops|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma) (?!zombie|draugr|simulacrum).*into view
 more += (kobold blastminer|ghoul|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant) (?!zombie|draugr|simulacrum).*into view
 flash += (cyan ugly|radroach|meliai) (?!zombie|draugr|simulacrum).*into view
 : end
