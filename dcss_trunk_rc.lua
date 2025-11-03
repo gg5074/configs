@@ -3897,7 +3897,6 @@ ai += potions? of cancellation:@q3
 ai += potions? of haste:@q4
 ai += potions? of magic:@q5, 10-37MP
 ai += potions? of mutation:@q6
-consumable_shortcut += potion of mutation:t
 ai += potions? of ambrosia:3-5HPMP/T
 ai += potions? of lignification:1.5xHP (20+XL/2)AC rPo Torm0 Ev0 -MoBlTe GearWeapShie
 # ai += potions? of invisibility:!q
@@ -3909,8 +3908,6 @@ ai += enchant weapon:@r5
 ai += scrolls? of fear:Q*f, 40Will90% 60Will73% ++41-80, !r
 ai += scrolls? of silence:30Turns
 ai += scrolls? of noise:25 Alarm40 FireStor25 FulmPris20 Qaz16 Shout12 IMB10
-consumable_shortcut += scroll of noise:n
-consumable_shortcut += scroll of revelation:R
 # ai += scrolls? of revelation:!r
 # ai += scrolls? of fog:!r
 # ai += scrolls? of summoning:!r
@@ -4007,6 +4004,9 @@ gear_slot ^= orb:ABCDEFGHIJKLMNOPQRSTUVWXYZ
 gear_slot ^= amulet:ABCDEFGHIJKLMNOPQRSTUVWXYZ
 gear_slot ^= talisman:ABCDEFGHIJKLMNOPQRSTUVWXYZ
 consumable_shortcut += javelin:abcdefghijklmnopqrstuwxyz
+consumable_shortcut += potion of mutation:t
+consumable_shortcut += scroll of noise:n
+consumable_shortcut += scroll of revelation:R
 
 ##############
 ### Macros ###
