@@ -3605,7 +3605,7 @@ stop += Your Throwing skill increases to level (6|10|16)
 more += Your Evocations skill increases to level (2.5|6|10|11|13|15|18|21)
 more += Your Invocations skill increases to level (6|8|10|11|12|13)
 more += Your Shapeshifting skill increases to level (7|14|19|23|26)
-more += Training target.*reached
+flash += Training target.*reached
 : end
 
 more += You have finished (your manual|forgetting about)
@@ -3774,12 +3774,13 @@ flash += The boggart gestures wildly while chanting
 : end
 
 : if you.xl() <= 18 then
-unusual_monster_items += of (venom|flaming|freezing)
+unusual_monster_items += of (flaming|freezing)
 more += (water nymph) (?!zombie|draugr|simulacrum).*into view
 flash += The water rises up and strikes you
 : end
 
 : if you.xl() <= 16 then
+unusual_monster_items += of (venom)
 unusual_monster_items += wand of (charming|polymorph)
 more += (raven|centaur warrior|yaktaurs?|cyclops|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma) (?!zombie|draugr|simulacrum).*into view
 more += (kobold blastminer|ghoul|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant) (?!zombie|draugr|simulacrum).*into view
