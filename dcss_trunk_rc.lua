@@ -16,7 +16,6 @@ sound_pack += https://sound-packs.nemelex.cards/Autofire/BindTheEarth/BindTheEar
 # max_shields = 8.0
 
 # Treasure Trove 15%: +[4-8] demon trident, demon whip, demon blade
-#      "condenser vane", "Gell's gravitambourine", "phantom mirror", "box of beasts", "sack of spiders",
 #      "quick blade", "eudemon blade", "double sword", "triple sword",
 #      "triple crossbow", "hand cannon", "staff of", "orb of",
 #      "executioner's axe", "giant spiked club", "lajatang",
@@ -103,12 +102,12 @@ function init_config()
     
     -- Each non-useless item is alerted once.
     one_time = {
-      "pair of gloves", "pair of gloves of", "pair of boots", "cloak", "scarf", " hat ", "ring of", "amulet of",
+      "pair of gloves", "pair of gloves of", "pair of boots", "pair of boots of", "cloak", "cloak of", "scarf of", " hat "," hat of", "ring of", "amulet of",
       "6 ring of strength", "6 ring of dexterity", "Cigotuvi's embrace",
-      "partisan", "demon trident", "trishula", "bardiche",
+      "spear of", "trident of", "partisan", "partisan of", "demon trident", "demon trident of", "trishula", "bardiche",
       "broad axe", "morningstar", "eveningstar", "demon whip", "sacred scourge", "demon blade",
-      "buckler", "kite shield", "tower shield", "wand of digging",
-      "chain mail", "plate armour",
+      "buckler", "buckler of", "kite shield", "kite shield of", "tower shield", "tower shield of", "of experience", "wand of digging",
+      "ring mail of", "scale mail of", "chain mail", "chain mail of", "plate armour","plate armour of",
       "crystal plate armour", "gold dragon scales", "storm dragon scales", "swamp dragon scales",
       "quicksilver dragon scales", "pearl dragon scales", "shadow dragon scales"
     }, -- CONFIG.alert.one_time (do not remove this comment)
@@ -3679,8 +3678,8 @@ more += (?-i:[A-Z]).*into view
 flash += (?-i:[A-Z]).*into view
 : end
 
-more += (?<!(Executioner|Orb Guardian))(?-i:[A-Z]).*into view
-flash += (?<!(Executioner|Orb Guardian))(?-i:[A-Z]).*into view
+more += (?<!(executioner|orb guardian))(?-i:[A-Z]).*into view
+flash += (?<!(executioner|orb guardian))(?-i:[A-Z]).*into view
 more += (?-i:[A-Z])(?<!(xecutioner|rb Guardian)).*into view
 flash += (?-i:[A-Z])(?<!(xecutioner|rb Guardian)).*into view
 
