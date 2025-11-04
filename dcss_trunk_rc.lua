@@ -3680,8 +3680,8 @@ flash += (?-i:[A-Z]).*into view
 
 more += (?<!(executioner|orb guardian))(?-i:[A-Z]).*into view
 flash += (?<!(executioner|orb guardian))(?-i:[A-Z]).*into view
-more += (?-i:[A-Z])(?<!(xecutioner|rb Guardian)).*into view
-flash += (?-i:[A-Z])(?<!(xecutioner|rb Guardian)).*into view
+more += (?-i:[A-Z])(?<!(xecutioner|rb guardian)).*into view
+flash += (?-i:[A-Z])(?<!(xecutioner|rb guardian)).*into view
 
 more += (lernaean hydra|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy)).*into view
 flash += (lernaean hydra|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy)).*into view
