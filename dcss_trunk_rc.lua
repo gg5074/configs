@@ -3312,6 +3312,7 @@ flash += The walls and floor vibrate strangely for a moment
 more += Your transformation is almost over
 more += back to life
 more += You feel yourself slow down
+flash += You feel yourself slow down
 more += less insulated
 more += You are starting to lose your buoyancy
 more += You lose control over your flight
@@ -3784,7 +3785,7 @@ flash += The boggart gestures wildly while chanting
 
 : if you.xl() <= 18 then
 unusual_monster_items += of (flaming|freezing)
-more += (water nymph) (?!zombie|draugr|simulacrum).*into view
+more += (water nymph|anaconda) (?!zombie|draugr|simulacrum).*into view
 flash += The water rises up and strikes you
 : end
 
