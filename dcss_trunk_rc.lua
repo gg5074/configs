@@ -21,7 +21,9 @@ sound_pack += https://sound-packs.nemelex.cards/Autofire/BindTheEarth/BindTheEar
 #      "executioner's axe", "giant spiked club", "lajatang",
 
 # github.com/brianfaires/crawl-rc/blob/main/buehler.rc
-# config, constants, emojis, persistent-data, util, announce-damage, color-inscribe, drop-inferior, fm-disable, inscribe-stats, misc-alerts, remind-id, startup, pa-main, pa-data, pa-util, pa-armour, pa-misc, pa-weapons
+# config, constants, emojis, persistent-data, util, announce-damage, color-inscribe, drop-inferior, fm-disable,
+# inscribe-stats, misc-alerts, remind-id, startup, pa-main, pa-data, pa-util, pa-armour, pa-misc, pa-weapons
+
 ############################ Begin lua/config.lua ############################
 {
 CONFIG = {}
