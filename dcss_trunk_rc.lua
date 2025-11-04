@@ -108,7 +108,7 @@ function init_config()
       "6 ring of strength", "6 ring of dexterity", "Cigotuvi's embrace",
       "spear of", "trident of", "partisan", "partisan of", "demon trident", "demon trident of", "trishula", "bardiche",
       "broad axe", "morningstar", "eveningstar", "demon whip", "sacred scourge", "demon blade",
-      "buckler", "buckler of", "kite shield", "kite shield of", "tower shield", "tower shield of", "of experience", "wand of digging",
+      "buckler", "buckler of", "kite shield", "kite shield of", "tower shield", "tower shield of", "of experience", "of acquirement", "wand of digging",
       "ring mail of", "scale mail of", "chain mail", "chain mail of", "plate armour","plate armour of",
       "crystal plate armour", "gold dragon scales", "storm dragon scales", "swamp dragon scales",
       "quicksilver dragon scales", "pearl dragon scales", "shadow dragon scales"
@@ -3306,6 +3306,7 @@ more += Found.*(bazaar|trove|phantasmal|sand-covered|glowing drain|flagged porta
 more += You enter a wizard's laboratory
 flash += Hurry and find it
 more += The walls and floor vibrate strangely for a moment
+flash += The walls and floor vibrate strangely for a moment
 
 # Expiring effects
 more += Your transformation is almost over
@@ -3339,7 +3340,7 @@ more += You cannot.*in your current state
 more += when.*silenced
 more += too confused
 more += There's something in the way
-more += There's nothing to (close|open) nearby
+# more += There's nothing to (close|open) nearby
 more += not good enough to have a special ability
 more += You are too berserk
 more += no means to grasp
@@ -3432,7 +3433,8 @@ more += disloyal to dabble
 more += lose consciousness
 more += You are too injured to fight blindly
 more += You feel your attacks grow feeble
-more += The blast of calcifying dust hits (?!your)
+more += The blast of calcifying dust hits (?!(your|(?-i:[A-Z])|the)
+flash += The blast of calcifying dust hits (?!(your|(?-i:[A-Z])|the)
 more += Space warps horribly.*around you
 more += Space bends around you
 more += Your limbs have turned to stone
@@ -3531,6 +3533,7 @@ flash += You offer up the Black Torch's flame
 more += Your bound.*is destroyed
 more += The heavenly storm settles
 more += Beogh will now send orc apostles to challenge you
+flash += Beogh will now send orc apostles to challenge you
 more += the orc apostle comes into view
 more += falls to his knees and submits
 more += Your prayer is nearing its end
@@ -3785,7 +3788,7 @@ flash += The water rises up and strikes you
 unusual_monster_items += of (venom)
 unusual_monster_items += wand of (charming|polymorph)
 more += (raven|centaur warrior|yaktaurs?|cyclops|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma) (?!zombie|draugr|simulacrum).*into view
-more += (kobold blastminer|ghoul|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant) (?!zombie|draugr|simulacrum).*into view
+more += (deep elf|kobold blastminer|gargoyle|ghoul|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant) (?!zombie|draugr|simulacrum).*into view
 flash += (cyan ugly|radroach|meliai) (?!zombie|draugr|simulacrum).*into view
 : end
 
