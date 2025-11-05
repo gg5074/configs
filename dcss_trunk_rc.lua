@@ -3362,6 +3362,7 @@ more += (?<!Your raiju) bursts into living lightning
 more += blinks into view
 more += (?<!(draconian|shifter|annihilator) blinks!
 flash += (draconian|shifter|annihilator) blinks!
+more += is devoured by a tear in reality
 
 : if you.xl() <= 14 then
 more += You feel a bit more experienced
@@ -3425,6 +3426,7 @@ more += You are (blasted|electrocuted)
 more += You are.*confused
 more += You are blinded
 flash += You stumble backwards
+flash += drags you backwards
 more += grabs (?!your)you
 flash += grabs (?!your)you
 more += roots grab (?!your)you
@@ -3540,7 +3542,7 @@ more += Beogh will now send orc apostles to challenge you
 flash += Beogh will now send orc apostles to challenge you
 more += the orc apostle comes into view
 more += falls to his knees and submits
-more += (?-i:[A-Z]).*dies!
+more += (?-i:[A-Z]).*(dies!|is blown up!)
 more += Your prayer is nearing its end
 more += You reach the end of your prayer and your brethren are recalled
 stop += You now have enough gold to
@@ -3826,7 +3828,7 @@ more += adder (?!zombie|draugr|simulacrum).*into view
 ### Morgue ###
 ##############
 dump_on_save = true
-dump_message_count = 120
+dump_message_count = 200
 note_hp_percent = 20
 user_note_prefix = 
 
@@ -3928,7 +3930,7 @@ ai += wand of digging:@v3
 ai += poisoned dart:@f1@Q1, F1
 ai += boomerang:@f2@Q2, F2, 5%
 ai += (?<!silver) javelin:@f3@Q3, H, 5%
-ai += wand of flame:@v4@Q4, \)
+ai += wand of flame:@v4@Q4, \), 3d(5.5+0.35*Evo), MaxEvo10
 ai += wand of mindburst:@v5@Q5, \(, 3d(8.75+3.5*Evo/4)
 ai += silver javelin:@f6@Q6, 5%
 ai += throwing net:@f7
@@ -4113,9 +4115,15 @@ end
 }
 macros += M \{NP.} ===smart_stairs
 
-# Tab:\{9}, Enter:\{13}, Esc:\{27}, Space:\{32}, Ctrl:*, Shift:/, Ctrl-L:\{12}:List of Banes
+# Tab:\{9}, Enter:\{13}, Esc:\{27}, Space:\{32}, Ctrl:*, Shift:/
 # github.com/crawl/crawl/blob/master/crawl-ref/source/dat/descript/features.txt
-macros += M \{12} ?/n\{32}\{13}
+
+# Ctrl-L:List of Banes
+# macros += M \{12} ?/n\{32}\{13}
+
+# Ctrl-L:Help, Monster 
+macros += M \{12} ?/m
+
 macros += M . *f<<case\{32}to\{32}th\{32}||\{32}gate\{32}to\{32}||\{32}hole\{32}to\{32}||\{32}gate\{32}lead>>\{32}&&\{32}!!one-\{13}
 macros += M n x+
 macros += M N x-
