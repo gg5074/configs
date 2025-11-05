@@ -3462,7 +3462,7 @@ more += You are engulfed in excruciating misery
 more += Strange energies course through your body
 more += You feel strangely unstable
 more += (?<!Your (shadowghast|vampire)) flickers and vanishes
-flash += (?!Your).*flickers and vanishes
+flash += (?<!Your).*flickers and vanishes
 more += is no longer charmed
 more += You have lost all your
 flash += volcano erupts with a roar
@@ -3543,8 +3543,11 @@ flash += Beogh will now send orc apostles to challenge you
 more += the orc apostle comes into view
 more += falls to his knees and submits
 more += (?-i:[A-Z]).*(dies!|is blown up!)
+more += has fought their way back out of the Abyss!
 more += Your prayer is nearing its end
+stop += Your prayer is nearing its end
 more += You reach the end of your prayer and your brethren are recalled
+stop += You reach the end of your prayer and your brethren are recalled
 stop += You now have enough gold to
 more += Your bribe of.*has been exhausted
 more += Ashenzari invites you to partake
@@ -3685,15 +3688,8 @@ flash += changes into,Something shouts
 flash += You hear a (sizzling sound|grinding noise)
 : end
 
-: if you.xl() < 25 then
-more += (?-i:[A-Z]).*into view
-flash += (?-i:[A-Z]).*into view
-: end
-
-more += (?<!(executioner|orb guardian))(?-i:[A-Z]).*into view
-flash += (?<!(executioner|orb guardian))(?-i:[A-Z]).*into view
-more += (?-i:[A-Z])(?<!(xecutioner|rb guardian)).*into view
-flash += (?-i:[A-Z])(?<!(xecutioner|rb guardian)).*into view
+more += (?!(executioner|orb guardian))(?-i:[A-Z]).*into view
+flash += (?!(executioner|orb guardian))(?-i:[A-Z]).*into view
 
 more += (lernaean hydra|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy)).*into view
 flash += (lernaean hydra|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy)).*into view
@@ -3744,9 +3740,9 @@ more += ((ancient|dread) lich|demonspawn warmonger|oni incarcerator|draconian st
 
 : if you.xl() <= 24 then
 unusual_monster_items += of (acid)
-more += hits you (?!Your).*of (distortion|chaos)
-more += warns you (?!Your).*of (distortion|chaos)
-more += ((deep elf|draconian) annihilator|tengu reaver|air elemental|void ooze) (?!zombie|draugr|simulacrum).*into view
+more += hits (?!your)you.*of (distortion|chaos)
+more += warns (?!your)you.*of (distortion|chaos)
+more += ((deep elf|draconian) annihilator|tengu reaver|air elemental|void ooze|orb guardian) (?!zombie|draugr|simulacrum).*into view
 more += ((?<!(ancient|dread)) lich|shadow dragon|juggernaut|caustic shrike|wyrmhole|spriggan berserker) (?!zombie|draugr|simulacrum).*into view
 # Agony
 more += (imperial myrmidons|necromancer) (?!zombie|draugr|simulacrum).*into view
@@ -3754,7 +3750,7 @@ flash += (imperial myrmidons|necromancer) (?!zombie|draugr|simulacrum).*into vie
 : end
 
 : if you.xl() <= 22 then
-more += (glass eye|death drake).*into view
+more += (glass eye|death drake|war gargoyle|crystal guardian).*into view
 more += (vault (warden|sentinel)|merfolk (avatar|siren)) (?!zombie|draugr|simulacrum).*into view
 more += (executioner|guardian serpent|draconian shifter|ironbound convoker|deep troll shaman|death cob) (?!zombie|draugr|simulacrum).*into view
 more += (kobold fleshcrafter|phantasmal warrior|iron giant) (?!zombie|draugr|simulacrum).*into view
@@ -3924,13 +3920,15 @@ ai += scrolls? of noise:25 Alarm40 FireStor25 FulmPris20 Qaz16 Shout12 IMB10
 # ai += scrolls? of fog:!r
 # ai += scrolls? of summoning:!r
 # ai += scrolls? of butterflies:!r
-ai += wand of (iceblast|roots|warping):@v1, \<
-ai += wand of (acid|light|quicksilver):@v2, \>
+ai += wand of (roots|warping):@v1, \<
+ai += wand of iceblast:@v1, \<, 3d(7.66+3.5*Evo/5)
+ai += wand of (acid|light):@v2, \>
+ai += wand of quicksilver:@v2, \>, 6d(4.16+3.5*Evo/9)
 ai += wand of digging:@v3
 ai += poisoned dart:@f1@Q1, F1
 ai += boomerang:@f2@Q2, F2, 5%
 ai += (?<!silver) javelin:@f3@Q3, H, 5%
-ai += wand of flame:@v4@Q4, \), 3d(5.5+0.35*Evo), MaxEvo10
+ai += wand of flame:@v4@Q4, \), 2d(5.5+0.35*Evo), MaxEvo10
 ai += wand of mindburst:@v5@Q5, \(, 3d(8.75+3.5*Evo/4)
 ai += silver javelin:@f6@Q6, 5%
 ai += throwing net:@f7
