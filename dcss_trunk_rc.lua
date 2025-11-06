@@ -3479,7 +3479,6 @@ more += seems to grow stronger
 : end
 
 # more += suddenly seems more resistant
-more += You reflect.*with the mirror! The mirror clouds!
 
 # crawl.chaosforge.org/Chaos_Knight_of_Xom_Guide#Xom_rc_file
 more += .* erupts in a glittering mayhem of colour
