@@ -110,7 +110,7 @@ function init_config()
       "broad axe", "morningstar", "eveningstar", "demon whip", "sacred scourge", "demon blade",
       "buckler", "buckler of", "kite shield", "kite shield of", "tower shield", "tower shield of", "of experience", "of acquirement", "wand of digging",
       "ring mail of", "scale mail of", "chain mail", "chain mail of", "plate armour","plate armour of",
-      "crystal plate armour", "gold dragon scales", "storm dragon scales", "swamp dragon scales",
+      "crystal plate armour", "golden dragon scales", "storm dragon scales", "swamp dragon scales",
       "quicksilver dragon scales", "pearl dragon scales", "shadow dragon scales"
     }, -- CONFIG.alert.one_time (do not remove this comment)
 
@@ -3358,7 +3358,7 @@ flash += is a mimic
 more += You kill.*(Bai Suzhen)
 more += (?<!(into|through)) a shaft
 more += You blink
-more += (?<!Your raiju) bursts into living lightning
+more += (?<!raiju) bursts into living lightning
 more += blinks into view
 more += (?<!(draconian|shifter|annihilator) blinks!
 flash += (draconian|shifter|annihilator) blinks!
@@ -3941,7 +3941,7 @@ ai += lightning rod:(2+PreUses)d(0.75*Evo+46.25)/3, 2d16(Evo 1)
 
 ai += ring of magical power:MP+9
 ai += quicksilver dragon scales (?!("|of)):Will+
-ai += gold dragon scales (?!("|of)):rF+, rC+, rPois
+ai += golden dragon scales (?!("|of)):rF+, rC+, rPois
 ai += fire dragon scales (?!("|of)):rF++, rC-
 ai += ice dragon scales (?!("|of)):rC++, rF-
 ai += swamp dragon scales (?!("|of)):rPois
