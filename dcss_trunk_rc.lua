@@ -3661,7 +3661,7 @@ flash += Found.*(Vehumet|Sif Muna)
 : end
 
 : if you.xl() <= 10 then
-flash += Found.*(Ashenzari|Beogh|Cheibriados|Fedhas Madash|Gozag|Hepliaklqana|Ignis|Jiyva|Makhleb|Nemelex Xobeh|Okawaru|Qazlal|Ru|Trog|Uskayaw|Wu Jian|Yredelemnul)
+flash += Found.*(Ashenzari|Beogh|Cheibriados|Fedhas|Gozag|Hepliaklqana|Ignis|Jiyva|Makhleb|Nemelex|Okawaru|Qazlal|Ru|Trog|Uskayaw|Wu Jian|Yredelemnul)
 : end
 
 : if you.xl() > 18 and you.race() ~= "Mummy" and you.race() ~= "Demonspawn" and you.race() ~= "Revenant" and you.race() ~= "Poltergeist" and you.transform() ~= "death" and you.transform() ~= "vampire" then
