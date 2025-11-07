@@ -3939,7 +3939,7 @@ ai += sack of spiders:Evo 6 13 18 21
 ai += box of beasts:HD 3 9 15 21 27(Evo+1d7-1d7)
 ai += condenser vane:(65+3.5*Evo)/1.6%
 ai += tin of tremorstones:Evo 2.5 6 11 18, 5x5 6d6 40%
-ai += lightning rod:(2+PreUses)d(0.75*Evo+46.25)/3, 2d16(Evo 1)
+ai += lightning rod:(2+PreUses)d(0.75*Evo+46.25)/3, 2d16(Evo1)
 
 ai += ring of magical power:MP+9
 ai += quicksilver dragon scales (?!("|of)):Will+
