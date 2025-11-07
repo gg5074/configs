@@ -3694,8 +3694,8 @@ flash += (?!(executioner|orb guardian))(?-i:[A-Z]).*into view
 more += (lernaean hydra|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy)).*into view
 flash += (lernaean hydra|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy)).*into view
 
+more += the reach of Zot diminish
 more += The shining eye gazes at you
-
 flash += (death scarab).*into view
 
 # Damnation/Flay
