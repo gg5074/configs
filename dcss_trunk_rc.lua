@@ -3739,7 +3739,7 @@ more += ((ancient|dread) lich|demonspawn warmonger|oni incarcerator|draconian st
 : end
 
 : if you.xl() <= 24 then
-# unusual_monster_items += of (acid)
+unusual_monster_items += of (acid)
 more += hits (?!your)you.*of (distortion|chaos)
 more += warns (?!your)you.*of (distortion|chaos)
 more += ((deep elf|draconian) annihilator|tengu reaver|air elemental|void ooze|orb guardian) (?!zombie|draugr|simulacrum).*into view
@@ -3766,13 +3766,15 @@ more += slime creatures merge to form a (very large|enormous|titanic)
 : end
 
 # github.com/crawl/crawl/commit/e02c2b2bd47e38273f95c7b2855e43783a19ae70
+# unusual_monster_"teism" += vulnerable:holy_wrath
 unusual_monster_items += vulnerable:acid:24
 unusual_monster_items += vulnerable:(electrocution|draining|vampiric|pain):20
 unusual_monster_items += vulnerable:(flaming|freezing):18
 unusual_monster_items += vulnerable:(venom):16
+unusual_monster_items += vulnerable:holy_wrath
 
 : if you.xl() <= 20 then
-# unusual_monster_items += of (electrocution|draining|vampiric|pain)
+unusual_monster_items += of (electrocution|draining|vampiric|pain)
 unusual_monster_items += of (spectral|heavy|\+[5-9])
 unusual_monster_items += wand of (paralysis|roots|light)
 more += (deep elf master archer|boggart|bunyips|stone giant|ironbound beastmaster) (?!zombie|draugr|simulacrum).*into view
@@ -3784,13 +3786,13 @@ flash += The boggart gestures wildly while chanting
 : end
 
 : if you.xl() <= 18 then
-# unusual_monster_items += of (flaming|freezing)
+unusual_monster_items += of (flaming|freezing)
 more += (water nymph|anaconda) (?!zombie|draugr|simulacrum).*into view
 flash += The water rises up and strikes you
 : end
 
 : if you.xl() <= 16 then
-# unusual_monster_items += of (venom)
+unusual_monster_items += of (venom)
 unusual_monster_items += wand of (charming|polymorph)
 more += (raven|centaur warrior|yaktaurs?|cyclops|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma) (?!zombie|draugr|simulacrum).*into view
 more += (deep elf|kobold blastminer|gargoyle|ghoul|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant) (?!zombie|draugr|simulacrum).*into view
