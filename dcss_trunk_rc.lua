@@ -3561,6 +3561,7 @@ more += You add the spells?.*(Apportation|Blink)
 more += You add the spells?.*(Beckoning|Golubria|Vhi's Electric|Manifold Assault|Fugue of the|Animate Dead|Death Channel|Awaken Armour)
 : end
 
+# Contam: 2x(SpellLv)^2xFailure+250, 5000:Yellow, 15000:LightRed
 # Miscast:Nameless Horror:HD(2*Int/3) HD15 MaxHP160 Speed10 AC8 Attack30(Antimagic)
 : if you.xl() >= 16 and you.intelligence() <= 25 then
 more += You add the spells?.*(Summon Cactus Giant|Summon Hydra|Summon Horrible Things|Dragon's Call)
