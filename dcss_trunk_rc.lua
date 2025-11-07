@@ -3879,7 +3879,7 @@ ae += large rock
 : end
 
 : if you.xl() > 4 then
-ae += stone
+ae +=  stone
 : end
 
 : if you.xl() > 12 and you.race() == "Deep Elf" then
