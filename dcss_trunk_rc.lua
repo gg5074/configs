@@ -3963,7 +3963,7 @@ ai += staff of air:rElec
 ai += staff of death:rN+
 
 : if you.xl() > 4 then
-ai += (?<!the) \+0 (dagger|short sword|club|whip|giant club|giant spiked|hand axe|spear|sling|shortbow|stone|animal skin|robe|leather armour) (?!("|of)):~~DROP_ME
+ai += (?<!the) \+0 (dagger|short sword|club|whip|giant club|giant spiked|hand axe|spear|sling|shortbow|(?<!tremor)stone|animal skin|robe|leather armour) (?!("|of)):~~DROP_ME
 : end
 
 : if you.xl() > 8 then
