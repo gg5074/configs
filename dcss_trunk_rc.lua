@@ -3766,10 +3766,10 @@ more += slime creatures merge to form a (very large|enormous|titanic)
 : end
 
 # github.com/crawl/crawl/commit/e02c2b2bd47e38273f95c7b2855e43783a19ae70
-unusual_monster_teism += vulnerable:acid:24
-unusual_monster_teism += vulnerable:(electrocution|draining|vampiric|pain):20
-unusual_monster_teism += vulnerable:(flaming|freezing):18
-unusual_monster_teism += vulnerable:(venom):16
+unusual_monster_items += vulnerable:acid:24
+unusual_monster_items += vulnerable:(electrocution|draining|vampiric|pain):20
+unusual_monster_items += vulnerable:(flaming|freezing):18
+unusual_monster_items += vulnerable:(venom):16
 
 : if you.xl() <= 20 then
 # unusual_monster_items += of (electrocution|draining|vampiric|pain)
@@ -3991,7 +3991,7 @@ ai += (?<!the) \+0 (kite shield|fire dragon scales|ice dragon scales) (?!("|of))
 ai += (?<!the) \+0 (morningstar|broad axe|partisan|tower shield) (?!("|of)):~~DROP_ME
 : end
 
-gear_slot ^= (war axe|broad axe|whip|mace|flail|ningstar|scourge|trident|trishula|partisan|halberd|glaive|bardiche|staff) : abW
+gear_slot ^= (war axe|broad axe|whip|mace|flail|ningstar|scourge|spear|trident|trishula|partisan|halberd|glaive|bardiche|staff) : abW
 gear_slot ^= (ring of protection (?!from)|the ring .* AC\+) : ptcmPTCM
 gear_slot ^= (ring of evasion|the ring .* EV\+) : evdgEVDG
 gear_slot ^= (ring of strength|the ring .* Str\+) : strhSTRH
