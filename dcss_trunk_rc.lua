@@ -3672,6 +3672,7 @@ flash += Found.*(The Shining One|Zin)
 # github.com/crawl/crawl/blob/master/crawl-ref/source/mon-gear.cc
 unusual_monster_items += ( the |distortion|chaos|silver)
 more += (undying armoury|antique champion|torpor snail|nekomata|oblivion hound|acid blob|entropy weaver|ghost moth|death knight|eye of devastation) (?!zombie|draugr|simulacrum).*into view
+more += Being near the torpor snail leaves you feeling lethargic
 more += 's illusion shouts
 flash += 's illusion shouts
 more += Bai Suzhen roars in fury and transforms into a fierce dragon
@@ -3879,7 +3880,7 @@ ae += large rock
 : end
 
 : if you.xl() > 4 then
-ae +=  stone
+ae +=  (?<!tremor)stone
 : end
 
 : if you.xl() > 12 and you.race() == "Deep Elf" then
