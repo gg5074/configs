@@ -3287,7 +3287,7 @@ stop := runrest_stop_message
 more := force_more_message
 flash := flash_screen_message
 
-# ignore += duration:
+# stop += duration:
 ignore += recovery:
 ignore += contamination has completely
 ignore += your breath back
@@ -3426,6 +3426,7 @@ more += You are (blasted|electrocuted)
 more += You are.*confused
 more += You are blinded
 flash += You stumble backwards
+flash += You are shoved backwards
 flash += drags you backwards
 more += grabs (?!your)you
 flash += grabs (?!your)you
@@ -3445,7 +3446,7 @@ more += Space warps horribly.*around you
 more += Space bends around you
 more += Your limbs have turned to stone
 more += Your body becomes as fragile as glass
-more += You feel extremely sick
+flash += You feel extremely sick
 more += lethally poison
 flash += The acid corrodes (?!your)you
 more += You are covered in intense liquid fire
@@ -3672,7 +3673,6 @@ flash += Found.*(The Shining One|Zin)
 # github.com/crawl/crawl/blob/master/crawl-ref/source/mon-gear.cc
 unusual_monster_items += ( the |distortion|chaos|silver)
 more += (undying armoury|antique champion|torpor snail|nekomata|oblivion hound|acid blob|entropy weaver|ghost moth|death knight|eye of devastation) (?!zombie|draugr|simulacrum).*into view
-more += Being near the torpor snail leaves you feeling lethargic
 more += 's illusion shouts
 flash += 's illusion shouts
 more += Bai Suzhen roars in fury and transforms into a fierce dragon
@@ -3796,13 +3796,13 @@ flash += The water rises up and strikes you
 unusual_monster_items += of (venom)
 unusual_monster_items += wand of (charming|polymorph)
 more += (raven|centaur warrior|yaktaurs?|cyclops|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma) (?!zombie|draugr|simulacrum).*into view
-more += (deep elf|kobold blastminer|gargoyle|ghoul|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant) (?!zombie|draugr|simulacrum).*into view
+more += (deep elf|kobold blastminer|gargoyle|ghoul|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant|wolf spider) (?!zombie|draugr|simulacrum).*into view
 flash += (cyan ugly|radroach|meliai) (?!zombie|draugr|simulacrum).*into view
 : end
 
 : if you.xl() <= 13 then
 unusual_monster_items += triple sword,executioner's axe,halberd,glaive,bardiche,arbalest,hand cannon,triple crossbow
-more += (two-headed ogre|kobold geomancer|orange demon|rust devil|ice devil|komodo dragon) (?!zombie|draugr|simulacrum).*into view
+more += (?<!spectral) (two-headed ogre|kobold geomancer|orange demon|rust devil|lindwurm|ice devil|cane toad|komodo dragon) (?!zombie|draugr|simulacrum).*into view
 : end
 
 : if you.xl() <= 10 then
