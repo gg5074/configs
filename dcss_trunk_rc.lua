@@ -3564,7 +3564,7 @@ more += seems mollified
 more += You rejoin the land of the living
 more += You add the spells?.*(Apportation|Blink)
 
-: if you.xl() >= 26 then
+: if you.xl() >= 27 and you.class() ~= "Conjurer" then
 more += You add the spells?.*(Beckoning|Golubria|Vhi's Electric|Manifold Assault|Fugue of the|Animate Dead|Death Channel|Awaken Armour)
 : end
 
