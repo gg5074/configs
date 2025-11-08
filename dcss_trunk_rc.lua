@@ -3360,7 +3360,7 @@ more += (?<!(into|through)) a shaft
 more += You blink
 more += (?<!raiju) bursts into living lightning
 more += blinks into view
-more += (?<!(draconian|shifter|annihilator) blinks!
+more += (?!(draconian|shifter|annihilator) blinks!
 flash += (draconian|shifter|annihilator) blinks!
 more += is devoured by a tear in reality
 
@@ -3475,7 +3475,7 @@ more += flies into a frenzy
 flash += flies into a frenzy
 more += You .*seems to speed up
 
-: if you.xl() < 20 then
+: if you.xl() < 18 then
 more += seems to grow stronger
 : end
 
@@ -3542,7 +3542,7 @@ more += Beogh will now send orc apostles to challenge you
 flash += Beogh will now send orc apostles to challenge you
 more += the orc apostle comes into view
 more += falls to his knees and submits
-more += (?!(executioner|orb guardian))(?-i:[A-Z]).*(dies!|is blown up!)
+more += (?-i:[A-Z])(?!(xecutioner|rb guardian)).*(dies!|is blown up!)
 more += has fought their way back out of the Abyss!
 more += Your prayer is nearing its end
 stop += Your prayer is nearing its end
@@ -3564,15 +3564,15 @@ more += You add the spells?.*(Beckoning|Golubria|Vhi's Electric|Manifold Assault
 
 # Contam: 2x(SpellLv)^2xFailure+250, 5000:Yellow, 15000:LightRed
 # Miscast:Nameless Horror:HD(2*Int/3) HD15 MaxHP160 Speed10 AC8 Attack30(Antimagic)
-: if you.xl() >= 16 and you.intelligence() <= 25 then
-more += You add the spells?.*(Summon Cactus Giant|Summon Hydra|Summon Horrible Things|Dragon's Call)
-: end
+# : if you.xl() >= 16 and you.intelligence() <= 25 then
+# more += You add the spells?.*(Summon Cactus Giant|Summon Hydra|Summon Horrible Things|Dragon's Call)
+# : end
 
 # Miscast:-Move -Tele
 # reddit.com/r/dcss/comments/1m4xpsr/a_compendium_of_strange_and_unusual_techniques/
-: if you.xl() >= 20 then
-more += You add the spells?.*(Dispersal|Gell's Gavotte|Manifold Assault|Translocation)
-: end
+# : if you.xl() >= 20 then
+# more += You add the spells?.*(Dispersal|Gell's Gavotte|Manifold Assault|Translocation)
+# : end
 
 # interrupt_travel += <activity_interrupt_type>
 stop ^= Your.*disappears in a puff of smoke,Your spellspark servitor fades away,Your battlesphere wavers and loses cohesion
@@ -3689,8 +3689,8 @@ flash += changes into,Something shouts
 flash += You hear a (sizzling sound|grinding noise)
 : end
 
-more += (?!(executioner|orb guardian))(?-i:[A-Z]).*into view
-flash += (?!(executioner|orb guardian))(?-i:[A-Z]).*into view
+more += (?-i:[A-Z])(?!(xecutioner|rb guardian)).*into view
+flash += (?-i:[A-Z])(?!(xecutioner|rb guardian)).*into view
 
 more += (lernaean hydra|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy)).*into view
 flash += (lernaean hydra|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy)).*into view
