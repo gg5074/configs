@@ -3471,11 +3471,17 @@ more += Chaos surges forth from piles of flesh
 flash += You feel the power of Zot begin to focus
 # more += You hear a sizzling splash
 more += heals the
+
+: if you.xl() < 24 then
 more += flies into a frenzy
 flash += flies into a frenzy
-more += You .*seems to speed up
+: end
 
-: if you.xl() < 18 then
+: if you.xl() < 16 then
+more += You .*seems to speed up
+: end
+
+: if you.xl() < 10 then
 more += seems to grow stronger
 : end
 
