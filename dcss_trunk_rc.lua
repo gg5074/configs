@@ -4147,7 +4147,15 @@ macros += M \{NP0} vf
 macros += M O aa
 macros += M K ab
 macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!moons\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+
+: if you.race() == "Minotaur" or you.race() == "Troll" then
+macros += M P *fin_shop\{32}&&\{32}!!moons\{32}&&\{32}!!book\{32}&&\{32}!!parchment\{32}&&\{32}!!carri\{13}
+: end
+
+: if you.race() ~= "Minotaur" and you.race() ~= "Troll" then
 macros += M P *fin_shop\{32}&&\{32}!!moons\{32}&&\{32}!!carri\{13}
+: end
+
 macros += M S *f<<scrol\{32}||\{32}potio>>\{32}&&\{32}!!moons\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 macros += M % *f<<misc\{32}||\{32}wand\{32}||\{32}throwin>>\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 macros += M " *f<<jewell\{32}||\{32}orb>>\{32}&&\{32}!!statu\{32}&&\{32}!!carri\{13}
