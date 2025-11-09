@@ -3801,7 +3801,7 @@ flash += The water rises up and strikes you
 : if you.xl() <= 16 then
 unusual_monster_items += of (venom)
 unusual_monster_items += wand of (charming|polymorph)
-more += (raven|centaur warrior|yaktaurs?|cyclops|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma) (?!zombie|draugr|simulacrum).*into view
+more += (raven|fire dragon|centaur warrior|yaktaurs?|cyclops|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma) (?!zombie|draugr|simulacrum).*into view
 more += (deep elf|kobold blastminer|gargoyle|ghoul|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant|wolf spider) (?!zombie|draugr|simulacrum).*into view
 flash += (cyan ugly|radroach|meliai) (?!zombie|draugr|simulacrum).*into view
 : end
@@ -3985,11 +3985,11 @@ ai += (?<!the) \+[1-3] (falchion|long sword|quarterstaff|troll leather armour|ri
 : end
 
 : if you.xl() > 16 then
-ai += (?<!the) \+0 (mace|flail|war axe|trident|chain mail|plate armour|helmet|pair of boots|cloak|pair of gloves) (?!("|of)):~~DROP_ME
+ai += (?<!the) \+0 (mace|flail|dire flail|war axe|trident|halberd|chain mail|plate armour|steam dragon scales|helmet) (?!("|of)):~~DROP_ME
 : end
 
 : if you.xl() > 20 then
-ai += (?<!the) \+0 (dire flail|great mace|battleaxe|executioner's axe|halberd|scythe|glaive|bardiche|buckler|steam dragon scales|acid dragon scales|swamp dragon scales) (?!("|of)):~~DROP_ME
+ai += (?<!the) \+0 (great mace|battleaxe|executioner's axe|scythe|glaive|bardiche|buckler|pair of boots|cloak|pair of gloves|acid dragon scales|swamp dragon scales) (?!("|of)):~~DROP_ME
 : end
 
 : if you.xl() > 22 then
