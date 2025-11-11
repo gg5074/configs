@@ -3794,7 +3794,7 @@ flash += The boggart gestures wildly while chanting
 
 : if you.xl() <= 18 then
 unusual_monster_items += of (flaming|freezing)
-more += (water nymph|anaconda) (?!zombie|draugr|simulacrum).*into view
+more += (water nymph|anaconda|ironbound thunderhulk) (?!zombie|draugr|simulacrum).*into view
 flash += The water rises up and strikes you
 : end
 
