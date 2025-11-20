@@ -3695,8 +3695,8 @@ flash += changes into,Something shouts
 flash += You hear a (sizzling sound|grinding noise)
 : end
 
-more += (?-i:[A-Z])(?!(xecutioner|rb guardian)).*into view
-flash += (?-i:[A-Z])(?!(xecutioner|rb guardian)).*into view
+more += (?!orb guardian|executioner)(?-i:[A-Z]).* into view
+flash += (?!orb guardian|executioner)(?-i:[A-Z]).* into view
 
 more += (lernaean hydra|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy)).*into view
 flash += (lernaean hydra|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy)).*into view
