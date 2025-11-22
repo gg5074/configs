@@ -3428,6 +3428,7 @@ more += You are blinded
 flash += You stumble backwards
 flash += You are shoved backwards
 flash += drags you backwards
+flash += You are knocked back
 more += grabs (?!your)you
 flash += grabs (?!your)you
 more += roots grab (?!your)you
@@ -3719,7 +3720,7 @@ more += (tormentor|curse toe|curse skull).*into view
 flash += (tormentor|curse toe|curse skull).*into view
 more += (deathcap|soul eater|vampire bloodprince|alderking).*into view
 flash += (deathcap|soul eater|vampire bloodprince|alderking).*into view
-more += curse toe gestures
+more += The curse toe gestures
 : end
 
 # Holy/Dispel Undead
@@ -4021,10 +4022,14 @@ gear_slot ^= (ring of flight|the ring .* Fly) : lhfyLHFY
 
 gear_slot ^= armour:ABCDEFGHIJKLMNOPQRSTUVWXYZ
 gear_slot ^= shield:ABCDEFGHIJKLMNOPQRSTUVWXYZ
+gear_slot ^= ( hat |cloak|scarf|pair of gloves|pair of boots):ABCDEFGHIJKLMNOPQRSTUVWXYZ
 gear_slot ^= orb:ABCDEFGHIJKLMNOPQRSTUVWXYZ
 gear_slot ^= amulet:ABCDEFGHIJKLMNOPQRSTUVWXYZ
 gear_slot ^= talisman:ABCDEFGHIJKLMNOPQRSTUVWXYZ
 consumable_shortcut += javelin:abcdefghijklmnopqrstuwxyz
+consumable_shortcut += boomerang:abcdefghijklmnopqrstuwxyz
+consumable_shortcut += throwing net:abcdefghijklmnopqrstuwxyz
+consumable_shortcut += dart:abcdefghijklmnopqrstuwxyz
 consumable_shortcut += potion of mutation:t
 consumable_shortcut += scroll of noise:n
 consumable_shortcut += scroll of revelation:R
