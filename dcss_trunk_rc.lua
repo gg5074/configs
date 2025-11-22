@@ -3424,6 +3424,7 @@ flash += smites (?!your)you
 more += You are (blasted|electrocuted)
 more += You are.*confused
 more += You are blinded
+flash += Something hits you
 flash += You stumble backwards
 flash += You are shoved backwards
 flash += drags you backwards
