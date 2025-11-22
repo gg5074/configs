@@ -4155,7 +4155,18 @@ macros += M y ff
 macros += M \{NP0} vf
 macros += M O aa
 macros += M K ab
+
+: if you.xl() <= 9 and (you.race() == "Minotaur" or you.race() == "Troll") then
+macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!moons\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+: end
+
+: if you.xl() >= 10 and (you.race() == "Minotaur" or you.race() == "Troll") then
+macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!moons\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!club\{32}&&\{32}!!spea\{32}&&\{32}!!skin\{32}&&\{32}!!robe\{32}&&\{32}!!leat\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+: end
+
+: if you.race() ~= "Minotaur" and you.race() ~= "Troll" then
 macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!moons\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+: end
 
 : if you.race() == "Minotaur" or you.race() == "Troll" then
 macros += M P *fin_shop\{32}&&\{32}!!moons\{32}&&\{32}!!book\{32}&&\{32}!!parchment\{32}&&\{32}!!carri\{13}
