@@ -1587,7 +1587,6 @@ function init_startup()
       local show_skills_on_startup = (you.race() ~= "Gnoll")
       if show_skills_on_startup then
         crawl.sendkeys("!d10" .. string.char(13) .. "Lair D11-12 Orc D13-15 S-Runes V1-4 Depths" .. string.char(13))
-        you.set_training_target("Fighting",26)
         you.set_training_target("Maces & Flails",16)
         you.set_training_target("Axes",18)
         you.set_training_target("Polearms",20)
@@ -3549,7 +3548,11 @@ more += Beogh will now send orc apostles to challenge you
 flash += Beogh will now send orc apostles to challenge you
 more += the orc apostle comes into view
 more += falls to his knees and submits
+
+: if you.god() == "Beogh" then
 more += (?-i:[A-Z])(?!(xecutioner|rb guardian)).*(dies!|is blown up!)
+: end
+
 more += has fought their way back out of the Abyss!
 more += Your prayer is nearing its end
 stop += Your prayer is nearing its end
