@@ -65,7 +65,7 @@ function init_config()
   -- inscribe-stats.lua: Inscribe stats on pickup and adjust each turn
   CONFIG.inscribe_weapons = true
   CONFIG.inscribe_armour = true
-  CONFIG.inscribe_dps_type = DMG_TYPE.unbranded -- How to calc dmg for weapon inscriptions
+  CONFIG.inscribe_dps_type = DMG_TYPE.scoring -- How to calc dmg for weapon inscriptions
 
   -- misc-alerts.lua
   CONFIG.alert_low_hp_threshold = 0.55 -- % max HP to alert; 0 to disable
@@ -4164,11 +4164,11 @@ macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&
 : end
 
 : if you.xl() >= 10 and you.xl() <= 16 and (you.race() == "Minotaur" or you.race() == "Troll") then
-macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!quart\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!club\{32}&&\{32}!!spea\{32}&&\{32}!!skin\{32}&&\{32}!!robe\{32}&&\{32}!!leat\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!quart\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!club\{32}&&\{32}!!nd\{32}ax\{32}&&\{32}!!spea\{32}&&\{32}!!skin\{32}&&\{32}!!robe\{32}&&\{32}!!leat\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 : end
 
 : if you.xl() >= 17 and (you.race() == "Minotaur" or you.race() == "Troll") then
-macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!quart\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!club\{32}&&\{32}!!spea\{32}&&\{32}!!trident\{32}&&\{32}!!mail\{32}&&\{32}!!skin\{32}&&\{32}!!robe\{32}&&\{32}!!leat\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!quart\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!club\{32}&&\{32}!!r\{32}ax\{32}&&\{32}!!mace\{32}&&\{32}!!flail\{32}&&\{32}!!nd\{32}ax\{32}&&\{32}!!spea\{32}&&\{32}!!trident\{32}&&\{32}!!mail\{32}&&\{32}!!skin\{32}&&\{32}!!robe\{32}&&\{32}!!leat\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 : end
 
 : if you.race() ~= "Minotaur" and you.race() ~= "Troll" then
