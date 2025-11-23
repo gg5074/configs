@@ -4161,8 +4161,12 @@ macros += M K ab
 macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!moons\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 : end
 
-: if you.xl() >= 10 and (you.race() == "Minotaur" or you.race() == "Troll") then
+: if you.xl() >= 10 and you.xl() <= 16 and (you.race() == "Minotaur" or you.race() == "Troll") then
 macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!quart\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!club\{32}&&\{32}!!spea\{32}&&\{32}!!skin\{32}&&\{32}!!robe\{32}&&\{32}!!leat\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+: end
+
+: if you.xl() >= 17 and (you.race() == "Minotaur" or you.race() == "Troll") then
+macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!quart\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!club\{32}&&\{32}!!spea\{32}&&\{32}!!trident\{32}&&\{32}!!mail\{32}&&\{32}!!skin\{32}&&\{32}!!robe\{32}&&\{32}!!leat\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 : end
 
 : if you.race() ~= "Minotaur" and you.race() ~= "Troll" then
@@ -4185,7 +4189,14 @@ macros += M ` *f<<ranged\{32}||\{32}blades\{32}||\{32}magica>>\{32}&&\{32}!!jewe
 
 macros += M & *f<<axe\{32}||\{32}polea\{32}||\{32}mace>>\{32}&&\{32}!!magica\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 macros += M _ *f<<mace\{32}||\{32}axe\{32}||\{32}stav>>\{32}&&\{32}!!magica\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+
+: if you.xl() <= 16  then
 macros += M : *f<<polea\{32}||\{32}axe\{32}||\{32}stav>>\{32}&&\{32}!!magica\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+: end
+
+: if you.xl() >= 17  then
+macros += M : *f<<mon\{32}tri\{32}||\{32}parti\{32}||\{32}trishula\{32}||\{32}bardic>>\{32}&&\{32}!!magica\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+: end
 
 # F1:\{-265}:poisoned dart, F2:\{-266}:boomerang, H:javelin, ")":wand of flame, "(":mindburst, "<":iceblast|roots|warping, ">":acid|light|quicksilver
 macros += M \{-265} F15
