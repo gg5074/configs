@@ -4140,10 +4140,10 @@ macros += M \{NP.} ===smart_stairs
 # github.com/crawl/crawl/blob/master/crawl-ref/source/dat/descript/features.txt
 
 # Ctrl-L:List of Banes
-# macros += M \{12} ?/n\{32}\{13}
+macros += M \{12} ?/n\{32}\{13}
 
 # Ctrl-L:Help, Monster 
-macros += M \{12} ?/m
+macros += M \{13} ?/m
 
 macros += M . *f<<case\{32}to\{32}th\{32}||\{32}gate\{32}to\{32}||\{32}hole\{32}to\{32}||\{32}gate\{32}lead>>\{32}&&\{32}!!one-\{13}
 macros += M n x+
