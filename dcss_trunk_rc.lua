@@ -65,7 +65,7 @@ function init_config()
   -- inscribe-stats.lua: Inscribe stats on pickup and adjust each turn
   CONFIG.inscribe_weapons = true
   CONFIG.inscribe_armour = true
-  CONFIG.inscribe_dps_type = DMG_TYPE.plain -- How to calc dmg for weapon inscriptions
+  CONFIG.inscribe_dps_type = DMG_TYPE.unbranded -- How to calc dmg for weapon inscriptions
 
   -- misc-alerts.lua
   CONFIG.alert_low_hp_threshold = 0.55 -- % max HP to alert; 0 to disable
@@ -3429,6 +3429,7 @@ flash += You stumble backwards
 flash += You are shoved backwards
 flash += drags you backwards
 flash += You are knocked back
+more += floods into your lungs!
 more += grabs (?!your)you
 flash += grabs (?!your)you
 more += roots grab (?!your)you
@@ -3540,6 +3541,7 @@ more += protects you from harm
 more += Trog grants you a weapon
 more += You feel your soul grow
 more += Makhleb will allow you to brand your body
+more += Your infernal gateway subsides
 more += You are dragged down into the Crucible of Flesh
 more += Ru believes you are ready to make a new sacrifice
 flash += You offer up the Black Torch's flame
