@@ -106,7 +106,7 @@ function init_config()
     one_time = {
       "pair of gloves", "pair of gloves of", "pair of boots", "pair of boots of", "cloak", "cloak of", "scarf of", " hat "," hat of", "ring of", "amulet of",
       "6 ring of strength", "6 ring of dexterity", "Cigotuvi's embrace",
-      "spear of", "trident of", "partisan", "partisan of", "demon trident", "demon trident of", "trishula", "bardiche",
+      "spear of", "trident of", "partisan", "partisan of", "demon trident", "demon trident of", "trishula", "glaive" "bardiche",
       "broad axe", "morningstar", "eveningstar", "demon whip", "sacred scourge", "demon blade",
       "buckler", "buckler of", "kite shield", "kite shield of", "tower shield", "tower shield of", "of experience", "of acquirement", "wand of digging",
       "ring mail of", "scale mail of", "chain mail", "chain mail of", "plate armour","plate armour of",
@@ -1586,15 +1586,15 @@ function init_startup()
     if CONFIG.show_skills_on_startup then
       local show_skills_on_startup = (you.race() ~= "Gnoll")
       if show_skills_on_startup then
-        crawl.sendkeys("!d10" .. string.char(13) .. "Lair D11-12 Orc D13-15 S-Runes V1-4 Depths" .. string.char(13))
-        you.set_training_target("Maces & Flails",16)
+        crawl.sendkeys("!d10" .. string.char(13) .. "Lair D11-12 Orc D13-15 S-Runes V1-4" .. string.char(13))
+        you.set_training_target("Maces & Flails",12)
         you.set_training_target("Axes",18)
-        you.set_training_target("Polearms",20)
+        you.set_training_target("Polearms",14)
         you.set_training_target("Staves",12)
         you.set_training_target("Unarmed Combat",26)
         you.set_training_target("Throwing",9)
         you.set_training_target("Short Blades",14)
-        you.set_training_target("Long Blades",18)
+        you.set_training_target("Long Blades",12)
         you.set_training_target("Ranged Weapons",18)
         you.set_training_target("Armour",9)
         you.set_training_target("Dodging",4)
