@@ -106,7 +106,7 @@ function init_config()
     one_time = {
       "pair of gloves", "pair of gloves of", "pair of boots", "pair of boots of", "cloak", "cloak of", "scarf of", " hat "," hat of", "ring of", "amulet of",
       "6 ring of strength", "6 ring of dexterity", "Cigotuvi's embrace",
-      "spear of", "trident of", "partisan", "partisan of", "demon trident", "demon trident of", "trishula", "glaive" "bardiche",
+      "spear of", "trident of", "partisan", "partisan of", "demon trident", "demon trident of", "trishula", "glaive", "bardiche",
       "broad axe", "morningstar", "eveningstar", "demon whip", "sacred scourge", "demon blade",
       "buckler", "buckler of", "kite shield", "kite shield of", "tower shield", "tower shield of", "of experience", "of acquirement", "wand of digging",
       "ring mail of", "scale mail of", "chain mail", "chain mail of", "plate armour","plate armour of",
@@ -3308,6 +3308,7 @@ more += The walls and floor vibrate strangely for a moment
 flash += The walls and floor vibrate strangely for a moment
 
 # Expiring effects
+stop += You feel a little less mighty now
 more += Your transformation is almost over
 more += back to life
 more += You feel yourself slow down
@@ -3623,16 +3624,17 @@ end
 # Skills
 : if you.race() ~= "Gnoll" then
 stop += skill increases to level (9|18|26)
+more += Your Fighting skill increases to level (18|26)
 stop += Your Shields skill increases to level (4|6|9|15|21|25)
 stop += Your Short Blades skill increases to level (10|12|14)
 stop += Your Long Blades skill increases to level (14|16|18|24)
 stop += Your Maces & Flails skill increases to level (12|16|20|22)
 stop += Your Axes skill increases to level (16|18|20|26)
-stop += Your Polearms skill increases to level (14|16|20|26)
+more += Your Polearms skill increases to level (14|16|20|26)
 stop += Your Staves skill increases to level (12|14)
 stop += Your Throwing skill increases to level (6|10|16)
 more += Your Evocations skill increases to level (2.5|6|10|11|13|15|18|21)
-more += Your Invocations skill increases to level (6|8|10|11|12|13)
+more += Your Invocations skill increases to level (6|8|10|11|12|13|14|15|16|17)
 more += Your Shapeshifting skill increases to level (7|14|19|23|26)
 flash += Training target.*reached
 : end
@@ -4140,10 +4142,10 @@ macros += M \{NP.} ===smart_stairs
 # github.com/crawl/crawl/blob/master/crawl-ref/source/dat/descript/features.txt
 
 # Ctrl-L:List of Banes
-macros += M \{12} ?/n\{32}\{13}
+# macros += M \{12} ?/n\{32}\{13}
 
 # Ctrl-L:Help, Monster 
-macros += M \{13} ?/m
+macros += M \{12} ?/m
 
 macros += M . *f<<case\{32}to\{32}th\{32}||\{32}gate\{32}to\{32}||\{32}hole\{32}to\{32}||\{32}gate\{32}lead>>\{32}&&\{32}!!one-\{13}
 macros += M n x+
