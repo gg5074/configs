@@ -1588,7 +1588,7 @@ function init_startup()
       if show_skills_on_startup then
         crawl.sendkeys("!d10" .. string.char(13) .. "Lair D11-12 Orc D13-15 S-Runes V1-4" .. string.char(13))
         you.set_training_target("Maces & Flails",12)
-        you.set_training_target("Axes",18)
+        you.set_training_target("Axes",16)
         you.set_training_target("Polearms",14)
         you.set_training_target("Staves",12)
         you.set_training_target("Unarmed Combat",26)
@@ -3300,6 +3300,7 @@ interrupt_travel -= sense_monster
 # very nearby: 7–13, nearby: 14–20, distant: 21–27, very distant: 28+
 flash += timed_portal:
 flash += You hear.*very (nearby|distant)
+more += You hear.*(quick|urgent|loud (creaking of a portcullis|crackling of a melting archway)|rising multitudes|rapid|thunderous|frantic|ear-piercing|full choir)
 flash += You hear.*(quick|urgent|loud (creaking of a portcullis|crackling of a melting archway)|rising multitudes|rapid|thunderous|frantic|ear-piercing|full choir)
 more += Found.*(bazaar|trove|phantasmal|sand-covered|glowing drain|flagged portal|gauntlet|frozen archway|dark tunnel|crumbling gateway|ruined gateway|magical portal|ziggurat)
 more += You enter a wizard's laboratory
@@ -3539,6 +3540,7 @@ more += The tension of great conflict fills the air
 more += You have reached level
 more += You (can|may) now (?!(stomp|pass|merge))
 more += protects you from harm
+stop += You feel like a meek peon again
 more += Trog grants you a weapon
 more += You feel your soul grow
 more += Makhleb will allow you to brand your body
@@ -3885,9 +3887,9 @@ ae = <of amnesia, of brilliance
 ae = <butterflies, summoning, phantom mirror, horn of Geryon, box of beasts, sack of spiders
 : end
 
-: if you.race() ~= "Djinni" and (you.god() == "Okawaru" or you.god() == "Trog" or you.god() == "The Shining One" or you.god() == "Elyvilon" or you.god() == "Zin") then
-ae = <book of, parchment of
-: end
+# : if you.race() ~= "Djinni" and (you.god() == "Okawaru" or you.god() == "Trog" or you.god() == "The Shining One" or you.god() == "Elyvilon" or you.god() == "Zin") then
+# ae = <book of, parchment of
+# : end
 
 ae += moonshine
 
@@ -4141,10 +4143,10 @@ macros += M \{NP.} ===smart_stairs
 # Tab:\{9}, Enter:\{13}, Esc:\{27}, Space:\{32}, Ctrl:*, Shift:/
 # github.com/crawl/crawl/blob/master/crawl-ref/source/dat/descript/features.txt
 
-# Ctrl-L:List of Banes
+# Ctrl-L: List of Banes
 # macros += M \{12} ?/n\{32}\{13}
 
-# Ctrl-L:Help, Monster 
+# Ctrl-L: Help, Monster 
 macros += M \{12} ?/m
 
 macros += M . *f<<case\{32}to\{32}th\{32}||\{32}gate\{32}to\{32}||\{32}hole\{32}to\{32}||\{32}gate\{32}lead>>\{32}&&\{32}!!one-\{13}
