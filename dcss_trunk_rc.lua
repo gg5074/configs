@@ -3548,7 +3548,7 @@ more += Your infernal gateway subsides
 more += You are dragged down into the Crucible of Flesh
 more += Ru believes you are ready to make a new sacrifice
 flash += You offer up the Black Torch's flame
-more += Your bound.*is destroyed
+more += Your bound.*is destroyed!
 more += The heavenly storm settles
 more += Beogh will now send orc apostles to challenge you
 flash += Beogh will now send orc apostles to challenge you
@@ -4164,37 +4164,37 @@ macros += M O aa
 macros += M K ab
 
 : if you.xl() <= 9 and (you.race() == "Minotaur" or you.race() == "Troll") then
-macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!skin\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!0\{32}leat\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 : end
 
 : if you.xl() >= 10 and you.xl() <= 16 and (you.race() == "Minotaur" or you.race() == "Troll") then
-macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!quart\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!club\{32}&&\{32}!!nd\{32}ax\{32}&&\{32}!!spea\{32}&&\{32}!!skin\{32}&&\{32}!!robe\{32}&&\{32}!!leat\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!quart\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!nd\{32}ax\{32}&&\{32}!!spea\{32}&&\{32}!!skin\{32}&&\{32}!!robe\{32}&&\{32}!!leat\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 : end
 
 : if you.xl() >= 17 and (you.race() == "Minotaur" or you.race() == "Troll") then
-macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!quart\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!club\{32}&&\{32}!!r\{32}ax\{32}&&\{32}!!mace\{32}&&\{32}!!flail\{32}&&\{32}!!nd\{32}ax\{32}&&\{32}!!spea\{32}&&\{32}!!trident\{32}&&\{32}!!mail\{32}&&\{32}!!skin\{32}&&\{32}!!robe\{32}&&\{32}!!leat\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!quart\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!r\{32}ax\{32}&&\{32}!!mace\{32}&&\{32}!!flail\{32}&&\{32}!!nd\{32}ax\{32}&&\{32}!!spea\{32}&&\{32}!!0\{32}trident\{32}&&\{32}!!mail\{32}&&\{32}!!skin\{32}&&\{32}!!robe\{32}&&\{32}!!leat\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 : end
 
 : if you.race() ~= "Minotaur" and you.race() ~= "Troll" then
-macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!doorr\{32}&&\{32}!!skin\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!0\{32}leat\{32}&&\{32}!!0\{32}dagger\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 : end
 
 : if you.race() == "Minotaur" or you.race() == "Troll" then
-macros += M P *fin_shop\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!book\{32}&&\{32}!!parchment\{32}&&\{32}!!carri\{13}
+macros += M P *fin_shop\{32}&&\{32}!!0\{32}dagger\{32}&&\{32}!!0\{32}sling\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!skin\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!0\{32}leat\{32}&&\{32}!!book\{32}&&\{32}!!parchment\{32}&&\{32}!!carri\{13}
 : end
 
 : if you.race() ~= "Minotaur" and you.race() ~= "Troll" then
-macros += M P *fin_shop\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!carri\{13}
+macros += M P *fin_shop\{32}&&\{32}!!0\{32}dagger\{32}&&\{32}!!0\{32}sling\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!skin\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!0\{32}leat\{32}&&\{32}!!carri\{13}
 : end
 
 macros += M S *f<<scrol\{32}||\{32}potio>>\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 macros += M % *f<<misc\{32}||\{32}wand\{32}||\{32}throwin>>\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 macros += M " *f<<jewell\{32}||\{32}orb>>\{32}&&\{32}!!statu\{32}&&\{32}!!carri\{13}
-macros += M [ *f<<body\{32}||\{32}aux>>\{32}&&\{32}!!orb\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
-macros += M ` *f<<ranged\{32}||\{32}blades\{32}||\{32}magica>>\{32}&&\{32}!!jewell\{32}&&\{32}!!body\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+macros += M [ *f<<body\{32}||\{32}aux>>\{32}&&\{32}!!orb\{32}&&\{32}!!skin\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!0\{32}leat\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+macros += M ` *f<<ranged\{32}||\{32}blades\{32}||\{32}magica>>\{32}&&\{32}!!jewell\{32}&&\{32}!!0\{32}dagger\{32}&&\{32}!!0\{32}sling\{32}&&\{32}!!body\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 
-macros += M & *f<<axe\{32}||\{32}polea\{32}||\{32}mace>>\{32}&&\{32}!!magica\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
-macros += M _ *f<<mace\{32}||\{32}axe\{32}||\{32}stav>>\{32}&&\{32}!!magica\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+macros += M & *f<<axe\{32}||\{32}polea\{32}||\{32}mace>>\{32}&&\{32}!!magica\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+macros += M _ *f<<mace\{32}||\{32}axe\{32}||\{32}stav>>\{32}&&\{32}!!magica\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 
 : if you.xl() <= 16  then
 macros += M : *f<<polea\{32}||\{32}axe\{32}||\{32}stav>>\{32}&&\{32}!!magica\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
