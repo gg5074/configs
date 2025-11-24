@@ -3426,7 +3426,7 @@ flash += smites (?!your)you
 more += You are (blasted|electrocuted)
 more += You are.*confused
 more += You are blinded
-flash += Something hits you
+flash += Something hits (?!your)you
 flash += You stumble backwards
 flash += You are shoved backwards
 flash += drags you backwards
@@ -3855,7 +3855,7 @@ note_items += of experience,of resistance,archmagi,crystal plate armour,pearl dr
 note_messages += You pass through the gate
 note_messages += cast.*Abyss
 note_messages += BOSS
-note_messages += Yredelemnul refuses to let your conquest
+note_messages += 's soul is now yours, Your bound.*is destroyed!
 
 dump_order  = header,hiscore,stats,misc,apostles,mutations,overview,inventory,skills,spells
 dump_order += messages,screenshot,monlist,kills
@@ -4164,7 +4164,7 @@ macros += M O aa
 macros += M K ab
 
 : if you.xl() <= 9 and (you.race() == "Minotaur" or you.race() == "Troll") then
-macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!moons\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 : end
 
 : if you.xl() >= 10 and you.xl() <= 16 and (you.race() == "Minotaur" or you.race() == "Troll") then
@@ -4176,18 +4176,18 @@ macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&
 : end
 
 : if you.race() ~= "Minotaur" and you.race() ~= "Troll" then
-macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!moons\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 : end
 
 : if you.race() == "Minotaur" or you.race() == "Troll" then
-macros += M P *fin_shop\{32}&&\{32}!!moons\{32}&&\{32}!!book\{32}&&\{32}!!parchment\{32}&&\{32}!!carri\{13}
+macros += M P *fin_shop\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!book\{32}&&\{32}!!parchment\{32}&&\{32}!!carri\{13}
 : end
 
 : if you.race() ~= "Minotaur" and you.race() ~= "Troll" then
-macros += M P *fin_shop\{32}&&\{32}!!moons\{32}&&\{32}!!carri\{13}
+macros += M P *fin_shop\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!carri\{13}
 : end
 
-macros += M S *f<<scrol\{32}||\{32}potio>>\{32}&&\{32}!!moons\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+macros += M S *f<<scrol\{32}||\{32}potio>>\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 macros += M % *f<<misc\{32}||\{32}wand\{32}||\{32}throwin>>\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 macros += M " *f<<jewell\{32}||\{32}orb>>\{32}&&\{32}!!statu\{32}&&\{32}!!carri\{13}
 macros += M [ *f<<body\{32}||\{32}aux>>\{32}&&\{32}!!orb\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
