@@ -3887,9 +3887,9 @@ ae = <of amnesia, of brilliance
 ae = <butterflies, summoning, phantom mirror, horn of Geryon, box of beasts, sack of spiders
 : end
 
-# : if you.race() ~= "Djinni" and (you.god() == "Okawaru" or you.god() == "Trog" or you.god() == "The Shining One" or you.god() == "Elyvilon" or you.god() == "Zin") then
-# ae = <book of, parchment of
-# : end
+: if you.race() ~= "Djinni" and (you.god() == "Okawaru" or you.god() == "Trog" or you.god() == "The Shining One" or you.god() == "Elyvilon" or you.god() == "Zin") then
+ae = <book of, parchment of
+: end
 
 ae += moonshine
 
