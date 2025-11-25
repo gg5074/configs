@@ -4001,6 +4001,10 @@ ai += (?<!the) \+[1-3] (falchion|long sword|quarterstaff|troll leather armour|ri
 ai += (?<!the) \+0 (mace|flail|dire flail|war axe|trident|halberd|chain mail|plate armour|steam dragon scales|helmet) (?!("|of)):~~DROP_ME
 : end
 
+: if you.xl() > 18 then
+ai += of identify:~~DROP_ME
+: end
+
 : if you.xl() > 20 then
 ai += (?<!the) \+0 (great mace|battleaxe|executioner's axe|scythe|glaive|bardiche|buckler|pair of boots|cloak|pair of gloves|acid dragon scales|swamp dragon scales) (?!("|of)):~~DROP_ME
 : end
