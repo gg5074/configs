@@ -108,7 +108,7 @@ function init_config()
       "6 ring of strength", "6 ring of dexterity", "Cigotuvi's embrace",
       "spear of", "trident of", "partisan", "partisan of", "demon trident", "demon trident of", "trishula", "glaive", "bardiche",
       "broad axe", "morningstar", "eveningstar", "demon whip", "sacred scourge", "demon blade",
-      "buckler", "buckler of", "kite shield", "kite shield of", "tower shield", "tower shield of", "of experience", "of acquirement", "wand of digging",
+      "buckler", "buckler of", "kite shield", "kite shield of", "tower shield", "tower shield of", "wand of digging",
       "ring mail of", "scale mail of", "chain mail", "chain mail of", "plate armour","plate armour of",
       "crystal plate armour", "golden dragon scales", "storm dragon scales", "swamp dragon scales",
       "quicksilver dragon scales", "pearl dragon scales", "shadow dragon scales"
@@ -3217,7 +3217,9 @@ menu := menu_colour
 
 msc := message_colour
 msc ^= lightgrey:( miss | misses |no damage|fail to reach past|returns to the grave|disappears in a puff of smoke)
+msc ^= yellow:(You feel a bit more experienced)
 msc += mute:You swap places with your
+msc += mute:There is an open door here
 
 hp_colour = 100:green, 99:lightgray, 75:yellow, 50:lightred, 25:red
 mp_colour = 100:green, 99:lightgray, 75:yellow, 50:lightred, 25:red
@@ -3294,7 +3296,6 @@ ignore += your breath back
 ignore += engulfed in a cloud of smoke
 ignore += engulfed in white fluffiness
 ignore += safely over a trap
-ignore += You reach down and close the door
 interrupt_travel -= sense_monster
 
 # crawl.chaosforge.org/Portal
@@ -3448,8 +3449,8 @@ more += You are too injured to fight blindly
 more += You feel your attacks grow feeble
 more += The blast of calcifying dust hits (?!(your|(?-i:[A-Z])|the)
 flash += The blast of calcifying dust hits (?!(your|(?-i:[A-Z])|the)
-more += Space warps horribly.*around you
-more += Space bends around you
+more += Space warps horribly.*around (?!your)you
+more += Space bends around (?!your)you
 more += Your limbs have turned to stone
 more += Your body becomes as fragile as glass
 flash += You feel extremely sick
@@ -4183,7 +4184,7 @@ macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&
 : end
 
 : if you.race() == "Minotaur" or you.race() == "Troll" then
-macros += M P *fin_shop\{32}&&\{32}!!0\{32}dagg\{32}&&\{32}!!0\{32}shor\{32}&&\{32}!!0\{32}rapie\{32}&&\{32}!!0\{32}falc\{32}&&\{32}!!0\{32}long\{32}\{32}&&\{32}!!0\{32}grea\{32}&&\{32}!!0\{32}sling\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!0\{32}mace\{32}&&\{32}!!0\{32}spear\{32}&&\{32}!!0\{32}tride\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battlea\{32}&&\{32}!!0\{32}hand\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}ax\{32}&&\{32}!!skin\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!0\{32}leat\{32}&&\{32}!!0\{32}ring\{32}mail\{32}&&\{32}!!0\{32}scale\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!0\{32}cloa\{32}&&\{32}!!book\{32}&&\{32}!!parchm\{32}&&\{32}!!carri\{13}
+macros += M P *fin_shop\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!0\{32}mace\{32}&&\{32}!!0\{32}spear\{32}&&\{32}!!0\{32}tride\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battlea\{32}&&\{32}!!0\{32}hand\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}ax\{32}&&\{32}!!skin\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!0\{32}leat\{32}&&\{32}!!0\{32}ring\{32}mail\{32}&&\{32}!!0\{32}scale\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!0\{32}cloa\{32}&&\{32}!!book\{32}&&\{32}!!parchm\{32}&&\{32}!!carri\{13}
 : end
 
 : if you.race() ~= "Minotaur" and you.race() ~= "Troll" then
