@@ -3271,7 +3271,6 @@ explore_delay = 15
 view_delay = 550
 level_map_cursor_step = 8
 warn_hatches = true
-travel_open_doors = approach
 explore_stop = greedy_pickup_smart
 explore_stop += stairs,shops,altars,portals,branches,runed_doors,glowing_items,artefacts,runes
 
@@ -3855,7 +3854,7 @@ dump_message_count = 200
 note_hp_percent = 20
 user_note_prefix = 
 
-note_items += of experience,of resistance,archmagi,crystal plate armour,pearl dragon scales,granite talisman,talisman of death
+note_items += of experience,of resistance,archmagi,crystal plate armour,pearl dragon scales
 note_messages += You pass through the gate
 note_messages += cast.*Abyss
 note_messages += BOSS
@@ -3966,6 +3965,7 @@ ai += box of beasts:HD 3 9 15 21 27(Evo+1d7-1d7)
 ai += condenser vane:(65+3.5*Evo)/1.6%
 ai += tin of tremorstones:Evo 2.5 6 11 18, 5x5 6d6 40%
 ai += lightning rod:(2+PreUses)d(0.75*Evo+46.25)/3, 2d16(Evo1)
+ai += Gell's gravitambourine:Evo 9.5 23.2
 
 ai += ring of magical power:MP+9
 ai += quicksilver dragon scales (?!("|of)):Will+
