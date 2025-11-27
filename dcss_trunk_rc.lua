@@ -3703,7 +3703,7 @@ more += Nobody ignites a memory of
 more += BOSS
 flash += BOSS
 flash += changes into,Something shouts
-# monster_alert += nasty
+monster_alert += nasty
 
 # Dissolution (Slime:2-5)
 # github.com/crawl/crawl/blob/master/crawl-ref/source/mon-act.cc
@@ -3711,8 +3711,9 @@ flash += changes into,Something shouts
 flash += You hear a (sizzling sound|grinding noise)
 : end
 
-# more += (?!orb guardian|executioner)(?-i:[A-Z]).* into view
-flash += (?!orb guardian|executioner)(?-i:[A-Z]).* into view
+# more += (?!orb guardian|executioner)(?-i:[A-Z]).*into view
+# flash += (?!orb guardian|executioner)(?-i:[A-Z]).*into view
+flash += You encounter.*(?!orb guardian|executioner)(?-i:[A-Z])
 
 more += (lernaean hydra|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy)).*into view
 flash += (lernaean hydra|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy)).*into view
@@ -3826,7 +3827,7 @@ flash += (cyan ugly|radroach|meliai) (?!zombie|draugr|simulacrum).*into view
 : if you.xl() <= 13 then
 unusual_monster_items += triple sword,executioner's axe,halberd,glaive,bardiche,arbalest,hand cannon,triple crossbow
 more += (?<!spectral) (two-headed ogre|kobold geomancer|orange demon|rust devil|lindwurm|ice devil|cane toad|komodo dragon) (?!zombie|draugr|simulacrum).*into view
-# monster_alert += tough
+monster_alert += tough
 : end
 
 : if you.xl() <= 10 then
@@ -3836,7 +3837,7 @@ more += (wyvern|brain worm|queen bee|gnoll bouda|centaurs?|komodo dragon) (?!zom
 
 : if you.xl() <= 7 then
 # unusual_monster_items += spear,(?<!demon) trident,sling,shortbow,orcbow
-more += (bombardier beetle|sky beast|electric eel|sleepcap) (?!zombie|draugr|simulacrum).*into view
+more += (bombardier beetle|ice beast|sky beast|electric eel|sleepcap) (?!zombie|draugr|simulacrum).*into view
 # more += killer bees? (?!zombie|draugr|simulacrum).*into view
 flash += killer bees? (?!zombie|draugr|simulacrum).*into view
 more += orc (wizard|priest|warrior) (?!zombie|draugr|simulacrum).*into view
