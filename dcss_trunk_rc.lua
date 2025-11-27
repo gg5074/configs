@@ -3222,6 +3222,9 @@ msc += mute:You swap places with your
 msc += mute:There is an open door here
 msc += mute:Search for what
 
+# github.com/crawl/crawl/commit/03cf731cd7f90669eb5f4fdd65f006c47cf609cc
+# msc += mute:Maggie comes into view
+
 hp_colour = 100:green, 99:lightgray, 75:yellow, 50:lightred, 25:red
 mp_colour = 100:green, 99:lightgray, 75:yellow, 50:lightred, 25:red
 hp_warning = 50
@@ -3802,52 +3805,52 @@ unusual_monster_items += vulnerable:holy_wrath
 unusual_monster_items += of (electrocution|draining|vampiric|pain)
 unusual_monster_items += of (spectral|heavy|\+[5-9])
 unusual_monster_items += wand of (paralysis|roots|light)
-more += (deep elf master archer|boggart|bunyips|stone giant|ironbound beastmaster) (?!zombie|draugr|simulacrum).*into view
-more += (formless jellyfish|broodmother|spark wasp|orb spider|nagaraja|merfolk (javelineer|impaler)) (?!zombie|draugr|simulacrum).*into view
+more += You encounter.*(deep elf master archer|boggart|bunyips|stone giant|ironbound beastmaster) (?!zombie|draugr|simulacrum)
+more += You encounter.*(formless jellyfish|broodmother|spark wasp|orb spider|nagaraja|merfolk (javelineer|impaler)) (?!zombie|draugr|simulacrum)
 # Paralysis/Petrify/Banish
-more += (fenstrider witch|orc sorcerer|ogre mage|occultist|great orb of eyes|sphinx (?!zombie|draugr|simulacrum)).*into view
-more += (?<!spectral) (jorogumo|vampire knight|basilisk|catoblepas|deep elf (sorcerer|demonologist)) (?!zombie|draugr|simulacrum).*into view
+more += You encounter.*(fenstrider witch|orc sorcerer|ogre mage|occultist|great orb of eyes|sphinx (?!zombie|draugr|simulacrum))
+more += You encounter.*(?<!spectral) (jorogumo|vampire knight|basilisk|catoblepas|deep elf (sorcerer|demonologist)) (?!zombie|draugr|simulacrum)
 flash += The boggart gestures wildly while chanting
 : end
 
 : if you.xl() <= 18 then
 unusual_monster_items += of (flaming|freezing)
-more += (water nymph|anaconda|ironbound thunderhulk) (?!zombie|draugr|simulacrum).*into view
+more += You encounter.*(water nymph|anaconda|ironbound thunderhulk) (?!zombie|draugr|simulacrum)
 flash += The water rises up and strikes you
 : end
 
 : if you.xl() <= 16 then
 unusual_monster_items += of (venom)
 unusual_monster_items += wand of (charming|polymorph)
-more += (raven|fire dragon|centaur warrior|yaktaurs?|cyclops|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma) (?!zombie|draugr|simulacrum).*into view
-more += (deep elf|kobold blastminer|gargoyle|ghoul|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant|wolf spider) (?!zombie|draugr|simulacrum).*into view
-flash += (cyan ugly|radroach|meliai) (?!zombie|draugr|simulacrum).*into view
+more += You encounter.*(raven|fire dragon|centaur warrior|yaktaurs?|cyclops|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma) (?!zombie|draugr|simulacrum)
+more += You encounter.*(deep elf|kobold blastminer|gargoyle|ghoul|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant|wolf spider) (?!zombie|draugr|simulacrum)
+flash += You encounter.*(cyan ugly|radroach|meliai) (?!zombie|draugr|simulacrum)
 : end
 
 : if you.xl() <= 13 then
 unusual_monster_items += triple sword,executioner's axe,halberd,glaive,bardiche,arbalest,hand cannon,triple crossbow
-more += (?<!spectral) (two-headed ogre|kobold geomancer|orange demon|rust devil|lindwurm|ice devil|cane toad|komodo dragon) (?!zombie|draugr|simulacrum).*into view
-monster_alert += tough
+more += You encounter.*(?<!spectral) (two-headed ogre|kobold geomancer|orange demon|rust devil|lindwurm|ice devil|cane toad|komodo dragon) (?!zombie|draugr|simulacrum)
+# monster_alert += tough
 : end
 
 : if you.xl() <= 10 then
 unusual_monster_items += great sword,demon trident,partisan,trishula,longbow
-more += (wyvern|brain worm|queen bee|gnoll bouda|centaurs?|komodo dragon) (?!zombie|draugr|simulacrum).*into view
+more += You encounter.*(wyvern|brain worm|queen bee|gnoll bouda|centaurs?|komodo dragon) (?!zombie|draugr|simulacrum)
+flash += You encounter.*(yak)
 : end
 
 : if you.xl() <= 7 then
 # unusual_monster_items += spear,(?<!demon) trident,sling,shortbow,orcbow
-more += (bombardier beetle|ice beast|sky beast|electric eel|sleepcap) (?!zombie|draugr|simulacrum).*into view
-# more += killer bees? (?!zombie|draugr|simulacrum).*into view
-flash += killer bees? (?!zombie|draugr|simulacrum).*into view
-more += orc (wizard|priest|warrior) (?!zombie|draugr|simulacrum).*into view
-flash += orc (wizard|priest|warrior) (?!zombie|draugr|simulacrum).*into view
-more += (ogre|gnoll) (?!zombie|draugr|simulacrum).*into view
-flash += (ogre|gnoll) (?!zombie|draugr|simulacrum).*into view
+more += You encounter.*(bombardier beetle|ice beast|sky beast|electric eel|sleepcap) (?!zombie|draugr|simulacrum)
+flash += You encounter.*killer bees? (?!zombie|draugr|simulacrum)
+more += You encounter.*orc (wizard|priest|warrior) (?!zombie|draugr|simulacrum)
+flash += You encounter.*orc (wizard|priest|warrior) (?!zombie|draugr|simulacrum)
+more += You encounter.*(ogre|gnoll) (?!zombie|draugr|simulacrum)
+flash += You encounter.*(ogre|gnoll) (?!zombie|draugr|simulacrum)
 : end
 
 : if you.xl() <= 4 and you.race() ~= "Gargoyle" and you.race() ~= "Revenant" and you.race() ~= "Poltergeist" and you.race() ~= "Mummy" and you.race() ~= "Djinni" then
-more += adder (?!zombie|draugr|simulacrum).*into view
+more += You encounter.*adder (?!zombie|draugr|simulacrum)
 : end
 
 ##############
