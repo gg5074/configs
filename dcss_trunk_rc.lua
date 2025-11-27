@@ -3225,7 +3225,7 @@ msc += mute:You swap places with your
 msc += mute:(Your.*zombie|The butterfly) leaves your sight
 
 : if you.god() == "Yredelemnul" and you.branch() == "Lair" then
-msc += mute:Your.*(hits|bites|gores|tramples|trunk-slaps) (something|the (plant|bush|fungus))
+msc += mute:Your.*(hits|bites|pecks|gores|tramples|trunk-slaps) (something|the (plant|bush|fungus))
 msc += mute:Something bites the bush but does no damage
 : end
 
@@ -3830,7 +3830,7 @@ unusual_monster_items += of (venom)
 unusual_monster_items += wand of (charming|polymorph)
 more += You encounter.*(raven|fire dragon|centaur warrior|yaktaurs?|cyclops|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma|tengu) (?!zombie|draugr|simulacrum)
 more += You encounter.*(deep elf|kobold blastminer|gargoyle|ghoul|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant|wolf spider) (?!zombie|draugr|simulacrum)
-flash += You encounter.*(cyan ugly|radroach|meliai) (?!zombie|draugr|simulacrum)
+flash += You encounter.*(raiju|cyan ugly|radroach|meliai) (?!zombie|draugr|simulacrum)
 : end
 
 : if you.xl() <= 13 then
