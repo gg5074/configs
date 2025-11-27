@@ -3219,7 +3219,7 @@ msc := message_colour
 msc ^= lightgrey:( miss | misses |no damage|fail to reach past|returns to the grave|disappears in a puff of smoke)
 msc ^= yellow:(You feel a bit more experienced)
 
-msc += mute:Search for what
+msc += mute:Search for what.*(<<|@|in_shop)
 msc += mute:There is an open door here
 msc += mute:You swap places with your
 msc += mute:(Your.*zombie|The butterfly) leaves your sight
@@ -3227,6 +3227,7 @@ msc += mute:(Your.*zombie|The butterfly) leaves your sight
 : if you.god() == "Yredelemnul" and you.branch() == "Lair" then
 msc += mute:Your.*(something|the (plant|bush|fungus))
 msc += mute:Something.*the (plant|bush|fungus)
+msc += mute:(The|A nearby) (plant|bush|fungus).*die
 : end
 
 # github.com/crawl/crawl/commit/03cf731cd7f90669eb5f4fdd65f006c47cf609cc
