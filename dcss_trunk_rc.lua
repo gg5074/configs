@@ -3219,8 +3219,8 @@ msc := message_colour
 msc ^= lightgrey:( miss | misses |no damage|fail to reach past|returns to the grave|disappears in a puff of smoke)
 msc ^= yellow:(You feel a bit more experienced)
 
-msc += mute:There is an open door here
 msc += mute:Search for what
+msc += mute:There is an open door here
 msc += mute:You swap places with your
 msc += mute:(Your.*zombie|The butterfly) leaves your sight
 
