@@ -3560,6 +3560,7 @@ more += The heavenly storm settles
 more += Beogh will now send orc apostles to challenge you
 flash += Beogh will now send orc apostles to challenge you
 more += the orc apostle comes into view
+more += You encounter.*the orc apostle
 more += falls to his knees and submits
 
 : if you.god() == "Beogh" then
@@ -3715,7 +3716,7 @@ flash += You hear a (sizzling sound|grinding noise)
 : end
 
 # more += You encounter.*(?!orb guardian|executioner)(?-i:[A-Z])
-flash += You encounter.**(?!orb guardian|executioner)(?-i:[A-Z])
+flash += You encounter.*(?!orb guardian|executioner)(?-i:[A-Z])
 
 more += You encounter.*(lernaean hydra|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy))
 flash += You encounter.*(lernaean hydra|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy))
