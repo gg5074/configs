@@ -3218,9 +3218,16 @@ menu := menu_colour
 msc := message_colour
 msc ^= lightgrey:( miss | misses |no damage|fail to reach past|returns to the grave|disappears in a puff of smoke)
 msc ^= yellow:(You feel a bit more experienced)
-msc += mute:You swap places with your
+
 msc += mute:There is an open door here
 msc += mute:Search for what
+msc += mute:You swap places with your
+msc += mute:(Your.*zombie|The butterfly) leaves your sight
+
+: if you.god() == "Yredelemnul" and you.branch() == "Lair" then
+msc += mute:Your.*(hits|bites|gores|tramples|trunk-slaps) (something|the (plant|bush|fungus))
+msc += mute:Something bites the bush but does no damage
+: end
 
 # github.com/crawl/crawl/commit/03cf731cd7f90669eb5f4fdd65f006c47cf609cc
 # msc += mute:Maggie comes into view
@@ -3821,14 +3828,14 @@ flash += The water rises up and strikes you
 : if you.xl() <= 16 then
 unusual_monster_items += of (venom)
 unusual_monster_items += wand of (charming|polymorph)
-more += You encounter.*(raven|fire dragon|centaur warrior|yaktaurs?|cyclops|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma) (?!zombie|draugr|simulacrum)
+more += You encounter.*(raven|fire dragon|centaur warrior|yaktaurs?|cyclops|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma|tengu) (?!zombie|draugr|simulacrum)
 more += You encounter.*(deep elf|kobold blastminer|gargoyle|ghoul|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant|wolf spider) (?!zombie|draugr|simulacrum)
 flash += You encounter.*(cyan ugly|radroach|meliai) (?!zombie|draugr|simulacrum)
 : end
 
 : if you.xl() <= 13 then
 unusual_monster_items += triple sword,executioner's axe,halberd,glaive,bardiche,arbalest,hand cannon,triple crossbow
-more += You encounter.*(?<!spectral) (two-headed ogre|kobold geomancer|orange demon|rust devil|lindwurm|ice devil|cane toad|komodo dragon) (?!zombie|draugr|simulacrum)
+more += You encounter.*(?<!spectral) (two-headed ogre|kobold geomancer|orange demon|rust devil|lindwurm|ice devil|hornet|cane toad|komodo dragon) (?!zombie|draugr|simulacrum)
 # monster_alert += tough
 : end
 
