@@ -3606,7 +3606,6 @@ more += You add the spells?.*(Beckoning|Golubria|Vhi's Electric|Manifold Assault
 # more += You add the spells?.*(Dispersal|Gell's Gavotte|Manifold Assault|Translocation)
 # : end
 
-# interrupt_travel += <activity_interrupt_type>
 stop ^= Your.*disappears in a puff of smoke,Your spellspark servitor fades away,Your battlesphere wavers and loses cohesion
 
 {
@@ -3837,6 +3836,7 @@ flash += You encounter.*(raiju|cyan ugly|radroach|meliai) (?!zombie|draugr|simul
 : if you.xl() <= 13 then
 unusual_monster_items += triple sword,executioner's axe,halberd,glaive,bardiche,arbalest,hand cannon,triple crossbow
 more += You encounter.*(?<!spectral) (two-headed ogre|kobold geomancer|orange demon|rust devil|lindwurm|ice devil|hornet|cane toad|komodo dragon) (?!zombie|draugr|simulacrum)
+flash += You encounter.*(death yak)
 # monster_alert += tough
 : end
 
