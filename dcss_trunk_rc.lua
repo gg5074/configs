@@ -3707,7 +3707,7 @@ more += Nobody ignites a memory of
 more += BOSS
 flash += BOSS
 flash += changes into,Something shouts
-monster_alert += nasty
+monster_alert += pandemonium lord, nasty
 
 # Dissolution (Slime:2-5)
 # github.com/crawl/crawl/blob/master/crawl-ref/source/mon-act.cc
@@ -3767,8 +3767,7 @@ more += You encounter.*((ancient|dread) lich|demonspawn warmonger|oni incarcerat
 
 : if you.xl() <= 24 then
 unusual_monster_items += of (acid)
-more += You encounter.*hits (?!your)you.*of (distortion|chaos)
-more += You encounter.*warns (?!your)you.*of (distortion|chaos)
+more += (hits|warns) (?!your)you.*of (distortion|chaos)
 more += You encounter.*((deep elf|draconian) annihilator|tengu reaver|air elemental|void ooze|orb guardian) (?!zombie|draugr|simulacrum)
 more += You encounter.*((?<!(ancient|dread)) lich|shadow dragon|juggernaut|caustic shrike|wyrmhole|spriggan berserker) (?!zombie|draugr|simulacrum)
 more += The spriggan berserker utters an invocation to Trog
