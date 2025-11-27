@@ -3204,7 +3204,7 @@ tile_show_player_species = true
 
 tile_player_status_icons = slow, constr, fragile, petr, mark, will/2, haste, weak, corr, might, brill, -move
 
-cloud_status = true
+# cloud_status = true
 
 action_panel_font_size = 19
 action_panel_font_family = UD デジタル 教科書体 N-B
@@ -3302,6 +3302,7 @@ interrupt_travel -= sense_monster
 # github.com/crawl/crawl/tree/master/crawl-ref/source/dat/des/portals
 # very nearby: 7–13, nearby: 14–20, distant: 21–27, very distant: 28+
 flash += timed_portal:
+stop += timed_portal:
 flash += You hear.*very (nearby|distant)
 more += You hear.*(quick|urgent|loud (creaking of a portcullis|crackling of a melting archway)|rising multitudes|rapid|thunderous|frantic|ear-piercing|full choir)
 flash += You hear.*(quick|urgent|loud (creaking of a portcullis|crackling of a melting archway)|rising multitudes|rapid|thunderous|frantic|ear-piercing|full choir)
@@ -3702,6 +3703,7 @@ more += Nobody ignites a memory of
 more += BOSS
 flash += BOSS
 flash += changes into,Something shouts
+# monster_alert += nasty
 
 # Dissolution (Slime:2-5)
 # github.com/crawl/crawl/blob/master/crawl-ref/source/mon-act.cc
@@ -3709,7 +3711,7 @@ flash += changes into,Something shouts
 flash += You hear a (sizzling sound|grinding noise)
 : end
 
-more += (?!orb guardian|executioner)(?-i:[A-Z]).* into view
+# more += (?!orb guardian|executioner)(?-i:[A-Z]).* into view
 flash += (?!orb guardian|executioner)(?-i:[A-Z]).* into view
 
 more += (lernaean hydra|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy)).*into view
@@ -3824,6 +3826,7 @@ flash += (cyan ugly|radroach|meliai) (?!zombie|draugr|simulacrum).*into view
 : if you.xl() <= 13 then
 unusual_monster_items += triple sword,executioner's axe,halberd,glaive,bardiche,arbalest,hand cannon,triple crossbow
 more += (?<!spectral) (two-headed ogre|kobold geomancer|orange demon|rust devil|lindwurm|ice devil|cane toad|komodo dragon) (?!zombie|draugr|simulacrum).*into view
+# monster_alert += tough
 : end
 
 : if you.xl() <= 10 then
@@ -3858,7 +3861,7 @@ note_items += of experience,of resistance,archmagi,crystal plate armour,pearl dr
 note_messages += You pass through the gate
 note_messages += cast.*Abyss
 note_messages += BOSS
-note_messages += 's soul is now yours, Your bound.*is destroyed!
+note_messages += Yredelemnul refuses to let your conquest be stopped by a trick of the earth!, 's soul is now yours, Your bound.*is destroyed!
 
 dump_order  = header,hiscore,stats,misc,apostles,mutations,overview,inventory,skills,spells
 dump_order += messages,screenshot,monlist,kills
