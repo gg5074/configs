@@ -3225,8 +3225,8 @@ msc += mute:You swap places with your
 msc += mute:(Your.*zombie|The butterfly) leaves your sight
 
 : if you.god() == "Yredelemnul" and you.branch() == "Lair" then
-msc += mute:Your.*(hits|bites|pecks|gores|tramples|trunk-slaps) (something|the (plant|bush|fungus))
-msc += mute:Something bites the bush but does no damage
+msc += mute:Your.*(something|the (plant|bush|fungus))
+msc += mute:Something.*the (plant|bush|fungus)
 : end
 
 # github.com/crawl/crawl/commit/03cf731cd7f90669eb5f4fdd65f006c47cf609cc
@@ -3458,8 +3458,8 @@ more += disloyal to dabble
 more += lose consciousness
 more += You are too injured to fight blindly
 more += You feel your attacks grow feeble
-more += The blast of calcifying dust hits (?!(your|(?-i:[A-Z])|the)
-flash += The blast of calcifying dust hits (?!(your|(?-i:[A-Z])|the)
+more += The blast of calcifying dust hits (?!(your|(?-i:[A-Z])|the)you
+flash += The blast of calcifying dust hits (?!(your|(?-i:[A-Z])|the)you
 more += Space warps horribly.*around (?!your)you
 more += Space bends around (?!your)you
 more += Your limbs have turned to stone
