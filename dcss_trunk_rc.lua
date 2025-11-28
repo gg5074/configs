@@ -3727,8 +3727,8 @@ monster_alert += pandemonium lord, nasty
 flash += You hear a (sizzling sound|grinding noise)
 : end
 
-# more += You encounter.*(?!orb guardian|executioner)(?-i:[A-Z]).*(?! It is )
-flash += You encounter.*(?!orb guardian|executioner)(?-i:[A-Z]).*(?! It is )
+# more += You encounter.*(?!orb guardian|executioner)(?-i:[A-Z])(?!t is )
+flash += You encounter.*(?!orb guardian|executioner)(?-i:[A-Z])(?!t is )
 
 more += You encounter.*(lernaean hydra|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy))
 flash += You encounter.*(lernaean hydra|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy))
