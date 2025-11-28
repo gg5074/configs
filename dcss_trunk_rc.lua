@@ -3227,6 +3227,7 @@ msc += mute:Search for what.*(<<|@|in_shop)
 msc += mute:There is an open door here
 msc += mute:You swap places with (your|(?-i:[A-Z]))
 msc += mute:(Your.*|The butterfly) leaves your sight
+msc += mute:Your.*is recalled
 
 : if you.god() == "Yredelemnul" then
 msc += mute:Your.*(something|the (plant|bush|fungus))
@@ -3734,8 +3735,8 @@ flash += You hear a (sizzling sound|grinding noise)
 # more += You encounter (?!orb guardian|executioner)(?-i:[A-Z])
 flash += You encounter (?!orb guardian|executioner)(?-i:[A-Z])
 
-more += You encounter.*(lernaean hydra|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy))
-flash += You encounter.*(lernaean hydra|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy))
+more += You encounter.*(lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy))
+flash += You encounter.*(lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy))
 
 more += the reach of Zot diminish
 more += The shining eye gazes at you
