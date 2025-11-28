@@ -3224,10 +3224,11 @@ msc += mute:There is an open door here
 msc += mute:You swap places with (your|(?-i:[A-Z]))
 msc += mute:(Your.*zombie|The butterfly) leaves your sight
 
-: if you.god() == "Yredelemnul" and you.branch() == "Lair" then
+: if you.god() == "Yredelemnul" then
 msc += mute:Your.*(something|the (plant|bush|fungus))
 msc += mute:Something.*the (plant|bush|fungus)
 msc += mute:(The|A nearby) (plant|bush|fungus).*die
+msc += mute:Your.*web
 : end
 
 # github.com/crawl/crawl/commit/03cf731cd7f90669eb5f4fdd65f006c47cf609cc
@@ -3420,6 +3421,7 @@ flash += LOW MAGIC WARNING
 : end
 
 more += You don't have enough magic to cast this spell
+more += You fail to use your ability
 more += You stop ascending the stairs
 flash += You stop ascending the stairs
 more += surroundings become eerily quiet
