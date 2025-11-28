@@ -3319,7 +3319,10 @@ flash += You hear.*very (nearby|distant)
 more += You hear.*(quick|urgent|loud (creaking of a portcullis|crackling of a melting archway)|rising multitudes|rapid|thunderous|frantic|ear-piercing|full choir)
 flash += You hear.*(quick|urgent|loud (creaking of a portcullis|crackling of a melting archway)|rising multitudes|rapid|thunderous|frantic|ear-piercing|full choir)
 more += Found.*(bazaar|trove|phantasmal|sand-covered|glowing drain|flagged portal|gauntlet|frozen archway|dark tunnel|crumbling gateway|ruined gateway|magical portal|ziggurat)
+flash += volcano erupts with a roar
 more += You enter a wizard's laboratory
+more += The walls (briefly|violently) shake
+more += The walls fall away. The entombed are set free!
 flash += Hurry and find it
 more += The walls and floor vibrate strangely for a moment
 flash += The walls and floor vibrate strangely for a moment
@@ -3487,7 +3490,6 @@ more += (?<!Your (shadowghast|vampire)) flickers and vanishes
 flash += (?<!Your).*flickers and vanishes
 more += is no longer charmed
 more += You have lost all your
-flash += volcano erupts with a roar
 more += Chaos surges forth from piles of flesh
 flash += You feel the power of Zot begin to focus
 # more += You hear a sizzling splash
@@ -3677,6 +3679,7 @@ stop += scroll labelled,potion labelled
 
 : if you.xl() >= 10 then
 stop += You see here.*scrolls? of (enchant weapon|brand weapon)
+stop += You see here.*potions? of mutation
 : end
 
 : if you.xl() <= 16 then
@@ -3724,8 +3727,8 @@ monster_alert += pandemonium lord, nasty
 flash += You hear a (sizzling sound|grinding noise)
 : end
 
-# more += You encounter.*(?!orb guardian|executioner)(?-i:[A-Z])
-flash += You encounter.*(?!orb guardian|executioner)(?-i:[A-Z])
+# more += You encounter.*(?!orb guardian|executioner)(?-i:[A-Z]).*(?! It is )
+flash += You encounter.*(?!orb guardian|executioner)(?-i:[A-Z]).*(?! It is )
 
 more += You encounter.*(lernaean hydra|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy))
 flash += You encounter.*(lernaean hydra|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy))
@@ -4208,7 +4211,7 @@ macros += M P *fin_shop\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!0\{
 macros += M P *fin_shop\{32}&&\{32}!!0\{32}dagg\{32}&&\{32}!!0\{32}shor\{32}&&\{32}!!0\{32}rapie\{32}&&\{32}!!0\{32}falc\{32}&&\{32}!!0\{32}long\{32}\{32}&&\{32}!!0\{32}grea\{32}&&\{32}!!0\{32}sling\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!0\{32}mace\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spea\{32}&&\{32}!!0\{32}tride\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battlea\{32}&&\{32}!!0\{32}hand\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!skin\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!0\{32}leat\{32}&&\{32}!!0\{32}ring\{32}mail\{32}&&\{32}!!0\{32}scale\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!0\{32}cloa\{32}&&\{32}!!carri\{13}
 : end
 
-macros += M S *f<<scrol\{32}||\{32}potio>>\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+macros += M S *f<<scrol\{32}||\{32}potio>>\{32}&&\{32}!!iden\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 macros += M % *f<<misc\{32}||\{32}wand\{32}||\{32}throwin>>\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 macros += M " *f<<jewell\{32}||\{32}orb>>\{32}&&\{32}!!statu\{32}&&\{32}!!carri\{13}
 macros += M [ *f<<body\{32}||\{32}aux>>\{32}&&\{32}!!orb\{32}&&\{32}!!skin\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!0\{32}leat\{32}&&\{32}!!0\{32}ring\{32}mail\{32}&&\{32}!!0\{32}scale\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!0\{32}cloa\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
