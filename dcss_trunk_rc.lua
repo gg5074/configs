@@ -3810,12 +3810,10 @@ more += slime creatures merge to form a (very large|enormous|titanic)
 : end
 
 # github.com/crawl/crawl/commit/e02c2b2bd47e38273f95c7b2855e43783a19ae70
-# unusual_monster_"teism" += vulnerable:holy_wrath
 unusual_monster_items += vulnerable:acid:24
 unusual_monster_items += vulnerable:(electrocution|draining|vampiric|pain):20
 unusual_monster_items += vulnerable:(flaming|freezing):18
 unusual_monster_items += vulnerable:(venom):16
-unusual_monster_items += vulnerable:holy_wrath
 
 : if you.xl() <= 20 then
 unusual_monster_items += of (electrocution|draining|vampiric|pain)
