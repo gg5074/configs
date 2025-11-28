@@ -3828,14 +3828,14 @@ flash += The water rises up and strikes you
 : if you.xl() <= 16 then
 unusual_monster_items += of (venom)
 unusual_monster_items += wand of (charming|polymorph)
-more += You encounter.*(raven|fire dragon|centaur warrior|yaktaurs?|cyclops|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma|tengu) (?!zombie|draugr|simulacrum)
+more += You encounter.*(raven|fire dragon|centaur warrior|yaktaurs?|cyclops|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma) (?!zombie|draugr|simulacrum)
 more += You encounter.*(deep elf|kobold blastminer|gargoyle|ghoul|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant|wolf spider) (?!zombie|draugr|simulacrum)
 flash += You encounter.*(raiju|cyan ugly|radroach|meliai) (?!zombie|draugr|simulacrum)
 : end
 
 : if you.xl() <= 13 then
 unusual_monster_items += triple sword,executioner's axe,halberd,glaive,bardiche,arbalest,hand cannon,triple crossbow
-more += You encounter.*(?<!spectral) (two-headed ogre|kobold geomancer|orange demon|rust devil|lindwurm|ice devil|hornet|cane toad|komodo dragon) (?!zombie|draugr|simulacrum)
+more += You encounter.*(?<!spectral) (two-headed ogre|kobold geomancer|tengu|orange demon|rust devil|lindwurm|ice devil|hornet|cane toad|komodo dragon) (?!zombie|draugr|simulacrum)
 flash += You encounter.*(death yak)
 # monster_alert += tough
 : end
