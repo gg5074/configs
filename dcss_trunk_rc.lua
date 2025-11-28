@@ -3204,7 +3204,7 @@ tile_show_player_species = true
 
 tile_player_status_icons = slow, constr, fragile, petr, mark, will/2, haste, weak, corr, might, brill, -move
 
-# cloud_status = true
+cloud_status = true
 
 action_panel_font_size = 19
 action_panel_font_family = UD デジタル 教科書体 N-B
@@ -3222,7 +3222,7 @@ msc ^= yellow:(You feel a bit more experienced)
 msc += mute:Search for what.*(<<|@|in_shop)
 msc += mute:There is an open door here
 msc += mute:You swap places with (your|(?-i:[A-Z]))
-msc += mute:(Your.*zombie|The butterfly) leaves your sight
+msc += mute:(Your.*|The butterfly) leaves your sight
 
 : if you.god() == "Yredelemnul" then
 msc += mute:Your.*(something|the (plant|bush|fungus))
