@@ -3219,6 +3219,10 @@ msc := message_colour
 msc ^= lightgrey:( miss | misses |no damage|fail to reach past|returns to the grave|disappears in a puff of smoke)
 msc ^= yellow:(You feel a bit more experienced)
 
+: if you.race() ~= "Minotaur" then
+msc ^= lightgrey:helmet
+: end
+
 msc += mute:Search for what.*(<<|@|in_shop)
 msc += mute:There is an open door here
 msc += mute:You swap places with (your|(?-i:[A-Z]))
@@ -3229,10 +3233,10 @@ msc += mute:Your.*(something|the (plant|bush|fungus))
 msc += mute:Something.*the (plant|bush|fungus)
 msc += mute:(The|A nearby) (plant|bush|fungus).*die
 msc += mute:Your.*web
-: end
-
+msc += mute:The confined air twists around weakly and strikes your
 # github.com/crawl/crawl/commit/03cf731cd7f90669eb5f4fdd65f006c47cf609cc
 # msc += mute:Maggie comes into view
+: end
 
 hp_colour = 100:green, 99:lightgray, 75:yellow, 50:lightred, 25:red
 mp_colour = 100:green, 99:lightgray, 75:yellow, 50:lightred, 25:red
