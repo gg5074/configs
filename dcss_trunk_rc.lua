@@ -3715,12 +3715,14 @@ flash += Found.*(The Shining One|Zin)
 # github.com/crawl/crawl/blob/master/crawl-ref/source/mon-gear.cc
 unusual_monster_items += ( the |distortion|chaos|silver)
 more += You encounter.*(undying armoury|antique champion|torpor snail|nekomata|oblivion hound|acid blob|entropy weaver|ghost moth|death knight|eye of devastation) (?!zombie|draugr|simulacrum)
+more += The undying armouty arms its allies with
 more += 's illusion shouts
 flash += 's illusion shouts
 more += Bai Suzhen roars in fury and transforms into a fierce dragon
 flash += Bai Suzhen roars in fury and transforms into a fierce dragon
 more += Xak'krixis conjures a prism
 more += Nobody ignites a memory of
+more += (Rupert|Snorg) roars madly and goes into a rage
 more += BOSS
 flash += BOSS
 flash += changes into,Something shouts
@@ -3734,6 +3736,7 @@ flash += You hear a (sizzling sound|grinding noise)
 
 # more += You encounter (?!orb guardian|executioner)(?-i:[A-Z])
 flash += You encounter (?!orb guardian|executioner)(?-i:[A-Z])
+flash += You encounter.* and (?!orb guardian|executioner)(?-i:[A-Z])
 
 more += You encounter.*(lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy))
 flash += You encounter.*(lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy))
@@ -3788,6 +3791,7 @@ more += (hits|warns) (?!your)you.*of (distortion|chaos)
 more += You encounter.*((deep elf|draconian) annihilator|tengu reaver|air elemental|void ooze|orb guardian) (?!zombie|draugr|simulacrum)
 more += You encounter.*((?<!(ancient|dread)) lich|shadow dragon|juggernaut|caustic shrike|wyrmhole|spriggan berserker) (?!zombie|draugr|simulacrum)
 more += The spriggan berserker utters an invocation to Trog
+more += The spriggan roars madly and goes into a rage
 # Agony
 more += You encounter.*(imperial myrmidons|necromancer) (?!zombie|draugr|simulacrum)
 flash += You encounter.*(imperial myrmidons|necromancer) (?!zombie|draugr|simulacrum)
@@ -3837,26 +3841,27 @@ flash += The water rises up and strikes you
 unusual_monster_items += of (venom)
 unusual_monster_items += wand of (charming|polymorph)
 more += You encounter.*(raven|fire dragon|centaur warrior|yaktaurs?|cyclops|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma) (?!zombie|draugr|simulacrum)
-more += You encounter.*(deep elf|kobold blastminer|gargoyle|ghoul|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant|wolf spider) (?!zombie|draugr|simulacrum)
+more += You encounter.*(vault guard|deep elf|kobold blastminer|gargoyle|ghoul|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant|wolf spider) (?!zombie|draugr|simulacrum)
 flash += You encounter.*(raiju|cyan ugly|radroach|meliai) (?!zombie|draugr|simulacrum)
 : end
 
 : if you.xl() <= 13 then
 unusual_monster_items += triple sword,executioner's axe,halberd,glaive,bardiche,arbalest,hand cannon,triple crossbow
-more += You encounter.*(?<!spectral) (two-headed ogre|kobold geomancer|tengu|orange demon|rust devil|lindwurm|ice devil|hornet|cane toad|komodo dragon) (?!zombie|draugr|simulacrum)
+more += You encounter.*(?<!spectral) (manticore|two-headed ogre|kobold geomancer|tengu|orange demon|rust devil|lindwurm|ice devil|boulder beetle|hornet|cane toad|komodo dragon) (?!zombie|draugr|simulacrum)
 flash += You encounter.*(death yak)
 # monster_alert += tough
 : end
 
 : if you.xl() <= 10 then
 unusual_monster_items += great sword,demon trident,partisan,trishula,longbow
-more += You encounter.*(wyvern|brain worm|queen bee|gnoll bouda|centaurs?|komodo dragon) (?!zombie|draugr|simulacrum)
+more += You encounter.*(wyvern|brain worm|queen bee|gnoll bouda|centaurs?|komodo dragon|polar bear) (?!zombie|draugr|simulacrum)
+more += The polar bear roars madly and goes into a rage
 flash += You encounter.*(yak)
 : end
 
 : if you.xl() <= 7 then
 # unusual_monster_items += spear,(?<!demon) trident,sling,shortbow,orcbow
-more += You encounter.*(bombardier beetle|ice beast|sky beast|electric eel|sleepcap) (?!zombie|draugr|simulacrum)
+more += You encounter.*(bombardier beetle|ice beast|black bear|sky beast|electric eel|sleepcap) (?!zombie|draugr|simulacrum)
 flash += You encounter.*killer bees? (?!zombie|draugr|simulacrum)
 more += You encounter.*orc (wizard|priest|warrior) (?!zombie|draugr|simulacrum)
 flash += You encounter.*orc (wizard|priest|warrior) (?!zombie|draugr|simulacrum)
@@ -3912,9 +3917,13 @@ ae = <of amnesia, of brilliance
 ae = <butterflies, summoning, phantom mirror, horn of Geryon, box of beasts, sack of spiders
 : end
 
-: if you.race() ~= "Djinni" and (you.god() == "Okawaru" or you.god() == "Trog" or you.god() == "The Shining One" or you.god() == "Elyvilon" or you.god() == "Zin") then
+: if you.race() ~= "Djinni" and (you.god() == "The Shining One" or you.god() == "Elyvilon" or you.god() == "Zin") then
 ae = <book of, parchment of
 : end
+
+# : if you.race() ~= "Djinni" and (you.god() == "Okawaru" or you.god() == "Trog") then
+# ae = <book of, parchment of
+# : end
 
 ae += moonshine
 
