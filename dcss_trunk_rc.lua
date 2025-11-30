@@ -3824,7 +3824,7 @@ unusual_monster_items += of (electrocution|draining|vampiric|pain)
 unusual_monster_items += of (spectral|heavy|\+[5-9])
 unusual_monster_items += wand of (paralysis|roots|light)
 more += You encounter.*(deep elf master archer|boggart|bunyips|stone giant|ironbound beastmaster) (?!zombie|draugr|simulacrum)
-more += You encounter.*(formless jellyfish|broodmother|spark wasp|orb spider|nagaraja|merfolk (javelineer|impaler)) (?!zombie|draugr|simulacrum)
+more += You encounter.*(formless jellyfish|broodmother|spark wasp|orb spider|nagaraja|merfolk (aquamancer|javelineer|impaler)) (?!zombie|draugr|simulacrum)
 # Paralysis/Petrify/Banish
 more += You encounter.*(fenstrider witch|orc sorcerer|ogre mage|occultist|great orb of eyes|sphinx (?!zombie|draugr|simulacrum))
 more += You encounter.*(?<!spectral) (jorogumo|vampire knight|basilisk|catoblepas|deep elf (sorcerer|demonologist)) (?!zombie|draugr|simulacrum)
