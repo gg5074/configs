@@ -3805,7 +3805,7 @@ more += You encounter.*(kobold fleshcrafter|phantasmal warrior|iron giant) (?!zo
 more += You encounter.*(halazid warlock|glowing orange brain|apocalypse crab|moth of wrath) (?!zombie|draugr|simulacrum)
 flash += You encounter.*(halazid warlock) (?!zombie|draugr|simulacrum)
 more += You encounter.*(player|('s|s')) ghost
-more += guardian serpent coils itself and waves its upper body at you, guardian serpent weaves intricate patterns
+more += guardian serpent weaves intricate patterns
 more += ironbound convoker begins to recite a word of recall
 more += kobold fleshcrafter chants and writhes
 more += halazid warlock gestures
@@ -3849,7 +3849,6 @@ flash += You encounter.*(raiju|cyan ugly|radroach|meliai) (?!zombie|draugr|simul
 unusual_monster_items += triple sword,executioner's axe,halberd,glaive,bardiche,arbalest,hand cannon,triple crossbow
 more += You encounter.*(?<!spectral) (manticore|two-headed ogre|kobold geomancer|tengu|orange demon|rust devil|lindwurm|ice devil|boulder beetle|hornet|cane toad|komodo dragon) (?!zombie|draugr|simulacrum)
 flash += You encounter.*(death yak)
-# monster_alert += tough
 : end
 
 : if you.xl() <= 10 then
@@ -3871,6 +3870,7 @@ flash += You encounter.*(ogre|gnoll) (?!zombie|draugr|simulacrum)
 
 : if you.xl() <= 4 and you.race() ~= "Gargoyle" and you.race() ~= "Revenant" and you.race() ~= "Poltergeist" and you.race() ~= "Mummy" and you.race() ~= "Djinni" then
 more += You encounter.*adder (?!zombie|draugr|simulacrum)
+monster_alert += tough
 : end
 
 ##############
