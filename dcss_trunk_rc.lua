@@ -3905,17 +3905,17 @@ ae += <gem, rune of zot
 
 ae = <of noise
 
-: if not (you.race() == "Mummy" or you.race() == "Revenant" or you.race() == "Poltergeist") then
-ae = <of mutation, of lignification, granite talisman, talisman of death
-: end
+# : if not (you.race() == "Mummy" or you.race() == "Revenant" or you.race() == "Poltergeist") then
+# ae = <of mutation, of lignification, granite talisman, talisman of death
+# : end
 
-: if you.god() == "Trog" then
-ae = <of amnesia, of brilliance
-: end
+# : if you.god() == "Trog" then
+# ae = <of amnesia, of brilliance
+# : end
 
-: if you.xl() <= 26 and you.god() == "Okawaru" then
-ae = <butterflies, summoning, phantom mirror, horn of Geryon, box of beasts, sack of spiders
-: end
+# : if you.xl() <= 26 and you.god() == "Okawaru" then
+# ae = <butterflies, summoning, phantom mirror, horn of Geryon, box of beasts, sack of spiders
+# : end
 
 : if you.race() ~= "Djinni" and (you.god() == "The Shining One" or you.god() == "Elyvilon" or you.god() == "Zin") then
 ae = <book of, parchment of
@@ -3925,7 +3925,7 @@ ae = <book of, parchment of
 # ae = <book of, parchment of
 # : end
 
-ae += moonshine
+# ae += moonshine
 
 : if you.race() ~= "Troll" and you.race() ~= "Oni" then
 ae += large rock
