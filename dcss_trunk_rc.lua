@@ -3219,9 +3219,9 @@ msc := message_colour
 msc ^= lightgrey:( miss | misses |no damage|fail to reach past|returns to the grave|disappears in a puff of smoke)
 msc ^= yellow:(You feel a bit more experienced)
 
-: if you.race() ~= "Minotaur" then
-msc ^= lightgrey:helmet
-: end
+# : if you.race() ~= "Minotaur" then
+# msc ^= lightgrey:helmet
+# : end
 
 msc += mute:Search for what.*(<<|@|in_shop)
 msc += mute:There is an open door here
@@ -3877,7 +3877,7 @@ monster_alert += tough
 ### Morgue ###
 ##############
 dump_on_save = true
-dump_message_count = 200
+dump_message_count = 280
 note_hp_percent = 20
 user_note_prefix = 
 
