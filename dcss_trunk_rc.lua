@@ -4336,5 +4336,6 @@ bindkey = [N] CMD_MAP_EXIT_MAP
 bindkey = [U] CMD_MAP_EXIT_MAP
 bindkey = [Y] CMD_MAP_EXIT_MAP
 
+# github.com/brianfaires/crawl-rc?tab=readme-ov-file#notes
 # debug_dump(1), init_buehler():reinitialize, init_buehler(1):reset all persistent data, buehler_rc_active = false
 bindkey = [~] CMD_LUA_CONSOLE
