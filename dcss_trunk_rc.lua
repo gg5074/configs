@@ -4162,7 +4162,8 @@ end
 macros += M T ===travel_open
 
 # reddit.com/r/dcss/comments/1ngwfhl/the_most_useful_dcss_command/ne77ryd/
-# one key macro for going both up and down stairs:
+# feat:find("transporter")
+# one key macro for going both up and down stairs
 {
 function smart_stairs()
     local feat = view.feature_at(0, 0)
