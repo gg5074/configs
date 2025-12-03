@@ -3158,6 +3158,7 @@ init_buehler(you.turns() == 0)
 ############## github.com/brianfaires/crawl-rc ##############
 
 # github.com/gg5074/configs
+# Mini Map Colors, Display, Interface, Messages, Morgue, Autopickup, Item Slots, Macros, Keybindings
 
 #######################
 ### Mini Map Colors ###
