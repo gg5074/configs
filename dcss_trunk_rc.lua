@@ -3157,6 +3157,8 @@ init_buehler(you.turns() == 0)
 }
 ############## github.com/brianfaires/crawl-rc ##############
 
+# github.com/gg5074/configs
+
 #######################
 ### Mini Map Colors ###
 #######################
@@ -3877,7 +3879,7 @@ monster_alert += tough
 ### Morgue ###
 ##############
 dump_on_save = true
-dump_message_count = 280
+dump_message_count = 300
 note_hp_percent = 20
 user_note_prefix = 
 
