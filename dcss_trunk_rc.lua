@@ -3677,7 +3677,7 @@ stop += - [7-9] potions of mutation
 stop += - [2-4] scrolls labelled
 stop += - [2-4] .* potions
 
-: if you.xl() >= 20 then
+: if you.xl() >= 18 then
 stop += You see here.*scrolls? of enchant armour
 : end
 
@@ -3685,7 +3685,7 @@ stop += You see here.*scrolls? of enchant armour
 stop += scroll labelled,potion labelled
 : end
 
-: if you.xl() >= 10 then
+: if you.xl() >= 8 then
 stop += You see here.*scrolls? of (enchant weapon|brand weapon)
 stop += You see here.*potions? of mutation
 : end
