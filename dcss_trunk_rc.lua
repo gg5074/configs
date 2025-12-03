@@ -3880,7 +3880,7 @@ monster_alert += tough
 ### Morgue ###
 ##############
 dump_on_save = true
-dump_message_count = 300
+dump_message_count = 400
 note_hp_percent = 20
 user_note_prefix = 
 
@@ -4076,13 +4076,13 @@ gear_slot ^= ( hat |cloak|scarf|pair of gloves|pair of boots):ABCDEFGHIJKLMNOPQR
 gear_slot ^= orb:ABCDEFGHIJKLMNOPQRSTUVWXYZ
 gear_slot ^= amulet:ABCDEFGHIJKLMNOPQRSTUVWXYZ
 gear_slot ^= talisman:ABCDEFGHIJKLMNOPQRSTUVWXYZ
-consumable_shortcut += javelin:abcdefghijklmnopqrstuwxyz
-consumable_shortcut += boomerang:abcdefghijklmnopqrstuwxyz
-consumable_shortcut += throwing net:abcdefghijklmnopqrstuwxyz
-consumable_shortcut += dart:abcdefghijklmnopqrstuwxyz
-consumable_shortcut += potion of mutation:t
-consumable_shortcut += scroll of noise:n
-consumable_shortcut += scroll of revelation:R
+consumable_shortcut ^= javelin:abcdefghijklmnopqrstuwxyz
+consumable_shortcut ^= boomerang:abcdefghijklmnopqrstuwxyz
+consumable_shortcut ^= throwing net:abcdefghijklmnopqrstuwxyz
+consumable_shortcut ^= dart:abcdefghijklmnopqrstuwxyz
+consumable_shortcut ^= potion of mutation:t
+consumable_shortcut ^= scroll of noise:n
+consumable_shortcut ^= scroll of revelation:R
 
 ##############
 ### Macros ###
