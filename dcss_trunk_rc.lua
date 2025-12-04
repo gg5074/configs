@@ -3578,7 +3578,7 @@ more += The heavenly storm settles
 more += Beogh will now send orc apostles to challenge you
 flash += Beogh will now send orc apostles to challenge you
 more += the orc apostle comes into view
-more += You encounter.*the orc apostle
+more += encounter.*the orc apostle
 more += falls to his knees and submits
 
 : if you.god() == "Beogh" then
@@ -3715,7 +3715,7 @@ flash += Found.*(The Shining One|Zin)
 # Uniques and baddies
 # github.com/crawl/crawl/blob/master/crawl-ref/source/mon-gear.cc
 unusual_monster_items += ( the |distortion|chaos|silver)
-more += You encounter.*(undying armoury|antique champion|torpor snail|nekomata|oblivion hound|acid blob|entropy weaver|ghost moth|death knight|eye of devastation) (?!zombie|draugr|simulacrum)
+more += encounter.*(undying armoury|antique champion|torpor snail|nekomata|oblivion hound|acid blob|entropy weaver|ghost moth|death knight|eye of devastation) (?!zombie|draugr|simulacrum)
 more += The undying armouty arms its allies with
 more += 's illusion shouts
 flash += 's illusion shouts
@@ -3735,77 +3735,77 @@ monster_alert += pandemonium lord, nasty
 flash += You hear a (sizzling sound|grinding noise)
 : end
 
-# more += You encounter (?!orb guardian|executioner)(?-i:[A-Z])
-flash += You encounter (?!orb guardian|executioner)(?-i:[A-Z])
-flash += You encounter.* and (?!orb guardian|executioner)(?-i:[A-Z])
+# more += encounter (?!orb guardian|executioner)(?-i:[A-Z])
+flash += encounter (?!orb guardian|executioner)(?-i:[A-Z])
+flash += encounter.* and (?!orb guardian|executioner)(?-i:[A-Z])
 
-more += You encounter.*(lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy))
-flash += You encounter.*(lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy))
+more += encounter.*(lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy))
+flash += encounter.*(lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy))
 
 more += the reach of Zot diminish
 more += The shining eye gazes at you
-flash += You encounter.*(death scarab)
+flash += encounter.*(death scarab)
 
 # Damnation/Flay
-more += You encounter.*((brimstone|ice) fiend|deep elf (sorcerer|high priest))
-flash += You encounter.*((brimstone|ice) fiend|deep elf (sorcerer|high priest))
-more += You encounter.*(hell sentinel|hellion|draconian scorcher|flayed ghost)
-flash += You encounter.*(hell sentinel|hellion|draconian scorcher|flayed ghost)
+more += encounter.*((brimstone|ice) fiend|deep elf (sorcerer|high priest))
+flash += encounter.*((brimstone|ice) fiend|deep elf (sorcerer|high priest))
+more += encounter.*(hell sentinel|hellion|draconian scorcher|flayed ghost)
+flash += encounter.*(hell sentinel|hellion|draconian scorcher|flayed ghost)
 
 # Torment/Drain Life/Siphon Essence
 : if not (you.race() == "Mummy" or you.race() == "Revenant" or you.race() == "Poltergeist" or you.transform() == "death") then
-more += You encounter.*(royal mummy|mummy priest|tzitzimitl)
-flash += You encounter.*(royal mummy|mummy priest|tzitzimitl)
-more += You encounter.*(tormentor|curse toe|curse skull)
-flash += You encounter.*(tormentor|curse toe|curse skull)
-more += You encounter.*(deathcap|soul eater|vampire bloodprince|alderking)
-flash += You encounter.*(deathcap|soul eater|vampire bloodprince|alderking)
+more += encounter.*(royal mummy|mummy priest|tzitzimitl)
+flash += encounter.*(royal mummy|mummy priest|tzitzimitl)
+more += encounter.*(tormentor|curse toe|curse skull)
+flash += encounter.*(tormentor|curse toe|curse skull)
+more += encounter.*(deathcap|soul eater|vampire bloodprince|alderking)
+flash += encounter.*(deathcap|soul eater|vampire bloodprince|alderking)
 more += The curse toe gestures
 : end
 
 # Holy/Dispel Undead
 : if you.race() == "Mummy" or you.race() == "Demonspawn" or you.race() == "Revenant" or you.race() == "Poltergeist" or you.transform() == "death" or you.transform() == "vampire" then
-flash += You encounter.*(?<!(angel|daeva|fravashi)) is wielding.*of holy
-more += You encounter.*(demonspawn black sun|revenant|ushabti|alderking|burial acolyte)
+flash += encounter.*(?<!(angel|daeva|fravashi)) is wielding.*of holy
+more += encounter.*(demonspawn black sun|revenant|ushabti|alderking|burial acolyte)
 : end
 
 : if you.branch() ~= "Pandemonium" and you.race() == "Mummy" or you.race() == "Demonspawn" or you.race() == "Revenant" or you.race() == "Poltergeist" or you.transform() == "death" or you.transform() == "vampire" then
-more += You encounter.*(angel|daeva|fravashi)
-flash += You encounter.*(angel|daeva|fravashi)
+more += encounter.*(angel|daeva|fravashi)
+flash += encounter.*(angel|daeva|fravashi)
 : end
 
 # Lee's Rapid Deconstruction
 : if you.race() == "Gargoyle" or you.race() == "Revenant" or you.transform() == "statue" then
-more += You encounter.*(kobold geomancer|deep elf elementalist|deep troll earth mage)
+more += encounter.*(kobold geomancer|deep elf elementalist|deep troll earth mage)
 : end
 
 # crawl.chaosforge.org/Reaching
 # orange demon, snapping turtle, alligator snapping turtle, Cigotuvi's Monster, Geryon, Serpent of Hell (Dis)
 
 : if you.xl() <= 26 then
-more += You encounter.*((ancient|dread) lich|demonspawn warmonger|oni incarcerator|draconian stormcaller)
+more += encounter.*((ancient|dread) lich|demonspawn warmonger|oni incarcerator|draconian stormcaller)
 : end
 
 : if you.xl() <= 24 then
 unusual_monster_items += of (acid)
 more += (hits|warns) (?!your)you.*of (distortion|chaos)
-more += You encounter.*((deep elf|draconian) annihilator|tengu reaver|air elemental|void ooze|orb guardian) (?!zombie|draugr|simulacrum)
-more += You encounter.*((?<!(ancient|dread)) lich|shadow dragon|juggernaut|caustic shrike|wyrmhole|spriggan berserker) (?!zombie|draugr|simulacrum)
+more += encounter.*((deep elf|draconian) annihilator|tengu reaver|air elemental|void ooze|orb guardian) (?!zombie|draugr|simulacrum)
+more += encounter.*((?<!(ancient|dread)) lich|shadow dragon|juggernaut|caustic shrike|wyrmhole|spriggan berserker) (?!zombie|draugr|simulacrum)
 more += The spriggan berserker utters an invocation to Trog
 more += The spriggan roars madly and goes into a rage
 # Agony
-more += You encounter.*(imperial myrmidons|necromancer) (?!zombie|draugr|simulacrum)
-flash += You encounter.*(imperial myrmidons|necromancer) (?!zombie|draugr|simulacrum)
+more += encounter.*(imperial myrmidons|necromancer) (?!zombie|draugr|simulacrum)
+flash += encounter.*(imperial myrmidons|necromancer) (?!zombie|draugr|simulacrum)
 : end
 
 : if you.xl() <= 22 then
-more += You encounter.*(glass eye|death drake|war gargoyle|crystal guardian)
-more += You encounter.*(vault (warden|sentinel)|merfolk (avatar|siren)) (?!zombie|draugr|simulacrum)
-more += You encounter.*(executioner|guardian serpent|draconian shifter|ironbound convoker|deep troll shaman|death cob) (?!zombie|draugr|simulacrum)
-more += You encounter.*(kobold fleshcrafter|phantasmal warrior|iron giant) (?!zombie|draugr|simulacrum)
-more += You encounter.*(halazid warlock|glowing orange brain|apocalypse crab|moth of wrath) (?!zombie|draugr|simulacrum)
-flash += You encounter.*(halazid warlock) (?!zombie|draugr|simulacrum)
-more += You encounter.*(player|('s|s')) ghost
+more += encounter.*(glass eye|death drake|war gargoyle|crystal guardian)
+more += encounter.*(vault (warden|sentinel)|merfolk (avatar|siren)) (?!zombie|draugr|simulacrum)
+more += encounter.*(executioner|guardian serpent|draconian shifter|ironbound convoker|deep troll shaman|death cob) (?!zombie|draugr|simulacrum)
+more += encounter.*(kobold fleshcrafter|phantasmal warrior|iron giant) (?!zombie|draugr|simulacrum)
+more += encounter.*(halazid warlock|glowing orange brain|apocalypse crab|moth of wrath) (?!zombie|draugr|simulacrum)
+flash += encounter.*(halazid warlock) (?!zombie|draugr|simulacrum)
+more += encounter.*(player|('s|s')) ghost
 more += guardian serpent weaves intricate patterns
 more += ironbound convoker begins to recite a word of recall
 more += kobold fleshcrafter chants and writhes
@@ -3824,53 +3824,53 @@ unusual_monster_items += vulnerable:(venom):16
 unusual_monster_items += of (electrocution|draining|vampiric|pain)
 unusual_monster_items += of (spectral|heavy|\+[5-9])
 unusual_monster_items += wand of (paralysis|roots|light)
-more += You encounter.*(deep elf master archer|boggart|bunyips|stone giant|ironbound beastmaster) (?!zombie|draugr|simulacrum)
-more += You encounter.*(formless jellyfish|broodmother|spark wasp|orb spider|nagaraja|merfolk (aquamancer|javelineer|impaler)) (?!zombie|draugr|simulacrum)
+more += encounter.*(deep elf master archer|boggart|bunyips|stone giant|ironbound beastmaster) (?!zombie|draugr|simulacrum)
+more += encounter.*(formless jellyfish|broodmother|spark wasp|orb spider|nagaraja|merfolk (aquamancer|javelineer|impaler)) (?!zombie|draugr|simulacrum)
 # Paralysis/Petrify/Banish
-more += You encounter.*(fenstrider witch|orc sorcerer|ogre mage|occultist|great orb of eyes|sphinx (?!zombie|draugr|simulacrum))
-more += You encounter.*(?<!spectral) (jorogumo|vampire knight|basilisk|catoblepas|deep elf (sorcerer|demonologist)) (?!zombie|draugr|simulacrum)
+more += encounter.*(fenstrider witch|orc sorcerer|ogre mage|occultist|great orb of eyes|sphinx (?!zombie|draugr|simulacrum))
+more += encounter.*(?<!spectral) (jorogumo|vampire knight|basilisk|catoblepas|deep elf (sorcerer|demonologist)) (?!zombie|draugr|simulacrum)
 flash += The boggart gestures wildly while chanting
 : end
 
 : if you.xl() <= 18 then
 unusual_monster_items += of (flaming|freezing)
-more += You encounter.*(water nymph|anaconda|ironbound thunderhulk) (?!zombie|draugr|simulacrum)
+more += encounter.*(water nymph|anaconda|ironbound thunderhulk) (?!zombie|draugr|simulacrum)
 flash += The water rises up and strikes you
 : end
 
 : if you.xl() <= 16 then
 unusual_monster_items += of (venom)
 unusual_monster_items += wand of (charming|polymorph)
-more += You encounter.*(raven|fire dragon|centaur warrior|yaktaurs?|cyclops|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma) (?!zombie|draugr|simulacrum)
-more += You encounter.*(vault guard|deep elf|kobold blastminer|gargoyle|ghoul|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant|wolf spider) (?!zombie|draugr|simulacrum)
-flash += You encounter.*(raiju|cyan ugly|radroach|meliai) (?!zombie|draugr|simulacrum)
+more += encounter.*(raven|fire dragon|centaur warrior|yaktaurs?|cyclops|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma) (?!zombie|draugr|simulacrum)
+more += encounter.*(vault guard|deep elf|kobold blastminer|gargoyle|ghoul|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant|wolf spider) (?!zombie|draugr|simulacrum)
+flash += encounter.*(raiju|cyan ugly|radroach|meliai) (?!zombie|draugr|simulacrum)
 : end
 
 : if you.xl() <= 13 then
 unusual_monster_items += triple sword,executioner's axe,halberd,glaive,bardiche,arbalest,hand cannon,triple crossbow
-more += You encounter.*(?<!spectral) (manticore|two-headed ogre|kobold geomancer|tengu|orange demon|rust devil|lindwurm|ice devil|boulder beetle|hornet|cane toad|komodo dragon) (?!zombie|draugr|simulacrum)
-flash += You encounter.*(death yak)
+more += encounter.*(?<!spectral) (manticore|two-headed ogre|kobold geomancer|tengu|orange demon|rust devil|lindwurm|ice devil|boulder beetle|hornet|cane toad|komodo dragon) (?!zombie|draugr|simulacrum)
+flash += encounter.*(death yak)
 : end
 
 : if you.xl() <= 10 then
 unusual_monster_items += great sword,demon trident,partisan,trishula,longbow
-more += You encounter.*(wyvern|brain worm|queen bee|gnoll bouda|centaurs?|komodo dragon|polar bear) (?!zombie|draugr|simulacrum)
+more += encounter.*(wyvern|brain worm|queen bee|gnoll bouda|centaurs?|komodo dragon|polar bear) (?!zombie|draugr|simulacrum)
 more += The polar bear roars madly and goes into a rage
-flash += You encounter.*(yak)
+flash += encounter.*(yak)
 : end
 
 : if you.xl() <= 7 then
 # unusual_monster_items += spear,(?<!demon) trident,sling,shortbow,orcbow
-more += You encounter.*(bombardier beetle|ice beast|black bear|sky beast|electric eel|sleepcap) (?!zombie|draugr|simulacrum)
-flash += You encounter.*killer bees? (?!zombie|draugr|simulacrum)
-more += You encounter.*orc (wizard|priest|warrior) (?!zombie|draugr|simulacrum)
-flash += You encounter.*orc (wizard|priest|warrior) (?!zombie|draugr|simulacrum)
-more += You encounter.*(ogre|gnoll) (?!zombie|draugr|simulacrum)
-flash += You encounter.*(ogre|gnoll) (?!zombie|draugr|simulacrum)
+more += encounter.*(bombardier beetle|ice beast|black bear|sky beast|electric eel|sleepcap) (?!zombie|draugr|simulacrum)
+flash += encounter.*killer bees? (?!zombie|draugr|simulacrum)
+more += encounter.*orc (wizard|priest|warrior) (?!zombie|draugr|simulacrum)
+flash += encounter.*orc (wizard|priest|warrior) (?!zombie|draugr|simulacrum)
+more += encounter.*(ogre|gnoll) (?!zombie|draugr|simulacrum)
+flash += encounter.*(ogre|gnoll) (?!zombie|draugr|simulacrum)
 : end
 
 : if you.xl() <= 4 and you.race() ~= "Gargoyle" and you.race() ~= "Revenant" and you.race() ~= "Poltergeist" and you.race() ~= "Mummy" and you.race() ~= "Djinni" then
-more += You encounter.*adder (?!zombie|draugr|simulacrum)
+more += encounter.*adder (?!zombie|draugr|simulacrum)
 monster_alert += tough
 : end
 
