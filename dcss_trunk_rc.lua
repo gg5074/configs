@@ -3684,7 +3684,7 @@ stop += scroll labelled,potion labelled
 : end
 
 : if you.xl() >= 8 then
-stop += You see here.*scrolls? of (enchant weapon|brand weapon)
+stop += You see here.*scrolls? of (enchant weapon|brand weapon|revelation)
 stop += You see here.*potions? of mutation
 : end
 
