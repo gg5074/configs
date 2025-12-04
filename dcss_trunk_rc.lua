@@ -3381,6 +3381,7 @@ more += You assume a fearsome visage
 flash += is a mimic
 # more += You kill.*(entropy weaver|orb of (fire|winter|entropy))
 more += You kill.*(Bai Suzhen)
+flash += You kill.*(Bai Suzhen)
 more += (?<!(into|through)) a shaft
 more += You blink
 more += (?<!raiju) bursts into living lightning
