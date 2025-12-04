@@ -4074,6 +4074,7 @@ gear_slot ^= ( hat |cloak|scarf|pair of gloves|pair of boots):ABCDEFGHIJKLMNOPQR
 gear_slot ^= orb:ABCDEFGHIJKLMNOPQRSTUVWXYZ
 gear_slot ^= amulet:ABCDEFGHIJKLMNOPQRSTUVWXYZ
 gear_slot ^= talisman:ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
 consumable_shortcut += javelin:abcdefghijklmnopqrstuwxyz
 consumable_shortcut += boomerang:abcdefghijklmnopqrstuwxyz
 consumable_shortcut += throwing net:abcdefghijklmnopqrstuwxyz
