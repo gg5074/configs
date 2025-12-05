@@ -3475,6 +3475,8 @@ more += Space warps horribly.*around (?!your)you
 more += Space bends around (?!your)you
 more += Your limbs have turned to stone
 more += Your body becomes as fragile as glass
+more += Water floods into your lungs!
+flash += Water floods into your lungs!
 flash += You feel extremely sick
 more += lethally poison
 flash += The acid corrodes (?!your)you
@@ -3852,7 +3854,7 @@ flash += encounter.*(raiju|cyan ugly|radroach|meliai) (?!zombie|draugr|simulacru
 
 : if you.xl() <= 13 then
 unusual_monster_items += triple sword,executioner's axe,halberd,glaive,bardiche,arbalest,hand cannon,triple crossbow
-more += encounter.*(?<!spectral) (manticore|two-headed ogre|kobold geomancer|tengu|orange demon|rust devil|lindwurm|ice devil|boulder beetle|hornet|cane toad|komodo dragon) (?!zombie|draugr|simulacrum)
+more += encounter.*(?<!spectral) ((water|fire|earth) elemental|manticore|two-headed ogre|kobold geomancer|tengu|orange demon|rust devil|lindwurm|ice devil|boulder beetle|hornet|cane toad|komodo dragon) (?!zombie|draugr|simulacrum)
 flash += encounter.*(death yak)
 : end
 
@@ -3882,7 +3884,7 @@ monster_alert += tough
 ### Morgue ###
 ##############
 dump_on_save = true
-dump_message_count = 400
+dump_message_count = 1200
 note_hp_percent = 20
 user_note_prefix = 
 
@@ -3904,7 +3906,7 @@ dump_order += notes,vaults,skill_gains,action_counts,turns_by_place
 
 drop_disables_autopickup = true
 
-autopickup = $?!+:"/}(
+autopickup = $?!+:"/}(|♦
 ae := autopickup_exceptions
 ae += <gem, rune of zot
 
