@@ -3922,6 +3922,11 @@ ae = <of noise
 # ae = <butterflies, summoning, phantom mirror, horn of Geryon, box of beasts, sack of spiders
 # : end
 
+: if you.xl() <= 13 and (you.god() == "The Shining One" or you.god() == "Elyvilon" or you.god() == "Zin") then
+stop += You see here.*of (necromancy|pain|reaping|draining|distortion|vampiric)
+stop += You see here.*demon
+: end
+
 : if you.race() ~= "Djinni" and (you.god() == "The Shining One" or you.god() == "Elyvilon" or you.god() == "Zin") then
 ae = <book of, parchment of
 : end
