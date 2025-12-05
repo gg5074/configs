@@ -3719,10 +3719,12 @@ more += The undying armouty arms its allies with
 # more += You kill.*(entropy weaver|orb of (fire|winter|entropy))
 more += 's illusion shouts
 flash += 's illusion shouts
+
 more += Bai Suzhen roars in fury and transforms into a fierce dragon
 flash += Bai Suzhen roars in fury and transforms into a fierce dragon
 more += You kill.*(Bai Suzhen)
 flash += You kill.*(Bai Suzhen)
+
 more += Xak'krixis conjures a prism
 more += Nobody ignites a memory of
 more += (Rupert|Snorg) roars madly and goes into a rage
