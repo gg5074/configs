@@ -10,6 +10,8 @@ sound_pack += https://sound-packs.nemelex.cards/Autofire/BindTheEarth/BindTheEar
 # debug_dump(1):https://pastebin.com/raw/SyDrHhTg, https://pastebin.com/raw/e5qSJXMh
 # staff of death, necromancy = "Necromancy"
 
+# "staff of necromancy" then needRes = you.res_draining() == 0
+
 # ch_force_autopickup failed: [string ".rc"]:194:attempt to compare number with nil
 # You see here a buckler, tower shield
 # debug_dump(1):https://pastebin.com/raw/DcG3ySU9
@@ -2704,7 +2706,7 @@ function pa_alert_staff(it)
   elseif basename == "staff of cold" then needRes = you.res_cold() == 0
   elseif basename == "staff of air" then needRes = you.res_shock() == 0
   elseif basename == "staff of poison" then needRes = you.res_poison() == 0
-  elseif basename == "staff of death" then needRes = you.res_draining() == 0
+  elseif basename == "staff of necromancy" then needRes = you.res_draining() == 0
   end
 
   if not needRes then return false end
@@ -3847,14 +3849,14 @@ flash += The water rises up and strikes you
 : if you.xl() <= 16 then
 unusual_monster_items += of (venom)
 unusual_monster_items += wand of (charming|polymorph)
-more += encounter.*(raven|fire dragon|centaur warrior|yaktaurs?|cyclops|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma) (?!zombie|draugr|simulacrum)
+more += encounter.*(raven|water elemental|(fire|ice) dragon|centaur warrior|yaktaurs?|cyclops|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma) (?!zombie|draugr|simulacrum)
 more += encounter.*(vault guard|deep elf|kobold blastminer|gargoyle|ghoul|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant|wolf spider) (?!zombie|draugr|simulacrum)
 flash += encounter.*(raiju|cyan ugly|radroach|meliai) (?!zombie|draugr|simulacrum)
 : end
 
 : if you.xl() <= 13 then
 unusual_monster_items += triple sword,executioner's axe,halberd,glaive,bardiche,arbalest,hand cannon,triple crossbow
-more += encounter.*(?<!spectral) ((water|fire|earth) elemental|manticore|two-headed ogre|kobold geomancer|tengu|orange demon|rust devil|lindwurm|ice devil|boulder beetle|hornet|cane toad|komodo dragon) (?!zombie|draugr|simulacrum)
+more += encounter.*(?<!spectral) ((fire|earth) elemental|manticore|two-headed ogre|kobold geomancer|tengu|orange demon|rust devil|lindwurm|ice devil|boulder beetle|hornet|cane toad|komodo dragon) (?!zombie|draugr|simulacrum)
 flash += encounter.*(death yak)
 : end
 
@@ -3884,7 +3886,7 @@ monster_alert += tough
 ### Morgue ###
 ##############
 dump_on_save = true
-dump_message_count = 1200
+dump_message_count = 1000
 note_hp_percent = 20
 user_note_prefix = 
 
@@ -3908,7 +3910,7 @@ drop_disables_autopickup = true
 
 autopickup = $?!+:"/}(|♦
 ae := autopickup_exceptions
-ae += <gem, rune of zot
+ae += <gem, rune of
 
 ae = <of noise
 
@@ -4025,7 +4027,7 @@ ai += staff of fire:rF+
 ai += staff of cold:rC+
 ai += staff of poison:rPois
 ai += staff of air:rElec
-ai += staff of death:rN+
+ai += staff of necromancy:rN+
 
 : if you.xl() > 4 then
 ai += (?<!the) \+0 (dagger|short sword|club|whip|giant club|giant spiked|hand axe|spear|sling|shortbow|(?<!tremor)stone|animal skin|robe|leather armour) (?!("|of)):~~DROP_ME
