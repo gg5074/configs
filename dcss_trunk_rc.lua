@@ -3448,7 +3448,6 @@ more += (blundered into a|invokes the power of) Zot
 more += That really hurt
 more += You convulse
 more += Your body is wracked with pain
-more += offers itself to Yredelemnul
 flash += smites (?!your)you
 more += You are (blasted|electrocuted)
 more += You are.*confused
@@ -3667,13 +3666,15 @@ flash += Training target.*reached
 : end
 
 more += You have finished (your manual|forgetting about)
+flash += You have finished (your manual|forgetting about)
 more += You pick up a manual of
+flash += You pick up a manual of
 
 stop += You see here the
 more += You see here.*(of experience|of acquirement)
 stop += - [7-9] potions of mutation
-stop += - [2-4] scrolls labelled
-stop += - [2-4] .* potions
+stop += - [2-9] scrolls labelled
+stop += - [2-9] .* potions
 
 : if you.xl() >= 18 then
 stop += You see here.*scrolls? of enchant armour
@@ -3717,6 +3718,7 @@ flash += Found.*(The Shining One|Zin)
 unusual_monster_items += ( the |distortion|chaos|silver)
 more += encounter.*(undying armoury|antique champion|torpor snail|nekomata|oblivion hound|acid blob|entropy weaver|ghost moth|death knight|eye of devastation) (?!zombie|draugr|simulacrum)
 more += The undying armouty arms its allies with
+more += The death knight offers itself to Yredelemnul
 
 more += Xak'krixis conjures a prism
 more += Nobody ignites a memory of
@@ -3765,8 +3767,8 @@ more += The shining eye gazes at you
 flash += encounter.*(death scarab)
 
 # Damnation/Flay
-more += encounter.*((brimstone|ice) fiend|deep elf (sorcerer|high priest))
-flash += encounter.*((brimstone|ice) fiend|deep elf (sorcerer|high priest))
+more += encounter.*(deep elf (sorcerer|high priest)|(brimstone|ice) fiend)
+flash += encounter.*(deep elf (sorcerer|high priest)|(brimstone|ice) fiend)
 more += encounter.*(hell sentinel|hellion|draconian scorcher|flayed ghost)
 flash += encounter.*(hell sentinel|hellion|draconian scorcher|flayed ghost)
 
@@ -3801,14 +3803,14 @@ more += encounter.*(kobold geomancer|deep elf elementalist|deep troll earth mage
 # orange demon, snapping turtle, alligator snapping turtle, Cigotuvi's Monster, Geryon, Serpent of Hell (Dis)
 
 : if you.xl() <= 26 then
-more += encounter.*((ancient|dread) lich|demonspawn warmonger|oni incarcerator|draconian stormcaller)
+more += encounter.*(oni incarcerator|demonspawn warmonger|draconian stormcaller|(ancient|dread) lich)
 : end
 
 : if you.xl() <= 24 then
 unusual_monster_items += of (acid)
 more += (hits|warns) (?!your)you.*of (distortion|chaos)
-more += encounter.*((deep elf|draconian) annihilator|tengu reaver|air elemental|void ooze|orb guardian) (?!zombie|draugr|simulacrum)
-more += encounter.*((?<!(ancient|dread)) lich|shadow dragon|juggernaut|caustic shrike|wyrmhole|spriggan berserker) (?!zombie|draugr|simulacrum)
+more += encounter.*(air elemental|tengu reaver|(deep elf|draconian) annihilator|void ooze|orb guardian) (?!zombie|draugr|simulacrum)
+more += encounter.*(lich|shadow dragon|juggernaut|caustic shrike|wyrmhole|spriggan berserker) (?!zombie|draugr|simulacrum)
 more += The spriggan berserker utters an invocation to Trog
 more += The spriggan roars madly and goes into a rage
 # Agony
@@ -3843,10 +3845,10 @@ unusual_monster_items += of (electrocution|draining|vampiric|pain)
 unusual_monster_items += of (spectral|heavy|\+[5-9])
 unusual_monster_items += wand of (paralysis|roots|light)
 more += encounter.*(deep elf master archer|boggart|bunyips|stone giant|ironbound beastmaster) (?!zombie|draugr|simulacrum)
-more += encounter.*(formless jellyfish|broodmother|spark wasp|orb spider|nagaraja|merfolk (aquamancer|javelineer|impaler)) (?!zombie|draugr|simulacrum)
+more += encounter.*(formless jellyfish|broodmother|spark wasp|orb spider|merfolk (aquamancer|javelineer|impaler)|nagaraja) (?!zombie|draugr|simulacrum)
 # Paralysis/Petrify/Banish
-more += encounter.*(fenstrider witch|orc sorcerer|ogre mage|occultist|great orb of eyes|sphinx (?!zombie|draugr|simulacrum))
-more += encounter.*(?<!spectral) (jorogumo|vampire knight|basilisk|catoblepas|deep elf (sorcerer|demonologist)) (?!zombie|draugr|simulacrum)
+more += encounter.*(fenstrider witch|orc sorcerer|ogre mage|occultist|great orb of eyes|sphinx) (?!zombie|draugr|simulacrum)
+more += encounter.*(?<!spectral) (jorogumo|basilisk|catoblepas|deep elf (sorcerer|demonologist)|vampire knight) (?!zombie|draugr|simulacrum)
 flash += The boggart gestures wildly while chanting
 : end
 
@@ -3859,22 +3861,26 @@ flash += The water rises up and strikes you
 : if you.xl() <= 16 then
 unusual_monster_items += of (venom)
 unusual_monster_items += wand of (charming|polymorph)
+
 more += encounter.*(raven|water elemental|(fire|ice) dragon|centaur warrior|yaktaurs?|cyclops|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma) (?!zombie|draugr|simulacrum)
+more += The.*headed hydra grows
+flash += The.*headed hydra grows
+
 more += encounter.*(vault guard|deep elf|kobold blastminer|gargoyle|ghoul|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant|wolf spider) (?!zombie|draugr|simulacrum)
 flash += encounter.*(raiju|cyan ugly|radroach|meliai) (?!zombie|draugr|simulacrum)
 : end
 
 : if you.xl() <= 13 then
 unusual_monster_items += triple sword,executioner's axe,halberd,glaive,bardiche,arbalest,hand cannon,triple crossbow
-more += encounter.*(?<!spectral) ((fire|earth) elemental|manticore|two-headed ogre|kobold geomancer|tengu|orange demon|rust devil|lindwurm|ice devil|boulder beetle|hornet|cane toad|komodo dragon) (?!zombie|draugr|simulacrum)
-flash += encounter.*(death yak)
+more += encounter.*(?<!spectral) (manticore|two-headed ogre|kobold geomancer|tengu|lindwurm|(ice|rust) devil|(fire|earth) elemental|boulder beetle|hornet|cane toad|komodo dragon) (?!zombie|draugr|simulacrum)
+flash += encounter.*(death yak|elephant) (?!zombie|draugr|simulacrum)
 : end
 
 : if you.xl() <= 10 then
 unusual_monster_items += great sword,demon trident,partisan,trishula,longbow
-more += encounter.*(wyvern|brain worm|queen bee|gnoll bouda|centaurs?|komodo dragon|polar bear) (?!zombie|draugr|simulacrum)
+more += encounter.*(rime drake|(steam|acid) dragon|wyvern|polar bear|brain worm|queen bee|gnoll bouda|centaurs?) (?!zombie|draugr|simulacrum)
 more += The polar bear roars madly and goes into a rage
-flash += encounter.*(yak)
+flash += encounter.*(yak|wight) (?!zombie|draugr|simulacrum)
 : end
 
 : if you.xl() <= 7 then
@@ -4012,8 +4018,6 @@ ai += wand of iceblast:@v1, \<, 3d(7.66+3.5*Evo/5)
 ai += wand of (acid|light):@v2, \>
 ai += wand of quicksilver:@v2, \>, 6d(4.16+3.5*Evo/9)
 ai += wand of digging:@v3
-ai += poisoned dart:@f1@Q1, F1, rPo-66%Dmg
-ai += darts? of disjunction:Dmg2d2
 
 # Enemy AC 2 (gnoll), Dizzy's DCSS Doodad, Mulch%
 # https://pastebin.com/raw/2DKqrVha
@@ -4021,11 +4025,13 @@ ai += (?<!tremor)stone:Dmg/T 0.4 1 3 Thr 0 3 6, 100%
 ai += boomerang:@f2@Q2, F2, 5%
 ai += (?<!silver) javelin:@f3@Q3, H, 5%
 ai += silver javelin:@f6@Q6, 5%
+ai += throwing net:@f7, MonsEV/(2+Size), Mulch (1d4)/9% 8Dmg (1d4)/T 
+ai += poisoned dart:@f1@Q1, F1, rPo-66%Dmg
+ai += curare-tipped dart:@f8, 16.7%
+ai += darts? of disjunction:Dmg2d2
 
 ai += wand of flame:@v4@Q4, \), 2d(5.5+0.35*Evo), MaxEvo10
 ai += wand of mindburst:@v5@Q5, \(, 3d(8.75+3.5*Evo/4)
-ai += throwing net:@f7, MonsEV/(2+Size), Mulch (1d4)/9% 8 (1d4)/T 
-ai += curare-tipped dart:@f8, 16.7%
 ai += phial of floods:(2.1+2*Evo/5)Turns x1 x1.5
 ai += sack of spiders:Evo 6 13 18 21
 ai += box of beasts:HD 3 9 15 21 27(Evo+1d7-1d7)
