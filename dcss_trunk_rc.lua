@@ -3271,6 +3271,8 @@ fail_severity_to_confirm = -1
 spell_menu = true
 warn_contam_cost = true
 
+show_paged_inventory = false
+
 show_more = false
 easy_confirm = safe
 equip_unequip = true
@@ -3462,8 +3464,8 @@ flash += grabs (?!your)you
 more += roots grab (?!your)you
 flash += roots grab (?!your)you
 flash += constricts (?!your)you
-more += The jagged bones skewer you. You are skewered in place!
-flash += The jagged bones skewer you. You are skewered in place!
+more += You are skewered in place
+flash += You are skewered in place
 more += wrath finds you
 more += god:(sends|finds|silent|anger)
 more += You feel a surge of divine spite
@@ -3601,23 +3603,18 @@ more += Vehumet is now
 more += You hear a faint sloshing
 more += seems mollified
 more += You rejoin the land of the living
-more += You add the spells?.*(Apportation|Blink)
 
 : if you.xl() >= 27 and you.class() ~= "Conjurer" then
-more += You add the spells?.*(Beckoning|Golubria|Vhi's Electric|Manifold Assault|Fugue of the|Animate Dead|Death Channel|Awaken Armour)
+more += You add the spells?.*(Vhi's Electric|Manifold Assault|Fugue of the|Animate Dead|Death Channel|Awaken Armour)
 : end
 
 # Contam: 2x(SpellLv)^2xFailure+250, 5000:Yellow, 15000:LightRed
 # Miscast:Nameless Horror:HD(2*Int/3) HD15 MaxHP160 Speed10 AC8 Attack30(Antimagic)
-# : if you.xl() >= 16 and you.intelligence() <= 25 then
-# more += You add the spells?.*(Summon Cactus Giant|Summon Hydra|Summon Horrible Things|Dragon's Call)
-# : end
+more += You add the spells?.*(Summon Small Mammal|Call Imp|Call Canine Familiar|Eringya's Surprising Crocodile)
 
 # Miscast:-Move -Tele
 # reddit.com/r/dcss/comments/1m4xpsr/a_compendium_of_strange_and_unusual_techniques/
-# : if you.xl() >= 20 then
-# more += You add the spells?.*(Dispersal|Gell's Gavotte|Manifold Assault|Translocation)
-# : end
+more += You add the spells?.*(Apportation|Blink|Lesser Beckoning|Maxwell's Portable Piledriver|Teleport Other|Passage of Golubria)
 
 stop ^= Your.*disappears in a puff of smoke,Your spellspark servitor fades away,Your battlesphere wavers and loses cohesion
 
@@ -3720,14 +3717,6 @@ flash += Found.*(The Shining One|Zin)
 unusual_monster_items += ( the |distortion|chaos|silver)
 more += encounter.*(undying armoury|antique champion|torpor snail|nekomata|oblivion hound|acid blob|entropy weaver|ghost moth|death knight|eye of devastation) (?!zombie|draugr|simulacrum)
 more += The undying armouty arms its allies with
-# more += You kill.*(entropy weaver|orb of (fire|winter|entropy))
-more += 's illusion shouts
-flash += 's illusion shouts
-
-more += Bai Suzhen roars in fury and transforms into a fierce dragon
-flash += Bai Suzhen roars in fury and transforms into a fierce dragon
-more += You kill.*(Bai Suzhen)
-flash += You kill.*(Bai Suzhen)
 
 more += Xak'krixis conjures a prism
 more += Nobody ignites a memory of
@@ -3736,6 +3725,27 @@ more += BOSS
 flash += BOSS
 flash += changes into,Something shouts
 monster_alert += pandemonium lord, nasty
+
+# Cloud of Thunder: 60 Damage
+more += Bai Suzhen roars in fury and transforms into a fierce dragon
+flash += Bai Suzhen roars in fury and transforms into a fierce dragon
+more += You kill.*(Bai Suzhen)
+flash += You kill.*(Bai Suzhen)
+
+# Mara
+more += 's illusion shouts
+flash += 's illusion shouts
+
+# Kirke (Lair3-5 D12-15 S-B1 Elf1), Butcher's Vault
+: if you.xl() <= 16 then
+flash += encounter.* hog
+: end
+
+# Amaemon (Lair Orc1 D8-12)
+: if you.xl() <= 16 then
+more += encounter.*orange demon
+flash += encounter.*orange demon
+: end
 
 # Dissolution (Slime:2-5)
 # github.com/crawl/crawl/blob/master/crawl-ref/source/mon-act.cc
@@ -3908,9 +3918,9 @@ dump_order += notes,vaults,skill_gains,action_counts,turns_by_place
 
 drop_disables_autopickup = true
 
-autopickup = $?!+:"/}(|♦
+autopickup = $?!+:"/}(♦
 ae := autopickup_exceptions
-ae += <gem, rune of
+ae += <rune of
 
 ae = <of noise
 
@@ -3931,8 +3941,8 @@ stop += You see here.*of (necromancy|pain|reaping|draining|distortion|vampiric)
 stop += You see here.*demon
 : end
 
-: if you.race() ~= "Djinni" and (you.god() == "The Shining One" or you.god() == "Elyvilon" or you.god() == "Zin") then
-ae = <book of, parchment of
+: if you.xl() <= 13 and you.race() ~= "Djinni" and (you.god() == "The Shining One" or you.god() == "Elyvilon" or you.god() == "Zin") then
+ae = <Necromancy, Call Imp, Sculpt Simulacrum, Malign Gateway, Summon Horrible Things
 : end
 
 # : if you.race() ~= "Djinni" and (you.god() == "Okawaru" or you.god() == "Trog") then
@@ -3972,37 +3982,49 @@ ai += (large rock|silver javelin|throwing net|(curare|datura|atropa)-tipped dart
 
 ai += potions? of heal wounds:@q1, 10-37HP
 ai += potions? of curing:@q2, 5-11HP
-ai += potions? of cancellation:@q3
-ai += potions? of haste:@q4
+ai += potions? of cancellation:@q3, UnaffectDrainBarbPoisBerserkDDoorExhGodEffects
+ai += potions? of haste:@q4, 40-79T
 ai += potions? of magic:@q5, 10-37MP
-ai += potions? of mutation:@q6
+ai += potions? of mutation:@q6, Remove2-3 Add1-3, 60%Good, 50%AddOneGood
 ai += potions? of ambrosia:3-5HPMP/T
 ai += potions? of lignification:1.5xHP (20+XL/2)AC rPo Torm0 Ev0 -MoBlTe GearWeapShie
-# ai += potions? of invisibility:!q
+ai += potions? of enlightenment:25-64T
+ai += potions? of invisibility:15-54T
+ai += potions? of resistance:10-29T, rFirColPoiCorEle
+ai += potions? of berserk rage:10-19T, ImmuneSleep
+
 ai += scrolls? of identify:@r1
 ai += scrolls? of teleportation:@r2, 3-5T, Zot8-14T
-ai += scrolls? of blinking:@r3
-ai += enchant armour:@r4
-ai += enchant weapon:@r5
-ai += scrolls? of fear:Q*f, 40Will90% 60Will73% ++41-80, !r
+ai += scrolls? of blinking:@r3, Unable-TeleTreeMesm
+ai += scrolls? of acquirement:200-1400Gold
+ai += scrolls? of enchant armour:@r4
+ai += scrolls? of enchant weapon:@r5
+ai += scrolls? of brand weapon:13.3% FlmFrzHvVnPro, 6.6% DrnElcSpcVmpChaos
+ai += scrolls? of fear:Q*f, 40Will90% 60Will73% ++41-80
 ai += scrolls? of silence:30Turns
 ai += scrolls? of noise:25 Alarm40 FireStor25 FulmPris20 Qaz16 Shout12 IMB10
-# ai += scrolls? of revelation:!r
-# ai += scrolls? of fog:!r
-# ai += scrolls? of summoning:!r
-# ai += scrolls? of butterflies:!r
+ai += scrolls? of immolation:Tiny3d15 Little-Large3d20 Giant3d25, 25-35T
+ai += scrolls? of torment:-10%N+
+ai += scrolls? of summoning:Mons2d2
+
 ai += wand of (roots|warping):@v1, \<
 ai += wand of iceblast:@v1, \<, 3d(7.66+3.5*Evo/5)
 ai += wand of (acid|light):@v2, \>
 ai += wand of quicksilver:@v2, \>, 6d(4.16+3.5*Evo/9)
 ai += wand of digging:@v3
-ai += poisoned dart:@f1@Q1, F1
+ai += poisoned dart:@f1@Q1, F1, rPo-66%Dmg
+ai += darts? of disjunction:Dmg2d2
+
+# Enemy AC 2 (gnoll), Dizzy's DCSS Doodad, Mulch%
+# https://pastebin.com/raw/2DKqrVha
+ai += (?<!tremor)stone:Dmg/T 0.4 1 3 Thr 0 3 6, 100%
 ai += boomerang:@f2@Q2, F2, 5%
 ai += (?<!silver) javelin:@f3@Q3, H, 5%
+ai += silver javelin:@f6@Q6, 5%
+
 ai += wand of flame:@v4@Q4, \), 2d(5.5+0.35*Evo), MaxEvo10
 ai += wand of mindburst:@v5@Q5, \(, 3d(8.75+3.5*Evo/4)
-ai += silver javelin:@f6@Q6, 5%
-ai += throwing net:@f7
+ai += throwing net:@f7, MonsEV/(2+Size), Mulch (1d4)/9% 8 (1d4)/T 
 ai += curare-tipped dart:@f8, 16.7%
 ai += phial of floods:(2.1+2*Evo/5)Turns x1 x1.5
 ai += sack of spiders:Evo 6 13 18 21
