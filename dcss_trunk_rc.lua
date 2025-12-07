@@ -3729,7 +3729,8 @@ more += (Rupert|Snorg) roars madly and goes into a rage
 more += BOSS
 flash += BOSS
 flash += changes into,Something shouts
-# monster_alert += pandemonium lord, nasty
+stop += encounter Crazy Yiuf
+monster_alert += pandemonium lord, nasty
 
 # Cloud of Thunder: 60 Damage
 more += Bai Suzhen roars in fury and transforms into a fierce dragon
@@ -3758,7 +3759,7 @@ flash += encounter.*orange demon
 flash += You hear a (sizzling sound|grinding noise)
 : end
 
-more += encounter (?!orb guardian|executioner)(?-i:[A-Z])
+# more += encounter (?!orb guardian|executioner)(?-i:[A-Z])
 flash += encounter (?!orb guardian|executioner)(?-i:[A-Z])
 flash += encounter.* and (?!orb guardian|executioner)(?-i:[A-Z])
 
@@ -3865,45 +3866,46 @@ flash += The water rises up and strikes you
 unusual_monster_items += of (venom)
 unusual_monster_items += wand of (charming|polymorph)
 
-more += encounter.*(raven|water elemental|(fire|ice) dragon|centaur warrior|yaktaurs?|cyclops|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma)(?! (zombie|draugr|simulacrum))
+more += encounter.*(raven|water elemental|(fire|ice) dragon|centaur warrior|yaktaur|cyclops|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma)(?! (zombie|draugr|simulacrum))
 more += The.*headed hydra grows
 flash += The.*headed hydra grows
 
 more += encounter.*(vault guard|deep elf|kobold blastminer|gargoyle|ghoul|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant|wolf spider)(?! (zombie|draugr|simulacrum))
-flash += encounter.*(raiju|cyan ugly|radroach|meliai)(?! (zombie|draugr|simulacrum))
+flash += encounter.*(raiju|(cyan|brown) ugly thing|radroach|meliai)(?! (zombie|draugr|simulacrum))
 : end
 
 : if you.xl() <= 13 then
 unusual_monster_items += triple sword,executioner's axe,halberd,glaive,bardiche,arbalest,hand cannon,triple crossbow
-more += encounter.*(?<!spectral) (manticore|two-headed ogre|kobold geomancer|tengu|lindwurm|(ice|rust) devil|(fire|earth) elemental|boulder beetle|hornet|cane toad|komodo dragon)(?! (zombie|draugr|simulacrum))
+more += encounter.*(?<!spectral) (manticore|two-headed ogre|kobold geomancer|tengu|lindwurm|(ice|rust) devil|(fire|earth) elemental|lava snake|efreet|boulder beetle|hornet|cane toad|komodo dragon)(?! (zombie|draugr|simulacrum))
 flash += encounter.*(death yak|elephant)(?! (zombie|draugr|simulacrum))
 : end
 
 : if you.xl() <= 10 then
 unusual_monster_items += great sword,demon trident,partisan,trishula,longbow
-more += encounter.*(water moccasin|rime drake|(steam|acid) dragon|wyvern|polar bear|brain worm|queen bee|gnoll bouda|centaurs?)(?! (zombie|draugr|simulacrum))
+more += encounter.*(water moccasin|rime drake|(steam|acid) dragon|wyvern|polar bear|brain worm|queen bee|wraith|gnoll bouda|centaur)(?! (zombie|draugr|simulacrum))
 more += The polar bear roars madly and goes into a rage
-flash += encounter.*(yak|wight)(?! (zombie|draugr|simulacrum))
+flash += encounter.*(yak)(?! (zombie|draugr|simulacrum))
 : end
 
 : if you.xl() <= 7 then
 # unusual_monster_items += spear,(?<!demon) trident,sling,shortbow,orcbow
-more += encounter.*(bombardier beetle|ice beast|iguana|black bear|sky beast|electric eel|sleepcap)(?! (zombie|draugr|simulacrum))
-flash += encounter.*killer bees?(?! (zombie|draugr|simulacrum))
+more += encounter.*(phantom|wight|bombardier beetle|ice beast|jelly|iguana|hound|black bear|sky beast|electric eel|sleepcap)(?! (zombie|draugr|simulacrum))
+more += The black bear roars madly and goes into a rage
 more += encounter.*orc (wizard|priest|warrior)(?! (zombie|draugr|simulacrum))
 flash += encounter.*orc (wizard|priest|warrior)(?! (zombie|draugr|simulacrum))
 more += encounter.*(ogre|gnoll)(?! (zombie|draugr|simulacrum))
 flash += encounter.*(ogre|gnoll)(?! (zombie|draugr|simulacrum))
+flash += encounter.*killer bee(?! (zombie|draugr|simulacrum))
 : end
 
 : if you.xl() <= 4 and you.race() ~= "Gargoyle" and you.race() ~= "Revenant" and you.race() ~= "Poltergeist" and you.race() ~= "Mummy" and you.race() ~= "Djinni" then
 more += encounter.*(adder|orc)(?! (zombie|draugr|simulacrum))
-# monster_alert += tough
+monster_alert += tough
 : end
 
 : if you.xl() <= 1 then
 more += encounter.*(goblin|kobold|ball python|ribbon worm|dart slug)(?! (zombie|draugr|simulacrum))
-flash += encounter.*jackal(?! (zombie|draugr|simulacrum))
+flash += encounter.*(jackal)(?! (zombie|draugr|simulacrum))
 : end
 
 ##############
