@@ -3322,6 +3322,7 @@ interrupt_travel -= sense_monster
 # crawl.chaosforge.org/Portal
 # github.com/crawl/crawl/tree/master/crawl-ref/source/dat/des/portals
 # very nearby: 7–13, nearby: 14–20, distant: 21–27, very distant: 28+
+# Gauntlet 400-600 daAuts, Necropolis 900-1200, Most Portals 600-800
 flash += timed_portal:
 stop += timed_portal:
 flash += You hear.*very (nearby|distant)
@@ -3457,7 +3458,6 @@ flash += You stumble backwards
 flash += You are shoved backwards
 flash += drags you backwards
 flash += You are knocked back
-more += floods into your lungs!
 more += grabs (?!your)you
 flash += grabs (?!your)you
 more += roots grab (?!your)you
@@ -3472,14 +3472,22 @@ more += disloyal to dabble
 more += lose consciousness
 more += You are too injured to fight blindly
 more += You feel your attacks grow feeble
-more += The blast of calcifying dust hits (?!your|(?-i:[A-Z])|the)you
-flash += The blast of calcifying dust hits (?!your|(?-i:[A-Z])|the)you
+more += The blast of calcifying dust hits (?!your)you
+flash += The blast of calcifying dust hits (?!your)you
 more += Space warps horribly.*around (?!your)you
 more += Space bends around (?!your)you
-more += Your limbs have turned to stone
+more += Your limbs are stiffening
+flash += Your limbs are stiffening
 more += Your body becomes as fragile as glass
-more += Water floods into your lungs!
-flash += Water floods into your lungs!
+more += Water floods into your lungs
+flash += Water floods into your lungs
+more += stares at the orb of destruction and mumbles some
+
+: if you.skill("Summonings") < 15 then
+more += otherworldly place is opened
+: end
+
+more += An eldritch tentacle comes into view
 flash += You feel extremely sick
 more += lethally poison
 flash += The acid corrodes (?!your)you
@@ -3825,9 +3833,9 @@ flash += encounter.*(imperial myrmidons|necromancer)(?! (zombie|draugr|simulacru
 : if you.xl() <= 22 then
 more += encounter.*(glass eye|death drake|war gargoyle|crystal guardian)
 more += encounter.*(vault (warden|sentinel)|merfolk (avatar|siren))(?! (zombie|draugr|simulacrum))
-more += encounter.*(executioner|guardian serpent|draconian shifter|ironbound convoker|deep troll shaman|death cob)(?! (zombie|draugr|simulacrum))
+more += encounter.*(executioner|guardian serpent|draconian shifter|ironbound (convoker|preserver)|deep troll shaman|death cob)(?! (zombie|draugr|simulacrum))
 more += encounter.*(kobold fleshcrafter|phantasmal warrior|iron giant)(?! (zombie|draugr|simulacrum))
-more += encounter.*(halazid warlock|glowing orange brain|apocalypse crab|moth of wrath)(?! (zombie|draugr|simulacrum))
+more += encounter.*(ragged hierophant|halazid warlock|glowing orange brain|apocalypse crab|moth of wrath)(?! (zombie|draugr|simulacrum))
 flash += encounter.*(halazid warlock)(?! (zombie|draugr|simulacrum))
 more += encounter.*(player|('s|s')) ghost
 more += guardian serpent weaves intricate patterns
