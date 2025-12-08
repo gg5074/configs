@@ -3322,7 +3322,6 @@ interrupt_travel -= sense_monster
 # crawl.chaosforge.org/Portal
 # github.com/crawl/crawl/tree/master/crawl-ref/source/dat/des/portals
 # very nearby: 7–13, nearby: 14–20, distant: 21–27, very distant: 28+
-# Gauntlet 400-600 daAuts, Necropolis 900-1200, Most Portals 600-800
 flash += timed_portal:
 stop += timed_portal:
 flash += You hear.*very (nearby|distant)
@@ -3391,6 +3390,7 @@ more += blinks into view
 more += (?!(draconian|shifter|annihilator) blinks!
 flash += (draconian|shifter|annihilator) blinks!
 more += is devoured by a tear in reality
+flash += You can drop.*~~DROP_ME
 
 : if you.xl() <= 14 then
 more += You feel a bit more experienced
@@ -3885,7 +3885,7 @@ flash += encounter.*(raiju|(cyan|brown) ugly thing|radroach|meliai)(?! (zombie|d
 : if you.xl() <= 13 then
 unusual_monster_items += triple sword,executioner's axe,halberd,glaive,bardiche,arbalest,hand cannon,triple crossbow
 more += encounter.*(?<!spectral) (manticore|two-headed ogre|kobold geomancer|tengu|lindwurm|(ice|rust) devil|(fire|earth) elemental|lava snake|efreet|boulder beetle|hornet|cane toad|komodo dragon)(?! (zombie|draugr|simulacrum))
-flash += encounter.*(death yak|elephant)(?! (zombie|draugr|simulacrum))
+flash += encounter.*(skeletal warrior|death yak|elephant)(?! (zombie|draugr|simulacrum))
 : end
 
 : if you.xl() <= 10 then
@@ -4007,6 +4007,7 @@ ai += (large rock|silver javelin|throwing net|(curare|datura|atropa)-tipped dart
 ai += potions? of heal wounds:@q1, 10-37HP
 ai += potions? of curing:@q2, 5-11HP
 ai += potions? of cancellation:@q3, UnaffectDrainBarbPoisBerserkDDoorExhGodEffects
+ai += potions? of might:34-74T 1d10
 ai += potions? of haste:@q4, 40-79T
 ai += potions? of magic:@q5, 10-37MP
 ai += potions? of mutation:@q6, Remove2-3 Add1-3, 60%Good, 50%AddOneGood
@@ -4021,8 +4022,8 @@ ai += scrolls? of identify:@r1
 ai += scrolls? of teleportation:@r2, 3-5T, Zot8-14T
 ai += scrolls? of blinking:@r3, Unable-TeleTreeMesm
 ai += scrolls? of acquirement:200-1400Gold
-ai += scrolls? of enchant armour:@r4
-ai += scrolls? of enchant weapon:@r5
+ai += scrolls? of enchant armour:@r4, GDR AC^(1/4)x16
+ai += scrolls? of enchant weapon:@r5, ToHit Dex/2+1d(FighS+1)+1d(WeaS+1)
 ai += scrolls? of brand weapon:13.3% FlmFrzHvVnPro, 6.6% DrnElcSpcVmpChaos
 ai += scrolls? of fear:Q*f, 40Will90% 60Will73% ++41-80
 ai += scrolls? of silence:30Turns
@@ -4030,10 +4031,14 @@ ai += scrolls? of noise:25 Alarm40 FireStor25 FulmPris20 Qaz16 Shout12 IMB10
 ai += scrolls? of immolation:Tiny3d15 Little-Large3d20 Giant3d25, 25-35T
 ai += scrolls? of torment:-10%N+
 ai += scrolls? of summoning:Mons2d2
+ai += scrolls? of revelation:Necropolis900, Gauntlet400, Others600
+ai += scrolls? of fog:AtkOut ExploIceblaTremor AlliNeuCharmBribFrenMons TukimPoisSticF
 
-ai += wand of (roots|warping):@v1, \<
+ai += wand of roots:@v1, \<, 2d(5.7+Evo/2)DmgT 3((15+3.5Evo)/22 To 4+((15+3.5Evo)/16)T
+ai += wand of warping:@v1, \<, 50+3.5Evo% MaxEvo12
 ai += wand of iceblast:@v1, \<, 3d(7.66+3.5*Evo/5)
-ai += wand of (acid|light):@v2, \>
+ai += wand of acid:@v2, \>, 4d(5.5+10.5xEvo/20)
+ai += wand of light:@v2, \>, -35%ToHit
 ai += wand of quicksilver:@v2, \>, 6d(4.16+3.5*Evo/9)
 ai += wand of digging:@v3
 
