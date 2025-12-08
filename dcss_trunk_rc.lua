@@ -3369,7 +3369,7 @@ more += You cannot.*while unable to breathe
 more += You cannot.*in your current state
 more += when.*silenced
 more += too confused
-more += There's something in the way
+# more += There's something in the way
 # more += There's nothing to (close|open) nearby
 more += not good enough to have a special ability
 more += You are too berserk
@@ -3481,7 +3481,8 @@ flash += Your limbs are stiffening
 more += Your body becomes as fragile as glass
 more += Water floods into your lungs
 flash += Water floods into your lungs
-more += stares at the orb of destruction and mumbles some
+more += (?<!Your).*conjures an orb of pure magic
+more += (?<!Your).*conjures a glowing orb
 
 : if you.skill("Summonings") < 15 then
 more += otherworldly place is opened
@@ -3683,6 +3684,10 @@ flash += You pick up a manual of
 
 stop += You see here the
 more += You see here.*(of experience|of acquirement)
+stop += - (a|[2-6]) scrolls? of brand weapon
+stop += - (a|[2-7]) scrolls? of enchant weapon
+stop += - (a|[2-8]) scrolls? of revelation
+stop += - [2-9] scrolls labelled
 stop += - [7-9] potions of mutation
 stop += - [2-9] scrolls labelled
 stop += - [2-9] .* potions
@@ -3692,12 +3697,7 @@ stop += You see here.*scrolls? of enchant armour
 : end
 
 : if you.xl() >= 12 then
-stop += scroll labelled,potion labelled
-: end
-
-: if you.xl() >= 8 then
-stop += You see here.*scrolls? of (enchant weapon|brand weapon|revelation)
-stop += You see here.*potions? of mutation
+stop += scroll labelled, - (a|[2-6]) .* potion
 : end
 
 : if you.xl() <= 16 then
@@ -3729,7 +3729,6 @@ flash += Found.*(The Shining One|Zin)
 unusual_monster_items += ( the |distortion|chaos|silver)
 more += encounter.*(undying armoury|antique champion|torpor snail|nekomata|oblivion hound|acid blob|entropy weaver|ghost moth|death knight|eye of devastation)(?! (zombie|draugr|simulacrum))
 more += The undying armouty arms its allies with
-more += The death knight offers itself to Yredelemnul
 
 more += Xak'krixis conjures a prism
 more += Nobody ignites a memory of
@@ -3798,7 +3797,7 @@ more += The curse toe gestures
 # Holy/Dispel Undead
 : if you.race() == "Mummy" or you.race() == "Demonspawn" or you.race() == "Revenant" or you.race() == "Poltergeist" or you.transform() == "death" or you.transform() == "vampire" then
 flash += encounter.*(?<!(angel|daeva|fravashi)) is wielding.*of holy
-more += encounter.*(demonspawn black sun|revenant|ushabti|alderking|burial acolyte)
+more += encounter.*(demonspawn black sun|revenant soulmonger|ushabti|alderking|burial acolyte)
 : end
 
 : if you.branch() ~= "Pandemonium" and you.race() == "Mummy" or you.race() == "Demonspawn" or you.race() == "Revenant" or you.race() == "Poltergeist" or you.transform() == "death" or you.transform() == "vampire" then
@@ -3812,7 +3811,7 @@ more += encounter.*(kobold geomancer|deep elf elementalist|deep troll earth mage
 : end
 
 # crawl.chaosforge.org/Reaching
-# orange demon, snapping turtle, alligator snapping turtle, Cigotuvi's Monster, Geryon, Serpent of Hell (Dis)
+# orange demon, snapping turtle, alligator snapping turtle, crawling flesh cage, Cigotuvi's Monster, Geryon, Serpent of Hell (Dis)
 
 : if you.xl() <= 26 then
 more += encounter.*(oni incarcerator|demonspawn warmonger|draconian stormcaller|(ancient|dread) lich)
@@ -3832,7 +3831,7 @@ flash += encounter.*(imperial myrmidons|necromancer)(?! (zombie|draugr|simulacru
 
 : if you.xl() <= 22 then
 more += encounter.*(glass eye|death drake|war gargoyle|crystal guardian)
-more += encounter.*(vault (warden|sentinel)|merfolk (avatar|siren))(?! (zombie|draugr|simulacrum))
+more += encounter.*(deep elf master archer|vault (warden|sentinel)|merfolk (avatar|siren))(?! (zombie|draugr|simulacrum))
 more += encounter.*(executioner|guardian serpent|draconian shifter|ironbound (convoker|preserver)|deep troll shaman|death cob)(?! (zombie|draugr|simulacrum))
 more += encounter.*(kobold fleshcrafter|phantasmal warrior|iron giant)(?! (zombie|draugr|simulacrum))
 more += encounter.*(ragged hierophant|halazid warlock|glowing orange brain|apocalypse crab|moth of wrath)(?! (zombie|draugr|simulacrum))
@@ -3856,7 +3855,7 @@ unusual_monster_items += vulnerable:(venom):16
 unusual_monster_items += of (electrocution|draining|vampiric|pain)
 unusual_monster_items += of (spectral|heavy|\+[5-9])
 unusual_monster_items += wand of (paralysis|roots|light)
-more += encounter.*(deep elf master archer|boggart|bunyips|stone giant|ironbound beastmaster)(?! (zombie|draugr|simulacrum))
+more += encounter.*(boggart|bunyips|stone giant|ironbound beastmaster)(?! (zombie|draugr|simulacrum))
 more += encounter.*(formless jellyfish|broodmother|spark wasp|orb spider|merfolk (aquamancer|javelineer|impaler)|nagaraja)(?! (zombie|draugr|simulacrum))
 # Paralysis/Petrify/Banish
 more += encounter.*(fenstrider witch|orc sorcerer|ogre mage|occultist|great orb of eyes|sphinx)(?! (zombie|draugr|simulacrum))
@@ -3866,7 +3865,7 @@ flash += The boggart gestures wildly while chanting
 
 : if you.xl() <= 18 then
 unusual_monster_items += of (flaming|freezing)
-more += encounter.*(water nymph|anaconda|ironbound thunderhulk)(?! (zombie|draugr|simulacrum))
+more += encounter.*(water nymph|anaconda|bloated husk|ghost crab|ironbound thunderhulk)(?! (zombie|draugr|simulacrum))
 flash += The water rises up and strikes you
 : end
 
