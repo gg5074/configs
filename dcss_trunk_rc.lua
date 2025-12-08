@@ -3442,6 +3442,7 @@ more += A malevolent force fills
 more += An alarm trap emits a blaring wail
 more += A sentinel's mark forms upon you
 more += invokes.*trap
+flash += invokes.*trap
 more += Your surroundings flicker
 more += You cannot teleport right now
 more += A huge blade swings out and slices into you
@@ -3484,6 +3485,13 @@ flash += Water floods into your lungs
 more += (?<!Your).*conjures an orb of pure magic
 more += (?<!Your).*conjures a glowing orb
 
+# Sap Magic: demonspawn warmonger
+: if you.skill("Spellcasting") >= 15 then
+more += Your magic feels tainted
+flash += Your magic feels tainted
+: end
+
+# Malign Gateway
 : if you.skill("Summonings") < 15 then
 more += otherworldly place is opened
 : end
