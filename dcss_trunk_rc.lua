@@ -5,11 +5,7 @@ sound_fade_time = 2.6
 sound_pack += https://osp.nemelex.cards/build/latest.zip:["init.txt"]
 sound_pack += https://sound-packs.nemelex.cards/Autofire/BindTheEarth/BindTheEarth.zip
 
-# ch_force_autopickup failed: [string ".rc"]:394:attempt to index local 'skill' (a nil value)
-# You see here a staff of necromancy, the necromancy staff of Sloth
-# debug_dump(1):https://pastebin.com/raw/SyDrHhTg, https://pastebin.com/raw/e5qSJXMh
 # staff of death, necromancy = "Necromancy"
-
 # "staff of necromancy" then needRes = you.res_draining() == 0
 
 # ch_force_autopickup failed: [string ".rc"]:194:attempt to compare number with nil
@@ -22,6 +18,7 @@ sound_pack += https://sound-packs.nemelex.cards/Autofire/BindTheEarth/BindTheEar
 #      "triple crossbow", "hand cannon", "staff of", "orb of",
 #      "executioner's axe", "giant spiked club", "lajatang",
 
+# buehler.rc v1.1.0
 # github.com/brianfaires/crawl-rc/blob/main/buehler.rc
 # config, constants, emojis, persistent-data, util, announce-damage, color-inscribe, drop-inferior, fm-disable,
 # inscribe-stats, misc-alerts, remind-id, startup, pa-main, pa-data, pa-util, pa-armour, pa-misc, pa-weapons
@@ -3738,7 +3735,7 @@ flash += Found.*(The Shining One|Zin)
 # Uniques and baddies
 # github.com/crawl/crawl/blob/master/crawl-ref/source/mon-gear.cc
 unusual_monster_items += ( the |distortion|chaos|silver)
-more += encounter.*(undying armoury|antique champion|torpor snail|nekomata|oblivion hound|acid blob|entropy weaver|ghost moth|death knight|eye of devastation)(?! (zombie|draugr|simulacrum))
+more += encounter.*(undying armoury|antique champion|torpor snail|nekomata|oblivion hound|acid blob|entropy weaver|ghost moth|death knight|eyes? of devastation)(?! (zombie|draugr|simulacr))
 more += The undying armouty arms its allies with
 
 more += Xak'krixis conjures a prism
@@ -3782,7 +3779,10 @@ flash += encounter (?!orb guardian|executioner)(?-i:[A-Z])
 flash += encounter.* and (?!orb guardian|executioner)(?-i:[A-Z])
 
 more += encounter.*(lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy))
-flash += encounter.*(lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy))
+flash += encounter.*(lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orbs? of (fire|winter|entropy))
+
+# Paralysis: 5+ 33% 1T, 7+ 50% 2T
+flash += starcursed mass
 
 more += the reach of Zot diminish
 more += The shining eye gazes at you
@@ -3796,8 +3796,8 @@ flash += encounter.*(hell sentinel|hellion|draconian scorcher|flayed ghost)
 
 # Torment/Drain Life/Siphon Essence
 : if not (you.race() == "Mummy" or you.race() == "Revenant" or you.race() == "Poltergeist" or you.transform() == "death") then
-more += encounter.*(royal mummy|mummy priest|tzitzimitl)
-flash += encounter.*(royal mummy|mummy priest|tzitzimitl)
+more += encounter.*(royal mumm|mummy priest|tzitzimitl)
+flash += encounter.*(royal mumm|mummy priest|tzitzimitl)
 more += encounter.*(tormentor|curse toe|curse skull)
 flash += encounter.*(tormentor|curse toe|curse skull)
 more += encounter.*(deathcap|soul eater|vampire bloodprince|alderking)
@@ -3831,22 +3831,22 @@ more += encounter.*(oni incarcerator|demonspawn warmonger|draconian stormcaller|
 : if you.xl() <= 24 then
 unusual_monster_items += of (acid)
 more += (hits|warns) (?!your)you.*of (distortion|chaos)
-more += encounter.*(air elemental|tengu reaver|(deep elf|draconian) annihilator|void ooze|orb guardian)(?! (zombie|draugr|simulacrum))
-more += encounter.*(lich|shadow dragon|juggernaut|caustic shrike|wyrmhole|spriggan berserker)(?! (zombie|draugr|simulacrum))
+more += encounter.*(air elemental|tengu reaver|(deep elf|draconian) annihilator|void ooze|orb guardian)(?! (zombie|draugr|simulacr))
+more += encounter.*(lich|shadow dragon|juggernaut|caustic shrike|wyrmhole|spriggan berserker)(?! (zombie|draugr|simulacr))
 more += The spriggan berserker utters an invocation to Trog
 more += The spriggan roars madly and goes into a rage
 # Agony
-more += encounter.*(imperial myrmidons|necromancer)(?! (zombie|draugr|simulacrum))
-flash += encounter.*(imperial myrmidons|necromancer)(?! (zombie|draugr|simulacrum))
+more += encounter.*(imperial myrmidons|necromancer)(?! (zombie|draugr|simulacr))
+flash += encounter.*(imperial myrmidons|necromancer)(?! (zombie|draugr|simulacr))
 : end
 
 : if you.xl() <= 22 then
 more += encounter.*(glass eye|death drake|war gargoyle|crystal guardian)
-more += encounter.*(deep elf master archer|vault (warden|sentinel)|merfolk (avatar|siren))(?! (zombie|draugr|simulacrum))
-more += encounter.*(executioner|guardian serpent|draconian shifter|ironbound (convoker|preserver)|deep troll shaman|death cob)(?! (zombie|draugr|simulacrum))
-more += encounter.*(kobold fleshcrafter|phantasmal warrior|iron giant)(?! (zombie|draugr|simulacrum))
-more += encounter.*(ragged hierophant|halazid warlock|glowing orange brain|apocalypse crab|moth of wrath)(?! (zombie|draugr|simulacrum))
-flash += encounter.*(halazid warlock)(?! (zombie|draugr|simulacrum))
+more += encounter.*(deep elf master archer|vault (warden|sentinel)|merfolk (avatar|siren))(?! (zombie|draugr|simulacr))
+more += encounter.*(executioner|guardian serpent|draconian shifter|ironbound (convoker|preserver)|deep troll shaman|death cob)(?! (zombie|draugr|simulacr))
+more += encounter.*(kobold fleshcrafter|phantasmal warrior|iron giant)(?! (zombie|draugr|simulacr))
+more += encounter.*(ragged hierophant|halazid warlock|glowing orange brain|apocalypse crab|moths? of wrath)(?! (zombie|draugr|simulacr))
+flash += encounter.*(halazid warlock)(?! (zombie|draugr|simulacr))
 more += encounter.*(player|('s|s')) ghost
 more += guardian serpent weaves intricate patterns
 more += ironbound convoker begins to recite a word of recall
@@ -3868,17 +3868,17 @@ unusual_monster_items += vulnerable:(venom):16
 unusual_monster_items += of (electrocution|draining|vampiric|pain)
 unusual_monster_items += of (spectral|heavy|\+[5-9])
 unusual_monster_items += wand of (paralysis|roots|light)
-more += encounter.*(boggart|bunyips|stone giant|ironbound beastmaster)(?! (zombie|draugr|simulacrum))
-more += encounter.*(formless jellyfish|broodmother|spark wasp|orb spider|merfolk (aquamancer|javelineer|impaler)|nagaraja)(?! (zombie|draugr|simulacrum))
+more += encounter.*(boggart|bunyips|stone giant|ironbound beastmaster)(?! (zombie|draugr|simulacr))
+more += encounter.*(formless jellyfish|broodmother|spark wasp|orb spider|merfolk (aquamancer|javelineer|impaler)|nagaraja)(?! (zombie|draugr|simulacr))
 # Paralysis/Petrify/Banish
-more += encounter.*(fenstrider witch|orc sorcerer|ogre mage|occultist|great orb of eyes|sphinx)(?! (zombie|draugr|simulacrum))
-more += encounter.*(?<!spectral) (jorogumo|basilisk|catoblepas|deep elf (sorcerer|demonologist)|vampire knight)(?! (zombie|draugr|simulacrum))
+more += encounter.*(fenstrider witch|orc sorcerer|ogre mage|occultist|great orbs? of eyes|sphinx)(?! (zombie|draugr|simulacr))
+more += encounter.*(?<!spectral) (jorogumo|basilisk|catoblepas|deep elf (sorcerer|demonologist)|vampire knight)(?! (zombie|draugr|simulacr))
 flash += The boggart gestures wildly while chanting
 : end
 
 : if you.xl() <= 18 then
 unusual_monster_items += of (flaming|freezing)
-more += encounter.*(water nymph|anaconda|bloated husk|ghost crab|ironbound thunderhulk)(?! (zombie|draugr|simulacrum))
+more += encounter.*(water nymph|azure jell|anaconda|bloated husk|ghost crab|ironbound thunderhulk)(?! (zombie|draugr|simulacr))
 flash += The water rises up and strikes you
 : end
 
@@ -3886,46 +3886,46 @@ flash += The water rises up and strikes you
 unusual_monster_items += of (venom)
 unusual_monster_items += wand of (charming|polymorph)
 
-more += encounter.*(raven|water elemental|(fire|ice) dragon|centaur warrior|yaktaur|cyclops|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma)(?! (zombie|draugr|simulacrum))
+more += encounter.*(raven|water elemental|(fire|ice) dragon|centaur warrior|yaktaur|cyclops|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma)(?! (zombie|draugr|simulacr))
 more += The.*headed hydra grows
 flash += The.*headed hydra grows
 
-more += encounter.*(vault guard|deep elf|kobold blastminer|gargoyle|ghoul|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant|wolf spider)(?! (zombie|draugr|simulacrum))
-flash += encounter.*(raiju|(cyan|brown) ugly thing|radroach|meliai)(?! (zombie|draugr|simulacrum))
+more += encounter.*(vault guard|deep elf|kobold blastminer|gargoyle|ghoul|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant|wolf spider)(?! (zombie|draugr|simulacr))
+flash += encounter.*(raiju|(cyan|brown) ugly thing|radroach|meliai)(?! (zombie|draugr|simulacr))
 : end
 
 : if you.xl() <= 13 then
 unusual_monster_items += triple sword,executioner's axe,halberd,glaive,bardiche,arbalest,hand cannon,triple crossbow
-more += encounter.*(?<!spectral) (manticore|two-headed ogre|kobold geomancer|tengu|lindwurm|(ice|rust) devil|(fire|earth) elemental|lava snake|efreet|boulder beetle|hornet|cane toad|komodo dragon)(?! (zombie|draugr|simulacrum))
-flash += encounter.*(skeletal warrior|death yak|elephant)(?! (zombie|draugr|simulacrum))
+more += encounter.*(?<!spectral) (manticore|two-headed ogre|kobold geomancer|tengu|lindwurm|(ice|rust) devil|(fire|earth) elemental|lava snake|efreet|boulder beetle|hornet|cane toad|komodo dragon)(?! (zombie|draugr|simulacr))
+flash += encounter.*(skeletal warrior|death yak|elephant)(?! (zombie|draugr|simulacr))
 : end
 
 : if you.xl() <= 10 then
 unusual_monster_items += great sword,demon trident,partisan,trishula,longbow
-more += encounter.*(water moccasin|rime drake|(steam|acid) dragon|wyvern|polar bear|brain worm|queen bee|wraith|gnoll bouda|centaur)(?! (zombie|draugr|simulacrum))
+more += encounter.*(water moccasin|rime drake|(steam|acid) dragon|wyvern|polar bear|brain worm|queen bee|wraith|gnoll bouda|centaur)(?! (zombie|draugr|simulacr))
 more += The polar bear roars madly and goes into a rage
-flash += encounter.*(yak)(?! (zombie|draugr|simulacrum))
+flash += encounter.*(yak)(?! (zombie|draugr|simulacr))
 : end
 
 : if you.xl() <= 7 then
 # unusual_monster_items += spear,(?<!demon) trident,sling,shortbow,orcbow
-more += encounter.*(phantom|wight|bombardier beetle|ice beast|jelly|iguana|hound|black bear|sky beast|electric eel|sleepcap)(?! (zombie|draugr|simulacrum))
+more += encounter.*(phantom|wight|bombardier beetle|ice beast|jell(y|ies)|iguana|hound|black bear|sky beast|electric eel|sleepcap)(?! (zombie|draugr|simulacr))
 more += The black bear roars madly and goes into a rage
-more += encounter.*orc (wizard|priest|warrior)(?! (zombie|draugr|simulacrum))
-flash += encounter.*orc (wizard|priest|warrior)(?! (zombie|draugr|simulacrum))
-more += encounter.*(ogre|gnoll)(?! (zombie|draugr|simulacrum))
-flash += encounter.*(ogre|gnoll)(?! (zombie|draugr|simulacrum))
-flash += encounter.*killer bee(?! (zombie|draugr|simulacrum))
+more += encounter.*orc (wizard|priest|warrior)(?! (zombie|draugr|simulacr))
+flash += encounter.*orc (wizard|priest|warrior)(?! (zombie|draugr|simulacr))
+more += encounter.*(ogre|gnoll)(?! (zombie|draugr|simulacr))
+flash += encounter.*(ogre|gnoll)(?! (zombie|draugr|simulacr))
+flash += encounter.*killer bee(?! (zombie|draugr|simulacr))
 : end
 
 : if you.xl() <= 4 and you.race() ~= "Gargoyle" and you.race() ~= "Revenant" and you.race() ~= "Poltergeist" and you.race() ~= "Mummy" and you.race() ~= "Djinni" then
-more += encounter.*(adder|orc)(?! (zombie|draugr|simulacrum))
+more += encounter.*(adder|orc)(?! (zombie|draugr|simulacr))
 monster_alert += tough
 : end
 
 : if you.xl() <= 1 then
-more += encounter.*(goblin|kobold|ball python|ribbon worm|dart slug)(?! (zombie|draugr|simulacrum))
-flash += encounter.*(jackal)(?! (zombie|draugr|simulacrum))
+more += encounter.*(goblin|kobold|ball python|ribbon worm|dart slug)(?! (zombie|draugr|simulacr))
+flash += encounter.*(jackal)(?! (zombie|draugr|simulacr))
 : end
 
 ##############
@@ -3936,7 +3936,7 @@ dump_message_count = 1000
 note_hp_percent = 20
 user_note_prefix = 
 
-note_items += of experience,of resistance,archmagi,crystal plate armour,pearl dragon scales
+note_items += of (devious|valour|concussion|sundering|rebuke),of experience,(?<!potions?) of resistance,archmagi,crystal plate armour,pearl dragon scales
 note_messages += You pass through the gate
 note_messages += cast.*Abyss
 note_messages += BOSS
