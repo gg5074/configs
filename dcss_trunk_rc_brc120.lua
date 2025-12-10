@@ -343,7 +343,7 @@ brc_config_explicit = {
   hotkey = {
     key = { keycode = 13, name = "[Enter]" },
     skip_keycode = 27, -- ESC keycode
-    equip_hotkey = true, -- Offer to equip after picking up equipment
+    equip_hotkey = false, -- Offer to equip after picking up equipment
     wait_for_safety = true, -- Don't expire the hotkey with monsters in view
     explore_clears_queue = true, -- Clear the hotkey queue on explore
   },
@@ -351,8 +351,8 @@ brc_config_explicit = {
   ---- Feature configs ----
   ["announce-hp-mp"] = {
     disabled = false,
-    dmg_flash_threshold = 0.20, -- Flash screen when losing this % of max HP
-    dmg_fm_threshold = 0.30, -- Force more for losing this % of max HP
+    dmg_flash_threshold = 0.15, -- Flash screen when losing this % of max HP
+    dmg_fm_threshold = 0.25, -- Force more for losing this % of max HP
     always_on_bottom = false, -- Rewrite HP/MP meters after each turn with messages
     meter_length = 5, -- Number of pips in each meter
 
@@ -363,8 +363,8 @@ brc_config_explicit = {
       mp_gain_limit = 2, -- Announce when MP gain >= this
       hp_first = true, -- Show HP first in the message
       same_line = true, -- Show HP/MP on the same line
-      always_both = true, -- If showing one, show both
-      very_low_hp = 0.10, -- At this % of max HP, show all HP changes and mute % HP alerts
+      always_both = false, -- If showing one, show both
+      very_low_hp = 0.15, -- At this % of max HP, show all HP changes and mute % HP alerts
     },
 
     HP_METER = BRC.Config.emojis and { FULL = "❤️", PART = "❤️‍🩹", EMPTY = "🤍" } or {
@@ -400,7 +400,7 @@ brc_config_explicit = {
   },
 
   ["color-inscribe"] = {
-    disabled = false,
+    disabled = true,
     -- No config; See color-inscribe.lua for COLORIZE_TAGS
   },
 
@@ -462,7 +462,7 @@ brc_config_explicit = {
   },
 
   ["runrest-features"] = {
-    disabled = false,
+    disabled = true,
     after_shaft = true, -- stop on stairs after being shafted, until returned to original floor
     ignore_altars = true, -- when you don't need a god
     ignore_portal_exits = true, -- don't stop explore on portal exits
@@ -473,12 +473,12 @@ brc_config_explicit = {
   },
 
   ["safe-consumables"] = {
-    disabled = false,
+    disabled = true,
     -- No config;See safe-consumables.lua for NO_INSCRIPTION_NEEDED scrolls/potions
   },
 
   ["safe-stairs"] = {
-    disabled = false,
+    disabled = true,
     warn_backtracking = true, -- Warn if immediately taking stairs twice in a row
     warn_v5 = true, -- Prompt before entering Vaults:5
   },
@@ -500,8 +500,6 @@ brc_config_explicit = {
     set_all_targets = true, -- Set all targets, even if only focusing one
     focus_one_skill = true, -- Focus one skill at a time, even if setting all targets
     auto_set_skill_targets = {
-      { "Stealth", 2.0 }, -- First, focus stealth to 2.0
-      { "Fighting", 2.0 }, -- If already have stealth, focus fighting to 2.0
     },
 
     -- For non-spellcasters, add preferred weapon type as 3rd skill target
@@ -523,7 +521,7 @@ brc_config_explicit = {
 
   ---- Large config sections ----
   ["dynamic-options"] = {
-    disabled = false,
+    disabled = true,
     -- XL-based force more messages: active when XL <= specified level
     xl_force_mores = {
       { pattern = "monster_warning:wielding.*of electrocution", xl = 5 },
@@ -579,7 +577,7 @@ brc_config_explicit = {
   },
 
   ["mute-messages"] = {
-    disabled = false,
+    disabled = true,
     mute_level = 2,
     messages = {
       -- Light reduction; unnecessary messages
@@ -676,13 +674,15 @@ brc_config_explicit = {
 
       -- Alert the first time each item is found. Can require training with OTA_require_skill.
       one_time = {
-        "buckler", "kite shield", "tower shield", "crystal plate armour",
-        "gold dragon scales", "pearl dragon scales", "storm dragon scales", "shadow dragon scales",
-        "quick blade", "demon blade", "eudemon blade", "double sword", "triple sword",
-        "broad axe", "executioner's axe",
-        "demon whip", "eveningstar", "giant spiked club", "morningstar", "sacred scourge",
-        "lajatang", "bardiche", "demon trident", "partisan", "trishula",
-        "hand cannon", "triple crossbow",
+        "of devious", "of valour", "of concussion", "of sundering", "of rebuke",
+        "pair of gloves", "pair of gloves of", "pair of boots", "pair of boots of", "cloak", "cloak of", "scarf of", " hat "," hat of", "ring of", "amulet of",
+        "6 ring of strength", "6 ring of dexterity", "dragonskin cloak", "moon troll leather armour", "Cigotuvi's embrace",
+        "spear of", "trident of", "partisan", "partisan of", "demon trident", "demon trident of", "trishula", "glaive", "bardiche",
+        "broad axe", "morningstar", "eveningstar", "demon whip", "sacred scourge", "demon blade",
+        "buckler", "buckler of", "kite shield", "kite shield of", "tower shield", "tower shield of", "wand of digging",
+        "ring mail of", "scale mail of", "chain mail", "chain mail of", "plate armour","plate armour of",
+        "crystal plate armour", "golden dragon scales", "storm dragon scales", "swamp dragon scales",
+        "quicksilver dragon scales", "pearl dragon scales", "shadow dragon scales"
       },
       OTA_require_skill = { weapon = 2, armour = 2.5, shield = 0 }, -- No alert if skill < this
 
@@ -696,21 +696,21 @@ brc_config_explicit = {
 
       -- Which alerts generate a force_more
       More = {
-        early_weap = false, -- Good weapons found early
-        upgrade_weap = false, -- Better DPS / weapon_score
-        weap_ego = false, -- New or diff egos
-        body_armour = false,
+        early_weap = true,       -- Good weapons found early
+        upgrade_weap = true,     -- Better DPS / weapon_score
+        weap_ego = true,         -- New or diff egos
+        body_armour = true,
         shields = true,
-        aux_armour = false,
-        armour_ego = true, -- New or diff egos
-        high_score_weap = false, -- Highest damage found
+        aux_armour = true,
+        armour_ego = true,       -- New or diff egos
+        high_score_weap = true,  -- Highest damage found
         high_score_armour = true, -- Highest AC found
         one_time_alerts = true,
-        artefact = false, -- Any artefact
+        artefact = true,         -- Any artefact
         trained_artefacts = true, -- Artefacts where you have corresponding skill > 0
-        orbs = false, -- Unique orbs
+        orbs = false,
         talismans = you.class() == "Shapeshifter", -- True for shapeshifter, false for everyone else
-        staff_resists = false, -- When a staff gives a missing resistance
+        staff_resists = true,    -- When a staff gives a missing resistance
         autopickup_disabled = true, -- Alerts for autopickup items, when autopickup is disabled
       }, -- Alert.More
     }, -- Alert
@@ -830,162 +830,11 @@ brc_config_explicit = {
   }, -- pickup-alert
 
   ["alert-monsters"] = {
-    disabled = false,
+    disabled = true,
     sensitivity = 1.0, -- 0 to disable all; at 2.0, alerts will fire at 1/2 HP
     pack_timeout = 10, -- turns to wait before repeating a pack alert. 0 to disable
     disable_alert_monsters_in_zigs = true, -- Disable dynamic force_mores in Ziggurats
     debug_alert_monsters = false, -- Get a message when alerts toggle off/on
-
-    Alerts = {
-      { name = "always_fm",
-        pattern = {
-          -- High damage/speed
-          "flayed ghost", "juggernaut", "orbs? of (entropy|fire|winter)",
-          --Summoning
-          "boundless tesseract", "demonspawn corrupter", "draconian stormcaller", "dryad",
-          "guardian serpent", "halazid warlock", "shadow demon", "spriggan druid", "worldbinder",
-          --Dangerous abilities
-          "iron giant", "merfolk aquamancer", "shambling mangrove", "starflower",
-          "torpor snail", "water nymph", "wretched star", "wyrmhole",
-          --Dangerous clouds
-          "apocalypse crab","catoblepas",
-        } },
-
-      { name = "always_flash", flash_screen = true,
-        pattern = {
-          -- Noteworthy abilities
-          "air elemental", "elemental wellspring", "ghost crab", "ironbound convoker",
-          "vault guardian", "vault warden", "wendingo",
-          -- Displacement
-          "deep elf knight", "swamp worm",
-          -- Summoning
-          "deep elf elementalist",
-        } },
-
-      { name = "always_fm_pack", is_pack = true,
-        pattern = { "boggart", "dream sheep", "floating eye", "shrike" } },
-
-      -- Early game Dungeon problems for chars with low mhp. (adder defined below)
-      { name = "30hp", cond = "hp", cutoff = 30,
-        pattern = { "hound", "gnoll" } },
-
-      -- Monsters dangerous until a certain point
-      { name = "xl_7", cond = "xl", cutoff = 7,
-        pattern = { "orc wizard" } },
-      { name = "xl_12", cond = "xl", cutoff = 12,
-        pattern = { "hydra", "bloated husk" } },
-
-      -- Monsters that can hit for ~50% of hp from range with unbranded attacks
-      { name = "40hp", cond = "hp", cutoff = 40,
-        pattern = { "orc priest" } },
-      { name = "50hp", cond = "hp", cutoff = 50,
-        pattern = { "manticore", "orc high priest" } },
-      { name = "60hp", cond = "hp", cutoff = 60,
-        pattern = { "centaur(?! warrior)", "cyclops", "yaktaur(?! captain)" } },
-      { name = "70hp_melai", cond = "hp", cutoff = 70, is_pack = true,
-        pattern = "meliai" },
-      { name = "80hp", cond = "hp", cutoff = 80,
-        pattern = { "gargoyle" } },
-      { name = "90hp", cond = "hp", cutoff = 90,
-        pattern = { "deep elf archer", "tengu conjurer" } },
-      { name = "110hp", cond = "hp", cutoff = 110,
-        pattern = { "cacodemon", "centaur warrior", "deep elf high priest",
-                    "deep troll earth mage", "eye of devastation", "hellion", "stone giant",
-                    "sun moth", "yaktaur captain" } },
-      { name = "120hp", cond = "hp", cutoff = 120,
-        pattern = { "magenta draconian", "thorn hunter", "quicksilver (dragon|elemental)" } },
-      { name = "160hp", cond = "hp", cutoff = 160,
-        pattern = { "brimstone fiend", "deep elf sorcererhell sentinal",
-                    "draconian (knight|scorcher)", "war gargoyle" } },
-      { name = "200hp", cond = "hp", cutoff = 200,
-        pattern = { "(deep elf|draconian) annihilator", "iron (dragon|elemental)" } },
-
-      -- Monsters that can crowd-control you without sufficient willpower
-      -- Cutoff ~10% for most spells; lower for more significant spells like banish
-      { name = "willpower2", cond = "will", cutoff = 2,
-        pattern = { "basilisk", "naga ritualist", "vampire(?! (bat|mage|mosquito))",
-                    "sphinx marauder" } },
-      { name = "willpower3", cond = "will", cutoff = 3,
-        pattern = { "cacodemon", "death knight", "deep elf (demonologist|sorcerer|archer)",
-                    "draconian shifter", "fenstrider witch", "glowing orange brain",
-                    "guardian sphinx", "imperial myrmidon", "iron elemental", "occultist",
-                    "merfolk siren", "nagaraja", "ogre mage", "orc sorcerer", "satyr",
-                    "vampire knight", "vault sentinel" } },
-      { name = "willpower3_great_orb_of_eyes", cond = "will", cutoff = 3, is_pack = true,
-        pattern = "great orb of eyes" },
-      { name = "willpower3_golden_eye", cond = "will", cutoff = 3, is_pack = true,
-        pattern = "golden eye" },
-      { name = "willpower4", cond = "will", cutoff = 4,
-        pattern = { "merfolk avatar", "tainted leviathan", "nargun" } },
-
-      -- Brain feed with low int
-      { name = "brainfeed", cond = "int", cutoff = 6,
-        pattern = { "glowing orange brain", "neqoxec" } },
-
-      -- Alert if no resist and HP below cutoff
-      { name = "pois_30", cond = "pois", cutoff = 30,
-        pattern = { "adder" } },
-      { name = "pois_80", cond = "pois", cutoff = 80,
-        pattern = { "golden dragon", "green draconian", "swamp dragon" } },
-      { name = "pois_120", cond = "pois", cutoff = 120,
-        pattern = { "fenstrider witch", "green death", "naga mage", "nagaraja" } },
-      { name = "pois_140", cond = "pois", cutoff = 140,
-        pattern = { "tengu reaver" } },
-
-      { name = "elec_40", cond = "elec", cutoff = 40, is_pack = true,
-        pattern = "electric eel" },
-      { name = "elec_80", cond = "elec", cutoff = 80,
-        pattern = { "raiju", "shock serpent", "spark wasp" } },
-      { name = "elec_120", cond = "elec", cutoff = 120,
-        pattern = { "black draconian", "blizzard demon", "deep elf zephyrmancer",
-                    "storm dragon", "tengu conjurer" } },
-      { name = "elec_140", cond = "elec", cutoff = 140,
-        pattern = { "electric golem", "servants? of whisper", "spriggan air mage",
-                    "tengu reaver", "titan" } },
-      { name = "elec_140_pack", cond = "elec", cutoff = 140, is_pack = true,
-        pattern = { "ball lightning" } },
-      { name = "corr_60", cond = "corr", cutoff = 60,
-        pattern = { "acid dragon" } },
-      { name = "corr_140", cond = "corr", cutoff = 140,
-        pattern = { "demonspawn corrupter", "entropy weaver", "moon troll", "tengu reaver" } },
-
-      { name = "fire_60", cond = "fire", cutoff = 60,
-        pattern = { "fire crab", "lava snake", "lindwurm", "steam dragon" } },
-      { name = "fire_100", cond = "fire", cutoff = 100,
-        pattern = { "deep elf pyromancer", "efreet", "smoke demon", "sun moth" } },
-      { name = "fire_120", cond = "fire", cutoff = 120,
-        pattern = { "demonspawn blood saint", "hell hound", "hell knight", "molten gargoyle",
-                    "ogre mage", "orc sorcerer", "red draconian" } },
-      { name = "fire_140", cond = "fire", cutoff = 140,
-        pattern = { "balrug" } },
-      { name = "fire_160", cond = "fire", cutoff = 160,
-        pattern = { "fire dragon", "fire giant", "golden dragon", "ophan", "salamander tyrant",
-                    "tengu reaver", "will-o-the-wisp" } },
-      { name = "fire_240", cond = "fire", cutoff = 240,
-        pattern = { "crystal (guardian|echidna)", "draconian scorcher", "hellephant" } },
-
-      { name = "cold_80", cond = "cold", cutoff = 80,
-        pattern = { "rime drake" } },
-      { name = "cold_120", cond = "cold", cutoff = 120,
-        pattern = { "blizzard demon", "bog body", "demonspawn blood saint",
-                  "ironbound frostheart", "white draconian" } },
-      { name = "cold_160", cond = "cold", cutoff = 160,
-        pattern = { "draconian knight", "frost giant", "golden dragon",
-                    "ice dragon", "tengu reaver" } },
-      { name = "cold_180", cond = "cold", cutoff = 180,
-        pattern = { "(?<!dread)(?<!ancient) lich", "lich king" } },
-      { name = "cold_240", cond = "cold", cutoff = 240,
-        pattern = { "crystal (guardian|echidna)" } },
-
-      { name = "drain_100", cond = "drain", cutoff = 100,
-        pattern = { "orc sorcerer" } },
-      { name = "drain_120", cond = "drain", cutoff = 120,
-        pattern = { "necromancer" } },
-      { name = "drain_150", cond = "drain", cutoff = 150,
-        pattern = { "demonspawn blood saint", "revenant" } },
-      { name = "drain_190", cond = "drain", cutoff = 190,
-        pattern = { "shadow dragon" } },
-    }, -- Alerts
 
     init = [[
     local alert_list = f_alert_monsters.Config.Alerts
@@ -1019,195 +868,6 @@ brc_config_explicit = {
 
 }
 ############################### End lua/config/explicit.lua ###############################
-##########################################################################################
-
-## (Resuming rc/init.txt) ##
-
-### Mostly normal RC options ###
-
-
-################################### Begin rc/display.rc ###################################
-############### https://github.com/brianfaires/crawl-rc/ ###############
-####### Menu Colors #######
-# Set Alias & clear defaults
-menu := menu_colour
-menu =
-
-#### Item colours
-$i_equipped := lightgreen
-$i_boring := darkgrey
-$i_plain := lightgrey
-$i_ego := white
-$i_wand := lightblue
-$i_evoker := yellow
-$i_misc := brown
-$i_shade_artefact := cyan
-$i_shade_jewellery := magenta
-$i_shade_consumables := green
-
-## Consumables
-$i_warning := lightred
-$i_useful := lightblue
-$i_heal := green
-$i_emergency := lightcyan
-$i_rare := yellow
-
-#### Assign item menu_colours
-## Highest priority; always correct
-menu += $i_boring:(melded|useless_item)
-menu += $i_warning:forbidden
-menu += inventory:$i_equipped:.*equipped
-
-## Menu-specific overrides
-# Begin workaround for https://github.com/crawl/crawl/issues/4825 (to override inventory color only)
-menu += pickup:light$i_shade_artefact:artefact
-menu += stash:light$i_shade_artefact:artefact
-
-menu += pickup:$i_evoker:inert
-menu += stash:$i_evoker:inert
-menu += inventory:$i_boring:inert
-
-menu += pickup:light$i_shade_jewellery:amulet
-menu += stash:light$i_shade_jewellery:amulet
-menu += inventory:$i_shade_jewellery:amulet
-# End workaround
-
-menu += inventory:$i_boring:inert
-menu += inventory:$i_shade_jewellery:amulet
-menu += pickup:light$i_shade_consumables:potion
-menu += pickup:$i_shade_consumables:scroll
-menu += pickup:$i_shade_artefact:artefact.*weapon
-menu += pickup:$i_ego:(ego|(unidentified.*(glowing|runed|shiny|embroidered)|troll leather|dragon scales))
-menu += pickup:$i_wand:wand of
-menu += resists:$i_shade_artefact:artefact
-menu += resists:$i_ego:ego
-menu += resists:$i_plain:(armour|weapon|jewellery)
-menu += shop:$i_ego:(ego|(unidentified.*(glowing|runed|shiny|embroidered)|troll leather|dragon scales))
-
-
-## Main item colours
-menu += $i_equipped:.*equipped.*(weapon|armour|jewellery)
-menu += light$i_shade_artefact:artefact
-menu += light$i_shade_jewellery:jewellery
-menu += $i_ego:ego
-
-# Decks
-menu += $i_emergency:deck of escape
-menu += $i_useful:deck of summoning
-menu += $i_warning:deck of destruction
-
-# Misc
-menu += $i_misc:(manual of|spellbook|staff of|talisman|bauble)
-menu += $i_evoker:(curare|disjunction|throwing net)
-menu += $i_evoker:evoker
-
-# Potions
-menu += $i_emergency:potions? of (cancellation|haste|resistance)
-menu += $i_heal:potions? of (ambrosia|curing|i_heal wounds|magic)
-menu += $i_rare:potions? of experience
-menu += $i_useful:potions? of (brilliance|enlightenment|invisibility|might)
-menu += $i_warning:potions? of (attraction|berserk|lignification|mutation)
-
-# Scrolls
-menu += $i_plain:scrolls? of (amnesia|enchant|identify)
-menu += $i_emergency:scrolls? of (blinking|butterflies|fear|fog|teleportation|summoning)
-menu += $i_rare:scrolls? of (acquirement|brand)
-menu += $i_useful:scrolls? of (revelation)
-menu += $i_warning:scrolls? of (immolation|noise|poison|silence|torment|vulnerability)
-
-# Wands
-menu += $i_emergency:wand of digging
-menu += $i_plain:wand of (flame|paralysis|charming|mindburst|polymorph)
-menu += $i_useful:wand of (acid|iceblast|light|quicksilver|roots|warping)
-
-
-####### Message Channels #######
-# (Main changes are god, timed_portal, mutation, and several mute/boring)
-$m_boring := darkgrey
-$m_normal := lightgrey
-$m_interesting := white
-$m_interface := cyan
-$m_info := blue
-$m_attention := lightmagenta
-$m_danger  := red
-$m_warning := lightred
-$m_alert := yellow
-$m_gain := green
-$m_restore := lightblue
-
-channel.plain = $m_normal
-channel.prompt = $m_interface
-channel.god = $m_alert
-channel.duration = $m_restore
-channel.danger = $m_danger
-channel.warning = $m_warning
-channel.recovery = $m_gain
-channel.talk = mute
-channel.talk_visual = mute
-channel.timed_portal = $m_alert
-channel.sound = $m_normal
-channel.intrinsic_gain = $m_gain
-channel.mutation = $m_attention
-channel.monster_spell = $m_interesting
-channel.monster_enchant = $m_interesting
-channel.monster_warning = $m_warning
-channel.friend_spell = mute
-channel.friend_enchant = mute
-channel.friend_action = mute
-channel.monster_damage = mute
-channel.monster_target = mute
-channel.banishment = $m_alert
-channel.equipment = $m_normal
-channel.floor = $m_boring
-channel.multiturn = $m_boring
-channel.examine = $m_normal
-channel.examine_filter = $m_boring
-channel.diagnostic = $m_info
-channel.error = $m_attention
-channel.tutorial = $m_info
-channel.orb = $m_attention
-channel.hell_effect = $m_warning
-channel.dgl_message = $m_attention
-
-####### Message-specific colors
-msc := message_colour
-
-# Travel / Exploring
-msc ^= $m_alert:You now have enough gold to buy 
-msc ^= $m_alert:You have identified the last 
-msc ^= $m_boring:You .*(open|close) the door
-msc ^= $m_boring:You climb (upwards|downwards)
-msc ^= $m_interesting:Done exploring
-msc ^= $m_interesting:Found a faded altar
-msc ^= $m_interesting:You disentangle yourself
-msc ^= $m_warning:You are caught in .* web
-
-# Combat
-msc ^= $m_boring:(T|t)he (bush|plant|fungus)
-msc ^= $m_boring:does no damage
-msc ^= $m_boring:You block .* attack
-msc ^= $m_boring:fails to defend itself
-msc ^= $m_boring:No (reachable )?target in view
-msc ^= $m_boring:struggles against the net
-msc ^= $m_boring:You furiously retaliate
-msc ^= $m_boring:You swing at nothing
-msc ^= $m_boring:You hear a splash
-msc ^= $m_interesting:flickers and vanishes
-msc ^= $m_interesting:is touched by paradox
-msc ^= $m_interesting:seems to slow down
-msc ^= $m_interesting:Your unstable footing causes you to 
-msc ^= $m_interesting:You become entangled in the net
-msc ^= $m_interesting:You feel a bit more experienced
-msc ^= $m_interesting:You .*miss something
-msc ^= $m_interesting:You are blasted
-
-# Equipment
-msc ^= $m_boring:You unwield your 
-
-# Bad things
-msc ^= $m_danger: delaying your translocation
-
-############################### End rc/display.rc ###############################
 ##########################################################################################
 
 ## (Resuming rc/init.txt) ##
@@ -5408,108 +5068,6 @@ end
 ############################### End lua/features/misc-alerts.lua ###############################
 ##########################################################################################
 
-################################### Begin lua/features/mute-messages.lua ###################################
-############### https://github.com/brianfaires/crawl-rc/ ###############
-{
----------------------------------------------------------------------------------------------------
--- BRC feature module: mute-messages
--- @module f_mute_messages
--- Mutes various crawl messages, with configurable levels of reduction.
-
-f_mute_messages = {}
-f_mute_messages.BRC_FEATURE_NAME = "mute-messages"
-f_mute_messages.Config = {
-  mute_level = 2,
-  messages = {
-    -- Light reduction; unnecessary messages
-    [1] = {
-      -- Unnecessary
-      "You now have .* runes",
-      "to see all the runes you have collected",
-      "A chill wind blows around you",
-      "An electric hum fills the air",
-      "You reach to attack",
-
-      -- Interface
-      "for a list of commands and other information",
-      "Marking area around",
-      "(Reduced|Removed|Placed new) exclusion",
-      "You can access your shopping list by pressing '\\$'",
-
-      -- Wielding weapons
-      "Your .* exudes an aura of protection",
-      "Your .* glows with a cold blue light",
-
-      -- Monsters /Allies / Neutrals
-      "dissolves into shadows",
-      "You swap places",
-      "Your spectral weapon disappears",
-
-      -- Spells
-      "Your foxfire dissipates",
-
-      -- Religion
-      "accepts your kill",
-      "is honoured by your kill",
-    },
-
-    -- Moderate reduction; potentially confusing but no info lost
-    [2] = {
-      -- Allies / monsters
-      "Ancestor HP restored",
-      "The (bush|fungus|plant) (looks sick|begins to die|is engulfed|is struck)",
-      "evades? a web",
-      "is (lightly|moderately|heavily|severely) (damaged|wounded)",
-      "is almost (dead|destroyed)",
-
-      -- Interface
-      "Use which ability\\?",
-      "Evoke which item\\?$",
-      "Shift\\-Dir \\- straight line",
-
-      -- Books
-      "You pick up (?!a manual).*and begin reading",
-      "Unfortunately\\, you learn nothing new",
-
-      -- Ground items / features
-      "There is a.*(door|gate|staircase|web).*here",
-      "You see here .*(corpse|skeleton)",
-      "You now have \\d+ gold piece",
-      "You enter the shallow water",
-      "Moving in this stuff is going to be slow",
-
-      -- Religion
-      "Your shadow attacks",
-    },
-
-    -- Heavily reduced messages for speed runs
-    [3] = {
-      "No target in view",
-      "You (bite|headbutt|kick)",
-      "You (burn|freeze|drain)",
-      "You block",
-      "but do(es)? no damage",
-      "misses you",
-    },
-  },
-} -- f_mute_messages.Config (do not remove this comment)
-
----- Initialization ----
-function f_mute_messages.init()
-  if f_mute_messages.Config.mute_level and f_mute_messages.Config.mute_level > 0 then
-    for i = 1, f_mute_messages.Config.mute_level do
-      if not f_mute_messages.Config.messages[i] then break end
-      for _, message in ipairs(f_mute_messages.Config.messages[i]) do
-        BRC.opt.message_mute(message, true)
-      end
-    end
-  end
-end
-
-}
-############################### End lua/features/mute-messages.lua ###############################
-##########################################################################################
-
 ################################### Begin lua/features/quiver-reminders.lua ###################################
 ############### https://github.com/brianfaires/crawl-rc/ ###############
 {
@@ -8905,7 +8463,7 @@ macros += M S *f<<scrol\{32}||\{32}potio>>\{32}&&\{32}!!iden\{32}&&\{32}!!~D\{32
 macros += M % *f<<misc\{32}||\{32}wand\{32}||\{32}throwin>>\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 macros += M " *f<<jewell\{32}||\{32}orb>>\{32}&&\{32}!!statu\{32}&&\{32}!!carri\{13}
 
-# [[]: Body, Aux
+# "[": Body, Aux
 macros += M [ *f<<body\{32}||\{32}aux>>\{32}&&\{32}!!orb\{32}&&\{32}!!animal\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!0\{32}leat\{32}&&\{32}!!0\{32}ring\{32}mail\{32}&&\{32}!!0\{32}scale\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!0\{32}cloa\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 
 # [`]: Dexterity Weapons, Magical Staves
