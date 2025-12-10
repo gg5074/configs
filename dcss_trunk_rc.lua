@@ -106,6 +106,7 @@ function init_config()
     
     -- Each non-useless item is alerted once.
     one_time = {
+      "of devious", "of valour", "of concussion", "of sundering", "of rebuke",
       "pair of gloves", "pair of gloves of", "pair of boots", "pair of boots of", "cloak", "cloak of", "scarf of", " hat "," hat of", "ring of", "amulet of",
       "6 ring of strength", "6 ring of dexterity", "dragonskin cloak", "moon troll leather armour", "Cigotuvi's embrace",
       "spear of", "trident of", "partisan", "partisan of", "demon trident", "demon trident of", "trishula", "glaive", "bardiche",
@@ -3238,6 +3239,7 @@ msc += mute:(The|A nearby) (plant|bush|fungus).*die
 msc += mute:Your.*web
 msc += mute:The confined air twists around weakly and strikes your
 # github.com/crawl/crawl/commit/03cf731cd7f90669eb5f4fdd65f006c47cf609cc
+# github.com/crawl/crawl/issues/4946
 # msc += mute:Maggie comes into view
 : end
 
@@ -3272,6 +3274,7 @@ spell_menu = true
 warn_contam_cost = true
 
 show_paged_inventory = false
+item_stack_summary_minimum = 8
 
 show_more = false
 easy_confirm = safe
@@ -3491,7 +3494,7 @@ more += Your magic feels tainted
 flash += Your magic feels tainted
 : end
 
-# Malign Gateway
+# Malign Gateway: oklob plant annihilator, Fedhas' Mad Dash
 : if you.skill("Summonings") < 15 then
 more += otherworldly place is opened
 : end
@@ -3853,6 +3856,8 @@ more += ironbound mechanist forges a skittering defender to stand by its side
 more += slime creatures merge to form a (very large|enormous|titanic)
 : end
 
+unusual_monster_items += of (devious|valour|concussion|sundering|rebuke)
+
 # github.com/crawl/crawl/commit/e02c2b2bd47e38273f95c7b2855e43783a19ae70
 unusual_monster_items += vulnerable:acid:24
 unusual_monster_items += vulnerable:(electrocution|draining|vampiric|pain):20
@@ -4021,7 +4026,7 @@ ai += potions? of mutation:@q6, Remove2-3 Add1-3, 60%Good, 50%AddOneGood
 ai += potions? of ambrosia:3-5HPMP/T
 ai += potions? of lignification:1.5xHP (20+XL/2)AC rPo Torm0 Ev0 -MoBlTe GearWeapShie
 ai += potions? of enlightenment:25-64T
-ai += potions? of invisibility:15-54T
+ai += potions? of invisibility:15-54T, MonsSH/3, HuInt+8%Pos, -6EV -6ToHit Block/3
 ai += potions? of resistance:10-29T, rFirColPoiCorEle
 ai += potions? of berserk rage:10-19T, ImmuneSleep
 
@@ -4031,7 +4036,11 @@ ai += scrolls? of blinking:@r3, Unable-TeleTreeMesm
 ai += scrolls? of acquirement:200-1400Gold
 ai += scrolls? of enchant armour:@r4, GDR AC^(1/4)x16
 ai += scrolls? of enchant weapon:@r5, ToHit Dex/2+1d(FighS+1)+1d(WeaS+1)
+
+# Allow brand weapon scrolls (and randarts) to produce the new brands
+# github.com/crawl/crawl/commit/092f012dacd1664b29e7f4c764571602c4b3ef34
 ai += scrolls? of brand weapon:13.3% FlmFrzHvVnPro, 6.6% DrnElcSpcVmpChaos
+
 ai += scrolls? of fear:Q*f, 40Will90% 60Will73% ++41-80
 ai += scrolls? of silence:30Turns
 ai += scrolls? of noise:25 Alarm40 FireStor25 FulmPris20 Qaz16 Shout12 IMB10
@@ -4070,15 +4079,36 @@ ai += tin of tremorstones:Evo 2.5 6 11 18, 5x5 6d6 40%
 ai += lightning rod:(2+PreUses)d(0.75*Evo+46.25)/3, 2d16(Evo1)
 ai += Gell's gravitambourine:Evo 9.5 23.2
 
+ai += of fire resistance:rF+
+ai += of cold resistance:rC+
+ai += (?<!potions?) of resistance:rF+, rC+
+ai += of poison resistance:rPois
+ai += of corrosion resistance:rCorr
+ai += of positive energy:rN+
+ai += of willpower:Will+
+ai += of invulnerability:rInv
+ai += of regeneration:Regen+
+ai += of magic regeneration:MRegen+
+
+ai += (?!.*artefact)fire dragon scale:rF++, rC-
+ai += (?!.*artefact)ice dragon scale:rC++, rF-
+ai += (?!.*artefact)swamp dragon scale:rPois
+ai += (?!.*artefact)gold dragon scale:rC+, rF+, rPois
+ai += (?!.*artefact)acid dragon scale:rCorr
+ai += (?!.*artefact)storm dragon scale:rElec
+ai += (?!.*artefact)pearl dragon scale:rN+
+ai += (?!.*artefact)quicksilver dragon scale:Will+
+ai += (?!.*artefact)shadow dragon scale:Stlth+
+ai += (?!.*artefact)(?<!moon) troll leather:Regen+
+
+ai += ring of flight:+Fly
+ai += ring of protection from fire:rF+
+ai += ring of protection from cold:rC+
+ai += ring of resist corrosion:rCorr
+ai += ring of see invisible:sInv
+ai += ring of wizardry:Wiz+
 ai += ring of magical power:MP+9
-ai += quicksilver dragon scales (?!("|of)):Will+
-ai += golden dragon scales (?!("|of)):rF+, rC+, rPois
-ai += fire dragon scales (?!("|of)):rF++, rC-
-ai += ice dragon scales (?!("|of)):rC++, rF-
-ai += swamp dragon scales (?!("|of)):rPois
-ai += storm dragon scales (?!("|of)):rElec
-ai += pearl dragon scales (?!("|of)):rN+
-ai += shadow dragon scales (?!("|of)):Stlth+
+
 ai += staff of conjuration:IrresistibleDmg-20%
 ai += staff of earth:PhysicalDmg-5%
 ai += staff of fire:rF+
@@ -4421,6 +4451,5 @@ bindkey = [N] CMD_MAP_EXIT_MAP
 bindkey = [U] CMD_MAP_EXIT_MAP
 bindkey = [Y] CMD_MAP_EXIT_MAP
 
-# github.com/brianfaires/crawl-rc?tab=readme-ov-file#notes
 # debug_dump(1), init_buehler():reinitialize, init_buehler(1):reset all persistent data, buehler_rc_active = false
 bindkey = [~] CMD_LUA_CONSOLE
