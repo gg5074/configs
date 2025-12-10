@@ -166,133 +166,6 @@ brc_config_testing = {
 ############################### End lua/config/testing.lua ###############################
 ##########################################################################################
 
-################################### Begin lua/config/speed.lua ###################################
-############### https://github.com/brianfaires/crawl-rc/ ###############
-{
---- Speed Config Profile: For speed runs
-
-brc_config_speed = {
-  BRC_CONFIG_NAME = "Speed",
-
-  ["alert-monsters"] = { disabled = true },
-  ["safe-consumables"] = { disabled = true },
-  ["safe-stairs"] = { disabled = true },
-  ["announce-hp-mp"] = {
-    dmg_flash_threshold = 0.20, -- Flash screen when losing this % of max HP
-    dmg_fm_threshold = 1,       -- Force more for losing this % of max HP
-    always_on_bottom = true,    -- Rewrite HP/MP meters after each turn with messages
-  },
-  ["misc-alerts"] = {
-    alert_low_hp_threshold = 0, -- % max HP to alert; 0 to disable
-    save_with_msg = false,      -- Shift-S to save and leave yourself a message
-  },
-  ["mute-messages"] = {
-    mute_level = 3,
-  },
-  ["remind-id"] = {
-    stop_on_scrolls_count = 99, -- Stop when largest un-ID'd scroll stack increases and is >= this
-    stop_on_pots_count = 99,    -- Stop when largest un-ID'd potion stack increases and is >= this
-  },
-  ["runrest-features"] = { after_shaft = false },
-  ["startup"] = {
-    show_skills_on_startup = false, -- Open skills menu on startup
-  },
-  ["pickup-alert"] = {
-    Pickup = {
-      armour = true,
-      staves = false,
-      weapons = true,
-      weapons_pure_upgrades_only = false, -- Only pick up better versions of same exact weapon
-    },
-
-    Alert = {
-      armour_sensitivity = 1.1, -- [0.5-2.0] Adjust all armour alerts; 0 to disable
-      weapon_sensitivity = 1.2, -- [0.5-2.0] Adjust all weapon alerts; 0 to disable
-      orbs = false,
-      staff_resists = false, -- When a staff gives a missing resistance
-      talismans = false,
-
-      one_time = { -- Alert the first time each item is found
-        "kite shield", "tower shield", "crystal plate armour",
-        "gold dragon scales", "pearl dragon scales", "storm dragon scales",
-        "broad axe", "demon whip", "eveningstar", "morningstar",
-      },
-      OTA_require_skill = { weapon = 6, armour = 0, shield = 0 }, -- No one_time if skill < this
-
-      More = {}, -- All nil / false
-    },
-    Tuning = {
-      Armour = {
-        encumb_penalty_weight = 0, -- [0-2.0] Penalty to heavy armour when training magic/ranged
-        early_xl = 0, -- Alert all usable runed body armour if XL <= `early_xl`
-      },
-    },
-  },
-
-  init = [[
-    BRC.Config.startup.auto_set_skill_targets = { { BRC.you.top_wpn_skill(), 8.0 } }
-    crawl.setopt("view_delay = 0")
-    crawl.setopt("use_animations = 0")
-    crawl.setopt("autofight_stop = 15")
-  ]],
-} -- brc_config_speed (do not remove this comment)
-
-}
-############################### End lua/config/speed.lua ###############################
-##########################################################################################
-
-################################### Begin lua/config/turncount.lua ###################################
-############### https://github.com/brianfaires/crawl-rc/ ###############
-{
---- Turncount Config Profile: For turncount runs
-
-brc_config_turncount = {
-  BRC_CONFIG_NAME = "Turncount",
-
-  ["alert-monsters"] = {
-    sensitivity = 1.25, -- 0 to disable all; at 2.0, alerts will fire at 1/2 HP
-  },
-  ["announce-items"] = {
-    disabled = false,
-  },
-  ["bread-swinger"] = {
-    disabled = false,
-  },
-  ["runrest-features"] = { after_shaft = false },
-  ["mute-messages"] = {
-    mute_level = 1,
-  },
-
-  init = function()
-    crawl.setopt("show_game_time = false")
-    crawl.setopt("autopick_on = false")
-  end,
-} -- brc_config_turncount (do not remove this comment)
-
-}
-############################### End lua/config/turncount.lua ###############################
-##########################################################################################
-
-################################### Begin lua/config/streak.lua ###################################
-############### https://github.com/brianfaires/crawl-rc/ ###############
-{
---- Streak Config Profile: For win streaks
-
-brc_config_streak = {
-  BRC_CONFIG_NAME = "Streak",
-
-  ["alert-monsters"] = {
-    sensitivity = 1.5, -- 0 to disable all; at 2.0, alerts will fire at 1/2 HP
-  },
-  ["mute-messages"] = {
-    mute_level = 1,
-  },
-} -- brc_config_streak (do not remove this comment)
-
-}
-############################### End lua/config/streak.lua ###############################
-##########################################################################################
-
 ################################### Begin lua/config/explicit.lua ###################################
 ############### https://github.com/brianfaires/crawl-rc/ ###############
 {
@@ -341,9 +214,9 @@ brc_config_explicit = {
   },
 
   hotkey = {
-    key = { keycode = 13, name = "[Enter]" },
+    key = { keycode = 32, name = "[Space]" },
     skip_keycode = 27, -- ESC keycode
-    equip_hotkey = false, -- Offer to equip after picking up equipment
+    equip_hotkey = true, -- Offer to equip after picking up equipment
     wait_for_safety = true, -- Don't expire the hotkey with monsters in view
     explore_clears_queue = true, -- Clear the hotkey queue on explore
   },
@@ -494,7 +367,7 @@ brc_config_explicit = {
     allow_class_only_saves = true, -- Also save for class only (always prompts before loading)
 
     -- Remaining values only used if no training targets were loaded by race/class
-    show_skills_menu = false, -- Show skills menu on startup
+    show_skills_menu = true, -- Show skills menu on startup
 
     -- Settings to set skill targets, regardless of race/class
     set_all_targets = true, -- Set all targets, even if only focusing one
@@ -515,7 +388,7 @@ brc_config_explicit = {
   },
 
   ["weapon-slots"] = {
-    disabled = false,
+    disabled = true,
     -- No config
   },
 
@@ -976,7 +849,7 @@ BRC.ARTPROPS_EGO = { -- Corresponding ego
 } -- BRC.ARTPROPS_EGO (do not remove this comment)
 
 ---- Other ----
-BRC.KEYS = { ENTER = 13, ESC = 27, ["Cntl-S"] = 20, ["Cntl-E"] = 5 }
+BRC.KEYS = { SPACE = 32, ESC = 27, ["Cntl-S"] = 20, ["Cntl-E"] = 5 }
 
 BRC.COL = {
   black = "0", blue = "1", green = "2", cyan = "3", red = "4", magenta = "5", brown = "6",
@@ -2717,7 +2590,7 @@ override_table(BRC.Config, BRC.Configs.Default)
 BRC.Hotkey = {}
 BRC.Hotkey.BRC_FEATURE_NAME = "hotkey"
 BRC.Hotkey.Config = {
-  key = { keycode = BRC.KEYS.ENTER, name = "[Enter]" },
+  key = { keycode = BRC.KEYS.SPACE, name = "[Space]" },
   skip_keycode = BRC.KEYS.ESC,
   equip_hotkey = true, -- Offer to equip after picking up equipment
   wait_for_safety = true, -- Don't expire the hotkey with monsters in view
@@ -5555,163 +5428,6 @@ end
 ############################### End lua/features/startup.lua ###############################
 ##########################################################################################
 
-################################### Begin lua/features/weapon-slots.lua ###################################
-############### https://github.com/brianfaires/crawl-rc/ ###############
-{
----------------------------------------------------------------------------------------------------
--- BRC feature module: weapon-slots
--- @module f_weapon_slots
--- Automatically keeps weapons in slots a/b/W. Prioritizes slots by weapon type + skill.
----------------------------------------------------------------------------------------------------
-
-f_weapon_slots = {}
-f_weapon_slots.BRC_FEATURE_NAME = "weapon-slots"
-
----- Local variables ----
-local do_cleanup_weapon_slots
-local slots_changed
-local priorities_ab
-local priorities_W
-
----- Initialization ----
-function f_weapon_slots.init()
-  do_cleanup_weapon_slots = false
-  slots_changed = false
-  priorities_ab = nil
-  priorities_W = nil
-end
-
----- Local functions ----
-local function get_first_empty_slot()
-  -- First try to avoid same slot as a consumable, then find first empty equipment slot
-  local used_slots = {}
-  for _, inv in ipairs(items.inventory()) do
-    used_slots[inv.slot] = true
-  end
-
-  for slot = 0, 51 do
-    if not used_slots[slot] then return slot end
-  end
-
-  for slot = 0, 51 do
-    if not items.inslot(slot) then return slot end
-  end
-end
-
-local function get_priority_ab(it)
-  if not it.is_weapon then return -1 end
-  if it.equipped then return 1 end
-
-  if BRC.it.is_magic_staff(it) then return 3 end
-  if it.is_ranged then return (you.skill("Ranged Weapons") >= 4) and 2 or 5 end
-  if BRC.it.is_polearm(it) then return (you.skill("Polearms") >= 4) and 2 or 4 end
-  return 2
-end
-
-local function get_priority_W(it)
-  if not it.is_weapon then return -1 end
-  if it.is_ranged then return 1 end
-  if BRC.it.is_polearm(it) then return 2 end
-  if BRC.it.is_magic_staff(it) then return 3 end
-  return 4
-end
-
-local function generate_priorities()
-  priorities_ab = { -1, -1, -1, -1, -1 }
-  priorities_W = { -1, -1, -1, -1 }
-
-  for _, inv in ipairs(items.inventory()) do
-    local p = get_priority_W(inv)
-    if p > 0 then
-      if priorities_W[p] == -1 then
-        priorities_W[p] = inv.slot
-      else
-        priorities_W[p + 1] = inv.slot
-      end
-    end
-
-    p = get_priority_ab(inv)
-    if p > 0 then
-      if priorities_ab[p] == -1 then
-        priorities_ab[p] = inv.slot
-      else
-        priorities_ab[p + 1] = inv.slot
-      end
-    end
-  end
-end
-
-local function cleanup_ab(slot)
-  local inv = items.inslot(slot)
-  if inv and inv.is_weapon then return end
-
-  for p = 1, #priorities_ab do
-    if priorities_ab[p] > slot then -- Not from earlier slot
-      items.swap_slots(priorities_ab[p], slot)
-      slots_changed = true
-      priorities_ab[p] = -1
-      return
-    end
-  end
-end
-
-local function cleanup_W()
-  local slot_W = items.letter_to_index("W")
-  local inv = items.inslot(slot_W)
-  if inv and inv.is_weapon then return end
-
-  for p = 1, #priorities_w do
-    if priorities_W[p] > 1 then -- Not from slots a or b
-      items.swap_slots(priorities_W[p], slot_W)
-      slots_changed = true
-      return
-    end
-  end
-end
-
-local function cleanup_weapon_slots()
-  generate_priorities()
-  cleanup_ab(0)
-  cleanup_ab(1)
-  cleanup_W()
-end
-
----- Crawl hook functions ----
-function f_weapon_slots.c_assign_invletter(it)
-  if not it.is_weapon then return end
-
-  for _, s in ipairs({ "a", "b", "W" }) do
-    local slot = items.letter_to_index(s)
-    local inv = items.inslot(slot)
-    if not inv then return slot end
-    if not inv.is_weapon then
-      items.swap_slots(slot, get_first_empty_slot())
-      slots_changed = true
-      return slot
-    end
-  end
-end
-
-function f_weapon_slots.c_message(text, channel)
-  do_cleanup_weapon_slots = channel == "plain" and text:contains("ou drop ")
-end
-
-function f_weapon_slots.ready()
-  if do_cleanup_weapon_slots then
-    cleanup_weapon_slots()
-    do_cleanup_weapon_slots = false
-  end
-  if slots_changed then
-    BRC.mpr.debug("Weapon slots updated (ab+W).")
-    crawl.redraw_screen()
-    slots_changed = false
-  end
-end
-
-}
-############################### End lua/features/weapon-slots.lua ###############################
-##########################################################################################
-
 ## (Resuming rc/init.txt) ##
 
 ### Pickup and alert ###
@@ -8275,7 +7991,7 @@ ai += of identify:~~DROP_ME
 ai += (?<!the) \+0 (morningstar|broad axe|partisan|tower shield) (?!("|of)):~~DROP_ME
 : end
 
-# gear_slot ^= (war axe|broad axe|whip|mace|flail|ningstar|scourge|spear|trident|trishula|partisan|halberd|glaive|bardiche|staff) : abW
+gear_slot ^= (war axe|broad axe|whip|mace|flail|ningstar|scourge|spear|trident|trishula|partisan|halberd|glaive|bardiche|staff) : abW
 gear_slot ^= (ring of protection (?!from)|the ring .* AC\+) : ptcmPTCM
 gear_slot ^= (ring of evasion|the ring .* EV\+) : evdgEVDG
 gear_slot ^= (ring of strength|the ring .* Str\+) : strhSTRH
