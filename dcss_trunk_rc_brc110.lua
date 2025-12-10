@@ -3237,6 +3237,7 @@ msc += mute:Your.*web
 msc += mute:The confined air twists around weakly and strikes your
 # github.com/crawl/crawl/commit/03cf731cd7f90669eb5f4fdd65f006c47cf609cc
 # github.com/crawl/crawl/issues/4946
+# github.com/crawl/crawl/commit/36afd6d5a999493cbec3e950c651cccdc021c22f
 # msc += mute:Maggie comes into view
 : end
 
@@ -3911,11 +3912,9 @@ flash += encounter.*(yak)(?! (zombie|draugr|simulacr))
 # unusual_monster_items += spear,(?<!demon) trident,sling,shortbow,orcbow
 more += encounter.*(phantom|wight|bombardier beetle|ice beast|jell(y|ies)|iguana|hound|black bear|sky beast|electric eel|sleepcap)(?! (zombie|draugr|simulacr))
 more += The black bear roars madly and goes into a rage
-more += encounter.*orc (wizard|priest|warrior)(?! (zombie|draugr|simulacr))
-flash += encounter.*orc (wizard|priest|warrior)(?! (zombie|draugr|simulacr))
-more += encounter.*(ogre|gnoll)(?! (zombie|draugr|simulacr))
-flash += encounter.*(ogre|gnoll)(?! (zombie|draugr|simulacr))
-flash += encounter.*killer bee(?! (zombie|draugr|simulacr))
+more += encounter.*(ogre|gnoll|orc (wizard|priest|warrior))(?! (zombie|draugr|simulacr))
+flash += encounter.*(ogre|gnoll|orc (wizard|priest|warrior))(?! (zombie|draugr|simulacr))
+flash += encounter.*(killer bee)(?! (zombie|draugr|simulacr))
 : end
 
 : if you.xl() <= 4 and you.race() ~= "Gargoyle" and you.race() ~= "Revenant" and you.race() ~= "Poltergeist" and you.race() ~= "Mummy" and you.race() ~= "Djinni" then
@@ -4176,6 +4175,7 @@ gear_slot ^= orb:ABCDEFGHIJKLMNOPQRSTUVWXYZ
 gear_slot ^= amulet:ABCDEFGHIJKLMNOPQRSTUVWXYZ
 gear_slot ^= talisman:ABCDEFGHIJKLMNOPQRSTUVWXYZ
 
+# github.com/crawl/crawl/blob/master/crawl-ref/source/dat/defaults/consumable_shortcuts.txt
 consumable_shortcut += javelin:abcdefghijklmnopqrstuwxyz
 consumable_shortcut += boomerang:abcdefghijklmnopqrstuwxyz
 consumable_shortcut += throwing net:abcdefghijklmnopqrstuwxyz
@@ -4337,7 +4337,7 @@ macros += M S *f<<scrol\{32}||\{32}potio>>\{32}&&\{32}!!iden\{32}&&\{32}!!~D\{32
 macros += M % *f<<misc\{32}||\{32}wand\{32}||\{32}throwin>>\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 macros += M " *f<<jewell\{32}||\{32}orb>>\{32}&&\{32}!!statu\{32}&&\{32}!!carri\{13}
 
-# [[]: Body, Aux
+# "[": Body, Aux
 macros += M [ *f<<body\{32}||\{32}aux>>\{32}&&\{32}!!orb\{32}&&\{32}!!animal\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!0\{32}leat\{32}&&\{32}!!0\{32}ring\{32}mail\{32}&&\{32}!!0\{32}scale\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!0\{32}cloa\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 
 # [`]: Dexterity Weapons, Magical Staves
