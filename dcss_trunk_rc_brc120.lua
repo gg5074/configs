@@ -33,47 +33,6 @@ BRC.Config = {
 ############################### End lua/core/_header.lua ###############################
 ##########################################################################################
 
-################################### Begin lua/config/testing.lua ###################################
-############### https://github.com/brianfaires/crawl-rc/ ###############
-{
---- Testing Config Profile: Isolate and test specific features
-
-brc_config_testing = {
-  BRC_CONFIG_NAME = "Testing",
-
-  mpr = {
-    show_debug_messages = true,
-    logs_to_stderr = true,
-  },
-
-  disable_other_features = false,
-  ["alert-monsters"] = { disabled = true },
-  ["pickup-alert"] = {
-    Alert = {
-      armour_sensitivity = 0.5,
-      weapon_sensitivity = 0.5,
-    },
-    Tuning = {
-      Armour = {
-        diff_body_ego_is_good = false,
-      },
-    },
-  },
-  init = [[
-    if BRC.Config.disable_other_features then
-      for _, v in pairs(_G) do
-        if BRC.is_feature_module(v) and not BRC.Config[v.BRC_FEATURE_NAME] then
-          BRC.Config[v.BRC_FEATURE_NAME] = { disabled = true }
-        end
-      end
-    end
-  ]],
-} -- brc_config_testing (do not remove this comment)
-
-}
-############################### End lua/config/testing.lua ###############################
-##########################################################################################
-
 ################################### Begin lua/config/explicit.lua ###################################
 ############### https://github.com/brianfaires/crawl-rc/ ###############
 {
@@ -265,7 +224,7 @@ brc_config_explicit = {
   },
 
   ["startup"] = {
-    disabled = false,
+    disabled = true,
     -- Save current training targets and config, for race/class
     macro_save_key = 20, -- (Cntl-T) Keycode to save training targets and config
     save_training = true, -- Allow save/load of race/class training targets
