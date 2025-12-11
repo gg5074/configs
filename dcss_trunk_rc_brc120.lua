@@ -132,13 +132,6 @@ brc_config_explicit = {
     announced_classes = { "book", "gold", "jewellery", "misc", "potion", "scroll", "wand" }
   },
 
-  ["bread-swinger"] = {
-    disabled = true, -- Disable by default
-    allow_plant_damage = false, -- Allow damaging plants to rest
-    walk_delay = 50, -- ms delay between walk commands. Makes visuals less jarring. 0 to disable.
-    alert_slow_weap_min = 1.5, -- Alert when finding the slowest weapon yet, starting at this delay.
-  },
-
   ["color-inscribe"] = {
     disabled = true,
     -- No config; See color-inscribe.lua for COLORIZE_TAGS
@@ -2502,7 +2495,7 @@ end
 ---- Local functions ----
 local function display_cur_message()
   local msg = string.format("[BRC] Press %s to %s.", BRC.Hotkey.Config.key.name, cur_action.msg)
-  BRC.mpr.que(msg, BRC.COL.darkgrey)
+  BRC.mpr.que(msg, BRC.COL.lightgrey)
 end
 
 local function load_next_action()
@@ -6380,7 +6373,17 @@ ignore += your breath back
 ignore += engulfed in a cloud of smoke
 ignore += engulfed in white fluffiness
 ignore += safely over a trap
+
 interrupt_travel -= sense_monster
+
+more -= need to enable at least one skill for training
+more -= Okawaru grants you throwing weapons
+more -= Okawaru offers you a choice
+more -= You can now deal lightning-fast blows
+more -= The lock glows eerily
+more -= Heavy smoke blows from the lock
+more -= The gate opens wide
+more -= With a soft hiss the gate opens wide
 
 # crawl.chaosforge.org/Portal
 # github.com/crawl/crawl/tree/master/crawl-ref/source/dat/des/portals
@@ -6852,7 +6855,13 @@ flash += Bai Suzhen roars in fury and transforms into a fierce dragon
 more += You kill.*(Bai Suzhen)
 flash += You kill.*(Bai Suzhen)
 
-# Mara
+# Dissolution (Slime:2-5)
+# github.com/crawl/crawl/blob/master/crawl-ref/source/mon-act.cc
+: if you.branch() == "Slime" then
+flash += You hear a (sizzling sound|grinding noise)
+: end
+
+# Mara (S-B3-4 V2-5 Elf3 Depths)
 more += 's illusion shouts
 flash += 's illusion shouts
 
@@ -6867,10 +6876,9 @@ more += encounter.*orange demon
 flash += encounter.*orange demon
 : end
 
-# Dissolution (Slime:2-5)
-# github.com/crawl/crawl/blob/master/crawl-ref/source/mon-act.cc
-: if you.branch() == "Slime" then
-flash += You hear a (sizzling sound|grinding noise)
+# Pikel (D4-9)
+: if you.xl() <= 13 then
+flash += encounter.*lemure
 : end
 
 # more += encounter (?!orb guardian|executioner)(?-i:[A-Z])
