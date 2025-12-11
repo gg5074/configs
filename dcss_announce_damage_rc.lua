@@ -1,56 +1,11 @@
-<
-  function ready()
-    OpenSkills()
-    AnnounceDamage()
-  end
->
-
-##########
-# Turn 0 #
-##########
-<
-  local need_skills_opened = true
-  function OpenSkills()
-    if you.turns() == 0 and need_skills_opened then
-    crawl.sendkeys("!d10" .. string.char(13) .. "Lair D11-12 Orc D13-15 S-Runes V1-4 Depths" .. string.char(13))
-    need_skills_opened = false
-    you.set_training_target("Fighting",18)
-    you.set_training_target("Maces & Flails",18)
-    you.set_training_target("Axes",18)
-    you.set_training_target("Polearms",20)
-    you.set_training_target("Staves",12)
-    you.set_training_target("Unarmed Combat",18)
-    you.set_training_target("Throwing",9)
-    you.set_training_target("Short Blades",14)
-    you.set_training_target("Long Blades",18)
-    you.set_training_target("Ranged Weapons",18)
-    you.set_training_target("Armour",9)
-    you.set_training_target("Dodging",4)
-    you.set_training_target("Shields",9)
-    you.set_training_target("Stealth",3.5)
-    you.set_training_target("Spellcasting",18)
-    you.set_training_target("Conjurations",20)
-    you.set_training_target("Hexes",6)
-    you.set_training_target("Summonings",6)
-    you.set_training_target("Necromancy",6)
-    you.set_training_target("Forgecraft",6)
-    you.set_training_target("Translocations",9)
-    you.set_training_target("Alchemy",3)
-    you.set_training_target("Fire Magic",18)
-    you.set_training_target("Air Magic",6)
-    you.set_training_target("Ice Magic",18)
-    you.set_training_target("Earth Magic",18)
-    you.set_training_target("Invocations",6)
-    you.set_training_target("Evocations",3)
-    you.set_training_target("Shapeshifting",7)
-    crawl.sendkeys("m","!")
-    end
-  end
->
-
 ###############
 # Damage Calc #
 ###############
+<
+  function ready()
+    AnnounceDamage()
+  end
+>
 <
   local previous_hp = 0
   local previous_mp = 0
