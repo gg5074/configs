@@ -89,6 +89,10 @@ brc_config_explicit = {
   },
 
   ---- Feature configs ----
+  ["my-feature"] = {
+    disabled = false,
+  },
+
   ["announce-hp-mp"] = {
     disabled = false,
     dmg_flash_threshold = 0.15, -- Flash screen when losing this % of max HP
@@ -2495,7 +2499,7 @@ end
 ---- Local functions ----
 local function display_cur_message()
   local msg = string.format("[BRC] Press %s to %s.", BRC.Hotkey.Config.key.name, cur_action.msg)
-  BRC.mpr.que(msg, BRC.COL.lightgrey)
+  BRC.mpr.que(msg, BRC.COL.magenta)
 end
 
 local function load_next_action()
@@ -6183,6 +6187,50 @@ end
 ############################### End lua/features/pickup-alert/pa-weapons.lua ###############################
 ##########################################################################################
 
+############################ Begin lua/my-feature.lua ############################
+{
+my_feature = {}
+my_feature.BRC_FEATURE_NAME = "my-feature" -- This registers my_feature with BRC
+
+my_feature.Config = {
+} -- always put a comment after a lone '}' (or else crawl's RC parser breaks)
+
+local need_skills_opened = true
+function my_feature.ready()
+if you.turns() == 0 and you.race() ~= "Gnoll" and need_skills_opened then
+need_skills_opened = false
+crawl.sendkeys("!d10" .. string.char(13) .. "Lair D11-12 Orc D13-15 S-Runes V1-4" .. string.char(13))
+you.set_training_target("Maces & Flails",12)
+you.set_training_target("Axes",16)
+you.set_training_target("Polearms",14)
+you.set_training_target("Staves",12)
+you.set_training_target("Throwing",9)
+you.set_training_target("Short Blades",14)
+you.set_training_target("Long Blades",12)
+you.set_training_target("Ranged Weapons",18)
+you.set_training_target("Armour",9)
+you.set_training_target("Dodging",4)
+you.set_training_target("Shields",9)
+you.set_training_target("Stealth",3.5)
+you.set_training_target("Hexes",6)
+you.set_training_target("Summonings",6)
+you.set_training_target("Necromancy",6)
+you.set_training_target("Forgecraft",6)
+you.set_training_target("Translocations",9)
+you.set_training_target("Alchemy",3)
+you.set_training_target("Fire Magic",18)
+you.set_training_target("Air Magic",6)
+you.set_training_target("Ice Magic",18)
+you.set_training_target("Earth Magic",18)
+you.set_training_target("Invocations",6)
+you.set_training_target("Evocations",3)
+you.set_training_target("Shapeshifting",7)
+crawl.sendkeys("m","C","c","a")
+end
+end
+}
+############################ End lua/my-feature.lua ############################
+
 ############## Lua Hook Functions ##############
 {
 function c_message(text, channel)
@@ -6734,42 +6782,6 @@ end
 }
 
 # Turn 0, Skills
-{
-local need_skills_opened = true
-function ready()
-if you.turns() == 0 and you.race() ~= "Gnoll" and need_skills_opened then
-need_skills_opened = false
-crawl.sendkeys("!d10" .. string.char(13) .. "Lair D11-12 Orc D13-15 S-Runes V1-4" .. string.char(13))
-you.set_training_target("Maces & Flails",12)
-you.set_training_target("Axes",16)
-you.set_training_target("Polearms",14)
-you.set_training_target("Staves",12)
-you.set_training_target("Throwing",9)
-you.set_training_target("Short Blades",14)
-you.set_training_target("Long Blades",12)
-you.set_training_target("Ranged Weapons",18)
-you.set_training_target("Armour",9)
-you.set_training_target("Dodging",4)
-you.set_training_target("Shields",9)
-you.set_training_target("Stealth",3.5)
-you.set_training_target("Hexes",6)
-you.set_training_target("Summonings",6)
-you.set_training_target("Necromancy",6)
-you.set_training_target("Forgecraft",6)
-you.set_training_target("Translocations",9)
-you.set_training_target("Alchemy",3)
-you.set_training_target("Fire Magic",18)
-you.set_training_target("Air Magic",6)
-you.set_training_target("Ice Magic",18)
-you.set_training_target("Earth Magic",18)
-you.set_training_target("Invocations",6)
-you.set_training_target("Evocations",3)
-you.set_training_target("Shapeshifting",7)
-crawl.sendkeys("m","C","c","a")
-end
-end
-}
-
 : if you.race() ~= "Gnoll" then
 stop += skill increases to level (9|18|26)
 more += Your Fighting skill increases to level (18|26)
