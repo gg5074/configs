@@ -81,7 +81,7 @@ brc_config_explicit = {
   },
 
   hotkey = {
-    key = { keycode = 32, name = "[Space]" },
+    key = { keycode = -1010, name = "[NPenter]" },
     skip_keycode = 27, -- ESC keycode
     equip_hotkey = true, -- Offer to equip after picking up equipment
     wait_for_safety = true, -- Don't expire the hotkey with monsters in view
@@ -709,7 +709,7 @@ BRC.ARTPROPS_EGO = { -- Corresponding ego
 } -- BRC.ARTPROPS_EGO (do not remove this comment)
 
 ---- Other ----
-BRC.KEYS = { SPACE = 32, ESC = 27, ["Cntl-S"] = 20, ["Cntl-E"] = 5 }
+BRC.KEYS = { NPenter = -1010, ESC = 27, ["Cntl-S"] = 20, ["Cntl-E"] = 5 }
 
 BRC.COL = {
   black = "0", blue = "1", green = "2", cyan = "3", red = "4", magenta = "5", brown = "6",
@@ -2450,7 +2450,7 @@ override_table(BRC.Config, BRC.Configs.Default)
 BRC.Hotkey = {}
 BRC.Hotkey.BRC_FEATURE_NAME = "hotkey"
 BRC.Hotkey.Config = {
-  key = { keycode = BRC.KEYS.SPACE, name = "[Space]" },
+  key = { keycode = BRC.KEYS.NPenter, name = "[NPenter]" },
   skip_keycode = BRC.KEYS.ESC,
   equip_hotkey = true, -- Offer to equip after picking up equipment
   wait_for_safety = true, -- Don't expire the hotkey with monsters in view
