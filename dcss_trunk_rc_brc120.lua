@@ -193,7 +193,7 @@ brc_config_explicit = {
   ["remind-id"] = {
     disabled = false,
     stop_on_scrolls_count = 2, -- Stop when largest un-ID'd scroll stack increases and is >= this
-    stop_on_pots_count = 3, -- Stop when largest un-ID'd potion stack increases and is >= this
+    stop_on_pots_count = 2, -- Stop when largest un-ID'd potion stack increases and is >= this
     emoji = BRC.Config.emojis and "🎁" or "<magenta>?</magenta>",
     read_id_hotkey = true, -- Put read ID on hotkey
   },
@@ -314,8 +314,8 @@ brc_config_explicit = {
   },
 
   ["mute-messages"] = {
-    disabled = true,
-    mute_level = 2,
+    disabled = false,
+    mute_level = 1,
     messages = {
       -- Light reduction; unnecessary messages
       [1] = {
@@ -412,8 +412,8 @@ brc_config_explicit = {
       -- Alert the first time each item is found. Can require training with OTA_require_skill.
       one_time = {
         "of devious", "of valour", "of concussion", "of sundering", "of rebuke",
-        "pair of gloves", "pair of gloves of", "pair of boots", "pair of boots of", "cloak", "cloak of", "scarf of", " hat "," hat of", "ring of", "amulet of",
-        "6 ring of strength", "6 ring of dexterity", "dragonskin cloak", "moon troll leather armour", "Cigotuvi's embrace",
+        "pair of gloves", "pair of gloves of", "pair of boots", "pair of boots of", "cloak", "cloak of", "scarf of", " hat "," hat of",
+        "ring of", "amulet of", "6 ring of strength", "6 ring of dexterity", "dragonskin cloak", "moon troll leather armour", "Cigotuvi's embrace",
         "spear of", "trident of", "partisan", "partisan of", "demon trident", "demon trident of", "trishula", "glaive", "bardiche",
         "broad axe", "morningstar", "eveningstar", "demon whip", "sacred scourge", "demon blade",
         "buckler", "buckler of", "kite shield", "kite shield of", "tower shield", "tower shield of", "wand of digging",
@@ -605,6 +605,263 @@ brc_config_explicit = {
 
 }
 ############################### End lua/config/explicit.lua ###############################
+##########################################################################################
+
+################################### Begin rc/fm-messages.rc ###################################
+############### https://github.com/brianfaires/crawl-rc/ ###############
+more := force_more_message
+flash := flash_screen_message
+
+# Almost worth removing
+#force_more_message -= You bow before the missionary of Beogh
+#force_more_message -= You .* the altar of
+
+# Remove annoying defaults
+# more -= You have reached level
+more -= Marking area around .* as unsafe
+more -= welcomes you( back)?!
+more -= upon you is lifted
+# more -= You pick up the .* gem and feel its .* weight
+# more -= You pick up the .* rune and feel its power
+more -= need to enable at least one skill for training
+more -= Okawaru grants you throwing weapons
+more -= Okawaru offers you a choice
+more -= You can now deal lightning-fast blows
+more -= The lock glows eerily
+more -= Heavy smoke blows from the lock
+more -= The gate opens wide
+more -= With a soft hiss the gate opens wide
+more -= You finish merging with the rock
+
+# Significant spells/effects ending
+flash += You feel stable
+more += is no longer charmed
+more += You.*re starting to lose your buoyancy
+# Death's Door
+more += time is.*running out
+more += life is in your own
+# Death channel
+more += unholy channel is weakening
+
+# Monsters doing things
+more += monster_warning:wielding.*of distortion
+more += begins to recite a word of recall
+more += There is.*feeling in your soul
+more += wretched star pulses
+more += Strange energies course through your body
+
+flash += doors? slams? shut
+flash += blows.*on a signal horn
+flash += Deactivating autopickup
+flash += Its appearance distorts for a moment
+flash += The.*offers itself to Yredelemnul
+flash += The forest starts to sway and rumble
+flash += Your?.*suddenly stops? moving
+
+# Crowd control
+more += You.*(?<!( too|less)) confused
+more += You .*(slow.*down|lose consciousness)
+more += infuriates you
+more += hits you .* distortion
+more += Space .* around you
+more += surroundings become eerily quiet
+more += Your limbs are stiffening
+
+flash += You .* (blown|knocked back|mesmerised|trampled|stumble backwards|encased)
+flash += Your magical (effects|defenses) are (unraveling|stripped away)
+flash += You stop (a|de)scending the stairs
+flash += A sentinel's mark forms upon you
+flash += The pull of.*song draws you forward
+flash += engulfs you in water
+
+# Clouds
+more += danger:(calcify|mutagenic)
+more += You.*re engulfed in.*miasma
+flash += Miasma billows from the
+
+# You Screwed Up
+more += is no longer ready
+more += You really shouldn't be using
+more += You don't have enough magic to cast this spell
+flash += Your body shudders with the violent release
+flash += power of Zot
+
+# Found something important
+flash += You pick up the .* (gem|rune) and feel its 
+more += Found.*the Ecumenical Temple
+more += Found.*(treasure|bazaar|ziggurat)
+more += .*resides here
+more += You have a vision of.*gates?
+more += Press the corresponding letter to learn more about a god
+flash += timed_portal:.*
+
+# Translocations
+more += danger:sense of stasis
+more += Your surroundings.*(different|flicker)
+more += You.*re suddenly pulled into a different region
+flash += You blink
+flash += danger:You feel strangely .*stable
+flash += delaying your translocation
+
+# Big damage
+more += your body is wracked
+more += The poison in your body grows stronger
+more += You.*re lethally poisoned
+more += danger:You convulse
+more += You feel a (horrible|terrible) chill
+more += Your.*terribly
+more += You are.*terribly
+
+# Hit by something
+more += Terrible wounds open
+more += The air around.*erupts in flames
+more += The air twists around and violently strikes you in flight
+more += You shudder from the earth-shattering force
+more += You feel.*(?<!less)( haunted| rot| vulnerable)
+flash += danger:corrodes you
+flash += Your damage is reflected back at you
+flash += ^(?!Your? ).*reflects
+
+# FYI
+more += seems mollified
+more += You have finished your manual
+
+# Unexpected monsters
+more += appears in a (shower|flash)
+more += appears out of thin air
+more += You sense the presence of something unfriendly
+more += Wisps of shadow swirl around
+
+# Misc
+more += hell effect:.*
+more += god:wrath finds you
+more += The walls disappear
+
+# Ashenzari
+more += god:Ashenzari invites you to partake
+# Dithmenos
+more += god:You are shrouded in an aura of darkness
+more += god:You.*bleed smoke
+more += god:Your shadow.*tangibly mimics your actions
+# Fedhas
+more += god:Fedhas invokes the elements against you
+# Jivya
+more += god:will now unseal the treasures of the Slime Pits
+more += god:Jiyva alters your body
+# Kikubaaqudgha
+more += god:Kikubaaqudgha will grant you
+# Lugonu
+more += god:Lugonu will now corrupt your weapon
+more += god:Lugonu sends minions to punish you
+# Okawaru
+more += god:Okawaru sends forces against you
+# Qazlal
+flash += god:resistances upon receiving elemental damage
+flash += god:You are surrounded by a storm which can block enemy attacks
+# The Shining One
+more += god:Your divine shield starts to fade
+more += god:Your divine shield fades away
+# Trog
+more += god:You feel the effects of Trog's Hand fading
+more += god:You feel less resistant to hostile enchantments
+# Xom
+more += staircase.*moves
+more += Some monsters swap places
+# Yredelemnul
+more += god:soul is no.* ripe for the taking
+more += god:dark mirror aura disappears
+# Zin
+more += god:will now cure all your mutations
+
+############################### End rc/fm-messages.rc ###############################
+##########################################################################################
+
+################################### Begin rc/runrest.rc ###################################
+############### https://github.com/brianfaires/crawl-rc/ ###############
+# Aliases
+stop := runrest_stop_message
+ignore := runrest_ignore_message
+
+# Ignore these stops
+interrupt_travel -= sense_monster
+interrupt_travel -= mimic
+ignore ^= "sense a monster nearby"
+ignore ^= recovery:.*
+ignore ^= duration:.*
+
+# Monsters to ignore at a distance
+runrest_ignore_monster += fire vortex:1
+
+# Stop for consumables you want to use immediately
+stop += potions? of experience
+stop += scrolls? of acquirement
+
+# Don't stop for noisy doors unless someone shouts back
+stop -= it creaks loudly
+stop -= flies open with a bang
+stop += You hear
+
+# Ignore some stops for ally actions, then stop on the rest
+ignore -= friend_action:
+ignore -= friend_spell:
+ignore -= friend_enchant:
+ignore ^= butterfly disappears
+ignore ^= friend_action:(a|the) web
+ignore ^= friend_action:(seems|blinks)
+ignore ^= clockwork bee (falls|winds down)
+stop += friend_action:
+stop += friend_spell:
+stop += friend_enchant:
+stop += appears from out of your range of vision
+stop += hits your
+stop += our.*is destroyed
+
+# Expiring effects; Turn on transmutation|flight|swiftness ending and ignore the rest
+ignore -= transformation is almost over\.
+ignore -= transformation has ended\.
+ignore -= revert to.*form\.
+ignore -= You feel yourself come back to life
+ignore ^= unholy channel is weakening
+ignore ^= magical contamination.*faded
+ignore ^= our foxfire dissipates
+stop ^= unholy channel expires
+stop ^= are starting to lose your buoyancy
+stop ^= You feel.*sluggish
+# Expiring effects for friends too
+stop ^= no longer petrified
+ignore ^= no longer.*(covered in acid|unusually strong)
+ignore ^= looks more healthy
+
+# Misc
+stop -= You now have enough gold to
+stop ^= timed_portal:.*
+ignore ^= nearby plant withers and dies
+ignore ^= disentangle yourself
+ignore ^= You swap places.
+
+# Summonings
+ignore ^= our.*crimson imp blinks
+ignore ^= our.*simulacrum vaporises
+ignore ^= our.*returns to the shadows of the Dungeon
+ignore ^= our.*skeleton crumbles into dust
+ignore ^= our.*fades into mist
+ignore ^= our.*looks more healthy
+ignore ^= our.*is no longer (corroded|moving slowly)
+ignore ^= our.*dissolves into a puddle of slime
+
+# Ashenzari
+stop += god:Ashenzari invites you to partake
+# Ru
+stop += god:Ru believes you are ready to make a new sacrifice
+# Hepliaklqana
+ignore ^= emerges from the mists of memory
+# Wu Jian Council
+# ignore += heavenly storm settles
+# Yredelemnul
+ignore += offer up the Black Torch's flame
+ignore += mindless puppets stay behind to rot
+
+############################### End rc/runrest.rc ###############################
 ##########################################################################################
 
 ################################### Begin lua/core/constants.lua ###################################
@@ -6424,15 +6681,6 @@ ignore += safely over a trap
 
 interrupt_travel -= sense_monster
 
-more -= need to enable at least one skill for training
-more -= Okawaru grants you throwing weapons
-more -= Okawaru offers you a choice
-more -= You can now deal lightning-fast blows
-more -= The lock glows eerily
-more -= Heavy smoke blows from the lock
-more -= The gate opens wide
-more -= With a soft hiss the gate opens wide
-
 # crawl.chaosforge.org/Portal
 # github.com/crawl/crawl/tree/master/crawl-ref/source/dat/des/portals
 # very nearby: 7–13, nearby: 14–20, distant: 21–27, very distant: 28+
@@ -7028,7 +7276,7 @@ flash += encounter.*(yak)(?! (zombie|draugr|simulacr))
 
 : if you.xl() <= 7 then
 # unusual_monster_items += spear,(?<!demon) trident,sling,shortbow,orcbow
-more += encounter.*(phantom|wight|bombardier beetle|ice beast|jell(y|ies)|iguana|hound|black bear|sky beast|electric eel|sleepcap)(?! (zombie|draugr|simulacr))
+more += encounter.*(?<!spectral) (phantom|wight|bombardier beetle|ice beast|jell(y|ies)|iguana|hound|black bear|sky beast|electric eel|sleepcap)(?! (zombie|draugr|simulacr))
 more += The black bear roars madly and goes into a rage
 more += encounter.*(ogre|gnoll|orc (wizard|priest|warrior))(?! (zombie|draugr|simulacr))
 flash += encounter.*(ogre|gnoll|orc (wizard|priest|warrior))(?! (zombie|draugr|simulacr))
@@ -7040,10 +7288,10 @@ more += encounter.*(adder|orc)(?! (zombie|draugr|simulacr))
 monster_alert += tough
 : end
 
-: if you.xl() <= 1 then
-more += encounter.*(goblin|kobold|ball python|ribbon worm|dart slug)(?! (zombie|draugr|simulacr))
-flash += encounter.*(jackal)(?! (zombie|draugr|simulacr))
-: end
+# : if you.xl() <= 1 then
+# more += encounter.*(goblin|kobold|ball python|ribbon worm|dart slug)(?! (zombie|draugr|simulacr))
+# flash += encounter.*(jackal)(?! (zombie|draugr|simulacr))
+# : end
 
 ##############
 ### Morgue ###
@@ -7569,5 +7817,5 @@ bindkey = [N] CMD_MAP_EXIT_MAP
 bindkey = [U] CMD_MAP_EXIT_MAP
 bindkey = [Y] CMD_MAP_EXIT_MAP
 
-# debug_dump(1), init_buehler():reinitialize, init_buehler(1):reset all persistent data, buehler_rc_active = false
+# github.com/brianfaires/crawl-rc?tab=readme-ov-file#in-game-commands
 bindkey = [~] CMD_LUA_CONSOLE
