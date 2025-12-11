@@ -199,14 +199,14 @@ brc_config_explicit = {
   },
 
   ["runrest-features"] = {
-    disabled = true,
-    after_shaft = true, -- stop on stairs after being shafted, until returned to original floor
-    ignore_altars = true, -- when you don't need a god
-    ignore_portal_exits = true, -- don't stop explore on portal exits
+    disabled = false,
+    after_shaft = false, -- stop on stairs after being shafted, until returned to original floor
+    ignore_altars = false, -- when you don't need a god
+    ignore_portal_exits = false, -- don't stop explore on portal exits
     stop_on_hell_stairs = true, -- stop explore on hell stairs
     stop_on_pan_gates = true, -- stop explore on pan gates
-    temple_search = true, -- on entering or exploring temple, auto-search
-    gauntlet_search = true, -- on entering or exploring gauntlet, auto-search with filters
+    temple_search = false, -- on entering or exploring temple, auto-search
+    gauntlet_search = false, -- on entering or exploring gauntlet, auto-search with filters
   },
 
   ["safe-consumables"] = {
@@ -315,7 +315,7 @@ brc_config_explicit = {
 
   ["mute-messages"] = {
     disabled = false,
-    mute_level = 1,
+    mute_level = 2,
     messages = {
       -- Light reduction; unnecessary messages
       [1] = {
@@ -411,7 +411,7 @@ brc_config_explicit = {
 
       -- Alert the first time each item is found. Can require training with OTA_require_skill.
       one_time = {
-        "of devious", "of valour", "of concussion", "of sundering", "of rebuke",
+        "devious", "valour", "concussion", "sundering", "rebuke",
         "pair of gloves", "pair of gloves of", "pair of boots", "pair of boots of", "cloak", "cloak of", "scarf of", " hat "," hat of",
         "ring of", "amulet of", "6 ring of strength", "6 ring of dexterity", "dragonskin cloak", "moon troll leather armour", "Cigotuvi's embrace",
         "spear of", "trident of", "partisan", "partisan of", "demon trident", "demon trident of", "trishula", "glaive", "bardiche",
@@ -565,41 +565,6 @@ brc_config_explicit = {
       HEAVIER = "⏫",
     }, -- Emoji
   }, -- pickup-alert
-
-  ["alert-monsters"] = {
-    disabled = true,
-    sensitivity = 1.0, -- 0 to disable all; at 2.0, alerts will fire at 1/2 HP
-    pack_timeout = 10, -- turns to wait before repeating a pack alert. 0 to disable
-    disable_alert_monsters_in_zigs = true, -- Disable dynamic force_mores in Ziggurats
-    debug_alert_monsters = false, -- Get a message when alerts toggle off/on
-
-    init = [[
-    local alert_list = f_alert_monsters.Config.Alerts
-
-    -- Mutators (only flash if immune)
-    util.append(alert_list, {
-      name = "malmutate", cond = "mut", cutoff = 1, flash_screen = BRC.you.mutation_immune(),
-      pattern = { "cacodemon", "neqoxec", "shining eye" }
-    })
-
-    -- Conditionally add miasma monsters
-    if not BRC.you.miasma_immune() then
-      util.append(alert_list, {
-        name = "miasma", cond = "always", cutoff = 0,
-        pattern = { "death drake", "tainted leviathan", "putrid mouth" }
-      })
-    end
-
-    -- Conditionally add tormentors
-    if not you.torment_immune() then
-      util.append(alert_list, {
-        name = "torment", cond = "always", cutoff = 0,
-        pattern = { "curse (toe|skull)", "Fiend", "(dread|ancient) lich", "lurking horror",
-                    "mummy priest", "royal mummy", "tormentor", "tzitzimi" }
-      })
-    end
-]]
-  }, -- alert-monsters
 
 } -- brc_config_explicit (do not remove this comment)
 
@@ -4677,6 +4642,108 @@ end
 ############################### End lua/features/misc-alerts.lua ###############################
 ##########################################################################################
 
+################################### Begin lua/features/mute-messages.lua ###################################
+############### https://github.com/brianfaires/crawl-rc/ ###############
+{
+---------------------------------------------------------------------------------------------------
+-- BRC feature module: mute-messages
+-- @module f_mute_messages
+-- Mutes various crawl messages, with configurable levels of reduction.
+
+f_mute_messages = {}
+f_mute_messages.BRC_FEATURE_NAME = "mute-messages"
+f_mute_messages.Config = {
+  mute_level = 2,
+  messages = {
+    -- Light reduction; unnecessary messages
+    [1] = {
+      -- Unnecessary
+      "You now have .* runes",
+      "to see all the runes you have collected",
+      "A chill wind blows around you",
+      "An electric hum fills the air",
+      "You reach to attack",
+
+      -- Interface
+      "for a list of commands and other information",
+      "Marking area around",
+      "(Reduced|Removed|Placed new) exclusion",
+      "You can access your shopping list by pressing '\\$'",
+
+      -- Wielding weapons
+      "Your .* exudes an aura of protection",
+      "Your .* glows with a cold blue light",
+
+      -- Monsters /Allies / Neutrals
+      "dissolves into shadows",
+      "You swap places",
+      "Your spectral weapon disappears",
+
+      -- Spells
+      "Your foxfire dissipates",
+
+      -- Religion
+      "accepts your kill",
+      "is honoured by your kill",
+    },
+
+    -- Moderate reduction; potentially confusing but no info lost
+    [2] = {
+      -- Allies / monsters
+      "Ancestor HP restored",
+      "The (bush|fungus|plant) (looks sick|begins to die|is engulfed|is struck)",
+      "evades? a web",
+      "is (lightly|moderately|heavily|severely) (damaged|wounded)",
+      "is almost (dead|destroyed)",
+
+      -- Interface
+      "Use which ability\\?",
+      "Evoke which item\\?$",
+      "Shift\\-Dir \\- straight line",
+
+      -- Books
+      "You pick up (?!a manual).*and begin reading",
+      "Unfortunately\\, you learn nothing new",
+
+      -- Ground items / features
+      "There is a.*(door|gate|staircase|web).*here",
+      "You see here .*(corpse|skeleton)",
+      "You now have \\d+ gold piece",
+      "You enter the shallow water",
+      "Moving in this stuff is going to be slow",
+
+      -- Religion
+      "Your shadow attacks",
+    },
+
+    -- Heavily reduced messages for speed runs
+    [3] = {
+      "No target in view",
+      "You (bite|headbutt|kick)",
+      "You (burn|freeze|drain)",
+      "You block",
+      "but do(es)? no damage",
+      "misses you",
+    },
+  },
+} -- f_mute_messages.Config (do not remove this comment)
+
+---- Initialization ----
+function f_mute_messages.init()
+  if f_mute_messages.Config.mute_level and f_mute_messages.Config.mute_level > 0 then
+    for i = 1, f_mute_messages.Config.mute_level do
+      if not f_mute_messages.Config.messages[i] then break end
+      for _, message in ipairs(f_mute_messages.Config.messages[i]) do
+        BRC.opt.message_mute(message, true)
+      end
+    end
+  end
+end
+
+}
+############################### End lua/features/mute-messages.lua ###############################
+##########################################################################################
+
 ################################### Begin lua/features/quiver-reminders.lua ###################################
 ############### https://github.com/brianfaires/crawl-rc/ ###############
 {
@@ -7223,7 +7290,7 @@ more += ironbound mechanist forges a skittering defender to stand by its side
 more += slime creatures merge to form a (very large|enormous|titanic)
 : end
 
-unusual_monster_items += of (devious|valour|concussion|sundering|rebuke)
+unusual_monster_items += (devious|valour|concussion|sundering|rebuke)
 
 # github.com/crawl/crawl/commit/e02c2b2bd47e38273f95c7b2855e43783a19ae70
 unusual_monster_items += vulnerable:acid:24
@@ -7263,7 +7330,7 @@ flash += encounter.*(raiju|(cyan|brown) ugly thing|radroach|meliai)(?! (zombie|d
 
 : if you.xl() <= 13 then
 unusual_monster_items += triple sword,executioner's axe,halberd,glaive,bardiche,arbalest,hand cannon,triple crossbow
-more += encounter.*(?<!spectral) (manticore|two-headed ogre|kobold geomancer|tengu|lindwurm|(ice|rust) devil|(fire|earth) elemental|lava snake|efreet|boulder beetle|hornet|cane toad|komodo dragon)(?! (zombie|draugr|simulacr))
+more += encounter.*(?<!spectral) (manticore|two-headed ogre|kobold geomancer|tengu|lindwurm|(ice|rust) devil|(fire|earth) elemental|lava snake|efreet|boulder beetle|hornet|black mamba|cane toad|komodo dragon)(?! (zombie|draugr|simulacr))
 flash += encounter.*(skeletal warrior|death yak|elephant)(?! (zombie|draugr|simulacr))
 : end
 
@@ -7301,7 +7368,7 @@ dump_message_count = 1000
 note_hp_percent = 20
 user_note_prefix = 
 
-note_items += of (devious|valour|concussion|sundering|rebuke),of experience,(?<!potions?) of resistance,archmagi,crystal plate armour,pearl dragon scales
+note_items += (devious|valour|concussion|sundering|rebuke),of experience,(?<!potions?) of resistance,archmagi,crystal plate armour,pearl dragon scales
 note_messages += You pass through the gate
 note_messages += cast.*Abyss
 note_messages += BOSS
@@ -7455,16 +7522,16 @@ ai += of invulnerability:rInv
 ai += of regeneration:Regen+
 ai += of magic regeneration:MRegen+
 
-ai += (?!.*artefact)fire dragon scale:rF++, rC-
-ai += (?!.*artefact)ice dragon scale:rC++, rF-
-ai += (?!.*artefact)swamp dragon scale:rPois
-ai += (?!.*artefact)gold dragon scale:rC+, rF+, rPois
-ai += (?!.*artefact)acid dragon scale:rCorr
-ai += (?!.*artefact)storm dragon scale:rElec
-ai += (?!.*artefact)pearl dragon scale:rN+
-ai += (?!.*artefact)quicksilver dragon scale:Will+
-ai += (?!.*artefact)shadow dragon scale:Stlth+
-ai += (?!.*artefact)(?<!moon) troll leather:Regen+
+ai += fire dragon scales (?!"|of):rF++, rC-
+ai += ice dragon scales (?!"|of):rC++, rF-
+ai += swamp dragon scales (?!"|of):rPois
+ai += gold dragon scales (?!"|of):rC+, rF+, rPois
+ai += acid dragon scales (?!"|of):rCorr
+ai += storm dragon scales (?!"|of):rElec
+ai += pearl dragon scales (?!"|of):rN+
+ai += quicksilver dragon scales (?!"|of):Will+
+ai += shadow dragon scales (?!"|of):Stlth+
+ai += (?<!moon) troll leather (?!"|of):Regen+
 
 ai += ring of flight:+Fly
 ai += ring of protection from fire:rF+
