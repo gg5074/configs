@@ -198,64 +198,6 @@ brc_config_explicit = {
     read_id_hotkey = true, -- Put read ID on hotkey
   },
 
-  ["runrest-features"] = {
-    disabled = false,
-    after_shaft = false, -- stop on stairs after being shafted, until returned to original floor
-    ignore_altars = false, -- when you don't need a god
-    ignore_portal_exits = false, -- don't stop explore on portal exits
-    stop_on_hell_stairs = true, -- stop explore on hell stairs
-    stop_on_pan_gates = true, -- stop explore on pan gates
-    temple_search = false, -- on entering or exploring temple, auto-search
-    gauntlet_search = false, -- on entering or exploring gauntlet, auto-search with filters
-  },
-
-  ["safe-consumables"] = {
-    disabled = true,
-    -- No config;See safe-consumables.lua for NO_INSCRIPTION_NEEDED scrolls/potions
-  },
-
-  ["safe-stairs"] = {
-    disabled = true,
-    warn_backtracking = true, -- Warn if immediately taking stairs twice in a row
-    warn_v5 = true, -- Prompt before entering Vaults:5
-  },
-
-  ["startup"] = {
-    disabled = true,
-    -- Save current training targets and config, for race/class
-    macro_save_key = 20, -- (Cntl-T) Keycode to save training targets and config
-    save_training = true, -- Allow save/load of race/class training targets
-    save_config = true, -- Allow save/load of BRC config
-    prompt_before_load = true, -- Prompt before loading in a new game with same race+class
-    allow_race_only_saves = true, -- Also save for race only (always prompts before loading)
-    allow_class_only_saves = true, -- Also save for class only (always prompts before loading)
-
-    -- Remaining values only used if no training targets were loaded by race/class
-    show_skills_menu = true, -- Show skills menu on startup
-
-    -- Settings to set skill targets, regardless of race/class
-    set_all_targets = true, -- Set all targets, even if only focusing one
-    focus_one_skill = true, -- Focus one skill at a time, even if setting all targets
-    auto_set_skill_targets = {
-    },
-
-    -- For non-spellcasters, add preferred weapon type as 3rd skill target
-    init = [[
-      if you.skill("Spellcasting") == 0 then
-        local wpn_skill = BRC.you.top_wpn_skill()
-        if wpn_skill then
-          local t = f_startup.Config.auto_set_skill_targets
-          t[#t + 1] = { wpn_skill, 6.0 }
-        end
-      end
-    ]],
-  },
-
-  ["weapon-slots"] = {
-    disabled = true,
-    -- No config
-  },
-
   ---- Large config sections ----
   ["dynamic-options"] = {
     disabled = true,
@@ -7351,8 +7293,12 @@ flash += encounter.*(killer bee)(?! (zombie|draugr|simulacr))
 : end
 
 : if you.xl() <= 4 and you.race() ~= "Gargoyle" and you.race() ~= "Revenant" and you.race() ~= "Poltergeist" and you.race() ~= "Mummy" and you.race() ~= "Djinni" then
-more += encounter.*(adder|orc)(?! (zombie|draugr|simulacr))
-monster_alert += tough
+more += encounter.*(adder)(?! (zombie|draugr|simulacr))
+: end
+
+: if you.xl() <= 4 then
+mmore += encounter.*(orc)(?! (zombie|draugr|simulacr))
+onster_alert += tough
 : end
 
 # : if you.xl() <= 1 then
