@@ -1,10 +1,3 @@
-sound_on = true
-one_SDL_sound_channel = true
-sound_volume = 0.07
-sound_fade_time = 2.6
-sound_pack += https://osp.nemelex.cards/build/latest.zip:["init.txt"]
-sound_pack += https://sound-packs.nemelex.cards/Autofire/BindTheEarth/BindTheEarth.zip
-
 # buehler.rc v1.2.0
 ################################### Begin lua/core/_header.lua ###################################
 ############### https://github.com/brianfaires/crawl-rc/ ###############
@@ -180,8 +173,8 @@ brc_config_explicit = {
     disabled = false,
     go_up_macro_key = 5, -- (Cntl-E) Key for "go up closest stairs" macro
     ignore_mon_on_orb_run = true, -- Ignore monsters on orb run
-    orb_ignore_hp_min = 0.30, -- HP percent to stop ignoring monsters
-    orb_ignore_hp_max = 0.70, -- HP percent to ignore monsters at min distance away (2 tiles)
+    orb_ignore_hp_min = 0.70, -- HP percent to stop ignoring monsters
+    orb_ignore_hp_max = 0.90, -- HP percent to ignore monsters at min distance away (2 tiles)
   },
 
   ["quiver-reminders"] = {
@@ -513,6 +506,1372 @@ brc_config_explicit = {
 }
 ############################### End lua/config/explicit.lua ###############################
 ##########################################################################################
+
+################################### Begin rc/main.rc ###################################
+
+sound_on = true
+one_SDL_sound_channel = true
+sound_volume = 0.07
+sound_fade_time = 2.6
+sound_pack += https://osp.nemelex.cards/build/latest.zip:["init.txt"]
+sound_pack += https://sound-packs.nemelex.cards/Autofire/BindTheEarth/BindTheEarth.zip
+
+# github.com/gg5074/configs
+# Mini Map Colors, Display, Interface, Messages, Morgue, Autopickup, Item Slots, Macros, Keybindings
+
+#######################
+### Mini Map Colors ###
+#######################
+# tile_portal_col = #ff4f1a
+# tile_downstairs_col = red
+tile_downstairs_col = #ff1a1a
+tile_branchstairs_col = yellow
+# tile_branchstairs_col = #ff006a
+tile_upstairs_col = green
+# tile_upstairs_col = #99ff33
+tile_explore_horizon_col = #bfbfbf
+tile_floor_col = #262626
+tile_water_col = #0086b3
+tile_deep_water_col = #1f1fed
+tile_lava_col = #6f0b00
+tile_wall_col = #595959
+tile_door_col = #cb7d4d
+# tile_feature_col = #d4be21
+tile_plant_col = #5c8745
+tile_transporter_col = #ff80bf
+tile_transporter_landing_col = #59ff89
+tile_trap_col = #d24dff
+
+###############
+### Display ###
+###############
+# github.com/crawl/crawl/blob/master/crawl-ref/source/dat/defaults/menu_colours.txt
+tile_font_crt_size = 21
+tile_font_stat_size = 21
+tile_font_msg_size = 21
+tile_font_tip_size = 21
+tile_font_lbl_size = 21
+tile_font_ft_light = false
+tile_cell_pixels = 38
+tile_viewport_scale = 1.5
+tile_font_crt_family = UD デジタル 教科書体 N-B
+tile_font_stat_family = UD デジタル 教科書体 N-B
+tile_font_msg_family = UD デジタル 教科書体 N-B
+tile_font_lbl_family = UD デジタル 教科書体 N-B
+tile_realtime_anim = true
+
+: if you.race() ~= "Felid" then
+tile_show_player_species = true
+: end
+
+tile_player_status_icons = slow, constr, fragile, petr, mark, will/2, haste, weak, corr, might, brill, -move
+
+cloud_status = true
+
+action_panel_font_size = 19
+action_panel_font_family = UD デジタル 教科書体 N-B
+action_panel_orientation = vertical
+action_panel_show = false
+
+menu := menu_colour
+# menu ^= lightgrey:potions? of (attraction|lignification|mutation)
+# menu ^= lightgrey:scrolls? of (poison|torment|immolation|vulnerability|noise)
+
+msc := message_colour
+msc ^= lightgrey:( miss | misses |no damage|fail to reach past|returns to the grave|disappears in a puff of smoke)
+msc ^= yellow:(You feel a bit more experienced)
+
+# : if you.race() ~= "Minotaur" then
+# msc ^= lightgrey:helmet
+# : end
+
+msc += mute:Search for what.*(~D|in_shop)
+msc += mute:There is an open door here
+msc += mute:You swap places with (your|(?-i:[A-Z]))
+msc += mute:(Your.*|The butterfly) leaves your sight
+msc += mute:Your.*is recalled
+
+: if you.god() == "Yredelemnul" then
+msc += mute:Your.*(something|the (plant|bush|fungus))
+msc += mute:Something.*the (plant|bush|fungus)
+msc += mute:(The|A nearby) (plant|bush|fungus).*die
+msc += mute:Your.*web
+msc += mute:The confined air twists around weakly and strikes your
+# github.com/crawl/crawl/commit/03cf731cd7f90669eb5f4fdd65f006c47cf609cc
+# github.com/crawl/crawl/issues/4946
+# github.com/crawl/crawl/commit/36afd6d5a999493cbec3e950c651cccdc021c22f
+# msc += mute:Maggie comes into view
+: end
+
+hp_colour = 100:green, 99:lightgray, 75:yellow, 50:lightred, 25:red
+mp_colour = 100:green, 99:lightgray, 75:yellow, 50:lightred, 25:red
+hp_warning = 50
+mp_warning = 30
+
+tile_show_threat_levels = trivial, easy, tough, nasty, unusual
+tile_show_demon_tier = true
+always_show_zot = true
+# always_show_gems = true
+more_gem_info = true
+
+# monster_item_view_coordinates = true
+
+#############
+# Interface #
+#############
+autofight_nomove_fires = false
+autofight_fire_stop = true
+autofight_caught = true
+autofight_wait = true
+autofight_stop = 55
+rest_wait_both = true
+rest_wait_ancestor = true
+fire_order  = spell, throwing, evokable
+fire_order_ability -= all
+fail_severity_to_quiver = 3
+fail_severity_to_confirm = -1
+spell_menu = true
+warn_contam_cost = true
+
+show_paged_inventory = false
+item_stack_summary_minimum = 8
+
+show_more = false
+easy_confirm = safe
+equip_unequip = true
+sort_menus = true:equipped,charged,art,ego,glowing,identified,basename
+stat_colour = 3:red, 7:lightred
+default_manual_training = true
+
+: if you.xl() <= 3 then
+skill_focus = true
+: end
+
+: if you.xl() >= 4 then
+skill_focus = false
+: end
+
+explore_delay = 15
+view_delay = 550
+level_map_cursor_step = 8
+warn_hatches = true
+explore_stop = greedy_pickup_smart
+explore_stop += stairs,shops,altars,portals,branches,runed_doors,glowing_items,artefacts,runes
+
+combo += MiFi . trident
+# combo += DECj
+
+############
+# Messages #
+############
+# github.com/crawl/crawl/blob/master/crawl-ref/source/dat/defaults/messages.txt
+# github.com/crawl/crawl/blob/master/crawl-ref/source/dat/defaults/runrest_messages.txt
+# github.com/crawl/crawl/blob/master/crawl-ref/source/dat/defaults/misc.txt
+
+ignore := runrest_ignore_message
+stop := runrest_stop_message
+more := force_more_message
+flash := flash_screen_message
+
+# stop += duration:
+ignore += recovery:
+ignore += contamination has completely
+ignore += your breath back
+ignore += engulfed in a cloud of smoke
+ignore += engulfed in white fluffiness
+ignore += safely over a trap
+
+interrupt_travel -= sense_monster
+
+# crawl.chaosforge.org/Portal
+# github.com/crawl/crawl/tree/master/crawl-ref/source/dat/des/portals
+# very nearby: 7–13, nearby: 14–20, distant: 21–27, very distant: 28+
+flash += timed_portal:
+stop += timed_portal:
+flash += You hear.*very (nearby|distant)
+more += You hear.*(quick|urgent|loud (creaking of a portcullis|crackling of a melting archway)|rising multitudes|rapid|thunderous|frantic|ear-piercing|full choir)
+flash += You hear.*(quick|urgent|loud (creaking of a portcullis|crackling of a melting archway)|rising multitudes|rapid|thunderous|frantic|ear-piercing|full choir)
+more += Found.*(bazaar|trove|phantasmal|sand-covered|glowing drain|flagged portal|gauntlet|frozen archway|dark tunnel|crumbling gateway|ruined gateway|magical portal|ziggurat)
+flash += volcano erupts with a roar
+more += You enter a wizard's laboratory
+more += The walls (briefly|violently) shake
+more += The walls fall away. The entombed are set free!
+flash += Hurry and find it
+more += The walls and floor vibrate strangely for a moment
+flash += The walls and floor vibrate strangely for a moment
+
+# Expiring effects
+stop += You feel a little less mighty now
+more += Your transformation is almost over
+more += back to life
+more += You feel yourself slow down
+flash += You feel yourself slow down
+more += less insulated
+more += You are starting to lose your buoyancy
+more += You lose control over your flight
+more += Your hearing returns
+more += You have a feeling this form
+more += You feel yourself come back to life
+more += uncertain
+more += time is quickly running out
+more += life is in your own hands
+more += shroud falls apart
+more += You start to feel a little slower
+more += You flicker
+more += You feel less protected from missiles
+more += Your reaping aura expires
+more += You finish channelling your searing ray
+more += Your rain of reagents ends
+
+# Interrupts
+more += You don't.*that spell
+more += You fail to use your ability
+more += You miscast.*(Blink|Borgnjor|Door|Invisibility)
+flash += You miscast
+more += You can't (read|drink|do)
+more += You cannot.*while unable to breathe
+more += You cannot.*in your current state
+more += when.*silenced
+more += too confused
+# more += There's something in the way
+# more += There's nothing to (close|open) nearby
+more += not good enough to have a special ability
+more += You are too berserk
+more += no means to grasp
+more += That item cannot be evoked
+more += You are held in a net
+more += You don't have any such object
+more += You can't unwield
+more += enough magic points
+more += You don't have the energy to cast that spell
+more += You are unable to access your magic
+more += You assume a fearsome visage
+flash += is a mimic
+more += (?<!(into|through)) a shaft
+more += You blink
+more += (?<!raiju) bursts into living lightning
+more += blinks into view
+more += (?!(draconian|shifter|annihilator) blinks!
+flash += (draconian|shifter|annihilator) blinks!
+more += is devoured by a tear in reality
+flash += You can drop.*~~DROP_ME
+
+: if you.xl() <= 14 then
+more += You feel a bit more experienced
+: end
+
+confirm_action += Potion Petition, Call Merchant, Blink, Silence, Maxwell's Capacitive Coupling, Sublimation of Blood, Borgnjor's Revivification, Death's Door
+force_spell_targeter += Silence
+
+: if you.res_shock() <= 0 then
+confirm_action += Conjure Ball Lightning, Chain Lightning
+: end
+
+# Bad things
+# github.com/crawl/crawl/blob/master/crawl-ref/source/mutation-data.h
+# github.com/crawl/crawl/blob/master/crawl-ref/source/dat/database/monspell.txt
+# github.com/crawl/crawl/blob/master/crawl-ref/source/beam.cc
+flash += mutation:
+more += The horns on your head grow some more
+more += The horns on your head shrink a bit
+more += You feel vulnerable to
+flash += You feel vulnerable to
+more += You feel yourself grow more vulnerable to poison
+flash += You feel yourself grow more vulnerable to poison
+flash += Cherry-coloured flames burn away your fire resistance
+more += The klown pie hits you! (?!but)
+flash += The klown pie hits you! (?!but)
+more += hell_effect:
+more += Doom befalls (?!your)you
+more += You feel an ill-omen
+more += You feel a malign power afflict you
+more += shimmers and splits apart
+flash += You are too injured to fight recklessly
+flash += MASSIVE DAMAGE
+flash += BIG DAMAGE
+flash += LOW HITPOINT WARNING
+
+: if not (you.race() == "Minotaur" or you.race() == "Troll") then
+flash += LOW MAGIC WARNING
+: end
+
+more += You don't have enough magic to cast this spell
+more += You fail to use your ability
+more += You stop ascending the stairs
+flash += You stop ascending the stairs
+more += surroundings become eerily quiet
+flash += surroundings become eerily quiet
+flash += You hear a loud "Zot"
+more += A malevolent force fills
+more += An alarm trap emits a blaring wail
+more += A sentinel's mark forms upon you
+more += invokes.*trap
+flash += invokes.*trap
+more += Your surroundings flicker
+more += You cannot teleport right now
+more += A huge blade swings out and slices into you
+more += (blundered into a|invokes the power of) Zot
+more += That really hurt
+more += You convulse
+more += Your body is wracked with pain
+flash += smites (?!your)you
+more += You are (blasted|electrocuted)
+more += You are.*confused
+more += You are blinded
+flash += Something hits (?!your)you
+flash += You stumble backwards
+flash += You are shoved backwards
+flash += drags you backwards
+flash += You are knocked back
+more += grabs (?!your)you
+flash += grabs (?!your)you
+more += roots grab (?!your)you
+flash += roots grab (?!your)you
+flash += constricts (?!your)you
+more += You are skewered in place
+flash += You are skewered in place
+more += wrath finds you
+more += god:(sends|finds|silent|anger)
+more += You feel a surge of divine spite
+more += disloyal to dabble
+more += lose consciousness
+more += You are too injured to fight blindly
+more += You feel your attacks grow feeble
+more += The blast of calcifying dust hits (?!your)you
+flash += The blast of calcifying dust hits (?!your)you
+more += Space warps horribly.*around (?!your)you
+more += Space bends around (?!your)you
+more += Your limbs are stiffening
+flash += Your limbs are stiffening
+more += Your body becomes as fragile as glass
+more += Water floods into your lungs
+flash += Water floods into your lungs
+more += (?<!Your).*conjures an orb of pure magic
+more += (?<!Your).*conjures a glowing orb
+
+# Sap Magic: demonspawn warmonger
+: if you.skill("Spellcasting") >= 15 then
+more += Your magic feels tainted
+flash += Your magic feels tainted
+: end
+
+# Malign Gateway: oklob plant annihilator, Fedhas' Mad Dash
+: if you.skill("Summonings") < 15 then
+more += otherworldly place is opened
+: end
+
+more += An eldritch tentacle comes into view
+flash += You feel extremely sick
+more += lethally poison
+flash += The acid corrodes (?!your)you
+more += You are covered in intense liquid fire
+flash += You feel drained
+
+: if you.res_shock() <= 0 then
+more += You are engulfed in a thunderstorm
+: end
+
+: if you.res_poison() <= 0 then
+more += You are engulfed in excruciating misery
+: end
+
+more += Strange energies course through your body
+more += You feel strangely unstable
+more += (?<!Your (shadowghast|vampire)) flickers and vanishes
+flash += (?<!Your).*flickers and vanishes
+more += is no longer charmed
+flash += is no longer charmed
+stop += is no longer charmed
+more += You have lost all your
+more += Chaos surges forth from piles of flesh
+flash += You feel the power of Zot begin to focus
+# more += You hear a sizzling splash
+more += heals the
+
+: if you.xl() < 24 then
+more += flies into a frenzy
+flash += flies into a frenzy
+: end
+
+: if you.xl() < 16 then
+more += You .*seems to speed up
+: end
+
+: if you.xl() < 10 then
+more += seems to grow stronger
+: end
+
+# more += suddenly seems more resistant
+
+# crawl.chaosforge.org/Chaos_Knight_of_Xom_Guide#Xom_rc_file
+more += .* erupts in a glittering mayhem of colour
+more += .* evaporates and reforms as
+more += "Time to have some fun!"
+more += "Fight to survive, mortal."
+more += "Let's see if it's strong enough to survive yet."
+more += You hear Xom's maniacal laughter.
+more += Xom feels like there should be more of you to share with the Dungeon.
+more += Xom gently smashes a mirror over your
+more += Xom displaces most of your magic for a moment.
+more += Xom reveals to you one of the great and terrible secrets of magic.
+more += Xom curiously channels energy out of your body.
+more += Xom picks up your mind and accidentally drops it.
+more += Xom gives you a terrible headache.
+more += "You don't need this, do you?"
+more += Your magic slithers out of your reeling mind!
+more += Your power and thoughts are overwhelmed by magic-eaters manifest!
+more += Your magic wrenches itself out of your
+more += Your magic flows out through your
+more += Your magic rips itself out through your
+more += "Heh heh heh..."
+more += Xom's power touches on your mind for a moment.
+more += Xom titters.
+more += "Stumble well, my pet!"
+more += Xom's power touches upon your body and mind for a moment.
+more += Xom decides to rearrange the pieces.
+more += "First here, now there."
+more += "This might be better!"
+more += "This is how I like it!"
+more += "The weather's been a little too boring around here."
+more += Xom asks Qazlal to spice things up a little.
+more += mostly cloudy.
+more += (The|Your).*falls away!
+
+# Others
+# github.com/crawl/crawl/blob/master/crawl-ref/source/god-abil.cc
+# github.com/crawl/crawl/blob/master/crawl-ref/source/dat/descript/features.txt
+more += Found a faded altar of an unknown god
+more += Found a staircase to the Ecumenical Temple
+stop += There is a portal to a secret trove of treasure here
+stop += Found a runed translucent door
+flash += There is a (staircase to the (?!(Ecumenical))|gate to|hole to|gate leading to|gateway (?!(back|out)))
+more += Found a gateway leading.*Abyss
+more += and a gateway leading out appears
+more += The mighty Pandemonium lord.*resides here
+more += The tension of great conflict fills the air
+more += You have reached level
+more += You (can|may) now (?!(stomp|pass|merge))
+more += protects you from harm
+stop += You feel like a meek peon again
+more += Trog grants you a weapon
+more += You feel your soul grow
+more += Makhleb will allow you to brand your body
+more += dares provoke your wrath
+more += Your infernal gateway subsides
+more += You are dragged down into the Crucible of Flesh
+more += Ru believes you are ready to make a new sacrifice
+flash += You offer up the Black Torch's flame
+more += Your bound.*is destroyed!
+more += The heavenly storm settles
+more += Beogh will now send orc apostles to challenge you
+flash += Beogh will now send orc apostles to challenge you
+more += the orc apostle comes into view
+more += encounter.*the orc apostle
+more += falls to his knees and submits
+
+: if you.god() == "Beogh" then
+more += (?-i:[A-Z])(?!(xecutioner|rb guardian)).*(dies!|is blown up!)
+: end
+
+more += has fought their way back out of the Abyss!
+more += Your prayer is nearing its end
+stop += Your prayer is nearing its end
+more += You reach the end of your prayer and your brethren are recalled
+stop += You reach the end of your prayer and your brethren are recalled
+stop += You now have enough gold to
+more += Your bribe of.*has been exhausted
+more += Ashenzari invites you to partake
+more += you knowledge of
+more += Vehumet is now
+more += You hear a faint sloshing
+more += seems mollified
+more += You rejoin the land of the living
+
+: if you.xl() >= 27 and you.class() ~= "Conjurer" then
+more += You add the spells?.*(Vhi's Electric|Manifold Assault|Fugue of the|Animate Dead|Death Channel|Awaken Armour)
+: end
+
+# Contam: 5000:Yellow, 15000:LightRed
+more += You add the spells?.*(Summon Small Mammal|Call Imp|Call Canine Familiar|Eringya's Surprising Crocodile)
+
+# Miscast:-Move -Tele
+# reddit.com/r/dcss/comments/1m4xpsr/a_compendium_of_strange_and_unusual_techniques/
+more += You add the spells?.*(Apportation|Blink|Lesser Beckoning|Maxwell's Portable Piledriver|Teleport Other|Passage of Golubria)
+
+stop ^= Your.*disappears in a puff of smoke,Your spellspark servitor fades away,Your battlesphere wavers and loses cohesion
+
+{
+function c_answer_prompt(prompt)
+if prompt:find("Really fire") and prompt:find("your spellforged") then
+return true
+elseif prompt:find("Really refrigerate") and prompt:find("your spellforged") then
+return true
+elseif prompt:find("Permafrost Eruption might hit") and prompt:find("servitor") then
+return true
+elseif prompt:find("Plasma Beam") and prompt:find("might") then
+return true
+elseif prompt:find("Plasma Beam") and prompt:find("your spellforged") then
+return true
+elseif prompt:find("Really") and prompt:find("fire vort") then
+return true
+elseif prompt:find("Really") and prompt:find("battle") then
+return true
+elseif prompt:find("Really hurl") and prompt:find("your spellforged") then
+return true
+elseif prompt:find("Really attack your") and prompt:find("rat") then
+return true
+elseif prompt:find("into that cloud of flame") and you.res_fire() == 3 then
+return true
+elseif prompt:find("into that cloud of freezing vapour") and you.res_cold() == 3 then
+return true
+elseif prompt:find("into a travel-excluded") or prompt:find("icy armour will break") then
+return true
+end
+end
+}
+
+# Skills
+: if you.race() ~= "Gnoll" then
+stop += skill increases to level (9|18|26)
+more += Your Fighting skill increases to level (18|26)
+stop += Your Shields skill increases to level (4|6|9|15|21|25)
+stop += Your Short Blades skill increases to level (10|12|14)
+stop += Your Long Blades skill increases to level (14|16|18|24)
+stop += Your Maces & Flails skill increases to level (12|16|20|22)
+stop += Your Axes skill increases to level (16|18|20|26)
+more += Your Polearms skill increases to level (14|16|20|26)
+stop += Your Staves skill increases to level (12|14)
+stop += Your Throwing skill increases to level (6|10|16)
+more += Your Evocations skill increases to level (2.5|6|10|11|13|15|18|21)
+more += Your Invocations skill increases to level (6|8|10|11|12|13|14|15|16|17)
+more += Your Shapeshifting skill increases to level (7|14|19|23|26)
+flash += Training target.*reached
+: end
+
+more += You have finished (your manual|forgetting about)
+flash += You have finished (your manual|forgetting about)
+more += You pick up a manual of
+flash += You pick up a manual of
+
+stop += You see here the
+more += You see here.*(of experience|of acquirement)
+stop += - (a|[2-6]) scrolls? of brand weapon
+stop += - (a|[2-7]) scrolls? of enchant weapon
+stop += - (a|[2-8]) scrolls? of revelation
+stop += - [2-9] scrolls labelled
+stop += - [7-9] potions of mutation
+stop += - [2-9] scrolls labelled
+stop += - [2-9] .* potions
+
+: if you.xl() >= 18 then
+stop += You see here.*scrolls? of enchant armour
+: end
+
+: if you.xl() >= 12 then
+stop += scroll labelled, - (a|[2-6]) .* potion
+: end
+
+: if you.xl() <= 16 then
+stop += You see here.*(scrolls? of identify|\+6 ring of)
+: end
+
+: if you.xl() <= 14 then
+stop += You see here.*(ring of|the ring|amulet)
+: end
+
+: if you.xl() <= 12 and you.race() ~= "Mummy" and you.race() ~= "Demonspawn" and you.race() ~= "Revenant" and you.race() ~= "Poltergeist" and you.transform() ~= "death" and you.transform() ~= "vampire" then
+flash += Found.*(Elyvilon|The Shining One|Zin)
+: end
+
+: if you.xl() <= 12 and not (you.race() == "Minotaur" or you.race() == "Troll") then
+flash += Found.*(Vehumet|Sif Muna)
+: end
+
+: if you.xl() <= 10 then
+flash += Found.*(Ashenzari|Beogh|Cheibriados|Fedhas|Gozag|Hepliaklqana|Ignis|Jiyva|Makhleb|Nemelex|Okawaru|Qazlal|Ru|Trog|Uskayaw|Wu Jian|Yredelemnul)
+: end
+
+: if you.xl() > 18 and you.race() ~= "Mummy" and you.race() ~= "Demonspawn" and you.race() ~= "Revenant" and you.race() ~= "Poltergeist" and you.transform() ~= "death" and you.transform() ~= "vampire" then
+flash += Found.*(The Shining One|Zin)
+: end
+
+# Uniques and baddies
+# github.com/crawl/crawl/blob/master/crawl-ref/source/mon-gear.cc
+unusual_monster_items += ( the |distortion|chaos|silver)
+more += encounter.*(undying armour(y|ies)|antique champion|torpor snail|nekomata|oblivion hound|acid blob|entropy weaver|ghost moth|death knight|eyes? of devastation)(?! (zombie|draugr|simulacr))
+more += The undying armouty arms its allies with
+
+more += Xak'krixis conjures a prism
+more += Nobody ignites a memory of
+more += (Rupert|Snorg) roars madly and goes into a rage
+more += BOSS
+flash += BOSS
+flash += changes into,Something shouts
+stop += encounter Crazy Yiuf
+monster_alert += pandemonium lord, nasty
+
+# Cloud of Thunder: 60 Damage
+more += Bai Suzhen roars in fury and transforms into a fierce dragon
+flash += Bai Suzhen roars in fury and transforms into a fierce dragon
+more += You kill.*(Bai Suzhen)
+flash += You kill.*(Bai Suzhen)
+
+# Dissolution (Slime:2-5)
+# github.com/crawl/crawl/blob/master/crawl-ref/source/mon-act.cc
+: if you.branch() == "Slime" then
+flash += You hear a (sizzling sound|grinding noise)
+: end
+
+# Mara (S-B3-4 V2-5 Elf3 Depths)
+more += 's illusion shouts
+flash += 's illusion shouts
+
+# Kirke (Lair3-5 D12-15 S-B1 Elf1), Butcher's Vault
+: if you.xl() <= 16 then
+flash += encounter.* hog
+: end
+
+# Amaemon (Lair Orc1 D8-12)
+: if you.xl() <= 16 then
+more += encounter.*orange demon
+flash += encounter.*orange demon
+: end
+
+# Pikel (D4-9)
+: if you.xl() <= 13 then
+flash += encounter.*lemure
+: end
+
+# more += encounter (?!orb guardian|executioner)(?-i:[A-Z])
+flash += encounter (?!orb guardian|executioner)(?-i:[A-Z])
+flash += encounter.* and (?!orb guardian|executioner)(?-i:[A-Z])
+
+more += encounter.*(lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy))
+flash += encounter.*(lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orbs? of (fire|winter|entropy))
+
+# Paralysis: 5+ 33% 1T, 7+ 50% 2T
+flash += starcursed mass
+
+more += the reach of Zot diminish
+more += The shining eye gazes at you
+flash += encounter.*(death scarab)
+
+# Damnation/Flay
+more += encounter.*(deep elf (sorcerer|high priest)|(brimstone|ice) fiend)
+flash += encounter.*(deep elf (sorcerer|high priest)|(brimstone|ice) fiend)
+more += encounter.*(hell sentinel|hellion|draconian scorcher|flayed ghost)
+flash += encounter.*(hell sentinel|hellion|draconian scorcher|flayed ghost)
+
+# Torment/Drain Life/Siphon Essence
+: if not (you.race() == "Mummy" or you.race() == "Revenant" or you.race() == "Poltergeist" or you.transform() == "death") then
+more += encounter.*(royal mumm|mummy priest|tzitzimitl)
+flash += encounter.*(royal mumm|mummy priest|tzitzimitl)
+more += encounter.*(tormentor|curse toe|curse skull)
+flash += encounter.*(tormentor|curse toe|curse skull)
+more += encounter.*(deathcap|soul eater|vampire bloodprince|alderking)
+flash += encounter.*(deathcap|soul eater|vampire bloodprince|alderking)
+more += The curse toe gestures
+: end
+
+# Holy/Dispel Undead
+: if you.race() == "Mummy" or you.race() == "Demonspawn" or you.race() == "Revenant" or you.race() == "Poltergeist" or you.transform() == "death" or you.transform() == "vampire" then
+flash += encounter.*(?<!(angel|daeva|fravashi)) is wielding.*of holy
+more += encounter.*(demonspawn black sun|revenant soulmonger|ushabti|alderking|burial acolyte)
+: end
+
+: if you.branch() ~= "Pandemonium" and you.race() == "Mummy" or you.race() == "Demonspawn" or you.race() == "Revenant" or you.race() == "Poltergeist" or you.transform() == "death" or you.transform() == "vampire" then
+more += encounter.*(angel|daeva|fravashi)
+flash += encounter.*(angel|daeva|fravashi)
+: end
+
+# Lee's Rapid Deconstruction
+: if you.race() == "Gargoyle" or you.race() == "Revenant" or you.transform() == "statue" then
+more += encounter.*(kobold geomancer|deep elf elementalist|deep troll earth mage)
+: end
+
+# crawl.chaosforge.org/Reaching
+# orange demon, snapping turtle, alligator snapping turtle, crawling flesh cage, Cigotuvi's Monster, Geryon, Serpent of Hell (Dis)
+
+: if you.xl() <= 26 then
+more += encounter.*(oni incarcerator|demonspawn warmonger|draconian stormcaller|(ancient|dread) lich)
+: end
+
+: if you.xl() <= 24 then
+unusual_monster_items += of (acid)
+more += (hits|warns) (?!your)you.*of (distortion|chaos)
+more += encounter.*(air elemental|tengu reaver|(deep elf|draconian) annihilator|void ooze|orb guardian)(?! (zombie|draugr|simulacr))
+more += encounter.*(lich|shadow dragon|juggernaut|caustic shrike|wyrmhole|spriggan berserker)(?! (zombie|draugr|simulacr))
+more += The spriggan berserker utters an invocation to Trog
+more += The spriggan roars madly and goes into a rage
+# Agony
+more += encounter.*(imperial myrmidons|necromancer)(?! (zombie|draugr|simulacr))
+flash += encounter.*(imperial myrmidons|necromancer)(?! (zombie|draugr|simulacr))
+: end
+
+: if you.xl() <= 22 then
+more += encounter.*(glass eye|death drake|war gargoyle|crystal guardian)
+more += encounter.*(deep elf master archer|vault (warden|sentinel)|merfolk (avatar|siren))(?! (zombie|draugr|simulacr))
+more += encounter.*(executioner|guardian serpent|draconian shifter|ironbound (convoker|preserver)|deep troll shaman|death cob)(?! (zombie|draugr|simulacr))
+more += encounter.*(kobold fleshcrafter|phantasmal warrior|iron giant)(?! (zombie|draugr|simulacr))
+more += encounter.*(ragged hierophant|halazid warlock|glowing orange brain|apocalypse crab|moths? of wrath)(?! (zombie|draugr|simulacr))
+flash += encounter.*(halazid warlock)(?! (zombie|draugr|simulacr))
+more += encounter.*(player|('s|s')) ghost
+more += guardian serpent weaves intricate patterns
+more += ironbound convoker begins to recite a word of recall
+more += kobold fleshcrafter chants and writhes
+more += halazid warlock gestures
+more += ironbound mechanist forges a skittering defender to stand by its side
+more += slime creatures merge to form a (very large|enormous|titanic)
+: end
+
+unusual_monster_items += (devious|valour|concussion|sundering|rebuke)
+
+# github.com/crawl/crawl/commit/e02c2b2bd47e38273f95c7b2855e43783a19ae70
+unusual_monster_items += vulnerable:acid:24
+unusual_monster_items += vulnerable:(electrocution|draining|vampiric|pain):20
+unusual_monster_items += vulnerable:(flaming|freezing):18
+unusual_monster_items += vulnerable:(venom):16
+
+: if you.xl() <= 20 then
+unusual_monster_items += of (electrocution|draining|vampiric|pain)
+unusual_monster_items += of (spectral|heavy|\+[5-9])
+unusual_monster_items += wand of (paralysis|roots|light)
+more += encounter.*(boggart|bunyips|stone giant|ironbound beastmaster)(?! (zombie|draugr|simulacr))
+more += encounter.*(formless jellyfish|broodmother|spark wasp|orb spider|merfolk (aquamancer|javelineer|impaler)|nagaraja)(?! (zombie|draugr|simulacr))
+# Paralysis/Petrify/Banish
+more += encounter.*(fenstrider witch|orc sorcerer|ogre mage|occultist|great orbs? of eyes|sphinx)(?! (zombie|draugr|simulacr))
+more += encounter.*(?<!spectral) (jorogumo|basilisk|catoblepa(s|e)|deep elf (sorcerer|demonologist)|vampire knight)(?! (zombie|draugr|simulacr))
+flash += The boggart gestures wildly while chanting
+: end
+
+: if you.xl() <= 18 then
+unusual_monster_items += of (flaming|freezing)
+more += encounter.*(water nymph|azure jell|anaconda|bloated husk|ghost crab|ironbound thunderhulk)(?! (zombie|draugr|simulacr))
+flash += The water rises up and strikes you
+: end
+
+: if you.xl() <= 16 then
+unusual_monster_items += of (venom)
+unusual_monster_items += wand of (charming|polymorph)
+
+more += encounter.*(raven|water elemental|(fire|ice) dragon|centaur warrior|yaktaur|cyclope?s|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionomae?)(?! (zombie|draugr|simulacr))
+more += The.*headed hydra grows
+flash += The.*headed hydra grows
+
+more += encounter.*(vault guard|deep elf|kobold blastminer|gargoyle|ghoul|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant|wolf spider)(?! (zombie|draugr|simulacr))
+flash += encounter.*(raiju|(cyan|brown) ugly thing|radroach|meliai)(?! (zombie|draugr|simulacr))
+: end
+
+: if you.xl() <= 13 then
+unusual_monster_items += triple sword,executioner's axe,halberd,glaive,bardiche,arbalest,hand cannon,triple crossbow
+more += encounter.*(?<!spectral) (manticore|two-headed ogre|kobold geomancer|tengu|lindwurm|(ice|rust) devil|(fire|earth) elemental|lava snake|efreet|boulder beetle|hornet|black mamba|cane toad|komodo dragon)(?! (zombie|draugr|simulacr))
+flash += encounter.*(skeletal warrior|death yak|elephant)(?! (zombie|draugr|simulacr))
+: end
+
+: if you.xl() <= 10 then
+unusual_monster_items += great sword,demon trident,partisan,trishula,longbow
+more += encounter.*(water moccasin|rime drake|(steam|acid) dragon|wyvern|polar bear|brain worm|queen bee|wraith|gnoll bouda|centaur)(?! (zombie|draugr|simulacr))
+more += The polar bear roars madly and goes into a rage
+flash += encounter.*(yak)(?! (zombie|draugr|simulacr))
+: end
+
+: if you.xl() <= 7 then
+# unusual_monster_items += spear,(?<!demon) trident,sling,shortbow,orcbow
+more += encounter.*(?<!spectral) (phantom|wight|bombardier beetle|ice beast|jell(y|ies)|iguana|hound|black bear|sky beast|electric eel|sleepcap)(?! (zombie|draugr|simulacr))
+more += The black bear roars madly and goes into a rage
+more += encounter.*(ogre|gnoll|orc (wizard|priest|warrior))(?! (zombie|draugr|simulacr))
+flash += encounter.*(ogre|gnoll|orc (wizard|priest|warrior))(?! (zombie|draugr|simulacr))
+flash += encounter.*(killer bee)(?! (zombie|draugr|simulacr))
+: end
+
+: if you.xl() <= 4 and you.race() ~= "Gargoyle" and you.race() ~= "Revenant" and you.race() ~= "Poltergeist" and you.race() ~= "Mummy" and you.race() ~= "Djinni" then
+more += encounter.*(adder)(?! (zombie|draugr|simulacr))
+: end
+
+: if you.xl() <= 4 then
+mmore += encounter.*(orc)(?! (zombie|draugr|simulacr))
+onster_alert += tough
+: end
+
+# : if you.xl() <= 1 then
+# more += encounter.*(goblin|kobold|ball python|ribbon worm|dart slug)(?! (zombie|draugr|simulacr))
+# flash += encounter.*(jackal)(?! (zombie|draugr|simulacr))
+# : end
+
+##############
+### Morgue ###
+##############
+dump_on_save = true
+dump_message_count = 1000
+note_hp_percent = 20
+user_note_prefix = 
+
+note_items += (devious|valour|concussion|sundering|rebuke),of experience,(?<!potions?) of resistance,archmagi,crystal plate armour,pearl dragon scales
+note_messages += You pass through the gate
+note_messages += cast.*Abyss
+note_messages += BOSS
+note_messages += Yredelemnul refuses to let your conquest be stopped by a trick of the earth!, 's soul is now yours, Your bound.*is destroyed!
+
+dump_order  = header,hiscore,stats,misc,apostles,mutations,overview,inventory,skills,spells
+dump_order += messages,screenshot,monlist,kills
+dump_order += notes,vaults,skill_gains,action_counts,turns_by_place
+
+##############
+# Autopickup #
+##############
+# github.com/crawl/crawl/blob/master/crawl-ref/settings/advanced_optioneering.txt
+# github.com/crawl/crawl/blob/master/crawl-ref/source/dat/defaults/autopickup_exceptions.txt
+
+drop_disables_autopickup = true
+
+autopickup = $?!+:"/}(♦
+ae := autopickup_exceptions
+ae += <rune of
+
+ae = <of noise
+
+# : if not (you.race() == "Mummy" or you.race() == "Revenant" or you.race() == "Poltergeist") then
+# ae = <of mutation, of lignification, granite talisman, talisman of death
+# : end
+
+# : if you.god() == "Trog" then
+# ae = <of amnesia, of brilliance
+# : end
+
+# : if you.xl() <= 26 and you.god() == "Okawaru" then
+# ae = <butterflies, summoning, phantom mirror, horn of Geryon, box of beasts, sack of spiders
+# : end
+
+: if you.xl() <= 13 and (you.god() == "The Shining One" or you.god() == "Elyvilon" or you.god() == "Zin") then
+stop += You see here.*of (necromancy|pain|reaping|draining|distortion|vampiric)
+stop += You see here.*demon
+: end
+
+: if you.xl() <= 13 and you.race() ~= "Djinni" and (you.god() == "The Shining One" or you.god() == "Elyvilon" or you.god() == "Zin") then
+ae = <Necromancy, Call Imp, Sculpt Simulacrum, Malign Gateway, Summon Horrible Things
+: end
+
+# : if you.race() ~= "Djinni" and (you.god() == "Okawaru" or you.god() == "Trog") then
+# ae = <book of, parchment of
+# : end
+
+# ae += moonshine
+
+: if you.race() ~= "Troll" and you.race() ~= "Oni" then
+ae += large rock
+: end
+
+: if you.xl() > 4 then
+ae +=  (?<!tremor)stone
+: end
+
+: if you.xl() > 12 and you.race() == "Deep Elf" then
+ae = <boomerang, javelin, tipped dart, throwing net
+: end
+
+: if you.xl() > 18 then
+ae += (datura|atropa)-tipped dart
+: end
+
+: if you.xl() > 22 then
+ae += of identify, poisoned dart, amulet of (acrobat|faith|guardian spirit|reflection), ring of (evasion|strength|intelligence|dexterity|slaying|wizardry|magical power)
+: end
+
+##################
+### Item Slots ###
+##################
+# crawl.chaosforge.org/Inscriptions
+ai := autoinscribe
+
+# ai += magical staff:!a
+ai += (large rock|silver javelin|throwing net|(curare|datura|atropa)-tipped dart|of disjunction):=f
+
+ai += potions? of heal wounds:@q1, 10-37HP
+ai += potions? of curing:@q2, 5-11HP
+ai += potions? of cancellation:@q3, UnaffectDrainBarbPoisBerserkDDoorExhGodEffects
+ai += potions? of might:34-74T 1d10
+ai += potions? of haste:@q4, 40-79T
+ai += potions? of magic:@q5, 10-37MP
+ai += potions? of mutation:@q6, Remove2-3 Add1-3, 60%Good, 50%AddOneGood
+ai += potions? of ambrosia:3-5HPMP/T
+ai += potions? of lignification:1.5xHP (20+XL/2)AC rPo Torm0 Ev0 -MoBlTe GearWeapShie
+ai += potions? of enlightenment:25-64T
+ai += potions? of invisibility:15-54T, MonsSH/3, HuInt+8%Pos, -6EV -6ToHit Block/3
+ai += potions? of resistance:10-29T, rFirColPoiCorEle
+ai += potions? of berserk rage:10-19T, ImmuneSleep
+
+ai += scrolls? of identify:@r1
+ai += scrolls? of teleportation:@r2, 3-5T, Zot8-14T
+ai += scrolls? of blinking:@r3, Unable-TeleTreeMesm
+ai += scrolls? of acquirement:200-1400Gold
+ai += scrolls? of enchant armour:@r4, GDR AC^(1/4)x16
+ai += scrolls? of enchant weapon:@r5, ToHit Dex/2+1d(FighS+1)+1d(WeaS+1)
+
+# Allow brand weapon scrolls (and randarts) to produce the new brands
+# github.com/crawl/crawl/commit/092f012dacd1664b29e7f4c764571602c4b3ef34
+ai += scrolls? of brand weapon:13.3% FlmFrzHvVnPro, 6.6% DrnElcSpcVmpChaos
+
+ai += scrolls? of fear:Q*f, 40Will90% 60Will73% ++41-80
+ai += scrolls? of silence:30Turns
+ai += scrolls? of noise:25 Alarm40 FireStor25 FulmPris20 Qaz16 Shout12 IMB10
+ai += scrolls? of immolation:Tiny3d15 Little-Large3d20 Giant3d25, 25-35T
+ai += scrolls? of torment:-10%N+
+ai += scrolls? of summoning:Mons2d2, NamelessH HD(2*MiscastIntensity/3) Spd10 AC8 Ak30
+ai += scrolls? of butterflies:12-28, Immo3d15, NamelessH HD(2*MiscastIntensity/3) Spd10 AC8 Ak30
+ai += scrolls? of revelation:Necropolis900, Gauntlet400, Others600
+ai += scrolls? of fog:AtkOut ExploIceblaTremor AlliNeuCharmBribFrenMons TukimPoisSticF
+ai += scrolls? of amnesia:Intensity (SpellLv)d(SpellLv+Failure)/9, Contam 2x(SpellLv)^2xFailure+250
+
+ai += wand of roots:@v1, \<, 2d(5.7+Evo/2)DmgT 3((15+3.5Evo)/22 To 4+((15+3.5Evo)/16)T
+ai += wand of warping:@v1, \<, 50+3.5Evo% MaxEvo12
+ai += wand of iceblast:@v1, \<, 3d(7.66+3.5*Evo/5)
+ai += wand of acid:@v2, \>, 4d(5.5+10.5xEvo/20)
+ai += wand of light:@v2, \>, -35%ToHit
+ai += wand of quicksilver:@v2, \>, 6d(4.16+3.5*Evo/9)
+ai += wand of digging:@v3
+
+# Enemy AC 2 (gnoll), Dizzy's DCSS Doodad, Mulch%
+# https://pastebin.com/raw/2DKqrVha
+ai += (?<!tremor)stone:Dmg/T 0.4 1 3 Thr 0 3 6
+ai += boomerang:@f2@Q2, F2, 5%
+ai += (?<!silver) javelin:@f3@Q3, H, 5%
+ai += silver javelin:@f6@Q6, 5%
+ai += throwing net:@f7, MonsEV/(2+Size), Mulch (1d4)/9% 8Dmg (1d4)/T 
+ai += poisoned dart:@f1@Q1, F1
+ai += curare-tipped dart:@f8, 16.7%
+ai += darts? of disjunction:Dmg2d2
+
+ai += wand of flame:@v4@Q4, \), 2d(5.5+0.35*Evo), MaxEvo10
+ai += wand of mindburst:@v5@Q5, \(, 3d(8.75+3.5*Evo/4)
+ai += phial of floods:(2.1+2*Evo/5)Turns x1 x1.5
+ai += sack of spiders:Evo 6 13 18 21
+ai += box of beasts:HD 3 9 15 21 27(Evo+1d7-1d7)
+ai += condenser vane:(65+3.5*Evo)/1.6%
+ai += tin of tremorstones:Evo 2.5 6 11 18, 5x5 6d6 40%
+ai += lightning rod:(2+PreUses)d(0.75*Evo+46.25)/3, 2d16(Evo1)
+ai += Gell's gravitambourine:Evo 9.5 23.2
+
+ai += of fire resistance:rF+
+ai += of cold resistance:rC+
+ai += (?<!potions?) of resistance:rF+, rC+
+ai += of poison resistance:rPois
+ai += of corrosion resistance:rCorr
+ai += of positive energy:rN+
+ai += of willpower:Will+
+ai += of invulnerability:rInv
+ai += of regeneration:Regen+
+ai += of magic regeneration:MRegen+
+
+ai += fire dragon scales (?!"|of):rF++, rC-
+ai += ice dragon scales (?!"|of):rC++, rF-
+ai += swamp dragon scales (?!"|of):rPois
+ai += gold dragon scales (?!"|of):rC+, rF+, rPois
+ai += acid dragon scales (?!"|of):rCorr
+ai += storm dragon scales (?!"|of):rElec
+ai += pearl dragon scales (?!"|of):rN+
+ai += quicksilver dragon scales (?!"|of):Will+
+ai += shadow dragon scales (?!"|of):Stlth+
+ai += (?<!moon) troll leather (?!"|of):Regen+
+
+ai += ring of flight:+Fly
+ai += ring of protection from fire:rF+
+ai += ring of protection from cold:rC+
+ai += ring of resist corrosion:rCorr
+ai += ring of see invisible:sInv
+ai += ring of wizardry:Wiz+
+ai += ring of magical power:MP+9
+
+ai += staff of conjuration:IrresistibleDmg-20%
+ai += staff of earth:PhysicalDmg-5%
+ai += staff of fire:rF+
+ai += staff of cold:rC+
+ai += staff of poison:rPois
+ai += staff of air:rElec
+ai += staff of necromancy:rN+
+
+: if you.xl() > 4 then
+ai += (?<!the) \+0 (dagger|short sword|club|whip|giant club|giant spiked|hand axe|spear|sling|shortbow|(?<!tremor)stone|animal skin|robe|leather armour) (?!("|of)):~~DROP_ME
+: end
+
+: if you.xl() > 8 then
+ai += (?<!the) \+0 (falchion|long sword|quarterstaff|troll leather armour|ring mail|scale mail) (?!("|of)):~~DROP_ME
+: end
+
+: if you.xl() > 12 then
+ai += (?<!the) \+[1-3] (dagger|short sword|club|whip|hand axe|spear|sling|shortbow|animal skin|robe|leather armour) (?!("|of)):~~DROP_ME
+: end
+
+: if you.xl() > 14 then
+ai += (?<!the) \+[1-3] (falchion|long sword|quarterstaff|troll leather armour|ring mail|scale mail) (?!("|of)):~~DROP_ME
+: end
+
+: if you.xl() > 16 then
+ai += (?<!the) \+0 (mace|flail|dire flail|war axe|trident|halberd|chain mail|plate armour|steam dragon scales|helmet) (?!("|of)):~~DROP_ME
+: end
+
+: if you.xl() > 20 then
+ai += (?<!the) \+0 (great mace|battleaxe|executioner's axe|scythe|glaive|bardiche|buckler|pair of boots|cloak|pair of gloves|acid dragon scales|swamp dragon scales) (?!("|of)):~~DROP_ME
+: end
+
+: if you.xl() > 22 then
+ai += (?<!the) \+0 (kite shield|fire dragon scales|ice dragon scales) (?!("|of)):~~DROP_ME
+ai += of identify:~~DROP_ME
+: end
+
+: if you.xl() > 24 then
+ai += (?<!the) \+0 (morningstar|broad axe|partisan|tower shield) (?!("|of)):~~DROP_ME
+: end
+
+gear_slot ^= (war axe|broad axe|whip|mace|flail|ningstar|scourge|spear|trident|trishula|partisan|halberd|glaive|bardiche|staff) : abW
+gear_slot ^= (ring of protection (?!from)|the ring .* AC\+) : ptcmPTCM
+gear_slot ^= (ring of evasion|the ring .* EV\+) : evdgEVDG
+gear_slot ^= (ring of strength|the ring .* Str\+) : strhSTRH
+gear_slot ^= (ring of intelligence|the ring .* Int\+) : intlINTL
+gear_slot ^= (ring of dexterity|the ring .* Dex\+) : dxeyDXEY
+gear_slot ^= (ring of slaying|the ring .* Slay\+) : yksxYKSX
+gear_slot ^= (ring of wizardry|the ring .* Wiz ) : zwysZWYS
+gear_slot ^= (ring of magical power|the ring .* MP\+) : mpgqMPGQ
+gear_slot ^= (ring of protection from fire|the ring .* rF\+) : fireFIRE
+gear_slot ^= (ring of protection from cold|the ring .* rC\+) : cieoCIEO
+gear_slot ^= (ring of positive energy|the ring .* rN\+) : nuveNUVE
+gear_slot ^= (ring of poison resistance|the ring .* rPois) : pvxtPVXT
+gear_slot ^= (lightning rod|the ring .* rElec) : qzlrQZLR
+gear_slot ^= (ring of resist corrosion|the ring .* rCorr) : jrocJROC
+gear_slot ^= (ring of see invisible|the ring .* SInv) : vighVIGH
+gear_slot ^= (ring of willpower|the ring .* Will\+) : wmlhWMlH
+gear_slot ^= (ring of flight|the ring .* Fly) : lhfyLHFY
+
+gear_slot ^= armour:ABCDEFGHIJKLMNOPQRSTUVWXYZ
+gear_slot ^= shield:ABCDEFGHIJKLMNOPQRSTUVWXYZ
+gear_slot ^= ( hat |cloak|scarf|pair of gloves|pair of boots):ABCDEFGHIJKLMNOPQRSTUVWXYZ
+gear_slot ^= orb:ABCDEFGHIJKLMNOPQRSTUVWXYZ
+gear_slot ^= amulet:ABCDEFGHIJKLMNOPQRSTUVWXYZ
+gear_slot ^= talisman:ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+# github.com/crawl/crawl/blob/master/crawl-ref/source/dat/defaults/consumable_shortcuts.txt
+consumable_shortcut += javelin:abcdefghijklmnopqrstuwxyz
+consumable_shortcut += boomerang:abcdefghijklmnopqrstuwxyz
+consumable_shortcut += throwing net:abcdefghijklmnopqrstuwxyz
+consumable_shortcut += dart:abcdefghijklmnopqrstuwxyz
+consumable_shortcut += potion of mutation:t
+consumable_shortcut += scroll of noise:n
+consumable_shortcut += scroll of revelation:R
+
+##############
+### Macros ###
+##############
+# github.com/crawl/crawl/blob/master/crawl-ref/docs/macros_guide.txt
+{
+function explore_approach()
+     crawl.setopt("travel_open_doors = approach")
+     crawl.do_commands({"CMD_EXPLORE"})
+end
+}
+macros += M o ===explore_approach
+
+# Press "Tab" when enemies are visible and "o" when they are not
+{
+function explore_attack()
+    crawl.setopt("travel_open_doors = approach")
+    if you.feel_safe() then
+        crawl.sendkeys("o")
+    else
+        crawl.sendkeys({9})
+    end
+end
+}
+macros += M b ===explore_attack
+
+{
+function explore_fire()
+    crawl.setopt("travel_open_doors = approach")
+    if you.feel_safe() then
+        crawl.sendkeys("o")
+    else
+        crawl.do_commands({"CMD_AUTOFIRE"})
+    end
+end
+}
+macros += M h ===explore_fire
+
+{
+function doors_open()
+     crawl.setopt("travel_open_doors = open")
+     crawl.sendkeys("o")
+end
+}
+macros += M j ===doors_open
+
+{
+function doors_avoid()
+     crawl.setopt("travel_open_doors = avoid")
+     crawl.sendkeys("o")
+end
+}
+macros += M J ===doors_avoid
+
+{
+function godown_open()
+     crawl.setopt("travel_open_doors = open")
+     crawl.sendkeys("X",">")
+end
+}
+macros += M \{NP+} ===godown_open
+
+{
+function goup_open()
+     crawl.setopt("travel_open_doors = open")
+     crawl.sendkeys("X","<")
+end
+}
+macros += M \{NP-} ===goup_open
+
+{
+function travel_open()
+     crawl.setopt("travel_open_doors = open")
+     crawl.sendkeys("G",{9})
+end
+}
+macros += M T ===travel_open
+
+# reddit.com/r/dcss/comments/1ngwfhl/the_most_useful_dcss_command/ne77ryd/
+# feat:find("transporter")
+# [NP.]: one key macro for going both up and down stairs
+{
+function smart_stairs()
+    local feat = view.feature_at(0, 0)
+    if feat:find("stairs_down") or feat:find("hatch_down") or feat:find("enter") then
+        crawl.sendkeys(">")
+    elseif feat:find("stairs_up") or feat:find("hatch_up") or feat:find("exit") or feat:find("return") then
+        crawl.sendkeys("<")
+    elseif feat:find("portal") or feat:find("transporter") or feat:find("shop") or feat:find("transit") or feat:find("altar") then
+        crawl.sendkeys(">")
+    else
+        crawl.mpr("No stairs here.")
+        crawl.mpr("Standing on: " .. feat)
+    end
+end
+}
+macros += M \{NP.} ===smart_stairs
+
+# Tab:\{9}, Enter:\{13}, Esc:\{27}, Space:\{32}, Ctrl:*, Shift:/, Ctrl-L:\{12}
+# github.com/crawl/crawl/blob/master/crawl-ref/source/dat/descript/features.txt
+
+# Ctrl-L: List of Banes
+# macros += M \{12} ?/n\{32}\{13}
+
+# Ctrl-L: Help, Monster 
+macros += M \{12} ?/m
+
+# [.]: Branches
+macros += M . *f<<case\{32}to\{32}th\{32}||\{32}gate\{32}to\{32}||\{32}hole\{32}to\{32}||\{32}gate\{32}lead>>\{32}&&\{32}!!one-\{13}
+
+macros += M n x+
+macros += M N x-
+macros += M l x+v
+macros += M L x-v
+macros += M C X*e
+macros += M Y tt
+macros += M I II
+macros += M R \\-
+macros += M y ff
+macros += M \{NP0} vf
+macros += M O aa
+macros += M K ab
+
+# [,]: @<query>, Stash-Tracker
+# !!:Negate, &&:AND, ||:OR, <<>>:Grouping
+: if you.xl() <= 9 and (you.race() == "Minotaur" or you.race() == "Troll") then
+macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!animal\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!0\{32}leat\{32}&&\{32}!!0\{32}ring\{32}mail\{32}&&\{32}!!0\{32}scale\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!0\{32}cloa\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!0\{32}mace\{32}&&\{32}!!grea\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spea\{32}&&\{32}!!0\{32}tride\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battlea\{32}&&\{32}!!0\{32}hand\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+: end
+
+: if you.xl() >= 10 and you.xl() <= 16 and (you.race() == "Minotaur" or you.race() == "Troll") then
+macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!quart\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!0\{32}mace\{32}&&\{32}!!grea\{32}&&\{32}!!gian\{32}&&\{32}!!nd\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!spea\{32}&&\{32}!!0\{32}tride\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battlea\{32}&&\{32}!!animal\{32}&&\{32}!!robe\{32}&&\{32}!!leat\{32}&&\{32}!!0\{32}ring\{32}mail\{32}&&\{32}!!0\{32}scale\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!0\{32}cloa\{32}&&\{32}!!orb\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+: end
+
+: if you.xl() >= 17 and (you.race() == "Minotaur" or you.race() == "Troll") then
+macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!quart\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!r\{32}ax\{32}&&\{32}!!mace\{32}&&\{32}!!flail\{32}&&\{32}!!grea\{32}&&\{32}!!gian\{32}&&\{32}!!nd\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!spea\{32}&&\{32}!!0\{32}tride\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battlea\{32}&&\{32}!!mail\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!0\{32}cloa\{32}&&\{32}!!animal\{32}&&\{32}!!robe\{32}&&\{32}!!leat\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+: end
+
+: if you.race() ~= "Minotaur" and you.race() ~= "Troll" then
+macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!doorr\{32}&&\{32}!!animal\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!0\{32}leat\{32}&&\{32}!!0\{32}ring\{32}mail\{32}&&\{32}!!0\{32}scale\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!0\{32}cloa\{32}&&\{32}!!0\{32}dagg\{32}&&\{32}!!0\{32}shor\{32}&&\{32}!!0\{32}rapie\{32}&&\{32}!!0\{32}falc\{32}&&\{32}!!0\{32}long\{32}\{32}&&\{32}!!0\{32}grea\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!0\{32}mace\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spea\{32}&&\{32}!!0\{32}tride\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battlea\{32}&&\{32}!!0\{32}hand\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+: end
+
+# [P]: Shop Items
+: if you.race() == "Minotaur" or you.race() == "Troll" then
+macros += M P *fin_shop\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!0\{32}mace\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spea\{32}&&\{32}!!0\{32}tride\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battlea\{32}&&\{32}!!0\{32}hand\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!animal\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!0\{32}leat\{32}&&\{32}!!0\{32}ring\{32}mail\{32}&&\{32}!!0\{32}scale\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!0\{32}cloa\{32}&&\{32}!!book\{32}&&\{32}!!parchm\{32}&&\{32}!!carri\{13}
+: end
+
+: if you.race() ~= "Minotaur" and you.race() ~= "Troll" then
+macros += M P *fin_shop\{32}&&\{32}!!0\{32}dagg\{32}&&\{32}!!0\{32}shor\{32}&&\{32}!!0\{32}rapie\{32}&&\{32}!!0\{32}falc\{32}&&\{32}!!0\{32}long\{32}\{32}&&\{32}!!0\{32}grea\{32}&&\{32}!!0\{32}sling\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!0\{32}mace\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spea\{32}&&\{32}!!0\{32}tride\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battlea\{32}&&\{32}!!0\{32}hand\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!animal\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!0\{32}leat\{32}&&\{32}!!0\{32}ring\{32}mail\{32}&&\{32}!!0\{32}scale\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!0\{32}cloa\{32}&&\{32}!!carri\{13}
+: end
+
+macros += M S *f<<scrol\{32}||\{32}potio>>\{32}&&\{32}!!iden\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+macros += M % *f<<misc\{32}||\{32}wand\{32}||\{32}throwin>>\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+macros += M " *f<<jewell\{32}||\{32}orb>>\{32}&&\{32}!!statu\{32}&&\{32}!!carri\{13}
+
+# "[": Body, Aux
+macros += M [ *f<<body\{32}||\{32}aux>>\{32}&&\{32}!!orb\{32}&&\{32}!!animal\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!0\{32}leat\{32}&&\{32}!!0\{32}ring\{32}mail\{32}&&\{32}!!0\{32}scale\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!0\{32}cloa\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+
+# [`]: Dexterity Weapons, Magical Staves
+macros += M ` *f<<ranged\{32}||\{32}blades\{32}||\{32}magica>>\{32}&&\{32}!!jewell\{32}&&\{32}!!0\{32}dagg\{32}&&\{32}!!0\{32}shor\{32}&&\{32}!!0\{32}rapie\{32}&&\{32}!!0\{32}falc\{32}&&\{32}!!0\{32}long\{32}\{32}&&\{32}!!0\{32}grea\{32}&&\{32}!!0\{32}sling\{32}&&\{32}!!body\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+
+# [&]: Axes
+macros += M & *f<<axe\{32}||\{32}polea\{32}||\{32}mace>>\{32}&&\{32}!!magica\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!0\{32}mace\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spea\{32}&&\{32}!!0\{32}tride\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battlea\{32}&&\{32}!!0\{32}hand\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+
+# [_]: Maces & Flails
+macros += M _ *f<<mace\{32}||\{32}axe\{32}||\{32}stav>>\{32}&&\{32}!!magica\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!0\{32}mace\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}hand\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+
+# [:]: Polearms
+: if you.xl() <= 16  then
+macros += M : *f<<polea\{32}||\{32}axe\{32}||\{32}stav>>\{32}&&\{32}!!magica\{32}&&\{32}!!0\{32}spea\{32}&&\{32}!!0\{32}tride\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battlea\{32}&&\{32}!!0\{32}hand\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+: end
+
+: if you.xl() >= 17  then
+macros += M : *f<<mon\{32}tri\{32}||\{32}parti\{32}||\{32}trish\{32}||\{32}bardic>>\{32}&&\{32}!!magica\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+: end
+
+# F1:\{-265}:poisoned dart, F2:\{-266}:boomerang, H:javelin, ")":wand of flame, "(":mindburst, "<":iceblast|roots|warping, ">":acid|light|quicksilver
+macros += M \{-265} F15
+macros += M \{-266} F25
+macros += M H F3
+macros += M ) V45
+macros += M ( V55
+macros += M < V15
+macros += M > V25
+macros += M E zaf
+macros += M U zbf
+macros += M 1 za
+macros += M 2 zb
+macros += M 3 zc
+macros += M 4 zd
+macros += M 5 ze
+macros += M 6 zf
+macros += M 7 zg
+macros += M 8 zh
+macros += M 9 zi
+macros += M 0 zj
+
+# github.com/brianfaires/crawl-rc/blob/main/rc/macros.rc
+# Confirm targeting with same keys as spellcasting
+macros += K2 1 \{13}
+macros += K2 2 \{13}
+macros += K2 4 \{13}
+macros += K2 6 \{13}
+macros += K2 7 \{13}
+macros += K2 8 \{13}
+macros += K2 9 \{13}
+macros += K2 0 \{13}
+
+###############
+# Keybindings #
+###############
+# github.com/crawl/crawl/blob/master/crawl-ref/docs/keybind.txt
+bindkey = [NP5] CMD_WAIT
+bindkey = [NP5] CMD_TARGET_SELECT_ENDPOINT
+bindkey = [B] CMD_EXPLORE_NO_REST
+bindkey = [s] CMD_REST
+bindkey = [c] CMD_CLOSE_DOOR
+bindkey = [C] CMD_MAP_CLEAR_EXCLUDES
+bindkey = [W] CMD_WIELD_WEAPON
+bindkey = [w] CMD_WEAR_ARMOUR
+bindkey = [p] CMD_WEAR_JEWELLERY
+bindkey = [Tab] CMD_AUTOFIGHT_NOMOVE
+bindkey = [k] CMD_AUTOFIRE
+bindkey = [u] CMD_PREV_CMD_AGAIN
+bindkey = [i] CMD_RESISTS_SCREEN
+bindkey = [e] CMD_FULL_VIEW
+bindkey = [e] CMD_TARGET_FULL_DESCRIBE
+bindkey = [e] CMD_MAP_EXIT_MAP
+bindkey = [k] CMD_TARGET_EXCLUDE
+bindkey = [k] CMD_MAP_EXCLUDE_AREA
+bindkey = [\{13}] CMD_DISPLAY_INVENTORY
+bindkey = [NPenter] CMD_DISPLAY_INVENTORY
+bindkey = [\{NP+}] CMD_MAP_FIND_DOWNSTAIR
+bindkey = [\{NP-}] CMD_MAP_FIND_UPSTAIR
+bindkey = [\{NP*}] CMD_CYCLE_QUIVER_FORWARD
+bindkey = [\{NP/}] CMD_CYCLE_QUIVER_BACKWARD
+bindkey = [ ] CMD_TARGET_CANCEL
+bindkey = [ ] CMD_MAP_EXIT_MAP
+bindkey = [b] CMD_TARGET_CANCEL
+bindkey = [h] CMD_TARGET_CANCEL
+bindkey = [j] CMD_TARGET_CANCEL
+bindkey = [l] CMD_TARGET_CANCEL
+bindkey = [n] CMD_TARGET_CANCEL
+bindkey = [u] CMD_TARGET_CANCEL
+bindkey = [y] CMD_TARGET_CANCEL
+bindkey = [B] CMD_TARGET_CANCEL
+bindkey = [H] CMD_TARGET_CANCEL
+bindkey = [J] CMD_TARGET_CANCEL
+bindkey = [K] CMD_TARGET_CANCEL
+bindkey = [L] CMD_TARGET_CANCEL
+bindkey = [N] CMD_TARGET_CANCEL
+bindkey = [U] CMD_TARGET_CANCEL
+bindkey = [Y] CMD_TARGET_CANCEL
+bindkey = [b] CMD_MAP_EXIT_MAP
+bindkey = [h] CMD_MAP_EXIT_MAP
+bindkey = [j] CMD_MAP_EXIT_MAP
+bindkey = [l] CMD_MAP_EXIT_MAP
+bindkey = [n] CMD_MAP_EXIT_MAP
+bindkey = [u] CMD_MAP_EXIT_MAP
+bindkey = [y] CMD_MAP_EXIT_MAP
+bindkey = [B] CMD_MAP_EXIT_MAP
+bindkey = [H] CMD_MAP_EXIT_MAP
+bindkey = [J] CMD_MAP_EXIT_MAP
+bindkey = [K] CMD_MAP_EXIT_MAP
+bindkey = [L] CMD_MAP_EXIT_MAP
+bindkey = [N] CMD_MAP_EXIT_MAP
+bindkey = [U] CMD_MAP_EXIT_MAP
+bindkey = [Y] CMD_MAP_EXIT_MAP
+
+# github.com/brianfaires/crawl-rc?tab=readme-ov-file#in-game-commands
+bindkey = [~] CMD_LUA_CONSOLE
+
+############################### End rc/main.rc ###############################
+
+############################ Begin lua/my-feature.lua ############################
+{
+my_feature = {}
+my_feature.BRC_FEATURE_NAME = "my-feature" -- This registers my_feature with BRC
+
+my_feature.Config = {
+} -- always put a comment after a lone '}' (or else crawl's RC parser breaks)
+
+local need_skills_opened = true
+function my_feature.ready()
+if you.turns() == 0 and you.race() ~= "Gnoll" and need_skills_opened then
+need_skills_opened = false
+crawl.sendkeys("!d10" .. string.char(13) .. "Lair D11-12 Orc D13-15 S-Runes V1-4" .. string.char(13))
+you.set_training_target("Maces & Flails",12)
+you.set_training_target("Axes",16)
+you.set_training_target("Polearms",14)
+you.set_training_target("Staves",12)
+you.set_training_target("Throwing",9)
+you.set_training_target("Short Blades",14)
+you.set_training_target("Long Blades",12)
+you.set_training_target("Ranged Weapons",18)
+you.set_training_target("Armour",9)
+you.set_training_target("Dodging",4)
+you.set_training_target("Shields",9)
+you.set_training_target("Stealth",3.5)
+you.set_training_target("Hexes",6)
+you.set_training_target("Summonings",6)
+you.set_training_target("Necromancy",6)
+you.set_training_target("Forgecraft",6)
+you.set_training_target("Translocations",9)
+you.set_training_target("Alchemy",3)
+you.set_training_target("Fire Magic",18)
+you.set_training_target("Air Magic",6)
+you.set_training_target("Ice Magic",18)
+you.set_training_target("Earth Magic",18)
+you.set_training_target("Invocations",6)
+you.set_training_target("Evocations",3)
+you.set_training_target("Shapeshifting",7)
+crawl.sendkeys("m","C","c","a")
+end
+end
+}
+############################ End lua/my-feature.lua ############################
 
 ################################### Begin rc/fm-messages.rc ###################################
 ############### https://github.com/brianfaires/crawl-rc/ ###############
@@ -6453,50 +7812,6 @@ end
 ############################### End lua/features/pickup-alert/pa-weapons.lua ###############################
 ##########################################################################################
 
-############################ Begin lua/my-feature.lua ############################
-{
-my_feature = {}
-my_feature.BRC_FEATURE_NAME = "my-feature" -- This registers my_feature with BRC
-
-my_feature.Config = {
-} -- always put a comment after a lone '}' (or else crawl's RC parser breaks)
-
-local need_skills_opened = true
-function my_feature.ready()
-if you.turns() == 0 and you.race() ~= "Gnoll" and need_skills_opened then
-need_skills_opened = false
-crawl.sendkeys("!d10" .. string.char(13) .. "Lair D11-12 Orc D13-15 S-Runes V1-4" .. string.char(13))
-you.set_training_target("Maces & Flails",12)
-you.set_training_target("Axes",16)
-you.set_training_target("Polearms",14)
-you.set_training_target("Staves",12)
-you.set_training_target("Throwing",9)
-you.set_training_target("Short Blades",14)
-you.set_training_target("Long Blades",12)
-you.set_training_target("Ranged Weapons",18)
-you.set_training_target("Armour",9)
-you.set_training_target("Dodging",4)
-you.set_training_target("Shields",9)
-you.set_training_target("Stealth",3.5)
-you.set_training_target("Hexes",6)
-you.set_training_target("Summonings",6)
-you.set_training_target("Necromancy",6)
-you.set_training_target("Forgecraft",6)
-you.set_training_target("Translocations",9)
-you.set_training_target("Alchemy",3)
-you.set_training_target("Fire Magic",18)
-you.set_training_target("Air Magic",6)
-you.set_training_target("Ice Magic",18)
-you.set_training_target("Earth Magic",18)
-you.set_training_target("Invocations",6)
-you.set_training_target("Evocations",3)
-you.set_training_target("Shapeshifting",7)
-crawl.sendkeys("m","C","c","a")
-end
-end
-}
-############################ End lua/my-feature.lua ############################
-
 ############## Lua Hook Functions ##############
 {
 function c_message(text, channel)
@@ -6521,1314 +7836,3 @@ end
 
 BRC.init()
 }
-############## github.com/brianfaires/crawl-rc ##############
-
-# github.com/gg5074/configs
-# Mini Map Colors, Display, Interface, Messages, Morgue, Autopickup, Item Slots, Macros, Keybindings
-
-#######################
-### Mini Map Colors ###
-#######################
-# tile_portal_col = #ff4f1a
-# tile_downstairs_col = red
-tile_downstairs_col = #ff1a1a
-tile_branchstairs_col = yellow
-# tile_branchstairs_col = #ff006a
-tile_upstairs_col = green
-# tile_upstairs_col = #99ff33
-tile_explore_horizon_col = #bfbfbf
-tile_floor_col = #262626
-tile_water_col = #0086b3
-tile_deep_water_col = #1f1fed
-tile_lava_col = #6f0b00
-tile_wall_col = #595959
-tile_door_col = #cb7d4d
-# tile_feature_col = #d4be21
-tile_plant_col = #5c8745
-tile_transporter_col = #ff80bf
-tile_transporter_landing_col = #59ff89
-tile_trap_col = #d24dff
-
-###############
-### Display ###
-###############
-# github.com/crawl/crawl/blob/master/crawl-ref/source/dat/defaults/menu_colours.txt
-tile_font_crt_size = 21
-tile_font_stat_size = 21
-tile_font_msg_size = 21
-tile_font_tip_size = 21
-tile_font_lbl_size = 21
-tile_font_ft_light = false
-tile_cell_pixels = 38
-tile_viewport_scale = 1.5
-tile_font_crt_family = UD デジタル 教科書体 N-B
-tile_font_stat_family = UD デジタル 教科書体 N-B
-tile_font_msg_family = UD デジタル 教科書体 N-B
-tile_font_lbl_family = UD デジタル 教科書体 N-B
-tile_realtime_anim = true
-
-: if you.race() ~= "Felid" then
-tile_show_player_species = true
-: end
-
-tile_player_status_icons = slow, constr, fragile, petr, mark, will/2, haste, weak, corr, might, brill, -move
-
-cloud_status = true
-
-action_panel_font_size = 19
-action_panel_font_family = UD デジタル 教科書体 N-B
-action_panel_orientation = vertical
-action_panel_show = false
-
-menu := menu_colour
-# menu ^= lightgrey:potions? of (attraction|lignification|mutation)
-# menu ^= lightgrey:scrolls? of (poison|torment|immolation|vulnerability|noise)
-
-msc := message_colour
-msc ^= lightgrey:( miss | misses |no damage|fail to reach past|returns to the grave|disappears in a puff of smoke)
-msc ^= yellow:(You feel a bit more experienced)
-
-# : if you.race() ~= "Minotaur" then
-# msc ^= lightgrey:helmet
-# : end
-
-msc += mute:Search for what.*(~D|in_shop)
-msc += mute:There is an open door here
-msc += mute:You swap places with (your|(?-i:[A-Z]))
-msc += mute:(Your.*|The butterfly) leaves your sight
-msc += mute:Your.*is recalled
-
-: if you.god() == "Yredelemnul" then
-msc += mute:Your.*(something|the (plant|bush|fungus))
-msc += mute:Something.*the (plant|bush|fungus)
-msc += mute:(The|A nearby) (plant|bush|fungus).*die
-msc += mute:Your.*web
-msc += mute:The confined air twists around weakly and strikes your
-# github.com/crawl/crawl/commit/03cf731cd7f90669eb5f4fdd65f006c47cf609cc
-# github.com/crawl/crawl/issues/4946
-# github.com/crawl/crawl/commit/36afd6d5a999493cbec3e950c651cccdc021c22f
-# msc += mute:Maggie comes into view
-: end
-
-hp_colour = 100:green, 99:lightgray, 75:yellow, 50:lightred, 25:red
-mp_colour = 100:green, 99:lightgray, 75:yellow, 50:lightred, 25:red
-hp_warning = 50
-mp_warning = 30
-
-tile_show_threat_levels = trivial, easy, tough, nasty, unusual
-tile_show_demon_tier = true
-always_show_zot = true
-# always_show_gems = true
-more_gem_info = true
-
-# monster_item_view_coordinates = true
-
-#############
-# Interface #
-#############
-autofight_nomove_fires = false
-autofight_fire_stop = true
-autofight_caught = true
-autofight_wait = true
-autofight_stop = 55
-rest_wait_both = true
-rest_wait_ancestor = true
-fire_order  = spell, throwing, evokable
-fire_order_ability -= all
-fail_severity_to_quiver = 3
-fail_severity_to_confirm = -1
-spell_menu = true
-warn_contam_cost = true
-
-show_paged_inventory = false
-item_stack_summary_minimum = 8
-
-show_more = false
-easy_confirm = safe
-equip_unequip = true
-sort_menus = true:equipped,charged,art,ego,glowing,identified,basename
-stat_colour = 3:red, 7:lightred
-default_manual_training = true
-
-: if you.xl() <= 3 then
-skill_focus = true
-: end
-
-: if you.xl() >= 4 then
-skill_focus = false
-: end
-
-explore_delay = 15
-view_delay = 550
-level_map_cursor_step = 8
-warn_hatches = true
-explore_stop = greedy_pickup_smart
-explore_stop += stairs,shops,altars,portals,branches,runed_doors,glowing_items,artefacts,runes
-
-combo += MiFi . trident
-# combo += DECj
-
-############
-# Messages #
-############
-# github.com/crawl/crawl/blob/master/crawl-ref/source/dat/defaults/messages.txt
-# github.com/crawl/crawl/blob/master/crawl-ref/source/dat/defaults/runrest_messages.txt
-# github.com/crawl/crawl/blob/master/crawl-ref/source/dat/defaults/misc.txt
-
-ignore := runrest_ignore_message
-stop := runrest_stop_message
-more := force_more_message
-flash := flash_screen_message
-
-# stop += duration:
-ignore += recovery:
-ignore += contamination has completely
-ignore += your breath back
-ignore += engulfed in a cloud of smoke
-ignore += engulfed in white fluffiness
-ignore += safely over a trap
-
-interrupt_travel -= sense_monster
-
-# crawl.chaosforge.org/Portal
-# github.com/crawl/crawl/tree/master/crawl-ref/source/dat/des/portals
-# very nearby: 7–13, nearby: 14–20, distant: 21–27, very distant: 28+
-flash += timed_portal:
-stop += timed_portal:
-flash += You hear.*very (nearby|distant)
-more += You hear.*(quick|urgent|loud (creaking of a portcullis|crackling of a melting archway)|rising multitudes|rapid|thunderous|frantic|ear-piercing|full choir)
-flash += You hear.*(quick|urgent|loud (creaking of a portcullis|crackling of a melting archway)|rising multitudes|rapid|thunderous|frantic|ear-piercing|full choir)
-more += Found.*(bazaar|trove|phantasmal|sand-covered|glowing drain|flagged portal|gauntlet|frozen archway|dark tunnel|crumbling gateway|ruined gateway|magical portal|ziggurat)
-flash += volcano erupts with a roar
-more += You enter a wizard's laboratory
-more += The walls (briefly|violently) shake
-more += The walls fall away. The entombed are set free!
-flash += Hurry and find it
-more += The walls and floor vibrate strangely for a moment
-flash += The walls and floor vibrate strangely for a moment
-
-# Expiring effects
-stop += You feel a little less mighty now
-more += Your transformation is almost over
-more += back to life
-more += You feel yourself slow down
-flash += You feel yourself slow down
-more += less insulated
-more += You are starting to lose your buoyancy
-more += You lose control over your flight
-more += Your hearing returns
-more += You have a feeling this form
-more += You feel yourself come back to life
-more += uncertain
-more += time is quickly running out
-more += life is in your own hands
-more += shroud falls apart
-more += You start to feel a little slower
-more += You flicker
-more += You feel less protected from missiles
-more += Your reaping aura expires
-more += You finish channelling your searing ray
-more += Your rain of reagents ends
-
-# Interrupts
-more += You don't.*that spell
-more += You fail to use your ability
-more += You miscast.*(Blink|Borgnjor|Door|Invisibility)
-flash += You miscast
-more += You can't (read|drink|do)
-more += You cannot.*while unable to breathe
-more += You cannot.*in your current state
-more += when.*silenced
-more += too confused
-# more += There's something in the way
-# more += There's nothing to (close|open) nearby
-more += not good enough to have a special ability
-more += You are too berserk
-more += no means to grasp
-more += That item cannot be evoked
-more += You are held in a net
-more += You don't have any such object
-more += You can't unwield
-more += enough magic points
-more += You don't have the energy to cast that spell
-more += You are unable to access your magic
-more += You assume a fearsome visage
-flash += is a mimic
-more += (?<!(into|through)) a shaft
-more += You blink
-more += (?<!raiju) bursts into living lightning
-more += blinks into view
-more += (?!(draconian|shifter|annihilator) blinks!
-flash += (draconian|shifter|annihilator) blinks!
-more += is devoured by a tear in reality
-flash += You can drop.*~~DROP_ME
-
-: if you.xl() <= 14 then
-more += You feel a bit more experienced
-: end
-
-confirm_action += Potion Petition, Call Merchant, Blink, Silence, Maxwell's Capacitive Coupling, Sublimation of Blood, Borgnjor's Revivification, Death's Door
-force_spell_targeter += Silence
-
-: if you.res_shock() <= 0 then
-confirm_action += Conjure Ball Lightning, Chain Lightning
-: end
-
-# Bad things
-# github.com/crawl/crawl/blob/master/crawl-ref/source/mutation-data.h
-# github.com/crawl/crawl/blob/master/crawl-ref/source/dat/database/monspell.txt
-# github.com/crawl/crawl/blob/master/crawl-ref/source/beam.cc
-flash += mutation:
-more += The horns on your head grow some more
-more += The horns on your head shrink a bit
-more += You feel vulnerable to
-flash += You feel vulnerable to
-more += You feel yourself grow more vulnerable to poison
-flash += You feel yourself grow more vulnerable to poison
-flash += Cherry-coloured flames burn away your fire resistance
-more += The klown pie hits you! (?!but)
-flash += The klown pie hits you! (?!but)
-more += hell_effect:
-more += Doom befalls (?!your)you
-more += You feel an ill-omen
-more += You feel a malign power afflict you
-more += shimmers and splits apart
-flash += You are too injured to fight recklessly
-flash += MASSIVE DAMAGE
-flash += BIG DAMAGE
-flash += LOW HITPOINT WARNING
-
-: if not (you.race() == "Minotaur" or you.race() == "Troll") then
-flash += LOW MAGIC WARNING
-: end
-
-more += You don't have enough magic to cast this spell
-more += You fail to use your ability
-more += You stop ascending the stairs
-flash += You stop ascending the stairs
-more += surroundings become eerily quiet
-flash += surroundings become eerily quiet
-flash += You hear a loud "Zot"
-more += A malevolent force fills
-more += An alarm trap emits a blaring wail
-more += A sentinel's mark forms upon you
-more += invokes.*trap
-flash += invokes.*trap
-more += Your surroundings flicker
-more += You cannot teleport right now
-more += A huge blade swings out and slices into you
-more += (blundered into a|invokes the power of) Zot
-more += That really hurt
-more += You convulse
-more += Your body is wracked with pain
-flash += smites (?!your)you
-more += You are (blasted|electrocuted)
-more += You are.*confused
-more += You are blinded
-flash += Something hits (?!your)you
-flash += You stumble backwards
-flash += You are shoved backwards
-flash += drags you backwards
-flash += You are knocked back
-more += grabs (?!your)you
-flash += grabs (?!your)you
-more += roots grab (?!your)you
-flash += roots grab (?!your)you
-flash += constricts (?!your)you
-more += You are skewered in place
-flash += You are skewered in place
-more += wrath finds you
-more += god:(sends|finds|silent|anger)
-more += You feel a surge of divine spite
-more += disloyal to dabble
-more += lose consciousness
-more += You are too injured to fight blindly
-more += You feel your attacks grow feeble
-more += The blast of calcifying dust hits (?!your)you
-flash += The blast of calcifying dust hits (?!your)you
-more += Space warps horribly.*around (?!your)you
-more += Space bends around (?!your)you
-more += Your limbs are stiffening
-flash += Your limbs are stiffening
-more += Your body becomes as fragile as glass
-more += Water floods into your lungs
-flash += Water floods into your lungs
-more += (?<!Your).*conjures an orb of pure magic
-more += (?<!Your).*conjures a glowing orb
-
-# Sap Magic: demonspawn warmonger
-: if you.skill("Spellcasting") >= 15 then
-more += Your magic feels tainted
-flash += Your magic feels tainted
-: end
-
-# Malign Gateway: oklob plant annihilator, Fedhas' Mad Dash
-: if you.skill("Summonings") < 15 then
-more += otherworldly place is opened
-: end
-
-more += An eldritch tentacle comes into view
-flash += You feel extremely sick
-more += lethally poison
-flash += The acid corrodes (?!your)you
-more += You are covered in intense liquid fire
-flash += You feel drained
-
-: if you.res_shock() <= 0 then
-more += You are engulfed in a thunderstorm
-: end
-
-: if you.res_poison() <= 0 then
-more += You are engulfed in excruciating misery
-: end
-
-more += Strange energies course through your body
-more += You feel strangely unstable
-more += (?<!Your (shadowghast|vampire)) flickers and vanishes
-flash += (?<!Your).*flickers and vanishes
-more += is no longer charmed
-flash += is no longer charmed
-stop += is no longer charmed
-more += You have lost all your
-more += Chaos surges forth from piles of flesh
-flash += You feel the power of Zot begin to focus
-# more += You hear a sizzling splash
-more += heals the
-
-: if you.xl() < 24 then
-more += flies into a frenzy
-flash += flies into a frenzy
-: end
-
-: if you.xl() < 16 then
-more += You .*seems to speed up
-: end
-
-: if you.xl() < 10 then
-more += seems to grow stronger
-: end
-
-# more += suddenly seems more resistant
-
-# crawl.chaosforge.org/Chaos_Knight_of_Xom_Guide#Xom_rc_file
-more += .* erupts in a glittering mayhem of colour
-more += .* evaporates and reforms as
-more += "Time to have some fun!"
-more += "Fight to survive, mortal."
-more += "Let's see if it's strong enough to survive yet."
-more += You hear Xom's maniacal laughter.
-more += Xom feels like there should be more of you to share with the Dungeon.
-more += Xom gently smashes a mirror over your
-more += Xom displaces most of your magic for a moment.
-more += Xom reveals to you one of the great and terrible secrets of magic.
-more += Xom curiously channels energy out of your body.
-more += Xom picks up your mind and accidentally drops it.
-more += Xom gives you a terrible headache.
-more += "You don't need this, do you?"
-more += Your magic slithers out of your reeling mind!
-more += Your power and thoughts are overwhelmed by magic-eaters manifest!
-more += Your magic wrenches itself out of your
-more += Your magic flows out through your
-more += Your magic rips itself out through your
-more += "Heh heh heh..."
-more += Xom's power touches on your mind for a moment.
-more += Xom titters.
-more += "Stumble well, my pet!"
-more += Xom's power touches upon your body and mind for a moment.
-more += Xom decides to rearrange the pieces.
-more += "First here, now there."
-more += "This might be better!"
-more += "This is how I like it!"
-more += "The weather's been a little too boring around here."
-more += Xom asks Qazlal to spice things up a little.
-more += mostly cloudy.
-more += (The|Your).*falls away!
-
-# Others
-# github.com/crawl/crawl/blob/master/crawl-ref/source/god-abil.cc
-# github.com/crawl/crawl/blob/master/crawl-ref/source/dat/descript/features.txt
-more += Found a faded altar of an unknown god
-more += Found a staircase to the Ecumenical Temple
-stop += There is a portal to a secret trove of treasure here
-stop += Found a runed translucent door
-flash += There is a (staircase to the (?!(Ecumenical))|gate to|hole to|gate leading to|gateway (?!(back|out)))
-more += Found a gateway leading.*Abyss
-more += and a gateway leading out appears
-more += The mighty Pandemonium lord.*resides here
-more += The tension of great conflict fills the air
-more += You have reached level
-more += You (can|may) now (?!(stomp|pass|merge))
-more += protects you from harm
-stop += You feel like a meek peon again
-more += Trog grants you a weapon
-more += You feel your soul grow
-more += Makhleb will allow you to brand your body
-more += dares provoke your wrath
-more += Your infernal gateway subsides
-more += You are dragged down into the Crucible of Flesh
-more += Ru believes you are ready to make a new sacrifice
-flash += You offer up the Black Torch's flame
-more += Your bound.*is destroyed!
-more += The heavenly storm settles
-more += Beogh will now send orc apostles to challenge you
-flash += Beogh will now send orc apostles to challenge you
-more += the orc apostle comes into view
-more += encounter.*the orc apostle
-more += falls to his knees and submits
-
-: if you.god() == "Beogh" then
-more += (?-i:[A-Z])(?!(xecutioner|rb guardian)).*(dies!|is blown up!)
-: end
-
-more += has fought their way back out of the Abyss!
-more += Your prayer is nearing its end
-stop += Your prayer is nearing its end
-more += You reach the end of your prayer and your brethren are recalled
-stop += You reach the end of your prayer and your brethren are recalled
-stop += You now have enough gold to
-more += Your bribe of.*has been exhausted
-more += Ashenzari invites you to partake
-more += you knowledge of
-more += Vehumet is now
-more += You hear a faint sloshing
-more += seems mollified
-more += You rejoin the land of the living
-
-: if you.xl() >= 27 and you.class() ~= "Conjurer" then
-more += You add the spells?.*(Vhi's Electric|Manifold Assault|Fugue of the|Animate Dead|Death Channel|Awaken Armour)
-: end
-
-# Contam: 2x(SpellLv)^2xFailure+250, 5000:Yellow, 15000:LightRed
-# Miscast:Nameless Horror:HD(2*Int/3) HD15 MaxHP160 Speed10 AC8 Attack30(Antimagic)
-more += You add the spells?.*(Summon Small Mammal|Call Imp|Call Canine Familiar|Eringya's Surprising Crocodile)
-
-# Miscast:-Move -Tele
-# reddit.com/r/dcss/comments/1m4xpsr/a_compendium_of_strange_and_unusual_techniques/
-more += You add the spells?.*(Apportation|Blink|Lesser Beckoning|Maxwell's Portable Piledriver|Teleport Other|Passage of Golubria)
-
-stop ^= Your.*disappears in a puff of smoke,Your spellspark servitor fades away,Your battlesphere wavers and loses cohesion
-
-{
-function c_answer_prompt(prompt)
-if prompt:find("Really fire") and prompt:find("your spellforged") then
-return true
-elseif prompt:find("Really refrigerate") and prompt:find("your spellforged") then
-return true
-elseif prompt:find("Permafrost Eruption might hit") and prompt:find("servitor") then
-return true
-elseif prompt:find("Plasma Beam") and prompt:find("might") then
-return true
-elseif prompt:find("Plasma Beam") and prompt:find("your spellforged") then
-return true
-elseif prompt:find("Really") and prompt:find("fire vort") then
-return true
-elseif prompt:find("Really") and prompt:find("battle") then
-return true
-elseif prompt:find("Really hurl") and prompt:find("your spellforged") then
-return true
-elseif prompt:find("Really attack your") and prompt:find("rat") then
-return true
-elseif prompt:find("into that cloud of flame") and you.res_fire() == 3 then
-return true
-elseif prompt:find("into that cloud of freezing vapour") and you.res_cold() == 3 then
-return true
-elseif prompt:find("into a travel-excluded") or prompt:find("icy armour will break") then
-return true
-end
-end
-}
-
-# Turn 0, Skills
-: if you.race() ~= "Gnoll" then
-stop += skill increases to level (9|18|26)
-more += Your Fighting skill increases to level (18|26)
-stop += Your Shields skill increases to level (4|6|9|15|21|25)
-stop += Your Short Blades skill increases to level (10|12|14)
-stop += Your Long Blades skill increases to level (14|16|18|24)
-stop += Your Maces & Flails skill increases to level (12|16|20|22)
-stop += Your Axes skill increases to level (16|18|20|26)
-more += Your Polearms skill increases to level (14|16|20|26)
-stop += Your Staves skill increases to level (12|14)
-stop += Your Throwing skill increases to level (6|10|16)
-more += Your Evocations skill increases to level (2.5|6|10|11|13|15|18|21)
-more += Your Invocations skill increases to level (6|8|10|11|12|13|14|15|16|17)
-more += Your Shapeshifting skill increases to level (7|14|19|23|26)
-flash += Training target.*reached
-: end
-
-more += You have finished (your manual|forgetting about)
-flash += You have finished (your manual|forgetting about)
-more += You pick up a manual of
-flash += You pick up a manual of
-
-stop += You see here the
-more += You see here.*(of experience|of acquirement)
-stop += - (a|[2-6]) scrolls? of brand weapon
-stop += - (a|[2-7]) scrolls? of enchant weapon
-stop += - (a|[2-8]) scrolls? of revelation
-stop += - [2-9] scrolls labelled
-stop += - [7-9] potions of mutation
-stop += - [2-9] scrolls labelled
-stop += - [2-9] .* potions
-
-: if you.xl() >= 18 then
-stop += You see here.*scrolls? of enchant armour
-: end
-
-: if you.xl() >= 12 then
-stop += scroll labelled, - (a|[2-6]) .* potion
-: end
-
-: if you.xl() <= 16 then
-stop += You see here.*(scrolls? of identify|\+6 ring of)
-: end
-
-: if you.xl() <= 14 then
-stop += You see here.*(ring of|the ring|amulet)
-: end
-
-: if you.xl() <= 12 and you.race() ~= "Mummy" and you.race() ~= "Demonspawn" and you.race() ~= "Revenant" and you.race() ~= "Poltergeist" and you.transform() ~= "death" and you.transform() ~= "vampire" then
-flash += Found.*(Elyvilon|The Shining One|Zin)
-: end
-
-: if you.xl() <= 12 and not (you.race() == "Minotaur" or you.race() == "Troll") then
-flash += Found.*(Vehumet|Sif Muna)
-: end
-
-: if you.xl() <= 10 then
-flash += Found.*(Ashenzari|Beogh|Cheibriados|Fedhas|Gozag|Hepliaklqana|Ignis|Jiyva|Makhleb|Nemelex|Okawaru|Qazlal|Ru|Trog|Uskayaw|Wu Jian|Yredelemnul)
-: end
-
-: if you.xl() > 18 and you.race() ~= "Mummy" and you.race() ~= "Demonspawn" and you.race() ~= "Revenant" and you.race() ~= "Poltergeist" and you.transform() ~= "death" and you.transform() ~= "vampire" then
-flash += Found.*(The Shining One|Zin)
-: end
-
-# Uniques and baddies
-# github.com/crawl/crawl/blob/master/crawl-ref/source/mon-gear.cc
-unusual_monster_items += ( the |distortion|chaos|silver)
-more += encounter.*(undying armoury|antique champion|torpor snail|nekomata|oblivion hound|acid blob|entropy weaver|ghost moth|death knight|eyes? of devastation)(?! (zombie|draugr|simulacr))
-more += The undying armouty arms its allies with
-
-more += Xak'krixis conjures a prism
-more += Nobody ignites a memory of
-more += (Rupert|Snorg) roars madly and goes into a rage
-more += BOSS
-flash += BOSS
-flash += changes into,Something shouts
-stop += encounter Crazy Yiuf
-monster_alert += pandemonium lord, nasty
-
-# Cloud of Thunder: 60 Damage
-more += Bai Suzhen roars in fury and transforms into a fierce dragon
-flash += Bai Suzhen roars in fury and transforms into a fierce dragon
-more += You kill.*(Bai Suzhen)
-flash += You kill.*(Bai Suzhen)
-
-# Dissolution (Slime:2-5)
-# github.com/crawl/crawl/blob/master/crawl-ref/source/mon-act.cc
-: if you.branch() == "Slime" then
-flash += You hear a (sizzling sound|grinding noise)
-: end
-
-# Mara (S-B3-4 V2-5 Elf3 Depths)
-more += 's illusion shouts
-flash += 's illusion shouts
-
-# Kirke (Lair3-5 D12-15 S-B1 Elf1), Butcher's Vault
-: if you.xl() <= 16 then
-flash += encounter.* hog
-: end
-
-# Amaemon (Lair Orc1 D8-12)
-: if you.xl() <= 16 then
-more += encounter.*orange demon
-flash += encounter.*orange demon
-: end
-
-# Pikel (D4-9)
-: if you.xl() <= 13 then
-flash += encounter.*lemure
-: end
-
-# more += encounter (?!orb guardian|executioner)(?-i:[A-Z])
-flash += encounter (?!orb guardian|executioner)(?-i:[A-Z])
-flash += encounter.* and (?!orb guardian|executioner)(?-i:[A-Z])
-
-more += encounter.*(lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy))
-flash += encounter.*(lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orbs? of (fire|winter|entropy))
-
-# Paralysis: 5+ 33% 1T, 7+ 50% 2T
-flash += starcursed mass
-
-more += the reach of Zot diminish
-more += The shining eye gazes at you
-flash += encounter.*(death scarab)
-
-# Damnation/Flay
-more += encounter.*(deep elf (sorcerer|high priest)|(brimstone|ice) fiend)
-flash += encounter.*(deep elf (sorcerer|high priest)|(brimstone|ice) fiend)
-more += encounter.*(hell sentinel|hellion|draconian scorcher|flayed ghost)
-flash += encounter.*(hell sentinel|hellion|draconian scorcher|flayed ghost)
-
-# Torment/Drain Life/Siphon Essence
-: if not (you.race() == "Mummy" or you.race() == "Revenant" or you.race() == "Poltergeist" or you.transform() == "death") then
-more += encounter.*(royal mumm|mummy priest|tzitzimitl)
-flash += encounter.*(royal mumm|mummy priest|tzitzimitl)
-more += encounter.*(tormentor|curse toe|curse skull)
-flash += encounter.*(tormentor|curse toe|curse skull)
-more += encounter.*(deathcap|soul eater|vampire bloodprince|alderking)
-flash += encounter.*(deathcap|soul eater|vampire bloodprince|alderking)
-more += The curse toe gestures
-: end
-
-# Holy/Dispel Undead
-: if you.race() == "Mummy" or you.race() == "Demonspawn" or you.race() == "Revenant" or you.race() == "Poltergeist" or you.transform() == "death" or you.transform() == "vampire" then
-flash += encounter.*(?<!(angel|daeva|fravashi)) is wielding.*of holy
-more += encounter.*(demonspawn black sun|revenant soulmonger|ushabti|alderking|burial acolyte)
-: end
-
-: if you.branch() ~= "Pandemonium" and you.race() == "Mummy" or you.race() == "Demonspawn" or you.race() == "Revenant" or you.race() == "Poltergeist" or you.transform() == "death" or you.transform() == "vampire" then
-more += encounter.*(angel|daeva|fravashi)
-flash += encounter.*(angel|daeva|fravashi)
-: end
-
-# Lee's Rapid Deconstruction
-: if you.race() == "Gargoyle" or you.race() == "Revenant" or you.transform() == "statue" then
-more += encounter.*(kobold geomancer|deep elf elementalist|deep troll earth mage)
-: end
-
-# crawl.chaosforge.org/Reaching
-# orange demon, snapping turtle, alligator snapping turtle, crawling flesh cage, Cigotuvi's Monster, Geryon, Serpent of Hell (Dis)
-
-: if you.xl() <= 26 then
-more += encounter.*(oni incarcerator|demonspawn warmonger|draconian stormcaller|(ancient|dread) lich)
-: end
-
-: if you.xl() <= 24 then
-unusual_monster_items += of (acid)
-more += (hits|warns) (?!your)you.*of (distortion|chaos)
-more += encounter.*(air elemental|tengu reaver|(deep elf|draconian) annihilator|void ooze|orb guardian)(?! (zombie|draugr|simulacr))
-more += encounter.*(lich|shadow dragon|juggernaut|caustic shrike|wyrmhole|spriggan berserker)(?! (zombie|draugr|simulacr))
-more += The spriggan berserker utters an invocation to Trog
-more += The spriggan roars madly and goes into a rage
-# Agony
-more += encounter.*(imperial myrmidons|necromancer)(?! (zombie|draugr|simulacr))
-flash += encounter.*(imperial myrmidons|necromancer)(?! (zombie|draugr|simulacr))
-: end
-
-: if you.xl() <= 22 then
-more += encounter.*(glass eye|death drake|war gargoyle|crystal guardian)
-more += encounter.*(deep elf master archer|vault (warden|sentinel)|merfolk (avatar|siren))(?! (zombie|draugr|simulacr))
-more += encounter.*(executioner|guardian serpent|draconian shifter|ironbound (convoker|preserver)|deep troll shaman|death cob)(?! (zombie|draugr|simulacr))
-more += encounter.*(kobold fleshcrafter|phantasmal warrior|iron giant)(?! (zombie|draugr|simulacr))
-more += encounter.*(ragged hierophant|halazid warlock|glowing orange brain|apocalypse crab|moths? of wrath)(?! (zombie|draugr|simulacr))
-flash += encounter.*(halazid warlock)(?! (zombie|draugr|simulacr))
-more += encounter.*(player|('s|s')) ghost
-more += guardian serpent weaves intricate patterns
-more += ironbound convoker begins to recite a word of recall
-more += kobold fleshcrafter chants and writhes
-more += halazid warlock gestures
-more += ironbound mechanist forges a skittering defender to stand by its side
-more += slime creatures merge to form a (very large|enormous|titanic)
-: end
-
-unusual_monster_items += (devious|valour|concussion|sundering|rebuke)
-
-# github.com/crawl/crawl/commit/e02c2b2bd47e38273f95c7b2855e43783a19ae70
-unusual_monster_items += vulnerable:acid:24
-unusual_monster_items += vulnerable:(electrocution|draining|vampiric|pain):20
-unusual_monster_items += vulnerable:(flaming|freezing):18
-unusual_monster_items += vulnerable:(venom):16
-
-: if you.xl() <= 20 then
-unusual_monster_items += of (electrocution|draining|vampiric|pain)
-unusual_monster_items += of (spectral|heavy|\+[5-9])
-unusual_monster_items += wand of (paralysis|roots|light)
-more += encounter.*(boggart|bunyips|stone giant|ironbound beastmaster)(?! (zombie|draugr|simulacr))
-more += encounter.*(formless jellyfish|broodmother|spark wasp|orb spider|merfolk (aquamancer|javelineer|impaler)|nagaraja)(?! (zombie|draugr|simulacr))
-# Paralysis/Petrify/Banish
-more += encounter.*(fenstrider witch|orc sorcerer|ogre mage|occultist|great orbs? of eyes|sphinx)(?! (zombie|draugr|simulacr))
-more += encounter.*(?<!spectral) (jorogumo|basilisk|catoblepas|deep elf (sorcerer|demonologist)|vampire knight)(?! (zombie|draugr|simulacr))
-flash += The boggart gestures wildly while chanting
-: end
-
-: if you.xl() <= 18 then
-unusual_monster_items += of (flaming|freezing)
-more += encounter.*(water nymph|azure jell|anaconda|bloated husk|ghost crab|ironbound thunderhulk)(?! (zombie|draugr|simulacr))
-flash += The water rises up and strikes you
-: end
-
-: if you.xl() <= 16 then
-unusual_monster_items += of (venom)
-unusual_monster_items += wand of (charming|polymorph)
-
-more += encounter.*(raven|water elemental|(fire|ice) dragon|centaur warrior|yaktaur|cyclops|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionoma)(?! (zombie|draugr|simulacr))
-more += The.*headed hydra grows
-flash += The.*headed hydra grows
-
-more += encounter.*(vault guard|deep elf|kobold blastminer|gargoyle|ghoul|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant|wolf spider)(?! (zombie|draugr|simulacr))
-flash += encounter.*(raiju|(cyan|brown) ugly thing|radroach|meliai)(?! (zombie|draugr|simulacr))
-: end
-
-: if you.xl() <= 13 then
-unusual_monster_items += triple sword,executioner's axe,halberd,glaive,bardiche,arbalest,hand cannon,triple crossbow
-more += encounter.*(?<!spectral) (manticore|two-headed ogre|kobold geomancer|tengu|lindwurm|(ice|rust) devil|(fire|earth) elemental|lava snake|efreet|boulder beetle|hornet|black mamba|cane toad|komodo dragon)(?! (zombie|draugr|simulacr))
-flash += encounter.*(skeletal warrior|death yak|elephant)(?! (zombie|draugr|simulacr))
-: end
-
-: if you.xl() <= 10 then
-unusual_monster_items += great sword,demon trident,partisan,trishula,longbow
-more += encounter.*(water moccasin|rime drake|(steam|acid) dragon|wyvern|polar bear|brain worm|queen bee|wraith|gnoll bouda|centaur)(?! (zombie|draugr|simulacr))
-more += The polar bear roars madly and goes into a rage
-flash += encounter.*(yak)(?! (zombie|draugr|simulacr))
-: end
-
-: if you.xl() <= 7 then
-# unusual_monster_items += spear,(?<!demon) trident,sling,shortbow,orcbow
-more += encounter.*(?<!spectral) (phantom|wight|bombardier beetle|ice beast|jell(y|ies)|iguana|hound|black bear|sky beast|electric eel|sleepcap)(?! (zombie|draugr|simulacr))
-more += The black bear roars madly and goes into a rage
-more += encounter.*(ogre|gnoll|orc (wizard|priest|warrior))(?! (zombie|draugr|simulacr))
-flash += encounter.*(ogre|gnoll|orc (wizard|priest|warrior))(?! (zombie|draugr|simulacr))
-flash += encounter.*(killer bee)(?! (zombie|draugr|simulacr))
-: end
-
-: if you.xl() <= 4 and you.race() ~= "Gargoyle" and you.race() ~= "Revenant" and you.race() ~= "Poltergeist" and you.race() ~= "Mummy" and you.race() ~= "Djinni" then
-more += encounter.*(adder)(?! (zombie|draugr|simulacr))
-: end
-
-: if you.xl() <= 4 then
-mmore += encounter.*(orc)(?! (zombie|draugr|simulacr))
-onster_alert += tough
-: end
-
-# : if you.xl() <= 1 then
-# more += encounter.*(goblin|kobold|ball python|ribbon worm|dart slug)(?! (zombie|draugr|simulacr))
-# flash += encounter.*(jackal)(?! (zombie|draugr|simulacr))
-# : end
-
-##############
-### Morgue ###
-##############
-dump_on_save = true
-dump_message_count = 1000
-note_hp_percent = 20
-user_note_prefix = 
-
-note_items += (devious|valour|concussion|sundering|rebuke),of experience,(?<!potions?) of resistance,archmagi,crystal plate armour,pearl dragon scales
-note_messages += You pass through the gate
-note_messages += cast.*Abyss
-note_messages += BOSS
-note_messages += Yredelemnul refuses to let your conquest be stopped by a trick of the earth!, 's soul is now yours, Your bound.*is destroyed!
-
-dump_order  = header,hiscore,stats,misc,apostles,mutations,overview,inventory,skills,spells
-dump_order += messages,screenshot,monlist,kills
-dump_order += notes,vaults,skill_gains,action_counts,turns_by_place
-
-##############
-# Autopickup #
-##############
-# github.com/crawl/crawl/blob/master/crawl-ref/settings/advanced_optioneering.txt
-# github.com/crawl/crawl/blob/master/crawl-ref/source/dat/defaults/autopickup_exceptions.txt
-
-drop_disables_autopickup = true
-
-autopickup = $?!+:"/}(♦
-ae := autopickup_exceptions
-ae += <rune of
-
-ae = <of noise
-
-# : if not (you.race() == "Mummy" or you.race() == "Revenant" or you.race() == "Poltergeist") then
-# ae = <of mutation, of lignification, granite talisman, talisman of death
-# : end
-
-# : if you.god() == "Trog" then
-# ae = <of amnesia, of brilliance
-# : end
-
-# : if you.xl() <= 26 and you.god() == "Okawaru" then
-# ae = <butterflies, summoning, phantom mirror, horn of Geryon, box of beasts, sack of spiders
-# : end
-
-: if you.xl() <= 13 and (you.god() == "The Shining One" or you.god() == "Elyvilon" or you.god() == "Zin") then
-stop += You see here.*of (necromancy|pain|reaping|draining|distortion|vampiric)
-stop += You see here.*demon
-: end
-
-: if you.xl() <= 13 and you.race() ~= "Djinni" and (you.god() == "The Shining One" or you.god() == "Elyvilon" or you.god() == "Zin") then
-ae = <Necromancy, Call Imp, Sculpt Simulacrum, Malign Gateway, Summon Horrible Things
-: end
-
-# : if you.race() ~= "Djinni" and (you.god() == "Okawaru" or you.god() == "Trog") then
-# ae = <book of, parchment of
-# : end
-
-# ae += moonshine
-
-: if you.race() ~= "Troll" and you.race() ~= "Oni" then
-ae += large rock
-: end
-
-: if you.xl() > 4 then
-ae +=  (?<!tremor)stone
-: end
-
-: if you.xl() > 12 and you.race() == "Deep Elf" then
-ae = <boomerang, javelin, tipped dart, throwing net
-: end
-
-: if you.xl() > 18 then
-ae += (datura|atropa)-tipped dart
-: end
-
-: if you.xl() > 22 then
-ae += of identify, poisoned dart, amulet of (acrobat|faith|guardian spirit|reflection), ring of (evasion|strength|intelligence|dexterity|slaying|wizardry|magical power)
-: end
-
-##################
-### Item Slots ###
-##################
-# crawl.chaosforge.org/Inscriptions
-ai := autoinscribe
-
-# ai += magical staff:!a
-ai += (large rock|silver javelin|throwing net|(curare|datura|atropa)-tipped dart|of disjunction):=f
-
-ai += potions? of heal wounds:@q1, 10-37HP
-ai += potions? of curing:@q2, 5-11HP
-ai += potions? of cancellation:@q3, UnaffectDrainBarbPoisBerserkDDoorExhGodEffects
-ai += potions? of might:34-74T 1d10
-ai += potions? of haste:@q4, 40-79T
-ai += potions? of magic:@q5, 10-37MP
-ai += potions? of mutation:@q6, Remove2-3 Add1-3, 60%Good, 50%AddOneGood
-ai += potions? of ambrosia:3-5HPMP/T
-ai += potions? of lignification:1.5xHP (20+XL/2)AC rPo Torm0 Ev0 -MoBlTe GearWeapShie
-ai += potions? of enlightenment:25-64T
-ai += potions? of invisibility:15-54T, MonsSH/3, HuInt+8%Pos, -6EV -6ToHit Block/3
-ai += potions? of resistance:10-29T, rFirColPoiCorEle
-ai += potions? of berserk rage:10-19T, ImmuneSleep
-
-ai += scrolls? of identify:@r1
-ai += scrolls? of teleportation:@r2, 3-5T, Zot8-14T
-ai += scrolls? of blinking:@r3, Unable-TeleTreeMesm
-ai += scrolls? of acquirement:200-1400Gold
-ai += scrolls? of enchant armour:@r4, GDR AC^(1/4)x16
-ai += scrolls? of enchant weapon:@r5, ToHit Dex/2+1d(FighS+1)+1d(WeaS+1)
-
-# Allow brand weapon scrolls (and randarts) to produce the new brands
-# github.com/crawl/crawl/commit/092f012dacd1664b29e7f4c764571602c4b3ef34
-ai += scrolls? of brand weapon:13.3% FlmFrzHvVnPro, 6.6% DrnElcSpcVmpChaos
-
-ai += scrolls? of fear:Q*f, 40Will90% 60Will73% ++41-80
-ai += scrolls? of silence:30Turns
-ai += scrolls? of noise:25 Alarm40 FireStor25 FulmPris20 Qaz16 Shout12 IMB10
-ai += scrolls? of immolation:Tiny3d15 Little-Large3d20 Giant3d25, 25-35T
-ai += scrolls? of torment:-10%N+
-ai += scrolls? of summoning:Mons2d2
-ai += scrolls? of revelation:Necropolis900, Gauntlet400, Others600
-ai += scrolls? of fog:AtkOut ExploIceblaTremor AlliNeuCharmBribFrenMons TukimPoisSticF
-
-ai += wand of roots:@v1, \<, 2d(5.7+Evo/2)DmgT 3((15+3.5Evo)/22 To 4+((15+3.5Evo)/16)T
-ai += wand of warping:@v1, \<, 50+3.5Evo% MaxEvo12
-ai += wand of iceblast:@v1, \<, 3d(7.66+3.5*Evo/5)
-ai += wand of acid:@v2, \>, 4d(5.5+10.5xEvo/20)
-ai += wand of light:@v2, \>, -35%ToHit
-ai += wand of quicksilver:@v2, \>, 6d(4.16+3.5*Evo/9)
-ai += wand of digging:@v3
-
-# Enemy AC 2 (gnoll), Dizzy's DCSS Doodad, Mulch%
-# https://pastebin.com/raw/2DKqrVha
-ai += (?<!tremor)stone:Dmg/T 0.4 1 3 Thr 0 3 6
-ai += boomerang:@f2@Q2, F2, 5%
-ai += (?<!silver) javelin:@f3@Q3, H, 5%
-ai += silver javelin:@f6@Q6, 5%
-ai += throwing net:@f7, MonsEV/(2+Size), Mulch (1d4)/9% 8Dmg (1d4)/T 
-ai += poisoned dart:@f1@Q1, F1
-ai += curare-tipped dart:@f8, 16.7%
-ai += darts? of disjunction:Dmg2d2
-
-ai += wand of flame:@v4@Q4, \), 2d(5.5+0.35*Evo), MaxEvo10
-ai += wand of mindburst:@v5@Q5, \(, 3d(8.75+3.5*Evo/4)
-ai += phial of floods:(2.1+2*Evo/5)Turns x1 x1.5
-ai += sack of spiders:Evo 6 13 18 21
-ai += box of beasts:HD 3 9 15 21 27(Evo+1d7-1d7)
-ai += condenser vane:(65+3.5*Evo)/1.6%
-ai += tin of tremorstones:Evo 2.5 6 11 18, 5x5 6d6 40%
-ai += lightning rod:(2+PreUses)d(0.75*Evo+46.25)/3, 2d16(Evo1)
-ai += Gell's gravitambourine:Evo 9.5 23.2
-
-ai += of fire resistance:rF+
-ai += of cold resistance:rC+
-ai += (?<!potions?) of resistance:rF+, rC+
-ai += of poison resistance:rPois
-ai += of corrosion resistance:rCorr
-ai += of positive energy:rN+
-ai += of willpower:Will+
-ai += of invulnerability:rInv
-ai += of regeneration:Regen+
-ai += of magic regeneration:MRegen+
-
-ai += fire dragon scales (?!"|of):rF++, rC-
-ai += ice dragon scales (?!"|of):rC++, rF-
-ai += swamp dragon scales (?!"|of):rPois
-ai += gold dragon scales (?!"|of):rC+, rF+, rPois
-ai += acid dragon scales (?!"|of):rCorr
-ai += storm dragon scales (?!"|of):rElec
-ai += pearl dragon scales (?!"|of):rN+
-ai += quicksilver dragon scales (?!"|of):Will+
-ai += shadow dragon scales (?!"|of):Stlth+
-ai += (?<!moon) troll leather (?!"|of):Regen+
-
-ai += ring of flight:+Fly
-ai += ring of protection from fire:rF+
-ai += ring of protection from cold:rC+
-ai += ring of resist corrosion:rCorr
-ai += ring of see invisible:sInv
-ai += ring of wizardry:Wiz+
-ai += ring of magical power:MP+9
-
-ai += staff of conjuration:IrresistibleDmg-20%
-ai += staff of earth:PhysicalDmg-5%
-ai += staff of fire:rF+
-ai += staff of cold:rC+
-ai += staff of poison:rPois
-ai += staff of air:rElec
-ai += staff of necromancy:rN+
-
-: if you.xl() > 4 then
-ai += (?<!the) \+0 (dagger|short sword|club|whip|giant club|giant spiked|hand axe|spear|sling|shortbow|(?<!tremor)stone|animal skin|robe|leather armour) (?!("|of)):~~DROP_ME
-: end
-
-: if you.xl() > 8 then
-ai += (?<!the) \+0 (falchion|long sword|quarterstaff|troll leather armour|ring mail|scale mail) (?!("|of)):~~DROP_ME
-: end
-
-: if you.xl() > 12 then
-ai += (?<!the) \+[1-3] (dagger|short sword|club|whip|hand axe|spear|sling|shortbow|animal skin|robe|leather armour) (?!("|of)):~~DROP_ME
-: end
-
-: if you.xl() > 14 then
-ai += (?<!the) \+[1-3] (falchion|long sword|quarterstaff|troll leather armour|ring mail|scale mail) (?!("|of)):~~DROP_ME
-: end
-
-: if you.xl() > 16 then
-ai += (?<!the) \+0 (mace|flail|dire flail|war axe|trident|halberd|chain mail|plate armour|steam dragon scales|helmet) (?!("|of)):~~DROP_ME
-: end
-
-: if you.xl() > 20 then
-ai += (?<!the) \+0 (great mace|battleaxe|executioner's axe|scythe|glaive|bardiche|buckler|pair of boots|cloak|pair of gloves|acid dragon scales|swamp dragon scales) (?!("|of)):~~DROP_ME
-: end
-
-: if you.xl() > 22 then
-ai += (?<!the) \+0 (kite shield|fire dragon scales|ice dragon scales) (?!("|of)):~~DROP_ME
-ai += of identify:~~DROP_ME
-: end
-
-: if you.xl() > 24 then
-ai += (?<!the) \+0 (morningstar|broad axe|partisan|tower shield) (?!("|of)):~~DROP_ME
-: end
-
-gear_slot ^= (war axe|broad axe|whip|mace|flail|ningstar|scourge|spear|trident|trishula|partisan|halberd|glaive|bardiche|staff) : abW
-gear_slot ^= (ring of protection (?!from)|the ring .* AC\+) : ptcmPTCM
-gear_slot ^= (ring of evasion|the ring .* EV\+) : evdgEVDG
-gear_slot ^= (ring of strength|the ring .* Str\+) : strhSTRH
-gear_slot ^= (ring of intelligence|the ring .* Int\+) : intlINTL
-gear_slot ^= (ring of dexterity|the ring .* Dex\+) : dxeyDXEY
-gear_slot ^= (ring of slaying|the ring .* Slay\+) : yksxYKSX
-gear_slot ^= (ring of wizardry|the ring .* Wiz ) : zwysZWYS
-gear_slot ^= (ring of magical power|the ring .* MP\+) : mpgqMPGQ
-gear_slot ^= (ring of protection from fire|the ring .* rF\+) : fireFIRE
-gear_slot ^= (ring of protection from cold|the ring .* rC\+) : cieoCIEO
-gear_slot ^= (ring of positive energy|the ring .* rN\+) : nuveNUVE
-gear_slot ^= (ring of poison resistance|the ring .* rPois) : pvxtPVXT
-gear_slot ^= (lightning rod|the ring .* rElec) : qzlrQZLR
-gear_slot ^= (ring of resist corrosion|the ring .* rCorr) : jrocJROC
-gear_slot ^= (ring of see invisible|the ring .* SInv) : vighVIGH
-gear_slot ^= (ring of willpower|the ring .* Will\+) : wmlhWMlH
-gear_slot ^= (ring of flight|the ring .* Fly) : lhfyLHFY
-
-gear_slot ^= armour:ABCDEFGHIJKLMNOPQRSTUVWXYZ
-gear_slot ^= shield:ABCDEFGHIJKLMNOPQRSTUVWXYZ
-gear_slot ^= ( hat |cloak|scarf|pair of gloves|pair of boots):ABCDEFGHIJKLMNOPQRSTUVWXYZ
-gear_slot ^= orb:ABCDEFGHIJKLMNOPQRSTUVWXYZ
-gear_slot ^= amulet:ABCDEFGHIJKLMNOPQRSTUVWXYZ
-gear_slot ^= talisman:ABCDEFGHIJKLMNOPQRSTUVWXYZ
-
-# github.com/crawl/crawl/blob/master/crawl-ref/source/dat/defaults/consumable_shortcuts.txt
-consumable_shortcut += javelin:abcdefghijklmnopqrstuwxyz
-consumable_shortcut += boomerang:abcdefghijklmnopqrstuwxyz
-consumable_shortcut += throwing net:abcdefghijklmnopqrstuwxyz
-consumable_shortcut += dart:abcdefghijklmnopqrstuwxyz
-consumable_shortcut += potion of mutation:t
-consumable_shortcut += scroll of noise:n
-consumable_shortcut += scroll of revelation:R
-
-##############
-### Macros ###
-##############
-# github.com/crawl/crawl/blob/master/crawl-ref/docs/macros_guide.txt
-{
-function explore_approach()
-     crawl.setopt("travel_open_doors = approach")
-     crawl.do_commands({"CMD_EXPLORE"})
-end
-}
-macros += M o ===explore_approach
-
-# Press "Tab" when enemies are visible and "o" when they are not
-{
-function explore_attack()
-    crawl.setopt("travel_open_doors = approach")
-    if you.feel_safe() then
-        crawl.sendkeys("o")
-    else
-        crawl.sendkeys({9})
-    end
-end
-}
-macros += M b ===explore_attack
-
-{
-function explore_fire()
-    crawl.setopt("travel_open_doors = approach")
-    if you.feel_safe() then
-        crawl.sendkeys("o")
-    else
-        crawl.do_commands({"CMD_AUTOFIRE"})
-    end
-end
-}
-macros += M h ===explore_fire
-
-{
-function doors_open()
-     crawl.setopt("travel_open_doors = open")
-     crawl.sendkeys("o")
-end
-}
-macros += M j ===doors_open
-
-{
-function doors_avoid()
-     crawl.setopt("travel_open_doors = avoid")
-     crawl.sendkeys("o")
-end
-}
-macros += M J ===doors_avoid
-
-{
-function godown_open()
-     crawl.setopt("travel_open_doors = open")
-     crawl.sendkeys("X",">")
-end
-}
-macros += M \{NP+} ===godown_open
-
-{
-function goup_open()
-     crawl.setopt("travel_open_doors = open")
-     crawl.sendkeys("X","<")
-end
-}
-macros += M \{NP-} ===goup_open
-
-{
-function travel_open()
-     crawl.setopt("travel_open_doors = open")
-     crawl.sendkeys("G",{9})
-end
-}
-macros += M T ===travel_open
-
-# reddit.com/r/dcss/comments/1ngwfhl/the_most_useful_dcss_command/ne77ryd/
-# feat:find("transporter")
-# [NP.]: one key macro for going both up and down stairs
-{
-function smart_stairs()
-    local feat = view.feature_at(0, 0)
-    if feat:find("stairs_down") or feat:find("hatch_down") or feat:find("enter") then
-        crawl.sendkeys(">")
-    elseif feat:find("stairs_up") or feat:find("hatch_up") or feat:find("exit") or feat:find("return") then
-        crawl.sendkeys("<")
-    elseif feat:find("portal") or feat:find("transporter") or feat:find("shop") or feat:find("transit") or feat:find("altar") then
-        crawl.sendkeys(">")
-    else
-        crawl.mpr("No stairs here.")
-        crawl.mpr("Standing on: " .. feat)
-    end
-end
-}
-macros += M \{NP.} ===smart_stairs
-
-# Tab:\{9}, Enter:\{13}, Esc:\{27}, Space:\{32}, Ctrl:*, Shift:/, Ctrl-L:\{12}
-# github.com/crawl/crawl/blob/master/crawl-ref/source/dat/descript/features.txt
-
-# Ctrl-L: List of Banes
-# macros += M \{12} ?/n\{32}\{13}
-
-# Ctrl-L: Help, Monster 
-macros += M \{12} ?/m
-
-# [.]: Branches
-macros += M . *f<<case\{32}to\{32}th\{32}||\{32}gate\{32}to\{32}||\{32}hole\{32}to\{32}||\{32}gate\{32}lead>>\{32}&&\{32}!!one-\{13}
-
-macros += M n x+
-macros += M N x-
-macros += M l x+v
-macros += M L x-v
-macros += M C X*e
-macros += M Y tt
-macros += M I II
-macros += M R \\-
-macros += M y ff
-macros += M \{NP0} vf
-macros += M O aa
-macros += M K ab
-
-# [,]: @<query>, Stash-Tracker
-# !!:Negate, &&:AND, ||:OR, <<>>:Grouping
-: if you.xl() <= 9 and (you.race() == "Minotaur" or you.race() == "Troll") then
-macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!animal\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!0\{32}leat\{32}&&\{32}!!0\{32}ring\{32}mail\{32}&&\{32}!!0\{32}scale\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!0\{32}cloa\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!0\{32}mace\{32}&&\{32}!!grea\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spea\{32}&&\{32}!!0\{32}tride\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battlea\{32}&&\{32}!!0\{32}hand\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
-: end
-
-: if you.xl() >= 10 and you.xl() <= 16 and (you.race() == "Minotaur" or you.race() == "Troll") then
-macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!quart\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!0\{32}mace\{32}&&\{32}!!grea\{32}&&\{32}!!gian\{32}&&\{32}!!nd\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!spea\{32}&&\{32}!!0\{32}tride\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battlea\{32}&&\{32}!!animal\{32}&&\{32}!!robe\{32}&&\{32}!!leat\{32}&&\{32}!!0\{32}ring\{32}mail\{32}&&\{32}!!0\{32}scale\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!0\{32}cloa\{32}&&\{32}!!orb\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
-: end
-
-: if you.xl() >= 17 and (you.race() == "Minotaur" or you.race() == "Troll") then
-macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!quart\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!r\{32}ax\{32}&&\{32}!!mace\{32}&&\{32}!!flail\{32}&&\{32}!!grea\{32}&&\{32}!!gian\{32}&&\{32}!!nd\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!spea\{32}&&\{32}!!0\{32}tride\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battlea\{32}&&\{32}!!mail\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!0\{32}cloa\{32}&&\{32}!!animal\{32}&&\{32}!!robe\{32}&&\{32}!!leat\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
-: end
-
-: if you.race() ~= "Minotaur" and you.race() ~= "Troll" then
-macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!doorr\{32}&&\{32}!!animal\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!0\{32}leat\{32}&&\{32}!!0\{32}ring\{32}mail\{32}&&\{32}!!0\{32}scale\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!0\{32}cloa\{32}&&\{32}!!0\{32}dagg\{32}&&\{32}!!0\{32}shor\{32}&&\{32}!!0\{32}rapie\{32}&&\{32}!!0\{32}falc\{32}&&\{32}!!0\{32}long\{32}\{32}&&\{32}!!0\{32}grea\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!0\{32}mace\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spea\{32}&&\{32}!!0\{32}tride\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battlea\{32}&&\{32}!!0\{32}hand\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
-: end
-
-# [P]: Shop Items
-: if you.race() == "Minotaur" or you.race() == "Troll" then
-macros += M P *fin_shop\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!0\{32}mace\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spea\{32}&&\{32}!!0\{32}tride\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battlea\{32}&&\{32}!!0\{32}hand\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!animal\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!0\{32}leat\{32}&&\{32}!!0\{32}ring\{32}mail\{32}&&\{32}!!0\{32}scale\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!0\{32}cloa\{32}&&\{32}!!book\{32}&&\{32}!!parchm\{32}&&\{32}!!carri\{13}
-: end
-
-: if you.race() ~= "Minotaur" and you.race() ~= "Troll" then
-macros += M P *fin_shop\{32}&&\{32}!!0\{32}dagg\{32}&&\{32}!!0\{32}shor\{32}&&\{32}!!0\{32}rapie\{32}&&\{32}!!0\{32}falc\{32}&&\{32}!!0\{32}long\{32}\{32}&&\{32}!!0\{32}grea\{32}&&\{32}!!0\{32}sling\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!0\{32}mace\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spea\{32}&&\{32}!!0\{32}tride\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battlea\{32}&&\{32}!!0\{32}hand\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!animal\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!0\{32}leat\{32}&&\{32}!!0\{32}ring\{32}mail\{32}&&\{32}!!0\{32}scale\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!0\{32}cloa\{32}&&\{32}!!carri\{13}
-: end
-
-macros += M S *f<<scrol\{32}||\{32}potio>>\{32}&&\{32}!!iden\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
-macros += M % *f<<misc\{32}||\{32}wand\{32}||\{32}throwin>>\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
-macros += M " *f<<jewell\{32}||\{32}orb>>\{32}&&\{32}!!statu\{32}&&\{32}!!carri\{13}
-
-# "[": Body, Aux
-macros += M [ *f<<body\{32}||\{32}aux>>\{32}&&\{32}!!orb\{32}&&\{32}!!animal\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!0\{32}leat\{32}&&\{32}!!0\{32}ring\{32}mail\{32}&&\{32}!!0\{32}scale\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!0\{32}cloa\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
-
-# [`]: Dexterity Weapons, Magical Staves
-macros += M ` *f<<ranged\{32}||\{32}blades\{32}||\{32}magica>>\{32}&&\{32}!!jewell\{32}&&\{32}!!0\{32}dagg\{32}&&\{32}!!0\{32}shor\{32}&&\{32}!!0\{32}rapie\{32}&&\{32}!!0\{32}falc\{32}&&\{32}!!0\{32}long\{32}\{32}&&\{32}!!0\{32}grea\{32}&&\{32}!!0\{32}sling\{32}&&\{32}!!body\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
-
-# [&]: Axes
-macros += M & *f<<axe\{32}||\{32}polea\{32}||\{32}mace>>\{32}&&\{32}!!magica\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!0\{32}mace\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spea\{32}&&\{32}!!0\{32}tride\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battlea\{32}&&\{32}!!0\{32}hand\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
-
-# [_]: Maces & Flails
-macros += M _ *f<<mace\{32}||\{32}axe\{32}||\{32}stav>>\{32}&&\{32}!!magica\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!0\{32}mace\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}hand\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
-
-# [:]: Polearms
-: if you.xl() <= 16  then
-macros += M : *f<<polea\{32}||\{32}axe\{32}||\{32}stav>>\{32}&&\{32}!!magica\{32}&&\{32}!!0\{32}spea\{32}&&\{32}!!0\{32}tride\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battlea\{32}&&\{32}!!0\{32}hand\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
-: end
-
-: if you.xl() >= 17  then
-macros += M : *f<<mon\{32}tri\{32}||\{32}parti\{32}||\{32}trish\{32}||\{32}bardic>>\{32}&&\{32}!!magica\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
-: end
-
-# F1:\{-265}:poisoned dart, F2:\{-266}:boomerang, H:javelin, ")":wand of flame, "(":mindburst, "<":iceblast|roots|warping, ">":acid|light|quicksilver
-macros += M \{-265} F15
-macros += M \{-266} F25
-macros += M H F3
-macros += M ) V45
-macros += M ( V55
-macros += M < V15
-macros += M > V25
-macros += M E zaf
-macros += M U zbf
-macros += M 1 za
-macros += M 2 zb
-macros += M 3 zc
-macros += M 4 zd
-macros += M 5 ze
-macros += M 6 zf
-macros += M 7 zg
-macros += M 8 zh
-macros += M 9 zi
-macros += M 0 zj
-
-# github.com/brianfaires/crawl-rc/blob/main/rc/macros.rc
-# Confirm targeting with same keys as spellcasting
-macros += K2 1 \{13}
-macros += K2 2 \{13}
-macros += K2 4 \{13}
-macros += K2 6 \{13}
-macros += K2 7 \{13}
-macros += K2 8 \{13}
-macros += K2 9 \{13}
-macros += K2 0 \{13}
-
-###############
-# Keybindings #
-###############
-# github.com/crawl/crawl/blob/master/crawl-ref/docs/keybind.txt
-bindkey = [NP5] CMD_WAIT
-bindkey = [NP5] CMD_TARGET_SELECT_ENDPOINT
-bindkey = [B] CMD_EXPLORE_NO_REST
-bindkey = [s] CMD_REST
-bindkey = [c] CMD_CLOSE_DOOR
-bindkey = [C] CMD_MAP_CLEAR_EXCLUDES
-bindkey = [W] CMD_WIELD_WEAPON
-bindkey = [w] CMD_WEAR_ARMOUR
-bindkey = [p] CMD_WEAR_JEWELLERY
-bindkey = [Tab] CMD_AUTOFIGHT_NOMOVE
-bindkey = [k] CMD_AUTOFIRE
-bindkey = [u] CMD_PREV_CMD_AGAIN
-bindkey = [i] CMD_RESISTS_SCREEN
-bindkey = [e] CMD_FULL_VIEW
-bindkey = [e] CMD_TARGET_FULL_DESCRIBE
-bindkey = [e] CMD_MAP_EXIT_MAP
-bindkey = [k] CMD_TARGET_EXCLUDE
-bindkey = [k] CMD_MAP_EXCLUDE_AREA
-bindkey = [\{13}] CMD_DISPLAY_INVENTORY
-bindkey = [NPenter] CMD_DISPLAY_INVENTORY
-bindkey = [\{NP+}] CMD_MAP_FIND_DOWNSTAIR
-bindkey = [\{NP-}] CMD_MAP_FIND_UPSTAIR
-bindkey = [\{NP*}] CMD_CYCLE_QUIVER_FORWARD
-bindkey = [\{NP/}] CMD_CYCLE_QUIVER_BACKWARD
-bindkey = [ ] CMD_TARGET_CANCEL
-bindkey = [ ] CMD_MAP_EXIT_MAP
-bindkey = [b] CMD_TARGET_CANCEL
-bindkey = [h] CMD_TARGET_CANCEL
-bindkey = [j] CMD_TARGET_CANCEL
-bindkey = [l] CMD_TARGET_CANCEL
-bindkey = [n] CMD_TARGET_CANCEL
-bindkey = [u] CMD_TARGET_CANCEL
-bindkey = [y] CMD_TARGET_CANCEL
-bindkey = [B] CMD_TARGET_CANCEL
-bindkey = [H] CMD_TARGET_CANCEL
-bindkey = [J] CMD_TARGET_CANCEL
-bindkey = [K] CMD_TARGET_CANCEL
-bindkey = [L] CMD_TARGET_CANCEL
-bindkey = [N] CMD_TARGET_CANCEL
-bindkey = [U] CMD_TARGET_CANCEL
-bindkey = [Y] CMD_TARGET_CANCEL
-bindkey = [b] CMD_MAP_EXIT_MAP
-bindkey = [h] CMD_MAP_EXIT_MAP
-bindkey = [j] CMD_MAP_EXIT_MAP
-bindkey = [l] CMD_MAP_EXIT_MAP
-bindkey = [n] CMD_MAP_EXIT_MAP
-bindkey = [u] CMD_MAP_EXIT_MAP
-bindkey = [y] CMD_MAP_EXIT_MAP
-bindkey = [B] CMD_MAP_EXIT_MAP
-bindkey = [H] CMD_MAP_EXIT_MAP
-bindkey = [J] CMD_MAP_EXIT_MAP
-bindkey = [K] CMD_MAP_EXIT_MAP
-bindkey = [L] CMD_MAP_EXIT_MAP
-bindkey = [N] CMD_MAP_EXIT_MAP
-bindkey = [U] CMD_MAP_EXIT_MAP
-bindkey = [Y] CMD_MAP_EXIT_MAP
-
-# github.com/brianfaires/crawl-rc?tab=readme-ov-file#in-game-commands
-bindkey = [~] CMD_LUA_CONSOLE
