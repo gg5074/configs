@@ -64,12 +64,19 @@ brc_config_explicit = {
     venom = { factor = 1.0, offset = 5.0 },  -- 5 dmg per poisoning
 
     subtle = { -- Values to use for weapon "scores" (not damage)
-      antimagic = { factor = 1.1, offset = 0 },
+      antimagic = { factor = 1.15, offset = 0 },
       holy = { factor = 1.15, offset = 0 },
       penet = { factor = 1.3, offset = 0 },
-      protect = { factor = 1.15, offset = 0 },
+      protect = { factor = 1.1, offset = 0 },
       reap = { factor = 1.3, offset = 0 },
       vamp = { factor = 1.2, offset = 0 },
+      devious = { factor = 1.1, offset = 0 },
+      valour = { factor = 1.1, offset = 0 },
+      rebuke = { factor = 1.1, offset = 0 },
+      concussion = { factor = 1.1, offset = 0 },
+      sundering = { factor = 1.2, offset = 0 },
+      entangling = { factor = 1.1, offset = 2 },
+      slay = { factor = 1.15, offset = 0 },
     },
   },
 
@@ -78,7 +85,7 @@ brc_config_explicit = {
     skip_keycode = 27, -- ESC keycode
     equip_hotkey = true, -- Offer to equip after picking up equipment
     wait_for_safety = true, -- Don't expire the hotkey with monsters in view
-    explore_clears_queue = true, -- Clear the hotkey queue on explore
+    explore_clears_queue = false, -- Clear the hotkey queue on explore
   },
 
   ---- Feature configs ----
@@ -96,8 +103,8 @@ brc_config_explicit = {
     Announce = {
       hp_loss_limit = 1, -- Announce when HP loss >= this
       hp_gain_limit = 4, -- Announce when HP gain >= this
-      mp_loss_limit = 1, -- Announce when MP loss >= this
-      mp_gain_limit = 2, -- Announce when MP gain >= this
+      mp_loss_limit = 2, -- Announce when MP loss >= this
+      mp_gain_limit = 3, -- Announce when MP gain >= this
       hp_first = true, -- Show HP first in the message
       same_line = true, -- Show HP/MP on the same line
       always_both = false, -- If showing one, show both
@@ -157,13 +164,13 @@ brc_config_explicit = {
     disabled = false,
     inscribe_weapons = true, -- Inscribe weapon stats on pickup
     inscribe_armour = true, -- Inscribe armour stats on pickup
-    dmg_type = 1, -- unbranded
+    dmg_type = 4, -- Include boosts for non-damaging brands
   },
 
   ["misc-alerts"] = {
     disabled = false,
     save_with_msg = true, -- Shift-S to save and leave yourself a message
-    alert_low_hp_threshold = 0.35, -- % max HP to alert; 0 to disable
+    alert_low_hp_threshold = 0.55, -- % max HP to alert; 0 to disable
     alert_spell_level_changes = true, -- Alert when you gain additional spell levels
     alert_remove_faith = true, -- Reminder to remove amulet at max piety
     remove_faith_hotkey = true, -- Hotkey remove amulet
@@ -522,6 +529,7 @@ sound_pack += https://sound-packs.nemelex.cards/Autofire/BindTheEarth/BindTheEar
 #######################
 ### Mini Map Colors ###
 #######################
+# https://pbs.twimg.com/media/G5DZ7Xka0AAer59?format=jpg&name=large
 # tile_portal_col = #ff4f1a
 # tile_downstairs_col = red
 tile_downstairs_col = #ff1a1a
@@ -754,7 +762,7 @@ more += blinks into view
 more += (?!(draconian|shifter|annihilator) blinks!
 flash += (draconian|shifter|annihilator) blinks!
 more += is devoured by a tear in reality
-flash += You can drop.*~~DROP_ME
+# flash += You can drop.*~~DROP_ME
 
 : if you.xl() <= 14 then
 more += You feel a bit more experienced
