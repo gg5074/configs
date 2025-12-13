@@ -164,7 +164,7 @@ brc_config_explicit = {
     disabled = false,
     inscribe_weapons = true, -- Inscribe weapon stats on pickup
     inscribe_armour = true, -- Inscribe armour stats on pickup
-    dmg_type = 1, -- unbranded
+    dmg_type = 3, -- Include full brand dmg
   },
 
   ["misc-alerts"] = {
@@ -3772,24 +3772,31 @@ BRC.Configs.Default.dump = {
 
 --- How weapon damage is calculated for inscriptions+pickup/alert: (factor * DMG + offset)
 BRC.Configs.Default.BrandBonus = {
-  chaos = { factor = 1.15, offset = 2.0 }, -- Approximate weighted average
-  distort = { factor = 1.0, offset = 6.0 },
-  drain = { factor = 1.25, offset = 2.0 },
-  elec = { factor = 1.0, offset = 4.5 },   -- 3.5 on avg; fudged up for AC pen
-  flame = { factor = 1.25, offset = 0 },
-  freeze = { factor = 1.25, offset = 0 },
-  heavy = { factor = 1.8, offset = 0 },    -- Speed is accounted for elsewhere
-  pain = { factor = 1.0, offset = you.skill("Necromancy") / 2 },
-  spect = { factor = 1.7, offset = 0 },    -- Fudged down for increased incoming damage
-  venom = { factor = 1.0, offset = 5.0 },  -- 5 dmg per poisoning
+    chaos = { factor = 1.15, offset = 2.0 }, -- Approximate weighted average
+    distort = { factor = 1.0, offset = 6.0 },
+    drain = { factor = 1.25, offset = 2.0 },
+    elec = { factor = 1.0, offset = 4.5 },   -- 3.5 on avg; fudged up for AC pen
+    flame = { factor = 1.25, offset = 0 },
+    freeze = { factor = 1.25, offset = 0 },
+    heavy = { factor = 1.8, offset = 0 },    -- Speed is accounted for elsewhere
+    pain = { factor = 1.0, offset = you.skill("Necromancy") / 2 },
+    spect = { factor = 1.7, offset = 0 },    -- Fudged down for increased incoming damage
+    venom = { factor = 1.0, offset = 5.0 },  -- 5 dmg per poisoning
 
-  subtle = { -- Values to use for weapon "scores" (not damage)
-    antimagic = { factor = 1.1, offset = 0 },
-    holy = { factor = 1.15, offset = 0 },
-    penet = { factor = 1.3, offset = 0 },
-    protect = { factor = 1.15, offset = 0 },
-    reap = { factor = 1.3, offset = 0 },
-    vamp = { factor = 1.2, offset = 0 },
+    subtle = { -- Values to use for weapon "scores" (not damage)
+      antimagic = { factor = 1.15, offset = 0 },
+      holy = { factor = 1.15, offset = 0 },
+      penet = { factor = 1.3, offset = 0 },
+      protect = { factor = 1.1, offset = 0 },
+      reap = { factor = 1.3, offset = 0 },
+      vamp = { factor = 1.2, offset = 0 },
+      devious = { factor = 1.1, offset = 0 },
+      valour = { factor = 1.1, offset = 0 },
+      rebuke = { factor = 1.05, offset = 0 },
+      concussion = { factor = 1.1, offset = 0 },
+      sundering = { factor = 1.2, offset = 0 },
+      entangling = { factor = 1.1, offset = 1.5 },
+      slay = { factor = 1.15, offset = 0 },
   },
 } -- BRC.Configs.Default.BrandBonus (do not remove this comment)
 
