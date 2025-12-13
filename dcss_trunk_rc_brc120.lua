@@ -72,10 +72,10 @@ brc_config_explicit = {
       vamp = { factor = 1.2, offset = 0 },
       devious = { factor = 1.1, offset = 0 },
       valour = { factor = 1.1, offset = 0 },
-      rebuke = { factor = 1.1, offset = 0 },
+      rebuke = { factor = 1.05, offset = 0 },
       concussion = { factor = 1.1, offset = 0 },
       sundering = { factor = 1.2, offset = 0 },
-      entangling = { factor = 1.1, offset = 2 },
+      entangling = { factor = 1.1, offset = 1.5 },
       slay = { factor = 1.15, offset = 0 },
     },
   },
@@ -108,7 +108,7 @@ brc_config_explicit = {
       hp_first = true, -- Show HP first in the message
       same_line = true, -- Show HP/MP on the same line
       always_both = false, -- If showing one, show both
-      very_low_hp = 0.15, -- At this % of max HP, show all HP changes and mute % HP alerts
+      very_low_hp = 0.25, -- At this % of max HP, show all HP changes and mute % HP alerts
     },
 
     HP_METER = BRC.Config.emojis and { FULL = "❤️", PART = "❤️‍🩹", EMPTY = "🤍" } or {
@@ -164,7 +164,7 @@ brc_config_explicit = {
     disabled = false,
     inscribe_weapons = true, -- Inscribe weapon stats on pickup
     inscribe_armour = true, -- Inscribe armour stats on pickup
-    dmg_type = 4, -- Include boosts for non-damaging brands
+    dmg_type = 1, -- unbranded
   },
 
   ["misc-alerts"] = {
@@ -180,7 +180,7 @@ brc_config_explicit = {
     disabled = false,
     go_up_macro_key = 5, -- (Cntl-E) Key for "go up closest stairs" macro
     ignore_mon_on_orb_run = true, -- Ignore monsters on orb run
-    orb_ignore_hp_min = 0.70, -- HP percent to stop ignoring monsters
+    orb_ignore_hp_min = 0.80, -- HP percent to stop ignoring monsters
     orb_ignore_hp_max = 0.90, -- HP percent to ignore monsters at min distance away (2 tiles)
   },
 
@@ -200,11 +200,11 @@ brc_config_explicit = {
 
   ---- Large config sections ----
   ["dynamic-options"] = {
-    disabled = true,
+    disabled = false,
     -- XL-based force more messages: active when XL <= specified level
     xl_force_mores = {
-      { pattern = "monster_warning:wielding.*of electrocution", xl = 5 },
-      { pattern = "You.*re more poisoned", xl = 7 },
+      { pattern = "monster_warning:wielding.*of electrocution", xl = 10 },
+      { pattern = "You.*re more poisoned", xl = 10 },
       { pattern = "^(?!.*Your?).*speeds? up", xl = 10 },
       { pattern = "danger:goes berserk", xl = 18 },
       { pattern = "monster_warning:carrying a wand of", xl = 15 },
@@ -353,11 +353,10 @@ brc_config_explicit = {
 
       -- Alert the first time each item is found. Can require training with OTA_require_skill.
       one_time = {
-        "devious", "valour", "concussion", "sundering", "rebuke",
         "pair of gloves", "pair of gloves of", "pair of boots", "pair of boots of", "cloak", "cloak of", "scarf of", " hat "," hat of",
         "ring of", "amulet of", "6 ring of strength", "6 ring of dexterity", "dragonskin cloak", "moon troll leather armour", "Cigotuvi's embrace",
-        "spear of", "trident of", "partisan", "partisan of", "demon trident", "demon trident of", "trishula", "glaive", "bardiche",
-        "broad axe", "morningstar", "eveningstar", "demon whip", "sacred scourge", "demon blade",
+        "entangling", "spear of", "trident of", "partisan", "partisan of", "demon trident", "demon trident of", "trishula", "glaive", "bardiche",
+        "sundering", "broad axe", "morningstar", "eveningstar", "demon whip", "sacred scourge", "demon blade",
         "buckler", "buckler of", "kite shield", "kite shield of", "tower shield", "tower shield of", "wand of digging",
         "ring mail of", "scale mail of", "chain mail", "chain mail of", "plate armour","plate armour of",
         "crystal plate armour", "golden dragon scales", "storm dragon scales", "swamp dragon scales",
@@ -688,6 +687,7 @@ ignore += your breath back
 ignore += engulfed in a cloud of smoke
 ignore += engulfed in white fluffiness
 ignore += safely over a trap
+ignore += The hatch slams shut behind you
 
 interrupt_travel -= sense_monster
 
@@ -879,10 +879,12 @@ flash += You feel drained
 more += You are engulfed in a thunderstorm
 : end
 
-: if you.res_poison() <= 0 then
 more += You are engulfed in excruciating misery
-: end
-
+flash += You are engulfed in dark miasma
+more += You are engulfed in seething chaos
+flash += You are engulfed in seething chaos
+more += You turn into a filthy swine
+flash += You turn into a filthy swine
 more += Strange energies course through your body
 more += You feel strangely unstable
 more += (?<!Your (shadowghast|vampire)) flickers and vanishes
@@ -1032,8 +1034,6 @@ elseif prompt:find("into that cloud of flame") and you.res_fire() == 3 then
 return true
 elseif prompt:find("into that cloud of freezing vapour") and you.res_cold() == 3 then
 return true
-elseif prompt:find("into a travel-excluded") or prompt:find("icy armour will break") then
-return true
 end
 end
 }
@@ -1106,7 +1106,7 @@ flash += Found.*(The Shining One|Zin)
 # Uniques and baddies
 # github.com/crawl/crawl/blob/master/crawl-ref/source/mon-gear.cc
 unusual_monster_items += ( the |distortion|chaos|silver)
-more += encounter.*(undying armour(y|ies)|antique champion|torpor snail|nekomata|oblivion hound|acid blob|entropy weaver|ghost moth|death knight|eyes? of devastation)(?! (zombie|draugr|simulacr))
+more += encounter.*(undying armour(y|ies)|antique champion|torpor snail|nekomata|oblivion hound|acid blob|entropy weaver|ghost moth|death knight|apocalypse crab|eyes? of devastation)(?! (zombie|draugr|simulacr))
 more += The undying armouty arms its allies with
 
 more += Xak'krixis conjures a prism
@@ -1208,7 +1208,7 @@ more += encounter.*(oni incarcerator|demonspawn warmonger|draconian stormcaller|
 unusual_monster_items += of (acid)
 more += (hits|warns) (?!your)you.*of (distortion|chaos)
 more += encounter.*(air elemental|tengu reaver|(deep elf|draconian) annihilator|void ooze|orb guardian)(?! (zombie|draugr|simulacr))
-more += encounter.*(lich|shadow dragon|juggernaut|caustic shrike|wyrmhole|spriggan berserker)(?! (zombie|draugr|simulacr))
+more += encounter.*(lich|shadow dragon|walking.*tome|juggernaut|caustic shrike|wyrmhole|spriggan berserker)(?! (zombie|draugr|simulacr))
 more += The spriggan berserker utters an invocation to Trog
 more += The spriggan roars madly and goes into a rage
 # Agony
@@ -1221,7 +1221,7 @@ more += encounter.*(glass eye|death drake|war gargoyle|crystal guardian)
 more += encounter.*(deep elf master archer|vault (warden|sentinel)|merfolk (avatar|siren))(?! (zombie|draugr|simulacr))
 more += encounter.*(executioner|guardian serpent|draconian shifter|ironbound (convoker|preserver)|deep troll shaman|death cob)(?! (zombie|draugr|simulacr))
 more += encounter.*(kobold fleshcrafter|phantasmal warrior|iron giant)(?! (zombie|draugr|simulacr))
-more += encounter.*(ragged hierophant|halazid warlock|glowing orange brain|apocalypse crab|moths? of wrath)(?! (zombie|draugr|simulacr))
+more += encounter.*(ragged hierophant|halazid warlock|glowing orange brain|moths? of wrath)(?! (zombie|draugr|simulacr))
 flash += encounter.*(halazid warlock)(?! (zombie|draugr|simulacr))
 more += encounter.*(player|('s|s')) ghost
 more += guardian serpent weaves intricate patterns
@@ -1232,18 +1232,15 @@ more += ironbound mechanist forges a skittering defender to stand by its side
 more += slime creatures merge to form a (very large|enormous|titanic)
 : end
 
-unusual_monster_items += (devious|valour|concussion|sundering|rebuke)
-
 # github.com/crawl/crawl/commit/e02c2b2bd47e38273f95c7b2855e43783a19ae70
-unusual_monster_items += vulnerable:acid:24
-unusual_monster_items += vulnerable:(electrocution|draining|vampiric|pain):20
-unusual_monster_items += vulnerable:(flaming|freezing):18
+unusual_monster_items += vulnerable:acid:26
+unusual_monster_items += vulnerable:(draining|vampiric):20
+unusual_monster_items += vulnerable:(electrocution|flaming|freezing|pain):18
 unusual_monster_items += vulnerable:(venom):16
 
+unusual_monster_items += (devious|valour|concussion|sundering|rebuke)
+
 : if you.xl() <= 20 then
-unusual_monster_items += of (electrocution|draining|vampiric|pain)
-unusual_monster_items += of (spectral|heavy|\+[5-9])
-unusual_monster_items += wand of (paralysis|roots|light)
 more += encounter.*(boggart|bunyips|stone giant|ironbound beastmaster)(?! (zombie|draugr|simulacr))
 more += encounter.*(formless jellyfish|broodmother|spark wasp|orb spider|merfolk (aquamancer|javelineer|impaler)|nagaraja)(?! (zombie|draugr|simulacr))
 # Paralysis/Petrify/Banish
@@ -1253,15 +1250,14 @@ flash += The boggart gestures wildly while chanting
 : end
 
 : if you.xl() <= 18 then
-unusual_monster_items += of (flaming|freezing)
+unusual_monster_items += of (paralysis|roots|light)
+unusual_monster_items += of (draining|vampiric|spectral|heavy|\+[5-9])
 more += encounter.*(water nymph|azure jell|anaconda|bloated husk|ghost crab|ironbound thunderhulk)(?! (zombie|draugr|simulacr))
 flash += The water rises up and strikes you
 : end
 
 : if you.xl() <= 16 then
-unusual_monster_items += of (venom)
-unusual_monster_items += wand of (charming|polymorph)
-
+unusual_monster_items += of (electrocution|flaming|freezing|pain)
 more += encounter.*(raven|water elemental|(fire|ice) dragon|centaur warrior|yaktaur|cyclope?s|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionomae?)(?! (zombie|draugr|simulacr))
 more += The.*headed hydra grows
 flash += The.*headed hydra grows
@@ -1271,6 +1267,7 @@ flash += encounter.*(raiju|(cyan|brown) ugly thing|radroach|meliai)(?! (zombie|d
 : end
 
 : if you.xl() <= 13 then
+unusual_monster_items += of (venom|charming|polymorph)
 unusual_monster_items += triple sword,executioner's axe,halberd,glaive,bardiche,arbalest,hand cannon,triple crossbow
 more += encounter.*(?<!spectral) (manticore|two-headed ogre|kobold geomancer|tengu|lindwurm|(ice|rust) devil|(fire|earth) elemental|lava snake|efreet|boulder beetle|hornet|black mamba|cane toad|komodo dragon)(?! (zombie|draugr|simulacr))
 flash += encounter.*(skeletal warrior|death yak|elephant)(?! (zombie|draugr|simulacr))
@@ -1314,7 +1311,7 @@ dump_message_count = 1000
 note_hp_percent = 20
 user_note_prefix = 
 
-note_items += (devious|valour|concussion|sundering|rebuke),of experience,(?<!potions?) of resistance,archmagi,crystal plate armour,pearl dragon scales
+note_items += of experience,(?<!potions?) of resistance,archmagi,crystal plate armour,pearl dragon scales
 note_messages += You pass through the gate
 note_messages += cast.*Abyss
 note_messages += BOSS
@@ -1530,7 +1527,7 @@ ai += of identify:~~DROP_ME
 ai += (?<!the) \+0 (morningstar|broad axe|partisan|tower shield) (?!("|of)):~~DROP_ME
 : end
 
-gear_slot ^= (war axe|broad axe|whip|mace|flail|ningstar|scourge|spear|trident|trishula|partisan|halberd|glaive|bardiche|staff) : abW
+gear_slot ^= (war axe|broad axe|whip|mace|flail|ningstar|scourge|spear|trident|trishula|partisan|halberd|glaive|bardiche) : abW
 gear_slot ^= (ring of protection (?!from)|the ring .* AC\+) : ptcmPTCM
 gear_slot ^= (ring of evasion|the ring .* EV\+) : evdgEVDG
 gear_slot ^= (ring of strength|the ring .* Str\+) : strhSTRH
@@ -1539,11 +1536,11 @@ gear_slot ^= (ring of dexterity|the ring .* Dex\+) : dxeyDXEY
 gear_slot ^= (ring of slaying|the ring .* Slay\+) : yksxYKSX
 gear_slot ^= (ring of wizardry|the ring .* Wiz ) : zwysZWYS
 gear_slot ^= (ring of magical power|the ring .* MP\+) : mpgqMPGQ
-gear_slot ^= (ring of protection from fire|the ring .* rF\+) : fireFIRE
-gear_slot ^= (ring of protection from cold|the ring .* rC\+) : cieoCIEO
-gear_slot ^= (ring of positive energy|the ring .* rN\+) : nuveNUVE
-gear_slot ^= (ring of poison resistance|the ring .* rPois) : pvxtPVXT
-gear_slot ^= (lightning rod|the ring .* rElec) : qzlrQZLR
+gear_slot ^= (ring of protection from fire|the ring .* rF\+|staff of fire|staff.* rF) : fireFIRE
+gear_slot ^= (ring of protection from cold|the ring .* rC\+|staff of cold|staff.* rC) : cieoCIEO
+gear_slot ^= (ring of positive energy|the ring .* rN\+|staff of necromancy|staff.* rN) : nuveNUVE
+gear_slot ^= (ring of poison resistance|the ring .* rPois|staff of alchemy|staff.*rPois) : pvxtPVXT
+gear_slot ^= (lightning rod|the ring .* rElec|staff of air|staff.*rElec) : qzlrQZLR
 gear_slot ^= (ring of resist corrosion|the ring .* rCorr) : jrocJROC
 gear_slot ^= (ring of see invisible|the ring .* SInv) : vighVIGH
 gear_slot ^= (ring of willpower|the ring .* Will\+) : wmlhWMlH
@@ -1662,11 +1659,11 @@ end
 }
 macros += M \{NP.} ===smart_stairs
 
-# Tab:\{9}, Enter:\{13}, Esc:\{27}, Space:\{32}, Ctrl:*, Shift:/, Ctrl-L:\{12}
+# Tab:\{9}, Enter:\{13}, Esc:\{27}, Space:\{32}, Ctrl:*, Shift:/
 # github.com/crawl/crawl/blob/master/crawl-ref/source/dat/descript/features.txt
 
-# Ctrl-L: List of Banes
-# macros += M \{12} ?/n\{32}\{13}
+# Ctrl-: List of Banes
+# macros += M \{} ?/n\{32}\{13}
 
 # Ctrl-L: Help, Monster 
 macros += M \{12} ?/m
@@ -4961,6 +4958,8 @@ f_answer_prompts.BRC_FEATURE_NAME = "answer-prompts"
 ---- Crawl hook functions ----
 function f_answer_prompts.c_answer_prompt(prompt)
   if prompt == "Die?" then return false end
+  if prompt:contains("into a travel-excluded") then return true end
+  if prompt:contains("icy armour will break") then return true end
   if prompt:contains("cheaper one?") and you.branch() ~= "Bazaar" then
     BRC.mpr.yellow("Replacing shopping list items")
     return true
