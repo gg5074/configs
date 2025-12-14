@@ -256,7 +256,7 @@ brc_config_explicit = {
   },
 
   ["mute-messages"] = {
-    disabled = false,
+    disabled = true,
     mute_level = 1,
     messages = {
       -- Light reduction; unnecessary messages
@@ -585,7 +585,7 @@ menu := menu_colour
 # menu ^= lightgrey:scrolls? of (poison|torment|immolation|vulnerability|noise)
 
 msc := message_colour
-msc ^= lightgrey:( miss | misses |no damage|fail to reach past|returns to the grave|disappears in a puff of smoke)
+msc ^= lightgrey:( miss | misses |no damage|fail to reach past|returns to the grave|disappears in a puff of smoke|putting on your)
 msc ^= yellow:(You feel a bit more experienced)
 
 # : if you.race() ~= "Minotaur" then
@@ -973,6 +973,13 @@ more += Ru believes you are ready to make a new sacrifice
 flash += You offer up the Black Torch's flame
 more += Your bound.*is destroyed!
 more += The heavenly storm settles
+flash += You may now remember your ancestor's life
+more += You now drain nearby creatures when transferring your ancestor
+
+: if you.god() == "Hepliaklqana" then
+more += (?-i:[A-Z])(?!xecutioner|rb guardian).*is destroyed!
+: end
+
 more += Beogh will now send orc apostles to challenge you
 flash += Beogh will now send orc apostles to challenge you
 more += the orc apostle comes into view
@@ -980,7 +987,7 @@ more += encounter.*the orc apostle
 more += falls to his knees and submits
 
 : if you.god() == "Beogh" then
-more += (?-i:[A-Z])(?!(xecutioner|rb guardian)).*(dies!|is blown up!)
+more += (?-i:[A-Z])(?!xecutioner|rb guardian).*(dies!|is blown up!)
 : end
 
 more += has fought their way back out of the Abyss!
@@ -1107,9 +1114,9 @@ more += 's illusion shouts
 flash += 's illusion shouts
 
 # Kirke (Lair3-5 D12-15 S-B1 Elf1), Butcher's Vault
-: if you.xl() <= 16 then
-flash += encounter.* hog
-: end
+# : if you.xl() <= 16 then
+# flash += encounter.* hog
+# : end
 
 # Amaemon (Lair Orc1 D8-12)
 : if you.xl() <= 16 then
