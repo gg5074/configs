@@ -200,7 +200,7 @@ brc_config_explicit = {
 
   ---- Large config sections ----
   ["dynamic-options"] = {
-    disabled = false,
+    disabled = true,
     -- XL-based force more messages: active when XL <= specified level
     xl_force_mores = {
       { pattern = "monster_warning:wielding.*of electrocution", xl = 10 },
@@ -1078,7 +1078,7 @@ flash += Found.*(The Shining One|Zin)
 # Uniques and baddies
 # github.com/crawl/crawl/blob/master/crawl-ref/source/mon-gear.cc
 unusual_monster_items += ( the |distortion|chaos|silver)
-more += encounter.*(undying armour(y|ies)|antique champion|torpor snail|nekomata|oblivion hound|acid blob|entropy weaver|ghost moth|death knight|apocalypse crab|eyes? of devastation)(?! (zombie|draugr|simulacr))
+more += encounter.*(undying armour(y|ies)|antique champion|torpor snail|nekomata|oblivion hound|protean progenitor|acid blob|entropy weaver|ghost moth|death knight|apocalypse crab|eyes? of devastation)(?! (zombie|draugr|simulacr))
 more += The undying armouty arms its allies with
 
 more += Xak'krixis conjures a prism
