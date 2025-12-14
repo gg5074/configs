@@ -1266,8 +1266,8 @@ more += encounter.*(adder)(?! (zombie|draugr|simulacr))
 : end
 
 : if you.xl() <= 4 then
-mmore += encounter.*(orc)(?! (zombie|draugr|simulacr))
-onster_alert += tough
+more += encounter.*(orc)(?! (zombie|draugr|simulacr))
+monster_alert += tough
 : end
 
 # : if you.xl() <= 1 then
