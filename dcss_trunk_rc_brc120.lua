@@ -1010,34 +1010,6 @@ more += You add the spells?.*(Apportation|Blink|Lesser Beckoning|Maxwell's Porta
 
 stop ^= Your.*disappears in a puff of smoke,Your spellspark servitor fades away,Your battlesphere wavers and loses cohesion
 
-{
-function c_answer_prompt(prompt)
-if prompt:find("Really fire") and prompt:find("your spellforged") then
-return true
-elseif prompt:find("Really refrigerate") and prompt:find("your spellforged") then
-return true
-elseif prompt:find("Permafrost Eruption might hit") and prompt:find("servitor") then
-return true
-elseif prompt:find("Plasma Beam") and prompt:find("might") then
-return true
-elseif prompt:find("Plasma Beam") and prompt:find("your spellforged") then
-return true
-elseif prompt:find("Really") and prompt:find("fire vort") then
-return true
-elseif prompt:find("Really") and prompt:find("battle") then
-return true
-elseif prompt:find("Really hurl") and prompt:find("your spellforged") then
-return true
-elseif prompt:find("Really attack your") and prompt:find("rat") then
-return true
-elseif prompt:find("into that cloud of flame") and you.res_fire() == 3 then
-return true
-elseif prompt:find("into that cloud of freezing vapour") and you.res_cold() == 3 then
-return true
-end
-end
-}
-
 # Skills
 : if you.race() ~= "Gnoll" then
 stop += skill increases to level (9|18|26)
@@ -4965,6 +4937,17 @@ f_answer_prompts.BRC_FEATURE_NAME = "answer-prompts"
 ---- Crawl hook functions ----
 function f_answer_prompts.c_answer_prompt(prompt)
   if prompt == "Die?" then return false end
+  if prompt:contains("Really fire") and prompt:contains("your spellforged") then return true end
+  if prompt:contains("Really refrigerate") and prompt:contains("your spellforged") then return true end
+  if prompt:contains("Permafrost Eruption might hit") and prompt:contains("servitor") then return true end
+  if prompt:contains("Plasma Beam") and prompt:contains("might") then return true end
+  if prompt:contains("Plasma Beam") and prompt:contains("your spellforged") then return true end
+  if prompt:contains("Really") and prompt:contains("fire vort") then return true end
+  if prompt:contains("Really") and prompt:contains("battle") then return true end
+  if prompt:contains("Really hurl") and prompt:contains("your spellforged") then return true end
+  if prompt:contains("Really attack your") and prompt:contains("rat") then return true end
+  if prompt:contains("into that cloud of flame") and you.res_fire() == 3 then return true end
+  if prompt:contains("into that cloud of freezing vapour") and you.res_cold() == 3 then return true end
   if prompt:contains("into a travel-excluded") then return true end
   if prompt:contains("icy armour will break") then return true end
   if prompt:contains("cheaper one?") and you.branch() ~= "Bazaar" then
