@@ -585,7 +585,7 @@ menu := menu_colour
 # menu ^= lightgrey:scrolls? of (poison|torment|immolation|vulnerability|noise)
 
 msc := message_colour
-msc ^= lightgrey:( miss | misses |no damage|fail to reach past|returns to the grave|disappears in a puff of smoke|putting on your)
+msc ^= lightgrey:( miss | misses |no damage|fail to reach past|returns to the grave|disappears in a puff of smoke|putting on your|removing your)
 msc ^= yellow:(You feel a bit more experienced)
 
 # : if you.race() ~= "Minotaur" then
@@ -1220,7 +1220,7 @@ unusual_monster_items += vulnerable:(venom):16
 unusual_monster_items += (devious|valour|concussion|sundering|rebuke)
 
 : if you.xl() <= 20 then
-more += encounter.*(boggart|bunyips|stone giant|ironbound beastmaster)(?! (zombie|draugr|simulacr))
+more += encounter.*(boggart|bunyips|deep elf elementalist|balrug|stone giant|ironbound beastmaster)(?! (zombie|draugr|simulacr))
 more += encounter.*(formless jellyfish|broodmother|spark wasp|orb spider|merfolk (aquamancer|javelineer|impaler)|nagaraja)(?! (zombie|draugr|simulacr))
 # Paralysis/Petrify/Banish
 more += encounter.*(fenstrider witch|orc sorcerer|ogre mage|occultist|great orbs? of eyes|sphinx)(?! (zombie|draugr|simulacr))
@@ -1231,8 +1231,9 @@ flash += The boggart gestures wildly while chanting
 : if you.xl() <= 18 then
 unusual_monster_items += of (paralysis|roots|light)
 unusual_monster_items += of (draining|vampiric|spectral|heavy|\+[5-9])
-more += encounter.*(water nymph|azure jell|anaconda|bloated husk|ghost crab|ironbound thunderhulk)(?! (zombie|draugr|simulacr))
+more += encounter.*(water nymph|azure jell|anaconda|shambling mangrove|thorn hunter|bloated husk|ghost crab|ironbound thunderhulk)(?! (zombie|draugr|simulacr))
 flash += The water rises up and strikes you
+more += Thorny briars emerge from the ground
 : end
 
 : if you.xl() <= 16 then
@@ -1241,7 +1242,7 @@ more += encounter.*(raven|water elemental|(fire|ice) dragon|centaur warrior|yakt
 more += The.*headed hydra grows
 flash += The.*headed hydra grows
 
-more += encounter.*(vault guard|deep elf|kobold blastminer|gargoyle|ghoul|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant|wolf spider)(?! (zombie|draugr|simulacr))
+more += encounter.*(vault guard|deep elf|kobold blastminer|gargoyle|ghoul|hell hog|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant|wolf spider)(?! (zombie|draugr|simulacr))
 flash += encounter.*(raiju|(cyan|brown) ugly thing|radroach|meliai)(?! (zombie|draugr|simulacr))
 : end
 
@@ -1649,6 +1650,9 @@ macros += M \{12} ?/m
 
 # [.]: Branches
 macros += M . *f<<case\{32}to\{32}th\{32}||\{32}gate\{32}to\{32}||\{32}hole\{32}to\{32}||\{32}gate\{32}lead>>\{32}&&\{32}!!one-\{13}
+
+# Ctrl-D (Go down closest stairs w/ {Cntl-G, '>'})
+macros += M \{4} \{7}>
 
 macros += M n x+
 macros += M N x-
