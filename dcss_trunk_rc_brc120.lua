@@ -164,7 +164,7 @@ brc_config_explicit = {
     disabled = false,
     inscribe_weapons = true, -- Inscribe weapon stats on pickup
     inscribe_armour = true, -- Inscribe armour stats on pickup
-    dmg_type = 3, -- Include full brand dmg
+    dmg_type = 4, -- 
   },
 
   ["misc-alerts"] = {
@@ -687,7 +687,6 @@ ignore += your breath back
 ignore += engulfed in a cloud of smoke
 ignore += engulfed in white fluffiness
 ignore += safely over a trap
-ignore += The hatch slams shut behind you
 
 interrupt_travel -= sense_monster
 
@@ -897,6 +896,7 @@ more += Chaos surges forth from piles of flesh
 flash += You feel the power of Zot begin to focus
 # more += You hear a sizzling splash
 more += heals the
+more += evaporates and reforms as
 
 : if you.xl() < 24 then
 more += flies into a frenzy
@@ -1208,7 +1208,8 @@ more += ironbound convoker begins to recite a word of recall
 more += kobold fleshcrafter chants and writhes
 more += halazid warlock gestures
 more += ironbound mechanist forges a skittering defender to stand by its side
-more += slime creatures merge to form a (very large|enormous|titanic)
+# more += slime creatures merge to form a (very large|enormous|titanic)
+flash += slime creatures merge to form a (very large|enormous|titanic)
 : end
 
 # github.com/crawl/crawl/commit/e02c2b2bd47e38273f95c7b2855e43783a19ae70
@@ -1359,7 +1360,7 @@ ae += (datura|atropa)-tipped dart
 : end
 
 : if you.xl() > 22 then
-ae += of identify, poisoned dart, amulet of (acrobat|faith|guardian spirit|reflection), ring of (evasion|strength|intelligence|dexterity|slaying|wizardry|magical power)
+ae += of identify, poisoned dart, amulet of (acrobat|faith|guardian spirit|reflection|alchemy|dissipation|wildshape), ring of (evasion|strength|intelligence|dexterity|slaying|wizardry|magical power)
 : end
 
 ##################
@@ -1470,7 +1471,7 @@ ai += staff of conjuration:IrresistibleDmg-20%
 ai += staff of earth:PhysicalDmg-5%
 ai += staff of fire:rF+
 ai += staff of cold:rC+
-ai += staff of poison:rPois
+ai += staff of alchemy:rPois
 ai += staff of air:rElec
 ai += staff of necromancy:rN+
 
@@ -2053,6 +2054,7 @@ stop += scrolls? of acquirement
 # Don't stop for noisy doors unless someone shouts back
 stop -= it creaks loudly
 stop -= flies open with a bang
+stop -= The hatch slams shut behind you
 stop += You hear
 
 # Ignore some stops for ally actions, then stop on the rest
