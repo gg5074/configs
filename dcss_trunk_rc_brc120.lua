@@ -762,6 +762,7 @@ more += (?!(draconian|shifter|annihilator) blinks!
 flash += (draconian|shifter|annihilator) blinks!
 more += is devoured by a tear in reality
 # flash += You can drop.*~~DROP_ME
+more += You feel a genetic drift
 
 : if you.xl() <= 14 then
 more += You feel a bit more experienced
@@ -1243,14 +1244,14 @@ more += encounter.*(raven|water elemental|(fire|ice) dragon|centaur warrior|yakt
 more += The.*headed hydra grows
 flash += The.*headed hydra grows
 
-more += encounter.*(vault guard|deep elf|kobold blastminer|gargoyle|ghoul|hell hog|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant|wolf spider)(?! (zombie|draugr|simulacr))
+more += encounter.*(vault guard|deep elf|kobold blastminer|gargoyle|ghoul|hell hog|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant|wolf spider|tentacled starspawn)(?! (zombie|draugr|simulacr))
 flash += encounter.*(raiju|(cyan|brown) ugly thing|radroach|meliai)(?! (zombie|draugr|simulacr))
 : end
 
 : if you.xl() <= 13 then
 unusual_monster_items += of (venom|charming|polymorph)
 unusual_monster_items += triple sword,executioner's axe,halberd,glaive,bardiche,arbalest,hand cannon,triple crossbow
-more += encounter.*(?<!spectral) (manticore|two-headed ogre|kobold geomancer|tengu|lindwurm|(ice|rust) devil|(fire|earth) elemental|lava snake|efreet|boulder beetle|hornet|black mamba|cane toad|komodo dragon)(?! (zombie|draugr|simulacr))
+more += encounter.*(?<!spectral) (manticore|two-headed ogre|kobold geomancer|tengu|lindwurm|smoke demon|(ice|rust) devil|(fire|earth) elemental|lava snake|efreet|boulder beetle|hornet|black mamba|cane toad|komodo dragon)(?! (zombie|draugr|simulacr))
 flash += encounter.*(skeletal warrior|death yak|elephant)(?! (zombie|draugr|simulacr))
 : end
 
@@ -1370,7 +1371,7 @@ ae += of identify, poisoned dart, amulet of (acrobat|faith|guardian spirit|refle
 ai := autoinscribe
 
 # ai += magical staff:!a
-ai += (large rock|silver javelin|throwing net|(curare|datura|atropa)-tipped dart|of disjunction):=f
+ai += (throwing net|(curare|datura|atropa)-tipped dart|of disjunction):=f
 
 ai += potions? of heal wounds:@q1, 10-37HP
 ai += potions? of curing:@q2, 5-11HP
@@ -1425,7 +1426,7 @@ ai += silver javelin:@f6@Q6, 5%
 ai += throwing net:@f7, MonsEV/(2+Size), Mulch (1d4)/9% 8Dmg (1d4)/T 
 ai += poisoned dart:@f1@Q1, F1
 ai += curare-tipped dart:@f8, 16.7%
-ai += darts? of disjunction:Dmg2d2
+ai += darts? of disjunction:, Dmg2d2
 
 ai += wand of flame:@v4@Q4, \), 2d(5.5+0.35*Evo), MaxEvo10
 ai += wand of mindburst:@v5@Q5, \(, 3d(8.75+3.5*Evo/4)
