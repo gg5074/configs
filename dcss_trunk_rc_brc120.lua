@@ -725,7 +725,7 @@ stop += You see here.*scrolls? of enchant armour
 
 # github.com/crawl/crawl/blob/master/crawl-ref/source/god-abil.cc
 more += You have reached level
-more += You (can|may) now (?!(stomp|pass|merge))
+more += You (can|may) now (?!stomp|pass|merge)
 more += protects you from harm
 stop += You feel like a meek peon again
 more += Trog grants you a weapon
@@ -846,7 +846,7 @@ flash += Found.*(The Shining One|Zin)
 
 stop += There is a portal to a secret trove of treasure here
 stop += Found a runed translucent door
-flash += There is a (staircase to the (?!(Ecumenical))|gate to|hole to|gate leading to|gateway (?!(back|out)))
+flash += There is a (staircase to the (?!Ecumenical)|gate to|hole to|gate leading to|gateway (?!back|out))
 more += Found a gateway leading.*Abyss
 more += and a gateway leading out appears
 more += The mighty Pandemonium lord.*resides here
@@ -894,7 +894,7 @@ flash += Cherry-coloured flames burn away your fire resistance
 more += The klown pie hits you! (?!but)
 flash += The klown pie hits you! (?!but)
 more += hell_effect:
-more += Doom befalls (?!your)you
+more += Doom befalls you[^r]
 more += You feel an ill-omen
 more += You feel a malign power afflict you
 more += shimmers and splits apart
@@ -926,20 +926,20 @@ more += (blundered into a|invokes the power of) Zot
 more += That really hurt
 more += You convulse
 more += Your body is wracked with pain
-flash += smites (?!your)you
+flash += smites you[^r]
 more += You are (blasted|electrocuted)
 more += You are.*confused
 more += You are blinded
-flash += Something hits (?!your)you
+flash += Something hits you[^r]
 flash += You stumble backwards
 flash += You are shoved backwards
 flash += drags you backwards
 flash += You are knocked back
-# more += grabs (?!your)you
-flash += grabs (?!your)you
-# more += roots grab (?!your)you
-flash += roots grab (?!your)you
-flash += constricts (?!your)you
+# more += grabs you[^r]
+flash += grabs you[^r]
+# more += roots grab you[^r]
+flash += roots grab you[^r]
+flash += constricts you[^r]
 more += You are skewered in place
 flash += You are skewered in place
 more += wrath finds you
@@ -949,10 +949,10 @@ more += disloyal to dabble
 more += lose consciousness
 more += You are too injured to fight blindly
 more += You feel your attacks grow feeble
-more += The blast of calcifying dust hits (?!your)you
-flash += The blast of calcifying dust hits (?!your)you
-more += Space warps horribly.*around (?!your)you
-more += Space bends around (?!your)you
+more += The blast of calcifying dust hits you[^r]
+flash += The blast of calcifying dust hits you[^r]
+more += Space warps horribly.*around you[^r]
+more += Space bends around you[^r]
 more += Your limbs are stiffening
 flash += Your limbs are stiffening
 more += Your body becomes as fragile as glass
@@ -975,7 +975,7 @@ more += otherworldly place is opened
 more += An eldritch tentacle comes into view
 flash += You feel extremely sick
 more += lethally poison
-flash += The acid corrodes (?!your)you
+flash += The acid corrodes you[^r]
 more += You are covered in intense liquid fire
 flash += You feel drained
 
@@ -1042,11 +1042,11 @@ more += You don't have the energy to cast that spell
 more += You are unable to access your magic
 more += You assume a fearsome visage
 flash += is a mimic
-more += (?<!(into|through)) a shaft
+more += (?<!into|through) a shaft
 more += You blink
 more += (?<!raiju) bursts into living lightning
 more += blinks into view
-more += (?!(draconian|shifter|annihilator) blinks!
+more += (?!draconian|shifter|annihilator) blinks!
 flash += (draconian|shifter|annihilator) blinks!
 more += is devoured by a tear in reality
 more += You feel a genetic drift
@@ -1178,7 +1178,7 @@ more += The curse toe gestures
 
 # Holy/Dispel Undead
 : if you.race() == "Mummy" or you.race() == "Demonspawn" or you.race() == "Revenant" or you.race() == "Poltergeist" or you.transform() == "death" or you.transform() == "vampire" then
-flash += encounter.*(?<!(angel|daeva|fravashi)) is wielding.*of holy
+flash += encounter.*(?<!angel|daeva|fravashi) is wielding.*of holy
 more += encounter.*(demonspawn black sun|revenant soulmonger|ushabti|alderking|burial acolyte)
 : end
 
@@ -1201,7 +1201,7 @@ more += encounter.*(chonchon|oni incarcerator|demonspawn warmonger|draconian sto
 
 : if you.xl() <= 24 then
 unusual_monster_items += of (acid)
-more += (hits|warns) (?!your)you.*of (distortion|chaos)
+more += (hits|warns) you[^r].*of (distortion|chaos)
 more += encounter.*(air elemental|tengu reaver|(deep elf|draconian) annihilator|void ooze|orb guardian)(?! (zombie|draugr|simulacr))
 more += encounter.*(lich|shadow dragon|walking.*tome|juggernaut|caustic shrike|wyrmhole|spriggan berserker)(?! (zombie|draugr|simulacr))
 more += The spriggan berserker utters an invocation to Trog
@@ -1494,36 +1494,36 @@ ai += staff of air:rElec
 ai += staff of necromancy:rN+
 
 : if you.xl() > 4 then
-ai += (?<!the) \+0 (dagger|short sword|club|whip|giant club|giant spiked|hand axe|spear|sling|shortbow|(?<!tremor)stone|animal skin|robe|leather armour) (?!("|of)):~~DROP_ME
+ai += (?<!the) \+0 (dagger|short sword|club|whip|giant club|giant spiked|hand axe|spear|sling|shortbow|(?<!tremor)stone|animal skin|robe|leather armour) (?!"|of):~~DROP_ME
 : end
 
 : if you.xl() > 8 then
-ai += (?<!the) \+0 (falchion|long sword|quarterstaff|troll leather armour|ring mail|scale mail) (?!("|of)):~~DROP_ME
+ai += (?<!the) \+0 (falchion|long sword|quarterstaff|troll leather armour|ring mail|scale mail) (?!"|of):~~DROP_ME
 : end
 
 : if you.xl() > 12 then
-ai += (?<!the) \+[1-3] (dagger|short sword|club|whip|hand axe|spear|sling|shortbow|animal skin|robe|leather armour) (?!("|of)):~~DROP_ME
+ai += (?<!the) \+[1-3] (dagger|short sword|club|whip|hand axe|spear|sling|shortbow|animal skin|robe|leather armour) (?!"|of):~~DROP_ME
 : end
 
 : if you.xl() > 14 then
-ai += (?<!the) \+[1-3] (falchion|long sword|quarterstaff|troll leather armour|ring mail|scale mail) (?!("|of)):~~DROP_ME
+ai += (?<!the) \+[1-3] (falchion|long sword|quarterstaff|troll leather armour|ring mail|scale mail) (?!"|of):~~DROP_ME
 : end
 
 : if you.xl() > 16 then
-ai += (?<!the) \+0 (mace|flail|dire flail|war axe|trident|halberd|chain mail|plate armour|steam dragon scales|helmet) (?!("|of)):~~DROP_ME
+ai += (?<!the) \+0 (mace|flail|dire flail|war axe|trident|halberd|chain mail|plate armour|steam dragon scales|helmet) (?!"|of):~~DROP_ME
 : end
 
 : if you.xl() > 20 then
-ai += (?<!the) \+0 (great mace|battleaxe|executioner's axe|scythe|glaive|bardiche|buckler|pair of boots|cloak|pair of gloves|acid dragon scales|swamp dragon scales) (?!("|of)):~~DROP_ME
+ai += (?<!the) \+0 (great mace|battleaxe|executioner's axe|scythe|glaive|bardiche|buckler|pair of boots|cloak|pair of gloves|acid dragon scales|swamp dragon scales) (?!"|of):~~DROP_ME
 : end
 
 : if you.xl() > 22 then
-ai += (?<!the) \+0 (kite shield|fire dragon scales|ice dragon scales) (?!("|of)):~~DROP_ME
+ai += (?<!the) \+0 (kite shield|fire dragon scales|ice dragon scales) (?!"|of):~~DROP_ME
 ai += of identify:~~DROP_ME
 : end
 
 : if you.xl() > 24 then
-ai += (?<!the) \+0 (morningstar|broad axe|partisan|tower shield) (?!("|of)):~~DROP_ME
+ai += (?<!the) \+0 (morningstar|broad axe|partisan|tower shield) (?!"|of):~~DROP_ME
 : end
 
 ##################
@@ -1935,7 +1935,7 @@ flash += The forest starts to sway and rumble
 flash += Your?.*suddenly stops? moving
 
 # Crowd control
-more += You.*(?<!( too|less)) confused
+more += You.*(?<! too|less) confused
 more += You .*(slow.*down|lose consciousness)
 more += infuriates you
 more += hits you .* distortion
