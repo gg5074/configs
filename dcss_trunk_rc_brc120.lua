@@ -522,9 +522,6 @@ sound_fade_time = 2.6
 sound_pack += https://osp.nemelex.cards/build/latest.zip:["init.txt"]
 sound_pack += https://sound-packs.nemelex.cards/Autofire/BindTheEarth/BindTheEarth.zip
 
-# github.com/gg5074/configs
-# Mini Map Colors, Display, Interface, Messages, Morgue, Autopickup, Item Slots, Macros, Keybindings
-
 #######################
 ### Mini Map Colors ###
 #######################
@@ -588,9 +585,9 @@ msc := message_colour
 msc ^= lightgrey:( miss | misses |no damage|fail to reach past|returns to the grave|disappears in a puff of smoke|putting on your|removing your)
 msc ^= yellow:(You feel a bit more experienced|Something appears at your feet)
 
-# : if you.race() ~= "Minotaur" then
-# msc ^= lightgrey:helmet
-# : end
+: if you.race() == "Minotaur" then
+msc ^= lightgrey:helmet
+: end
 
 msc += mute:Search for what.*(~D|in_shop)
 msc += mute:There is an open door here
@@ -668,6 +665,14 @@ explore_stop += stairs,shops,altars,portals,branches,runed_doors,glowing_items,a
 combo += MiFi . trident
 # combo += DECj
 
+force_spell_targeter += Silence
+
+: if you.res_shock() <= 0 then
+confirm_action += Conjure Ball Lightning, Chain Lightning
+: end
+
+confirm_action += Potion Petition, Call Merchant, Blink, Silence, Maxwell's Capacitive Coupling, Sublimation of Blood, Borgnjor's Revivification, Death's Door
+
 ############
 # Messages #
 ############
@@ -690,8 +695,121 @@ ignore += safely over a trap
 
 interrupt_travel -= sense_monster
 
-# crawl.chaosforge.org/Portal
+stop ^= Your.*disappears in a puff of smoke,Your spellspark servitor fades away,Your battlesphere wavers and loses cohesion
+
+stop += You see here the
+more += You see here.*(of experience|of acquirement)
+stop += - (a|[2-6]) scrolls? of brand weapon
+stop += - (a|[2-7]) scrolls? of enchant weapon
+stop += - (a|[2-8]) scrolls? of revelation
+stop += - [2-9] scrolls labelled
+stop += - [7-9] potions of mutation
+stop += - [2-9] scrolls labelled
+stop += - [2-9] .* potions
+
+: if you.xl() <= 14 then
+stop += You see here.*(ring of|the ring|amulet)
+: end
+
+: if you.xl() <= 16 then
+stop += You see here.*(scrolls? of identify|\+6 ring of)
+: end
+
+: if you.xl() >= 12 then
+stop += scroll labelled, - (a|[2-6]) .* potion
+: end
+
+: if you.xl() >= 18 then
+stop += You see here.*scrolls? of enchant armour
+: end
+
+# github.com/crawl/crawl/blob/master/crawl-ref/source/god-abil.cc
+more += You have reached level
+more += You (can|may) now (?!(stomp|pass|merge))
+more += protects you from harm
+stop += You feel like a meek peon again
+more += Trog grants you a weapon
+more += You feel your soul grow
+more += Makhleb will allow you to brand your body
+more += dares provoke your wrath
+more += Your infernal gateway subsides
+more += You are dragged down into the Crucible of Flesh
+more += Ru believes you are ready to make a new sacrifice
+flash += You offer up the Black Torch's flame
+more += Your bound.*is destroyed!
+more += The heavenly storm settles
+flash += You may now remember your ancestor's life
+more += You now drain nearby creatures when transferring your ancestor
+
+: if you.god() == "Hepliaklqana" then
+more += (?-i:[A-Z])(?!xecutioner|rb guardian).*is destroyed!
+: end
+
+more += Beogh will now send orc apostles to challenge you
+flash += Beogh will now send orc apostles to challenge you
+more += the orc apostle comes into view
+more += encounter.*the orc apostle
+more += falls to his knees and submits
+
+: if you.god() == "Beogh" then
+more += (?-i:[A-Z])(?!xecutioner|rb guardian).*(dies!|is blown up!)
+: end
+
+more += has fought their way back out of the Abyss!
+more += Your prayer is nearing its end
+stop += Your prayer is nearing its end
+more += You reach the end of your prayer and your brethren are recalled
+stop += You reach the end of your prayer and your brethren are recalled
+stop += You now have enough gold to
+more += Your bribe of.*has been exhausted
+more += Ashenzari invites you to partake
+more += you knowledge of
+more += Vehumet is now
+more += You hear a faint sloshing
+more += seems mollified
+more += You rejoin the land of the living
+
+# crawl.chaosforge.org/Chaos_Knight_of_Xom_Guide#Xom_rc_file
+more += .* erupts in a glittering mayhem of colour
+more += .* evaporates and reforms as
+more += "Time to have some fun!"
+more += "Fight to survive, mortal."
+more += "Let's see if it's strong enough to survive yet."
+more += You hear Xom's maniacal laughter.
+more += Xom feels like there should be more of you to share with the Dungeon.
+more += Xom gently smashes a mirror over your
+more += Xom displaces most of your magic for a moment.
+more += Xom reveals to you one of the great and terrible secrets of magic.
+more += Xom curiously channels energy out of your body.
+more += Xom picks up your mind and accidentally drops it.
+more += Xom gives you a terrible headache.
+more += "You don't need this, do you?"
+more += Your magic slithers out of your reeling mind!
+more += Your power and thoughts are overwhelmed by magic-eaters manifest!
+more += Your magic wrenches itself out of your
+more += Your magic flows out through your
+more += Your magic rips itself out through your
+more += "Heh heh heh..."
+more += Xom's power touches on your mind for a moment.
+more += Xom titters.
+more += "Stumble well, my pet!"
+more += Xom's power touches upon your body and mind for a moment.
+more += Xom decides to rearrange the pieces.
+more += "First here, now there."
+more += "This might be better!"
+more += "This is how I like it!"
+more += "The weather's been a little too boring around here."
+more += Xom asks Qazlal to spice things up a little.
+more += mostly cloudy.
+more += (The|Your).*falls away!
+
+####################
+# Dungeon Features #
+####################
+# github.com/crawl/crawl/blob/master/crawl-ref/source/dat/descript/features.txt
+
 # github.com/crawl/crawl/tree/master/crawl-ref/source/dat/des/portals
+# crawl.chaosforge.org/Portal
 # very nearby: 7–13, nearby: 14–20, distant: 21–27, very distant: 28+
 flash += timed_portal:
 stop += timed_portal:
@@ -707,7 +825,36 @@ flash += Hurry and find it
 more += The walls and floor vibrate strangely for a moment
 flash += The walls and floor vibrate strangely for a moment
 
-# Expiring effects
+more += Found a faded altar of an unknown god
+more += Found a staircase to the Ecumenical Temple
+
+: if you.xl() <= 10 then
+flash += Found.*(Ashenzari|Beogh|Cheibriados|Fedhas|Gozag|Hepliaklqana|Ignis|Jiyva|Makhleb|Nemelex|Okawaru|Qazlal|Ru|Trog|Uskayaw|Wu Jian|Yredelemnul)
+: end
+
+: if you.xl() <= 12 and you.race() ~= "Mummy" and you.race() ~= "Demonspawn" and you.race() ~= "Revenant" and you.race() ~= "Poltergeist" and you.transform() ~= "death" and you.transform() ~= "vampire" then
+flash += Found.*(Elyvilon|The Shining One|Zin)
+: end
+
+: if you.xl() <= 12 and not (you.race() == "Minotaur" or you.race() == "Troll") then
+flash += Found.*(Vehumet|Sif Muna)
+: end
+
+: if you.xl() > 18 and you.race() ~= "Mummy" and you.race() ~= "Demonspawn" and you.race() ~= "Revenant" and you.race() ~= "Poltergeist" and you.transform() ~= "death" and you.transform() ~= "vampire" then
+flash += Found.*(The Shining One|Zin)
+: end
+
+stop += There is a portal to a secret trove of treasure here
+stop += Found a runed translucent door
+flash += There is a (staircase to the (?!(Ecumenical))|gate to|hole to|gate leading to|gateway (?!(back|out)))
+more += Found a gateway leading.*Abyss
+more += and a gateway leading out appears
+more += The mighty Pandemonium lord.*resides here
+more += The tension of great conflict fills the air
+
+####################
+# Expiring Effects #
+####################
 stop += You feel a little less mighty now
 more += Your transformation is almost over
 more += back to life
@@ -730,52 +877,9 @@ more += Your reaping aura expires
 more += You finish channelling your searing ray
 more += Your rain of reagents ends
 
-# Interrupts
-more += You don't.*that spell
-more += You fail to use your ability
-more += You miscast.*(Blink|Borgnjor|Door|Invisibility)
-flash += You miscast
-more += You can't (read|drink|do)
-more += You cannot.*while unable to breathe
-more += You cannot.*in your current state
-more += when.*silenced
-more += too confused
-# more += There's something in the way
-# more += There's nothing to (close|open) nearby
-more += not good enough to have a special ability
-more += You are too berserk
-more += no means to grasp
-more += That item cannot be evoked
-more += You are held in a net
-more += You don't have any such object
-more += You can't unwield
-more += enough magic points
-more += You don't have the energy to cast that spell
-more += You are unable to access your magic
-more += You assume a fearsome visage
-flash += is a mimic
-more += (?<!(into|through)) a shaft
-more += You blink
-more += (?<!raiju) bursts into living lightning
-more += blinks into view
-more += (?!(draconian|shifter|annihilator) blinks!
-flash += (draconian|shifter|annihilator) blinks!
-more += is devoured by a tear in reality
-# flash += You can drop.*~~DROP_ME
-more += You feel a genetic drift
-
-: if you.xl() <= 14 then
-more += You feel a bit more experienced
-: end
-
-confirm_action += Potion Petition, Call Merchant, Blink, Silence, Maxwell's Capacitive Coupling, Sublimation of Blood, Borgnjor's Revivification, Death's Door
-force_spell_targeter += Silence
-
-: if you.res_shock() <= 0 then
-confirm_action += Conjure Ball Lightning, Chain Lightning
-: end
-
-# Bad things
+#############################
+# Bad and Unexpected Things #
+#############################
 # github.com/crawl/crawl/blob/master/crawl-ref/source/mutation-data.h
 # github.com/crawl/crawl/blob/master/crawl-ref/source/dat/database/monspell.txt
 # github.com/crawl/crawl/blob/master/crawl-ref/source/beam.cc
@@ -914,99 +1018,42 @@ more += seems to grow stronger
 
 # more += suddenly seems more resistant
 
-# crawl.chaosforge.org/Chaos_Knight_of_Xom_Guide#Xom_rc_file
-more += .* erupts in a glittering mayhem of colour
-more += .* evaporates and reforms as
-more += "Time to have some fun!"
-more += "Fight to survive, mortal."
-more += "Let's see if it's strong enough to survive yet."
-more += You hear Xom's maniacal laughter.
-more += Xom feels like there should be more of you to share with the Dungeon.
-more += Xom gently smashes a mirror over your
-more += Xom displaces most of your magic for a moment.
-more += Xom reveals to you one of the great and terrible secrets of magic.
-more += Xom curiously channels energy out of your body.
-more += Xom picks up your mind and accidentally drops it.
-more += Xom gives you a terrible headache.
-more += "You don't need this, do you?"
-more += Your magic slithers out of your reeling mind!
-more += Your power and thoughts are overwhelmed by magic-eaters manifest!
-more += Your magic wrenches itself out of your
-more += Your magic flows out through your
-more += Your magic rips itself out through your
-more += "Heh heh heh..."
-more += Xom's power touches on your mind for a moment.
-more += Xom titters.
-more += "Stumble well, my pet!"
-more += Xom's power touches upon your body and mind for a moment.
-more += Xom decides to rearrange the pieces.
-more += "First here, now there."
-more += "This might be better!"
-more += "This is how I like it!"
-more += "The weather's been a little too boring around here."
-more += Xom asks Qazlal to spice things up a little.
-more += mostly cloudy.
-more += (The|Your).*falls away!
+# Interrupts
+more += You don't.*that spell
+more += You fail to use your ability
+more += You miscast.*(Blink|Borgnjor|Door|Invisibility)
+flash += You miscast
+more += You can't (read|drink|do)
+more += You cannot.*while unable to breathe
+more += You cannot.*in your current state
+more += when.*silenced
+more += too confused
+# more += There's something in the way
+# more += There's nothing to (close|open) nearby
+more += not good enough to have a special ability
+more += You are too berserk
+more += no means to grasp
+more += That item cannot be evoked
+more += You are held in a net
+more += You don't have any such object
+more += You can't unwield
+more += enough magic points
+more += You don't have the energy to cast that spell
+more += You are unable to access your magic
+more += You assume a fearsome visage
+flash += is a mimic
+more += (?<!(into|through)) a shaft
+more += You blink
+more += (?<!raiju) bursts into living lightning
+more += blinks into view
+more += (?!(draconian|shifter|annihilator) blinks!
+flash += (draconian|shifter|annihilator) blinks!
+more += is devoured by a tear in reality
+more += You feel a genetic drift
+# flash += You can drop.*~~DROP_ME
 
-# Others
-# github.com/crawl/crawl/blob/master/crawl-ref/source/god-abil.cc
-# github.com/crawl/crawl/blob/master/crawl-ref/source/dat/descript/features.txt
-more += Found a faded altar of an unknown god
-more += Found a staircase to the Ecumenical Temple
-stop += There is a portal to a secret trove of treasure here
-stop += Found a runed translucent door
-flash += There is a (staircase to the (?!(Ecumenical))|gate to|hole to|gate leading to|gateway (?!(back|out)))
-more += Found a gateway leading.*Abyss
-more += and a gateway leading out appears
-more += The mighty Pandemonium lord.*resides here
-more += The tension of great conflict fills the air
-more += You have reached level
-more += You (can|may) now (?!(stomp|pass|merge))
-more += protects you from harm
-stop += You feel like a meek peon again
-more += Trog grants you a weapon
-more += You feel your soul grow
-more += Makhleb will allow you to brand your body
-more += dares provoke your wrath
-more += Your infernal gateway subsides
-more += You are dragged down into the Crucible of Flesh
-more += Ru believes you are ready to make a new sacrifice
-flash += You offer up the Black Torch's flame
-more += Your bound.*is destroyed!
-more += The heavenly storm settles
-flash += You may now remember your ancestor's life
-more += You now drain nearby creatures when transferring your ancestor
-
-: if you.god() == "Hepliaklqana" then
-more += (?-i:[A-Z])(?!xecutioner|rb guardian).*is destroyed!
-: end
-
-more += Beogh will now send orc apostles to challenge you
-flash += Beogh will now send orc apostles to challenge you
-more += the orc apostle comes into view
-more += encounter.*the orc apostle
-more += falls to his knees and submits
-
-: if you.god() == "Beogh" then
-more += (?-i:[A-Z])(?!xecutioner|rb guardian).*(dies!|is blown up!)
-: end
-
-more += has fought their way back out of the Abyss!
-more += Your prayer is nearing its end
-stop += Your prayer is nearing its end
-more += You reach the end of your prayer and your brethren are recalled
-stop += You reach the end of your prayer and your brethren are recalled
-stop += You now have enough gold to
-more += Your bribe of.*has been exhausted
-more += Ashenzari invites you to partake
-more += you knowledge of
-more += Vehumet is now
-more += You hear a faint sloshing
-more += seems mollified
-more += You rejoin the land of the living
-
-: if you.xl() >= 27 and you.class() ~= "Conjurer" then
-more += You add the spells?.*(Vhi's Electric|Manifold Assault|Fugue of the|Animate Dead|Death Channel|Awaken Armour)
+: if you.xl() <= 14 then
+more += You feel a bit more experienced
 : end
 
 # Contam: 5000:Yellow, 15000:LightRed
@@ -1016,9 +1063,13 @@ more += You add the spells?.*(Summon Small Mammal|Call Imp|Call Canine Familiar|
 # reddit.com/r/dcss/comments/1m4xpsr/a_compendium_of_strange_and_unusual_techniques/
 more += You add the spells?.*(Apportation|Blink|Lesser Beckoning|Maxwell's Portable Piledriver|Teleport Other|Passage of Golubria)
 
-stop ^= Your.*disappears in a puff of smoke,Your spellspark servitor fades away,Your battlesphere wavers and loses cohesion
+: if you.xl() >= 27 and you.class() ~= "Conjurer" then
+more += You add the spells?.*(Vhi's Electric|Manifold Assault|Fugue of the|Animate Dead|Death Channel|Awaken Armour)
+: end
 
-# Skills
+##########
+# Skills #
+##########
 : if you.race() ~= "Gnoll" then
 stop += skill increases to level (9|18|26)
 more += Your Fighting skill increases to level (18|26)
@@ -1041,48 +1092,9 @@ flash += You have finished (your manual|forgetting about)
 more += You pick up a manual of
 flash += You pick up a manual of
 
-stop += You see here the
-more += You see here.*(of experience|of acquirement)
-stop += - (a|[2-6]) scrolls? of brand weapon
-stop += - (a|[2-7]) scrolls? of enchant weapon
-stop += - (a|[2-8]) scrolls? of revelation
-stop += - [2-9] scrolls labelled
-stop += - [7-9] potions of mutation
-stop += - [2-9] scrolls labelled
-stop += - [2-9] .* potions
-
-: if you.xl() >= 18 then
-stop += You see here.*scrolls? of enchant armour
-: end
-
-: if you.xl() >= 12 then
-stop += scroll labelled, - (a|[2-6]) .* potion
-: end
-
-: if you.xl() <= 16 then
-stop += You see here.*(scrolls? of identify|\+6 ring of)
-: end
-
-: if you.xl() <= 14 then
-stop += You see here.*(ring of|the ring|amulet)
-: end
-
-: if you.xl() <= 12 and you.race() ~= "Mummy" and you.race() ~= "Demonspawn" and you.race() ~= "Revenant" and you.race() ~= "Poltergeist" and you.transform() ~= "death" and you.transform() ~= "vampire" then
-flash += Found.*(Elyvilon|The Shining One|Zin)
-: end
-
-: if you.xl() <= 12 and not (you.race() == "Minotaur" or you.race() == "Troll") then
-flash += Found.*(Vehumet|Sif Muna)
-: end
-
-: if you.xl() <= 10 then
-flash += Found.*(Ashenzari|Beogh|Cheibriados|Fedhas|Gozag|Hepliaklqana|Ignis|Jiyva|Makhleb|Nemelex|Okawaru|Qazlal|Ru|Trog|Uskayaw|Wu Jian|Yredelemnul)
-: end
-
-: if you.xl() > 18 and you.race() ~= "Mummy" and you.race() ~= "Demonspawn" and you.race() ~= "Revenant" and you.race() ~= "Poltergeist" and you.transform() ~= "death" and you.transform() ~= "vampire" then
-flash += Found.*(The Shining One|Zin)
-: end
-
+############
+# Monsters #
+############
 # Uniques and baddies
 # github.com/crawl/crawl/blob/master/crawl-ref/source/mon-gear.cc
 unusual_monster_items += ( the |distortion|chaos|silver)
@@ -1136,11 +1148,6 @@ flash += encounter.* and (?!orb guardian|executioner)(?-i:[A-Z])
 
 more += encounter.*(lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy))
 flash += encounter.*(lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orbs? of (fire|winter|entropy))
-
-# go-up-macro
-stop += encounter (?!orb guardian|executioner)(?-i:[A-Z])
-stop += encounter.* and (?!orb guardian|executioner)(?-i:[A-Z])
-stop += encounter.*(lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orbs? of (fire|winter|entropy))
 
 # Paralysis: 5+ 33% 1T, 7+ 50% 2T
 flash += starcursed mass
@@ -1373,9 +1380,9 @@ ae += (datura|atropa)-tipped dart
 ae += of identify, poisoned dart, amulet of (acrobat|faith|guardian spirit|reflection|alchemy|dissipation|wildshape), ring of (evasion|strength|intelligence|dexterity|slaying|wizardry|magical power)
 : end
 
-##################
-### Item Slots ###
-##################
+################
+# Inscriptions #
+################
 # crawl.chaosforge.org/Inscriptions
 ai := autoinscribe
 
@@ -1519,6 +1526,9 @@ ai += of identify:~~DROP_ME
 ai += (?<!the) \+0 (morningstar|broad axe|partisan|tower shield) (?!("|of)):~~DROP_ME
 : end
 
+##################
+### Item Slots ###
+##################
 gear_slot ^= (war axe|broad axe|whip|mace|flail|ningstar|scourge|spear|trident|trishula|partisan|halberd|glaive|bardiche) : abW
 gear_slot ^= (ring of protection (?!from)|the ring .* AC\+) : ptcmPTCM
 gear_slot ^= (ring of evasion|the ring .* EV\+) : evdgEVDG
