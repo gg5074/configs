@@ -586,7 +586,7 @@ menu := menu_colour
 
 msc := message_colour
 msc ^= lightgrey:( miss | misses |no damage|fail to reach past|returns to the grave|disappears in a puff of smoke|putting on your|removing your)
-msc ^= yellow:(You feel a bit more experienced)
+msc ^= yellow:(You feel a bit more experienced|Something appears at your feet)
 
 # : if you.race() ~= "Minotaur" then
 # msc ^= lightgrey:helmet
@@ -1086,7 +1086,7 @@ flash += Found.*(The Shining One|Zin)
 # Uniques and baddies
 # github.com/crawl/crawl/blob/master/crawl-ref/source/mon-gear.cc
 unusual_monster_items += ( the |distortion|chaos|silver)
-more += encounter.*(undying armour(y|ies)|antique champion|torpor snail|nekomata|oblivion hound|protean progenitor|acid blob|entropy weaver|ghost moth|death knight|apocalypse crab|eyes? of devastation)(?! (zombie|draugr|simulacr))
+more += encounter.*(undying armour(y|ies)|wendigo|antique champion|torpor snail|nekomata|oblivion hound|protean progenitor|acid blob|entropy weaver|ghost moth|death knight|apocalypse crab|eyes? of devastation)(?! (zombie|draugr|simulacr))
 more += The undying armouty arms its allies with
 
 more += Xak'krixis conjures a prism
@@ -1137,6 +1137,11 @@ flash += encounter.* and (?!orb guardian|executioner)(?-i:[A-Z])
 more += encounter.*(lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy))
 flash += encounter.*(lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orbs? of (fire|winter|entropy))
 
+# go-up-macro
+stop += encounter (?!orb guardian|executioner)(?-i:[A-Z])
+stop += encounter.* and (?!orb guardian|executioner)(?-i:[A-Z])
+stop += encounter.*(lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orbs? of (fire|winter|entropy))
+
 # Paralysis: 5+ 33% 1T, 7+ 50% 2T
 flash += starcursed mass
 
@@ -1144,9 +1149,12 @@ more += the reach of Zot diminish
 more += The shining eye gazes at you
 flash += encounter.*(death scarab)
 
+# Slime
+more += encounter.*(morphogenic ooze|slymdra|colossal amoeba|creeping plasmodium|star jell(y|ies)|eyes? of draining)
+
 # Damnation/Flay
-more += encounter.*(deep elf (sorcerer|high priest)|(brimstone|ice) fiend)
-flash += encounter.*(deep elf (sorcerer|high priest)|(brimstone|ice) fiend)
+more += encounter.*(deep elf (sorcerer|high priest)|(brimstone|ice) fiend)(?! (zombie|draugr|simulacr))
+flash += encounter.*(deep elf (sorcerer|high priest)|(brimstone|ice) fiend)(?! (zombie|draugr|simulacr))
 more += encounter.*(hell sentinel|hellion|draconian scorcher|flayed ghost)
 flash += encounter.*(hell sentinel|hellion|draconian scorcher|flayed ghost)
 
@@ -1181,7 +1189,7 @@ more += encounter.*(kobold geomancer|deep elf elementalist|deep troll earth mage
 # orange demon, snapping turtle, alligator snapping turtle, crawling flesh cage, Cigotuvi's Monster, Geryon, Serpent of Hell (Dis)
 
 : if you.xl() <= 26 then
-more += encounter.*(oni incarcerator|demonspawn warmonger|draconian stormcaller|(ancient|dread) lich)
+more += encounter.*(chonchon|oni incarcerator|demonspawn warmonger|draconian stormcaller|(ancient|dread) lich)
 : end
 
 : if you.xl() <= 24 then
@@ -1204,6 +1212,7 @@ more += encounter.*(kobold fleshcrafter|phantasmal warrior|iron giant)(?! (zombi
 more += encounter.*(ragged hierophant|halazid warlock|glowing orange brain|moths? of wrath)(?! (zombie|draugr|simulacr))
 flash += encounter.*(halazid warlock)(?! (zombie|draugr|simulacr))
 more += encounter.*(player|('s|s')) ghost
+stop += encounter.*(player|('s|s')) ghost
 more += guardian serpent weaves intricate patterns
 more += ironbound convoker begins to recite a word of recall
 more += kobold fleshcrafter chants and writhes
@@ -1233,14 +1242,14 @@ flash += The boggart gestures wildly while chanting
 : if you.xl() <= 18 then
 unusual_monster_items += of (paralysis|roots|light)
 unusual_monster_items += of (draining|vampiric|spectral|heavy|\+[5-9])
-more += encounter.*(water nymph|azure jell|anaconda|shambling mangrove|thorn hunter|bloated husk|ghost crab|ironbound thunderhulk)(?! (zombie|draugr|simulacr))
+more += encounter.*(water nymph|azure jell|anaconda|shambling mangrove|thorn hunter|bloated husk|ghost crab|ironbound thunderhulk|polterguardian)(?! (zombie|draugr|simulacr))
 flash += The water rises up and strikes you
 more += Thorny briars emerge from the ground
 : end
 
 : if you.xl() <= 16 then
 unusual_monster_items += of (electrocution|flaming|freezing|pain)
-more += encounter.*(raven|water elemental|(fire|ice) dragon|centaur warrior|yaktaur|cyclope?s|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionomae?)(?! (zombie|draugr|simulacr))
+more += encounter.*(raven|smoke demon|water elemental|(fire|ice) dragon|centaur warrior|yaktaur|cyclope?s|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionomae?)(?! (zombie|draugr|simulacr))
 more += The.*headed hydra grows
 flash += The.*headed hydra grows
 
@@ -1251,7 +1260,7 @@ flash += encounter.*(raiju|(cyan|brown) ugly thing|radroach|meliai)(?! (zombie|d
 : if you.xl() <= 13 then
 unusual_monster_items += of (venom|charming|polymorph)
 unusual_monster_items += triple sword,executioner's axe,halberd,glaive,bardiche,arbalest,hand cannon,triple crossbow
-more += encounter.*(?<!spectral) (manticore|two-headed ogre|kobold geomancer|tengu|lindwurm|smoke demon|(ice|rust) devil|(fire|earth) elemental|lava snake|efreet|boulder beetle|hornet|black mamba|cane toad|komodo dragon)(?! (zombie|draugr|simulacr))
+more += encounter.*(?<!spectral) (manticore|two-headed ogre|kobold geomancer|tengu|lindwurm|(ice|rust) devil|(fire|earth) elemental|lava snake|efreet|boulder beetle|hornet|black mamba|cane toad|komodo dragon)(?! (zombie|draugr|simulacr))
 flash += encounter.*(skeletal warrior|death yak|elephant)(?! (zombie|draugr|simulacr))
 : end
 
@@ -1459,6 +1468,7 @@ ai += pearl dragon scales (?!"|of):rN+
 ai += quicksilver dragon scales (?!"|of):Will+
 ai += shadow dragon scales (?!"|of):Stlth+
 ai += (?<!moon) troll leather (?!"|of):Regen+
+ai +=  \+Inv :17% 12% 4% Evo 3 5 9
 
 ai += ring of flight:+Fly
 ai += ring of protection from fire:rF+
