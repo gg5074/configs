@@ -909,8 +909,8 @@ flash += LOW MAGIC WARNING
 
 more += You don't have enough magic to cast this spell
 more += You fail to use your ability
-more += You stop ascending the stairs
-flash += You stop ascending the stairs
+more += You stop (a|de)scending the stairs
+flash += You stop (a|de)scending the stairs
 more += surroundings become eerily quiet
 flash += surroundings become eerily quiet
 flash += You hear a loud "Zot"
@@ -989,7 +989,6 @@ more += You are engulfed in seething chaos
 flash += You are engulfed in seething chaos
 more += You turn into a filthy swine
 flash += You turn into a filthy swine
-more += Strange energies course through your body
 more += You feel strangely unstable
 more += (?<!Your (shadowghast|vampire)) flickers and vanishes
 flash += (?<!Your).*flickers and vanishes
@@ -1913,8 +1912,6 @@ more -= You finish merging with the rock
 
 # Significant spells/effects ending
 flash += You feel stable
-more += is no longer charmed
-more += You.*re starting to lose your buoyancy
 # Death's Door
 more += time is.*running out
 more += life is in your own
@@ -1923,7 +1920,6 @@ more += unholy channel is weakening
 
 # Monsters doing things
 more += monster_warning:wielding.*of distortion
-more += begins to recite a word of recall
 more += There is.*feeling in your soul
 more += wretched star pulses
 more += Strange energies course through your body
@@ -1940,15 +1936,9 @@ flash += Your?.*suddenly stops? moving
 more += You.*(?<! too|less) confused
 more += You .*(slow.*down|lose consciousness)
 more += infuriates you
-# more += hits you .* distortion
-# more += Space .* around you
-more += surroundings become eerily quiet
-more += Your limbs are stiffening
 
 flash += You .* (blown|knocked back|mesmerised|trampled|stumble backwards|encased)
 flash += Your magical (effects|defenses) are (unraveling|stripped away)
-flash += You stop (a|de)scending the stairs
-flash += A sentinel's mark forms upon you
 flash += The pull of.*song draws you forward
 flash += engulfs you in water
 
@@ -1968,7 +1958,6 @@ flash += power of Zot
 flash += You pick up the .* (gem|rune) and feel its 
 more += Found.*the Ecumenical Temple
 more += Found.*(treasure|bazaar|ziggurat)
-more += .*resides here
 more += You have a vision of.*gates?
 more += Press the corresponding letter to learn more about a god
 flash += timed_portal:.*
@@ -1982,7 +1971,6 @@ flash += danger:You feel strangely .*stable
 flash += delaying your translocation
 
 # Big damage
-more += your body is wracked
 more += The poison in your body grows stronger
 more += You.*re lethally poisoned
 more += danger:You convulse
