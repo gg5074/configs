@@ -1046,8 +1046,8 @@ more += (?<!into|through) a shaft
 more += You blink
 more += (?<!raiju) bursts into living lightning
 more += blinks into view
-more += (?!draconian|shifter|annihilator) blinks!
-flash += (draconian|shifter|annihilator) blinks!
+more += (?<!Your|draconian).*blinks!
+flash += (?<!Your )draconian.*blinks!
 more += is devoured by a tear in reality
 more += You feel a genetic drift
 # flash += You can drop.*~~DROP_ME
@@ -1108,7 +1108,7 @@ more += BOSS
 flash += BOSS
 flash += changes into,Something shouts
 stop += encounter Crazy Yiuf
-monster_alert += pandemonium lord, nasty
+monster_alert += pandemonium lord
 
 # Cloud of Thunder: 60 Damage
 more += Bai Suzhen roars in fury and transforms into a fierce dragon
