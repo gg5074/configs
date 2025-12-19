@@ -73,9 +73,9 @@ brc_config_explicit = {
       devious = { factor = 1.1, offset = 0 },
       valour = { factor = 1.1, offset = 0 },
       rebuke = { factor = 1.05, offset = 0 },
-      concussion = { factor = 1.1, offset = 0 },
-      sundering = { factor = 1.2, offset = 0 },
-      entangling = { factor = 1.1, offset = 1.5 },
+      concuss = { factor = 1.1, offset = 0 },
+      sunder = { factor = 1.2, offset = 0 },
+      entangle = { factor = 1.1, offset = 1.5 },
       slay = { factor = 1.15, offset = 0 },
     },
   },
@@ -355,8 +355,8 @@ brc_config_explicit = {
       one_time = {
         "of gloves", "of gloves of", "of boots", "of boots of", "cloak", "cloak of", "scarf of", " hat ", " hat of",
         "ring of", "amulet of", "6 ring of strength", "6 ring of dexterity", "dragonskin cloak", "moon troll leather armour", "Cigotuvi's embrace",
-        "entangling", "spear of", "trident of", "partisan", "partisan of", "demon trident", "demon trident of", "trishula", "glaive", "bardiche",
-        "sundering", "broad axe", "morningstar", "eveningstar", "demon whip", "sacred scourge", "demon blade",
+        "spear of", "trident of", "partisan", "partisan of", "demon trident", "demon trident of", "trishula", "glaive", "bardiche",
+        "broad axe", "morningstar", "eveningstar", "demon whip", "sacred scourge", "demon blade",
         "buckler", "buckler of", "kite shield", "kite shield of", "tower shield", "tower shield of", "wand of digging", "medusa talisman",
         "ring mail of", "scale mail of", "chain mail", "chain mail of", "plate armour", "plate armour of",
         "crystal plate armour", "golden dragon scales", "storm dragon scales", "swamp dragon scales",
@@ -1212,6 +1212,7 @@ flash += encounter.*(imperial myrmidons|necromancer)(?! (zombie|draugr|simulacr)
 : end
 
 : if you.xl() <= 22 then
+unusual_monster_items += (devious|valour|concussion|sundering|rebuke)
 more += encounter.*(glass eye|death drake|war gargoyle|crystal guardian)
 more += encounter.*(deep elf master archer|vault (warden|sentinel)|merfolk (avatar|siren))(?! (zombie|draugr|simulacr))
 more += encounter.*(executioner|guardian serpent|draconian shifter|ironbound (convoker|preserver)|deep troll shaman|death cob)(?! (zombie|draugr|simulacr))
@@ -1234,8 +1235,6 @@ unusual_monster_items += vulnerable:acid:26
 unusual_monster_items += vulnerable:(draining|vampiric):20
 unusual_monster_items += vulnerable:(electrocution|flaming|freezing|pain):18
 unusual_monster_items += vulnerable:(venom):16
-
-unusual_monster_items += (devious|valour|concussion|sundering|rebuke)
 
 : if you.xl() <= 20 then
 more += encounter.*(boggart|bunyips|deep elf elementalist|balrug|stone giant|ironbound beastmaster)(?! (zombie|draugr|simulacr))
@@ -3799,9 +3798,9 @@ BRC.Configs.Default.BrandBonus = {
       devious = { factor = 1.1, offset = 0 },
       valour = { factor = 1.1, offset = 0 },
       rebuke = { factor = 1.05, offset = 0 },
-      concussion = { factor = 1.1, offset = 0 },
-      sundering = { factor = 1.2, offset = 0 },
-      entangling = { factor = 1.1, offset = 1.5 },
+      concuss = { factor = 1.1, offset = 0 },
+      sunder = { factor = 1.2, offset = 0 },
+      entangle = { factor = 1.1, offset = 1.5 },
       slay = { factor = 1.15, offset = 0 },
   },
 } -- BRC.Configs.Default.BrandBonus (do not remove this comment)
