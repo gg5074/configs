@@ -581,13 +581,13 @@ menu := menu_colour
 # menu ^= lightgrey:potions? of (attraction|lignification|mutation)
 # menu ^= lightgrey:scrolls? of (poison|torment|immolation|vulnerability|noise)
 
+: if you.race() == "Minotaur" then
+menu ^= lightgrey:helmet
+: end
+
 msc := message_colour
 msc ^= lightgrey:( miss | misses |no damage|fail to reach past|returns to the grave|disappears in a puff of smoke|putting on your|removing your)
 msc ^= yellow:(You feel a bit more experienced|Something appears at your feet)
-
-: if you.race() == "Minotaur" then
-msc ^= lightgrey:helmet
-: end
 
 msc += mute:Search for what.*(~D|in_shop)
 msc += mute:There is an open door here
@@ -1046,7 +1046,6 @@ more += (?<!into|through) a shaft
 more += You blink
 more += (?<!raiju) bursts into living lightning
 more += blinks into view
-more += (?<!Your|draconian).*blinks!
 flash += (?<!Your )draconian.*blinks!
 more += is devoured by a tear in reality
 more += You feel a genetic drift
@@ -1108,7 +1107,7 @@ more += BOSS
 flash += BOSS
 flash += changes into,Something shouts
 stop += encounter Crazy Yiuf
-monster_alert += pandemonium lord
+monster_alert += pandemonium lord, nasty
 
 # Cloud of Thunder: 60 Damage
 more += Bai Suzhen roars in fury and transforms into a fierce dragon
@@ -1941,8 +1940,8 @@ flash += Your?.*suddenly stops? moving
 more += You.*(?<! too|less) confused
 more += You .*(slow.*down|lose consciousness)
 more += infuriates you
-more += hits you .* distortion
-more += Space .* around you
+# more += hits you .* distortion
+# more += Space .* around you
 more += surroundings become eerily quiet
 more += Your limbs are stiffening
 
