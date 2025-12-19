@@ -179,7 +179,7 @@ brc_config_explicit = {
   ["go-up-macro"] = {
     disabled = false,
     go_up_macro_key = 5, -- (Cntl-E) Key for "go up closest stairs" macro
-    ignore_mon_on_orb_run = true, -- Ignore monsters on orb run
+    ignore_mon_on_orb_run = false, -- Ignore monsters on orb run
     orb_ignore_hp_min = 0.80, -- HP percent to stop ignoring monsters
     orb_ignore_hp_max = 0.90, -- HP percent to ignore monsters at min distance away (2 tiles)
   },
@@ -358,7 +358,7 @@ brc_config_explicit = {
         "entangling", "spear of", "trident of", "partisan", "partisan of", "demon trident", "demon trident of", "trishula", "glaive", "bardiche",
         "sundering", "broad axe", "morningstar", "eveningstar", "demon whip", "sacred scourge", "demon blade",
         "buckler", "buckler of", "kite shield", "kite shield of", "tower shield", "tower shield of", "wand of digging", "medusa talisman",
-        "ring mail of", "scale mail of", "chain mail", "chain mail of", "plate armour","plate armour of",
+        "ring mail of", "scale mail of", "chain mail", "chain mail of", "plate armour", "plate armour of",
         "crystal plate armour", "golden dragon scales", "storm dragon scales", "swamp dragon scales",
         "quicksilver dragon scales", "pearl dragon scales", "shadow dragon scales"
       },
