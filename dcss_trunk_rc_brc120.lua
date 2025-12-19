@@ -1123,6 +1123,10 @@ flash += You hear a (sizzling sound|grinding noise)
 : end
 
 # Mara (S-B3-4 V2-5 Elf3 Depths)
+more += Suddenly you stand beside yourself
+flash += Suddenly you stand beside yourself
+more += sudden wrenching feeling in your soul
+flash += sudden wrenching feeling in your soul
 more += 's illusion shouts
 flash += 's illusion shouts
 
