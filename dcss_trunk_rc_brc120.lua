@@ -98,7 +98,7 @@ brc_config_explicit = {
     dmg_flash_threshold = 0.15, -- Flash screen when losing this % of max HP
     dmg_fm_threshold = 0.25, -- Force more for losing this % of max HP
     always_on_bottom = false, -- Rewrite HP/MP meters after each turn with messages
-    meter_length = 5, -- Number of pips in each meter
+    meter_length = 6, -- Number of pips in each meter
 
     Announce = {
       hp_loss_limit = 1, -- Announce when HP loss >= this
@@ -1159,7 +1159,7 @@ more += The shining eye gazes at you
 flash += encounter.*(death scarab)
 
 # Slime
-more += encounter.*(morphogenic ooze|slymdra|colossal amoeba|creeping plasmodium|star jell(y|ies)|eyes? of draining)
+more += encounter.*(morphogenic ooze|slymdra|colossal amoeba|creeping plasmodi(um|a)|star jell(y|ies)|eyes? of draining)
 
 # Damnation/Flay
 more += encounter.*(deep elf (sorcerer|high priest)|(brimstone|ice) fiend)(?! (zombie|draugr|simulacr))
