@@ -98,7 +98,7 @@ brc_config_explicit = {
     dmg_flash_threshold = 0.15, -- Flash screen when losing this % of max HP
     dmg_fm_threshold = 0.25, -- Force more for losing this % of max HP
     always_on_bottom = false, -- Rewrite HP/MP meters after each turn with messages
-    meter_length = 6, -- Number of pips in each meter
+    meter_length = 8, -- Number of pips in each meter
 
     Announce = {
       hp_loss_limit = 1, -- Announce when HP loss >= this
@@ -111,7 +111,7 @@ brc_config_explicit = {
       very_low_hp = 0.25, -- At this % of max HP, show all HP changes and mute % HP alerts
     },
 
-    HP_METER = BRC.Config.emojis and { FULL = "❤️", PART = "❤️‍🩹", EMPTY = "🤍" } or {
+    HP_METER = BRC.Config.emojis and { FULL = "❤️", PART = "🩹", EMPTY = "🤍" } or {
       BORDER = "<white>|</white>",
       FULL = "<lightgreen>+</lightgreen>",
       PART = "<lightgrey>+</lightgrey>",
@@ -1041,7 +1041,7 @@ more += You don't have the energy to cast that spell
 more += You are unable to access your magic
 more += You assume a fearsome visage
 flash += is a mimic
-more += (?<!into|through) a shaft
+stop += (?<!into|through) a shaft
 more += You blink
 more += (?<!raiju) bursts into living lightning
 more += blinks into view
@@ -1106,7 +1106,7 @@ more += BOSS
 flash += BOSS
 flash += changes into,Something shouts
 stop += encounter Crazy Yiuf
-monster_alert += pandemonium lord, nasty
+monster_alert += pandemonium lord
 
 # Cloud of Thunder: 60 Damage
 more += Bai Suzhen roars in fury and transforms into a fierce dragon
