@@ -71,8 +71,8 @@ brc_config_explicit = {
       reap = { factor = 1.3, offset = 0 },
       vamp = { factor = 1.2, offset = 0 },
       devious = { factor = 1.1, offset = 0 },
-      valour = { factor = 1.1, offset = 0 },
-      rebuke = { factor = 1.05, offset = 0 },
+      valour = { factor = 1.15, offset = 0 },
+      rebuke = { factor = 1.1, offset = 0 },
       concuss = { factor = 1.1, offset = 0 },
       sunder = { factor = 1.2, offset = 0 },
       entangle = { factor = 1.1, offset = 1.5 },
@@ -98,7 +98,7 @@ brc_config_explicit = {
     dmg_flash_threshold = 0.15, -- Flash screen when losing this % of max HP
     dmg_fm_threshold = 0.25, -- Force more for losing this % of max HP
     always_on_bottom = false, -- Rewrite HP/MP meters after each turn with messages
-    meter_length = 8, -- Number of pips in each meter
+    meter_length = 6, -- Number of pips in each meter
 
     Announce = {
       hp_loss_limit = 1, -- Announce when HP loss >= this
@@ -1195,7 +1195,7 @@ more += encounter.*(kobold geomancer|deep elf elementalist|deep troll earth mage
 : end
 
 # crawl.chaosforge.org/Reaching
-# orange demon, snapping turtle, alligator snapping turtle, crawling flesh cage, Cigotuvi's Monster, Geryon, Serpent of Hell (Dis)
+# orange demon, goliath frog, snapping turtle, alligator snapping turtle, crawling flesh cage, Cigotuvi's Monster, Geryon, Serpent of Hell (Dis)
 
 : if you.xl() <= 26 then
 more += encounter.*(chonchon|oni incarcerator|demonspawn warmonger|draconian stormcaller|(ancient|dread) lich)
@@ -3787,8 +3787,8 @@ BRC.Configs.Default.BrandBonus = {
       reap = { factor = 1.3, offset = 0 },
       vamp = { factor = 1.2, offset = 0 },
       devious = { factor = 1.1, offset = 0 },
-      valour = { factor = 1.1, offset = 0 },
-      rebuke = { factor = 1.05, offset = 0 },
+      valour = { factor = 1.15, offset = 0 },
+      rebuke = { factor = 1.1, offset = 0 },
       concuss = { factor = 1.1, offset = 0 },
       sunder = { factor = 1.2, offset = 0 },
       entangle = { factor = 1.1, offset = 1.5 },
