@@ -1663,9 +1663,8 @@ end
 macros += M \{NP.} ===smart_stairs
 
 # Tab:\{9}, Enter:\{13}, Esc:\{27}, Space:\{32}, Ctrl:*, Shift:/
-# github.com/crawl/crawl/blob/master/crawl-ref/source/dat/descript/features.txt
 
-# Ctrl-: List of Banes
+# List of Banes
 # macros += M \{} ?/n\{32}\{13}
 
 # Ctrl-L: Help, Monster 
