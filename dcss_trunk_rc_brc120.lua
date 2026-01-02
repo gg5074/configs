@@ -1408,7 +1408,7 @@ ai += scrolls? of identify:@r1, 26%Iden 13%Common 4.7%Uncom, 18.4%Curi 10%Common
 ai += scrolls? of teleportation:@r2, 3-5T, Zot8-14T
 ai += scrolls? of blinking:@r3, Unable-TeleTreeMesm
 ai += scrolls? of acquirement:200-1400Gold
-ai += scrolls? of enchant armour:@r4, GDR AC^(1/4)x16
+ai += scrolls? of enchant armour:@r4, GDR AC6Scale25% 10Plate28.5% 32+10PlateAux38%
 ai += scrolls? of enchant weapon:@r5, ToHit Dex/2+1d(FighS+1)+1d(WeaS+1)
 
 # Allow brand weapon scrolls (and randarts) to produce the new brands
