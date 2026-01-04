@@ -357,7 +357,7 @@ brc_config_explicit = {
         "ring of", "amulet of", "6 ring of strength", "6 ring of dexterity", "dragonskin cloak", "moon troll leather armour", "Cigotuvi's embrace",
         "spear of", "trident of", "partisan", "partisan of", "demon trident", "demon trident of", "trishula", "glaive", "bardiche",
         "broad axe", "morningstar", "eveningstar", "demon whip", "sacred scourge", "demon blade",
-        "buckler", "buckler of", "kite shield", "kite shield of", "tower shield", "tower shield of", "wand of digging", "medusa talisman",
+        "buckler", "buckler of", "kite shield", "kite shield of", "tower shield", "tower shield of", "wand of digging", "quill talisman", "medusa talisman",
         "ring mail of", "scale mail of", "chain mail", "chain mail of", "plate armour", "plate armour of",
         "crystal plate armour", "golden dragon scales", "storm dragon scales", "swamp dragon scales",
         "quicksilver dragon scales", "pearl dragon scales", "shadow dragon scales"
@@ -1198,7 +1198,7 @@ more += encounter.*(kobold geomancer|deep elf elementalist|deep troll earth mage
 # orange demon, goliath frog, snapping turtle, alligator snapping turtle, crawling flesh cage, Cigotuvi's Monster, Geryon, Serpent of Hell (Dis)
 
 : if you.xl() <= 26 then
-more += encounter.*(chonchon|oni incarcerator|demonspawn warmonger|draconian stormcaller|(ancient|dread) lich)
+more += encounter.*(chonchon|oni incarcerator|undertaker|demonspawn warmonger|draconian stormcaller|(ancient|dread) lich)
 : end
 
 : if you.xl() <= 24 then
