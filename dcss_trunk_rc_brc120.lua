@@ -601,10 +601,6 @@ msc += mute:Something.*the (plant|bush|fungus)
 msc += mute:(The|A nearby) (plant|bush|fungus).*die
 msc += mute:Your.*web
 msc += mute:The confined air twists around weakly and strikes your
-# github.com/crawl/crawl/commit/03cf731cd7f90669eb5f4fdd65f006c47cf609cc
-# github.com/crawl/crawl/issues/4946
-# github.com/crawl/crawl/commit/36afd6d5a999493cbec3e950c651cccdc021c22f
-# msc += mute:Maggie comes into view
 : end
 
 hp_colour = 100:green, 99:lightgray, 75:yellow, 50:lightred, 25:red
@@ -1797,10 +1793,13 @@ bindkey = [k] CMD_TARGET_EXCLUDE
 bindkey = [k] CMD_MAP_EXCLUDE_AREA
 bindkey = [\{13}] CMD_DISPLAY_INVENTORY
 bindkey = [NPenter] CMD_DISPLAY_INVENTORY
-bindkey = [\{NP+}] CMD_MAP_FIND_DOWNSTAIR
 bindkey = [\{NP-}] CMD_MAP_FIND_UPSTAIR
-bindkey = [\{NP*}] CMD_CYCLE_QUIVER_FORWARD
+bindkey = [\{NP+}] CMD_MAP_FIND_DOWNSTAIR
+bindkey = [\{NP/}] CMD_MAP_PREV_LEVEL
+bindkey = [\{NP*}] CMD_MAP_NEXT_LEVEL
 bindkey = [\{NP/}] CMD_CYCLE_QUIVER_BACKWARD
+bindkey = [\{NP*}] CMD_CYCLE_QUIVER_FORWARD
+bindkey = [-] CMD_SWAP_QUIVER_RECENT
 bindkey = [ ] CMD_TARGET_CANCEL
 bindkey = [ ] CMD_MAP_EXIT_MAP
 bindkey = [b] CMD_TARGET_CANCEL
