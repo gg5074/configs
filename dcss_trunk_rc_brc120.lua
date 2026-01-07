@@ -1198,7 +1198,6 @@ more += encounter.*(chonchon|oni incarcerator|undertaker|demonspawn warmonger|dr
 : end
 
 : if you.xl() <= 24 then
-unusual_monster_items += of (acid)
 more += (hits|warns) you[^r].*of (distortion|chaos)
 more += encounter.*(air elemental|tengu reaver|(deep elf|draconian) annihilator|void ooze|orb guardian)(?! (zombie|draugr|simulacr))
 more += encounter.*(?<!spectral) (lich|shadow dragon|walking.*tome|juggernaut|caustic shrike|wyrmhole|spriggan berserker)(?! (zombie|draugr|simulacr))
@@ -1210,7 +1209,6 @@ flash += encounter.*(imperial myrmidons|necromancer)(?! (zombie|draugr|simulacr)
 : end
 
 : if you.xl() <= 22 then
-unusual_monster_items += (devious|valour|concussion|sundering|rebuke)
 more += encounter.*(glass eye|death drake|war gargoyle|crystal guardian)
 more += encounter.*(deep elf master archer|vault (warden|sentinel)|merfolk (avatar|siren))(?! (zombie|draugr|simulacr))
 more += encounter.*(executioner|guardian serpent|draconian shifter|ironbound (convoker|preserver)|deep troll shaman|death cob)(?! (zombie|draugr|simulacr))
@@ -1228,12 +1226,6 @@ more += ironbound mechanist forges a skittering defender to stand by its side
 flash += slime creatures merge to form a (very large|enormous|titanic)
 : end
 
-# github.com/crawl/crawl/commit/e02c2b2bd47e38273f95c7b2855e43783a19ae70
-unusual_monster_items += vulnerable:acid:26
-unusual_monster_items += vulnerable:(draining|vampiric):20
-unusual_monster_items += vulnerable:(electrocution|flaming|freezing|pain):18
-unusual_monster_items += vulnerable:(venom):16
-
 : if you.xl() <= 20 then
 more += encounter.*(boggart|bunyips|deep elf elementalist|balrug|stone giant|ironbound beastmaster)(?! (zombie|draugr|simulacr))
 more += encounter.*(formless jellyfish|broodmother|spark wasp|orb spider|merfolk (aquamancer|javelineer|impaler)|nagaraja)(?! (zombie|draugr|simulacr))
@@ -1244,15 +1236,20 @@ flash += The boggart gestures wildly while chanting
 : end
 
 : if you.xl() <= 18 then
-unusual_monster_items += of (paralysis|roots|light)
-unusual_monster_items += of (draining|vampiric|spectral|heavy|\+[5-9])
 more += encounter.*(water nymph|azure jell|anaconda|shambling mangrove|thorn hunter|bloated husk|ghost crab|ironbound thunderhulk|polterguardian)(?! (zombie|draugr|simulacr))
 flash += The water rises up and strikes you
 more += Thorny briars emerge from the ground
 : end
 
+
+# github.com/crawl/crawl/commit/e02c2b2bd47e38273f95c7b2855e43783a19ae70
+unusual_monster_items += vulnerable:acid:19
+unusual_monster_items += vulnerable:(draining|vampiric):16
+unusual_monster_items += vulnerable:(electrocution|flaming|freezing|pain):13
+unusual_monster_items += vulnerable:(venom):10
+
 : if you.xl() <= 16 then
-unusual_monster_items += of (electrocution|flaming|freezing|pain)
+unusual_monster_items += of (acid)
 more += encounter.*(raven|smoke demon|water elemental|(fire|ice) dragon|centaur warrior|yaktaur|cyclope?s|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionomae?)(?! (zombie|draugr|simulacr))
 more += The.*headed hydra grows
 flash += The.*headed hydra grows
@@ -1260,15 +1257,18 @@ flash += The.*headed hydra grows
 more += encounter.*(vault guard|deep elf|kobold blastminer|gargoyle|ghoul|hell hog|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant|wolf spider|tentacled starspawn)(?! (zombie|draugr|simulacr))
 flash += encounter.*(raiju|(cyan|brown) ugly thing|radroach|meliai)(?! (zombie|draugr|simulacr))
 : end
-
 : if you.xl() <= 13 then
-unusual_monster_items += of (venom|charming|polymorph)
-unusual_monster_items += triple sword,executioner's axe,halberd,glaive,bardiche,arbalest,hand cannon,triple crossbow
+unusual_monster_items += of (paralysis|roots|light)
+unusual_monster_items += of (draining|vampiric|spectral|\+[5-9]), heavy
 more += encounter.*(?<!spectral) (manticore|two-headed ogre|kobold geomancer|tengu|lindwurm|(ice|rust) devil|(fire|earth) elemental|lava snake|efreet|boulder beetle|hornet|black mamba|cane toad|komodo dragon)(?! (zombie|draugr|simulacr))
 flash += encounter.*(skeletal warrior|death yak|elephant)(?! (zombie|draugr|simulacr))
 : end
 
 : if you.xl() <= 10 then
+unusual_monster_items += (devious|valour|concussion|sundering|rebuke)
+unusual_monster_items += of (electrocution|flaming|freezing|pain)
+unusual_monster_items += of (venom|charming|polymorph)
+unusual_monster_items += triple sword,executioner's axe,halberd,glaive,bardiche,arbalest,hand cannon,triple crossbow
 unusual_monster_items += great sword,demon trident,partisan,trishula,longbow
 more += encounter.*(water moccasin|rime drake|(steam|acid) dragon|wyvern|polar bear|brain worm|queen bee|wraith|gnoll bouda|centaur)(?! (zombie|draugr|simulacr))
 more += The polar bear roars madly and goes into a rage
@@ -1658,7 +1658,7 @@ end
 }
 macros += M \{NP.} ===smart_stairs
 
-# Tab:\{9}, Enter:\{13}, Esc:\{27}, Space:\{32}, Ctrl:*, Shift:/
+# Tab:\{9}, Enter:\{13}, Esc:\{27}, Space:\{32}, Ctrl:*, Shift:/, Backspace:\{8}
 
 # List of Banes
 # macros += M \{} ?/n\{32}\{13}
@@ -1773,6 +1773,7 @@ macros += K2 0 \{13}
 # Keybindings #
 ###############
 # github.com/crawl/crawl/blob/master/crawl-ref/docs/keybind.txt
+bindkey = [-] CMD_GAME_MENU
 bindkey = [NP5] CMD_WAIT
 bindkey = [NP5] CMD_TARGET_SELECT_ENDPOINT
 bindkey = [B] CMD_EXPLORE_NO_REST
@@ -1799,7 +1800,7 @@ bindkey = [\{NP/}] CMD_MAP_PREV_LEVEL
 bindkey = [\{NP*}] CMD_MAP_NEXT_LEVEL
 bindkey = [\{NP/}] CMD_CYCLE_QUIVER_BACKWARD
 bindkey = [\{NP*}] CMD_CYCLE_QUIVER_FORWARD
-bindkey = [-] CMD_SWAP_QUIVER_RECENT
+bindkey = [\{8}] CMD_SWAP_QUIVER_RECENT
 bindkey = [ ] CMD_TARGET_CANCEL
 bindkey = [ ] CMD_MAP_EXIT_MAP
 bindkey = [b] CMD_TARGET_CANCEL
