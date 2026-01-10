@@ -581,9 +581,9 @@ menu := menu_colour
 # menu ^= lightgrey:potions? of (attraction|lignification|mutation)
 # menu ^= lightgrey:scrolls? of (poison|torment|immolation|vulnerability|noise)
 
-: if you.race() == "Minotaur" then
-menu ^= lightgrey:helmet
-: end
+# : if you.race() == "Minotaur" then
+# menu ^= lightgrey:helmet
+# : end
 
 msc := message_colour
 msc ^= lightgrey:( miss | misses |no damage|fail to reach past|returns to the grave|disappears in a puff of smoke|putting on your|removing your)
@@ -1243,10 +1243,10 @@ more += Thorny briars emerge from the ground
 
 
 # github.com/crawl/crawl/commit/e02c2b2bd47e38273f95c7b2855e43783a19ae70
-unusual_monster_items += vulnerable:acid:19
-unusual_monster_items += vulnerable:(draining|vampiric):16
-unusual_monster_items += vulnerable:(electrocution|flaming|freezing|pain):13
-unusual_monster_items += vulnerable:(venom):10
+unusual_monster_items += vulnerable:acid:26
+unusual_monster_items += vulnerable:(draining|vampiric):24
+unusual_monster_items += vulnerable:(electrocution|flaming|freezing|pain):22
+unusual_monster_items += vulnerable:(venom):20
 
 : if you.xl() <= 16 then
 unusual_monster_items += of (acid)
@@ -1277,7 +1277,7 @@ flash += encounter.*(yak)(?! (zombie|draugr|simulacr))
 
 : if you.xl() <= 7 then
 # unusual_monster_items += spear,(?<!demon) trident,sling,shortbow,orcbow
-more += encounter.*(?<!spectral) (phantom|wight|bombardier beetle|ice beast|jell(y|ies)|iguana|hound|black bear|sky beast|electric eel|sleepcap)(?! (zombie|draugr|simulacr))
+more += encounter.*(?<!spectral) (marrowcuda|phantom|wight|bombardier beetle|ice beast|jell(y|ies)|iguana|hound|black bear|sky beast|electric eel|sleepcap)(?! (zombie|draugr|simulacr))
 more += The black bear roars madly and goes into a rage
 more += encounter.*(ogre|gnoll|orc (wizard|priest|warrior))(?! (zombie|draugr|simulacr))
 flash += encounter.*(ogre|gnoll|orc (wizard|priest|warrior))(?! (zombie|draugr|simulacr))
