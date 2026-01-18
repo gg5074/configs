@@ -582,9 +582,10 @@ menu := menu_colour
 # menu ^= lightgrey:potions? of (attraction|lignification|mutation)
 # menu ^= lightgrey:scrolls? of (poison|torment|immolation|vulnerability|noise)
 
-# : if you.race() == "Minotaur" then
+: if you.race() == "Minotaur" then
 # menu ^= lightgrey:helmet
-# : end
+menu ^= lightgrey: hat of
+: end
 
 msc := message_colour
 msc ^= lightgrey:( miss | misses |no damage|fail to reach past|returns to the grave|disappears in a puff of smoke|putting on your|removing your)
@@ -597,9 +598,9 @@ msc += mute:(Your.*|The butterfly) leaves your sight
 msc += mute:Your.*is recalled
 
 : if you.god() == "Yredelemnul" then
-msc += mute:Your.*(something|the (plant|bush|fungus))
-msc += mute:Something.*the (plant|bush|fungus)
-msc += mute:(The|A nearby) (plant|bush|fungus).*die
+msc += mute:Your.*(something|the (plant|bush|fungus|withered plant))
+msc += mute:Something.*the (plant|bush|fungus|withered plant)
+msc += mute:(The|A nearby) (plant|bush|fungus|withered plant).*die
 msc += mute:Your.*web
 msc += mute:The confined air twists around weakly and strikes your
 : end
@@ -728,6 +729,7 @@ stop += You feel like a meek peon again
 more += Trog grants you a weapon
 more += You feel your soul grow
 more += Makhleb will allow you to brand your body
+flash += Makhleb will allow you to brand your body
 more += dares provoke your wrath
 more += Your infernal gateway subsides
 more += You are dragged down into the Crucible of Flesh
@@ -1099,6 +1101,7 @@ more += The undying armouty arms its allies with
 more += Xak'krixis conjures a prism
 more += Nobody ignites a memory of
 more += (Rupert|Snorg) roars madly and goes into a rage
+flash += (Rupert|Snorg) roars madly and goes into a rage
 more += BOSS
 flash += BOSS
 flash += changes into,Something shouts
@@ -1362,6 +1365,10 @@ ae = <Necromancy, Call Imp, Sculpt Simulacrum, Malign Gateway, Summon Horrible T
 ae += large rock
 : end
 
+: if you.race() == "Minotaur" then
+stop += You see here.* hat of
+: end
+
 : if you.xl() > 4 then
 ae +=  (?<!tremor)stone
 : end
@@ -1473,7 +1480,7 @@ ai += pearl dragon scales (?!"|of):rN+
 ai += quicksilver dragon scales (?!"|of):Will+
 ai += shadow dragon scales (?!"|of):Stlth+
 ai += (?<!moon) troll leather (?!"|of):Regen+
-ai +=  \+Inv :17% 12% 4% Evo 3 5 9
+ai += \+(Inv|Blink) :17% 12% 4% Evo 3 5 9
 
 ai += ring of flight:+Fly
 ai += ring of protection from fire:rF+
@@ -1689,28 +1696,28 @@ macros += M K ab
 # [,]: @<query>, Stash-Tracker
 # !!:Negate, &&:AND, ||:OR, <<>>:Grouping
 : if you.xl() <= 9 and (you.race() == "Minotaur" or you.race() == "Troll") then
-macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!animal\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!0\{32}leat\{32}&&\{32}!!0\{32}ring\{32}mail\{32}&&\{32}!!0\{32}scale\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!0\{32}cloa\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!0\{32}mace\{32}&&\{32}!!0\{32}hammer\{32}&&\{32}!!grea\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spea\{32}&&\{32}!!0\{32}tride\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battlea\{32}&&\{32}!!0\{32}hand\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!animal\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!0\{32}leat\{32}&&\{32}!!0\{32}ring\{32}mail\{32}&&\{32}!!0\{32}scale\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!a\{32}cloa\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!0\{32}mace\{32}&&\{32}!!0\{32}hammer\{32}&&\{32}!!grea\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spea\{32}&&\{32}!!0\{32}tride\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battlea\{32}&&\{32}!!0\{32}hand\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 : end
 
 : if you.xl() >= 10 and you.xl() <= 16 and (you.race() == "Minotaur" or you.race() == "Troll") then
-macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!quart\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!0\{32}mace\{32}&&\{32}!!0\{32}hammer\{32}&&\{32}!!grea\{32}&&\{32}!!gian\{32}&&\{32}!!nd\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!spea\{32}&&\{32}!!0\{32}tride\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battlea\{32}&&\{32}!!animal\{32}&&\{32}!!robe\{32}&&\{32}!!leat\{32}&&\{32}!!0\{32}ring\{32}mail\{32}&&\{32}!!0\{32}scale\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!0\{32}cloa\{32}&&\{32}!!orb\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!quart\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!0\{32}mace\{32}&&\{32}!!0\{32}hammer\{32}&&\{32}!!grea\{32}&&\{32}!!gian\{32}&&\{32}!!nd\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!spea\{32}&&\{32}!!0\{32}tride\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battlea\{32}&&\{32}!!animal\{32}&&\{32}!!robe\{32}&&\{32}!!leat\{32}&&\{32}!!0\{32}ring\{32}mail\{32}&&\{32}!!0\{32}scale\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!a\{32}cloa\{32}&&\{32}!!orb\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 : end
 
 : if you.xl() >= 17 and (you.race() == "Minotaur" or you.race() == "Troll") then
-macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!quart\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!r\{32}ax\{32}&&\{32}!!mace\{32}&&\{32}!!hammer\{32}&&\{32}!!flail\{32}&&\{32}!!grea\{32}&&\{32}!!gian\{32}&&\{32}!!nd\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!spea\{32}&&\{32}!!0\{32}tride\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battlea\{32}&&\{32}!!mail\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!0\{32}cloa\{32}&&\{32}!!animal\{32}&&\{32}!!robe\{32}&&\{32}!!leat\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!quart\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!r\{32}ax\{32}&&\{32}!!mace\{32}&&\{32}!!hammer\{32}&&\{32}!!flail\{32}&&\{32}!!grea\{32}&&\{32}!!gian\{32}&&\{32}!!nd\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!spea\{32}&&\{32}!!0\{32}tride\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battlea\{32}&&\{32}!!mail\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!a\{32}cloa\{32}&&\{32}!!animal\{32}&&\{32}!!robe\{32}&&\{32}!!leat\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 : end
 
 : if you.race() ~= "Minotaur" and you.race() ~= "Troll" then
-macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!doorr\{32}&&\{32}!!animal\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!0\{32}leat\{32}&&\{32}!!0\{32}ring\{32}mail\{32}&&\{32}!!0\{32}scale\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!0\{32}cloa\{32}&&\{32}!!0\{32}dagg\{32}&&\{32}!!0\{32}shor\{32}&&\{32}!!0\{32}rapie\{32}&&\{32}!!0\{32}falc\{32}&&\{32}!!0\{32}long\{32}\{32}&&\{32}!!0\{32}grea\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!0\{32}mace\{32}&&\{32}!!0\{32}hammer\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spea\{32}&&\{32}!!0\{32}tride\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battlea\{32}&&\{32}!!0\{32}hand\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!doorr\{32}&&\{32}!!animal\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!0\{32}leat\{32}&&\{32}!!0\{32}ring\{32}mail\{32}&&\{32}!!0\{32}scale\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!a\{32}cloa\{32}&&\{32}!!0\{32}dagg\{32}&&\{32}!!0\{32}shor\{32}&&\{32}!!0\{32}rapie\{32}&&\{32}!!0\{32}falc\{32}&&\{32}!!0\{32}long\{32}\{32}&&\{32}!!0\{32}grea\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!0\{32}mace\{32}&&\{32}!!0\{32}hammer\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spea\{32}&&\{32}!!0\{32}tride\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battlea\{32}&&\{32}!!0\{32}hand\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 : end
 
 # [P]: Shop Items
 : if you.race() == "Minotaur" or you.race() == "Troll" then
-macros += M P *fin_shop\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!0\{32}mace\{32}&&\{32}!!0\{32}hammer\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spea\{32}&&\{32}!!0\{32}tride\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battlea\{32}&&\{32}!!0\{32}hand\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!animal\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!0\{32}leat\{32}&&\{32}!!0\{32}ring\{32}mail\{32}&&\{32}!!0\{32}scale\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!0\{32}cloa\{32}&&\{32}!!book\{32}&&\{32}!!parchm\{32}&&\{32}!!carri\{13}
+macros += M P *fin_shop\{32}&&\{32}!!ranged\{32}&&\{32}!!blades\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!0\{32}mace\{32}&&\{32}!!0\{32}hammer\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spea\{32}&&\{32}!!0\{32}tride\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battlea\{32}&&\{32}!!0\{32}hand\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!animal\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!0\{32}leat\{32}&&\{32}!!0\{32}ring\{32}mail\{32}&&\{32}!!0\{32}scale\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!a\{32}cloa\{32}&&\{32}!!book\{32}&&\{32}!!parchm\{32}&&\{32}!!carri\{13}
 : end
 
 : if you.race() ~= "Minotaur" and you.race() ~= "Troll" then
-macros += M P *fin_shop\{32}&&\{32}!!0\{32}dagg\{32}&&\{32}!!0\{32}shor\{32}&&\{32}!!0\{32}rapie\{32}&&\{32}!!0\{32}falc\{32}&&\{32}!!0\{32}long\{32}\{32}&&\{32}!!0\{32}grea\{32}&&\{32}!!0\{32}sling\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!0\{32}mace\{32}&&\{32}!!0\{32}hammer\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spea\{32}&&\{32}!!0\{32}tride\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battlea\{32}&&\{32}!!0\{32}hand\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!animal\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!0\{32}leat\{32}&&\{32}!!0\{32}ring\{32}mail\{32}&&\{32}!!0\{32}scale\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!0\{32}cloa\{32}&&\{32}!!carri\{13}
+macros += M P *fin_shop\{32}&&\{32}!!0\{32}dagg\{32}&&\{32}!!0\{32}shor\{32}&&\{32}!!0\{32}rapie\{32}&&\{32}!!0\{32}falc\{32}&&\{32}!!0\{32}long\{32}\{32}&&\{32}!!0\{32}grea\{32}&&\{32}!!0\{32}sling\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!0\{32}mace\{32}&&\{32}!!0\{32}hammer\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spea\{32}&&\{32}!!0\{32}tride\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battlea\{32}&&\{32}!!0\{32}hand\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!animal\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!0\{32}leat\{32}&&\{32}!!0\{32}ring\{32}mail\{32}&&\{32}!!0\{32}scale\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!a\{32}cloa\{32}&&\{32}!!carri\{13}
 : end
 
 macros += M S *f<<scrol\{32}||\{32}potio>>\{32}&&\{32}!!iden\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
@@ -1718,7 +1725,7 @@ macros += M % *f<<misc\{32}||\{32}wand\{32}||\{32}throwin>>\{32}&&\{32}!!~D\{32}
 macros += M " *f<<jewell\{32}||\{32}orb>>\{32}&&\{32}!!statu\{32}&&\{32}!!carri\{13}
 
 # "[": Body, Aux
-macros += M [ *f<<body\{32}||\{32}aux>>\{32}&&\{32}!!orb\{32}&&\{32}!!animal\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!0\{32}leat\{32}&&\{32}!!0\{32}ring\{32}mail\{32}&&\{32}!!0\{32}scale\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!0\{32}cloa\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+macros += M [ *f<<body\{32}||\{32}aux>>\{32}&&\{32}!!orb\{32}&&\{32}!!animal\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!0\{32}leat\{32}&&\{32}!!0\{32}ring\{32}mail\{32}&&\{32}!!0\{32}scale\{32}&&\{32}!!0\{32}chain\{32}&&\{32}!!0\{32}plate\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!a\{32}cloa\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 
 # [`]: Dexterity Weapons, Magical Staves
 macros += M ` *f<<ranged\{32}||\{32}blades\{32}||\{32}magica>>\{32}&&\{32}!!jewell\{32}&&\{32}!!0\{32}dagg\{32}&&\{32}!!0\{32}shor\{32}&&\{32}!!0\{32}rapie\{32}&&\{32}!!0\{32}falc\{32}&&\{32}!!0\{32}long\{32}\{32}&&\{32}!!0\{32}grea\{32}&&\{32}!!0\{32}sling\{32}&&\{32}!!body\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
