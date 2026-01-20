@@ -1148,7 +1148,7 @@ flash += encounter.*lemure
 flash += encounter (?!orb guardian|executioner)(?-i:[A-Z])
 flash += encounter.* and (?!orb guardian|executioner)(?-i:[A-Z])
 
-more += encounter.*(lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy))
+more += encounter.*(cloud mage|lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy))
 flash += encounter.*(lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orbs? of (fire|winter|entropy))
 
 # Paralysis: 5+ 33% 1T, 7+ 50% 2T
@@ -1160,6 +1160,8 @@ flash += encounter.*(death scarab)
 
 # Slime
 more += encounter.*(morphogenic ooze|slymdra|colossal amoeba|creeping plasmodi(um|a)|star jell(y|ies)|eyes? of draining)
+more += The.*headed slymdra grows
+flash += The.*headed slymdra grows
 
 # Damnation/Flay
 more += encounter.*(deep elf (sorcerer|high priest)|(brimstone|ice) fiend)(?! (zombie|draugr|simulacr))
@@ -1227,6 +1229,7 @@ more += kobold fleshcrafter chants and writhes
 more += halazid warlock gestures
 more += ironbound mechanist forges a skittering defender to stand by its side
 # more += slime creatures merge to form a (very large|enormous|titanic)
+more += slime creatures merge to form a (normous|titanic)
 flash += slime creatures merge to form a (very large|enormous|titanic)
 : end
 
@@ -1536,7 +1539,7 @@ ai += (?<!the) \+0 (morningstar|broad axe|partisan|tower shield) (?!"|of):~~DROP
 ##################
 gear_slot ^= (war axe|broad axe|whip|mace|flail|ningstar|scourge|spear|trident|trishula|partisan|halberd|glaive|bardiche) : abW
 gear_slot ^= (ring of protection (?!from)|the ring .* AC\+) : ptcmPTCM
-gear_slot ^= (ring of evasion|the ring .* EV\+) : evdgEVDG
+gear_slot ^= (ring of evasion|the ring .* EV\+) : edgvEDGV
 gear_slot ^= (ring of strength|the ring .* Str\+) : strhSTRH
 gear_slot ^= (ring of intelligence|the ring .* Int\+) : intlINTL
 gear_slot ^= (ring of dexterity|the ring .* Dex\+) : dxeyDXEY
@@ -1546,7 +1549,7 @@ gear_slot ^= (ring of magical power|the ring .* MP\+) : mpgqMPGQ
 gear_slot ^= (ring of protection from fire|the ring .* rF\+) : fireFIRE
 gear_slot ^= (ring of protection from cold|the ring .* rC\+) : cieoCIEO
 gear_slot ^= (ring of positive energy|the ring .* rN\+) : nuveNUVE
-gear_slot ^= (ring of poison resistance|the ring .* rPois) : pvxtPVXT
+gear_slot ^= (ring of poison resistance|the ring .* rPois) : pxtvPXTV
 gear_slot ^= (lightning rod|the ring .* rElec) : qzlrQZLR
 gear_slot ^= (ring of resist corrosion|the ring .* rCorr) : jrocJROC
 gear_slot ^= (ring of see invisible|the ring .* SInv) : vighVIGH
