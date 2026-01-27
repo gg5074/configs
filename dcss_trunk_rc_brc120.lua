@@ -565,7 +565,7 @@ tile_font_msg_family = UD デジタル 教科書体 N-B
 tile_font_lbl_family = UD デジタル 教科書体 N-B
 tile_realtime_anim = true
 
-: if you.race() ~= "Felid" then
+: if you.race() ~= "Felid" and you.race() ~= "Gargoyle" then
 tile_show_player_species = true
 : end
 
@@ -591,7 +591,7 @@ msc := message_colour
 msc ^= lightgrey:( miss | misses |no damage|fail to reach past|returns to the grave|disappears in a puff of smoke|putting on your|removing your)
 msc ^= yellow:(You feel a bit more experienced|Something appears at your feet)
 
-msc += mute:Search for what.*(~D|in_shop)
+msc += mute:Search for what.*(~D|in_shop|transp)
 msc += mute:There is an open door here
 msc += mute:You swap places with (your|(?-i:[A-Z]))
 msc += mute:(Your.*|The butterfly) leaves your sight
