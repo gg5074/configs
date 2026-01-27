@@ -660,7 +660,7 @@ warn_hatches = true
 explore_stop = greedy_pickup_smart
 explore_stop += stairs,shops,altars,portals,branches,runed_doors,glowing_items,artefacts,runes
 
-combo += MiFi . trident
+# combo += MiFi . trident
 # combo += DECj
 
 force_spell_targeter += Silence
@@ -1100,8 +1100,8 @@ more += The undying armouty arms its allies with
 
 more += Xak'krixis conjures a prism
 more += Nobody ignites a memory of
-more += (Rupert|Snorg) roars madly and goes into a rage
-flash += (Rupert|Snorg) roars madly and goes into a rage
+more += (Rupert|Snorg) goes berserk
+flash += (Rupert|Snorg) goes berserk
 more += BOSS
 flash += BOSS
 flash += changes into,Something shouts
@@ -1267,7 +1267,7 @@ flash += encounter.*(raiju|(cyan|brown) ugly thing|radroach|meliai)(?! (zombie|d
 : if you.xl() <= 13 then
 unusual_monster_items += of (paralysis|roots|light)
 unusual_monster_items += of (draining|vampiric|spectral|\+[5-9]), heavy
-more += encounter.*(?<!spectral) (manticore|two-headed ogre|kobold geomancer|tengu|lindwurm|(ice|rust) devil|(fire|earth) elemental|lava snake|efreet|boulder beetle|hornet|black mamba|cane toad|komodo dragon)(?! (zombie|draugr|simulacr))
+more += encounter.*(?<!spectral) (manticore|two-headed ogre|kobold geomancer|tengu|lindwurm|(ice|rust) devil|(fire|earth) elemental|lava snake|efreet|boulder beetle|hornet|black mamba|cane toad|komodo dragon|skyshark)(?! (zombie|draugr|simulacr))
 flash += encounter.*(skeletal warrior|death yak|elephant)(?! (zombie|draugr|simulacr))
 : end
 
@@ -1279,12 +1279,12 @@ unusual_monster_items += triple sword,executioner's axe,halberd,glaive,bardiche,
 unusual_monster_items += great sword,demon trident,partisan,trishula,longbow
 more += encounter.*(drude|water moccasin|rime drake|(steam|acid) dragon|wyvern|polar bear|brain worm|queen bee|wraith|gnoll bouda|centaur)(?! (zombie|draugr|simulacr))
 more += The polar bear roars madly and goes into a rage
-flash += encounter.*(yak|vampire mosquito)(?! (zombie|draugr|simulacr))
+flash += encounter.*(wight|yak|vampire mosquito)(?! (zombie|draugr|simulacr))
 : end
 
 : if you.xl() <= 7 then
 # unusual_monster_items += spear,(?<!demon) trident,sling,shortbow,orcbow
-more += encounter.*(?<!spectral) (marrowcuda|phantom|wight|bombardier beetle|ice beast|jell(y|ies)|iguana|hound|black bear|sky beast|electric eel|sleepcap)(?! (zombie|draugr|simulacr))
+more += encounter.*(?<!spectral) (marrowcuda|phantom|bombardier beetle|ice beast|jell(y|ies)|iguana|hound|black bear|sky beast|electric eel|sleepcap)(?! (zombie|draugr|simulacr))
 more += The black bear roars madly and goes into a rage
 more += encounter.*(ogre|gnoll|orc (wizard|priest|warrior))(?! (zombie|draugr|simulacr))
 flash += encounter.*(ogre|gnoll|orc (wizard|priest|warrior))(?! (zombie|draugr|simulacr))
