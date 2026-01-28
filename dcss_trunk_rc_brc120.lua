@@ -763,6 +763,7 @@ stop += You now have enough gold to
 more += Your bribe of.*has been exhausted
 more += Ashenzari invites you to partake
 more += you knowledge of
+flash += you knowledge of
 more += Vehumet is now
 more += You hear a faint sloshing
 more += seems mollified
@@ -1053,12 +1054,14 @@ more += You feel a genetic drift
 more += You feel a bit more experienced
 : end
 
+: if you.skill("Spellcasting") < 3 then
 # Contam: 5000:Yellow, 15000:LightRed
 more += You add the spells?.*(Summon Small Mammal|Call Imp|Call Canine Familiar|Eringya's Surprising Crocodile)
 
 # Miscast:-Move -Tele
 # reddit.com/r/dcss/comments/1m4xpsr/a_compendium_of_strange_and_unusual_techniques/
 more += You add the spells?.*(Apportation|Blink|Lesser Beckoning|Maxwell's Portable Piledriver|Teleport Other|Passage of Golubria)
+: end
 
 : if you.xl() >= 27 and you.class() ~= "Conjurer" then
 more += You add the spells?.*(Vhi's Electric|Manifold Assault|Fugue of the|Animate Dead|Death Channel|Awaken Armour)
