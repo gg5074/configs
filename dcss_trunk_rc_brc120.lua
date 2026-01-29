@@ -723,6 +723,8 @@ stop += You see here.*scrolls? of enchant armour
 
 # github.com/crawl/crawl/blob/master/crawl-ref/source/god-abil.cc
 more += You have reached level
+more += press f on the ability menu to create your gizmo
+flash += press f on the ability menu to create your gizmo
 more += You (can|may) now (?!stomp|pass|merge)
 more += protects you from harm
 stop += You feel like a meek peon again
@@ -734,6 +736,7 @@ more += dares provoke your wrath
 more += Your infernal gateway subsides
 more += You are dragged down into the Crucible of Flesh
 more += Ru believes you are ready to make a new sacrifice
+flash += Ru believes you are ready to make a new sacrifice
 flash += You offer up the Black Torch's flame
 more += Your bound.*is destroyed!
 more += The heavenly storm settles
@@ -771,7 +774,6 @@ more += You rejoin the land of the living
 
 # crawl.chaosforge.org/Chaos_Knight_of_Xom_Guide#Xom_rc_file
 more += .* erupts in a glittering mayhem of colour
-more += .* evaporates and reforms as
 more += "Time to have some fun!"
 more += "Fight to survive, mortal."
 more += "Let's see if it's strong enough to survive yet."
@@ -1000,7 +1002,10 @@ more += Chaos surges forth from piles of flesh
 flash += You feel the power of Zot begin to focus
 # more += You hear a sizzling splash
 more += heals the
+
+: if you.god() ~= "Nemelex Xobeh" then
 more += evaporates and reforms as
+: end
 
 : if you.xl() < 24 then
 more += flies into a frenzy
@@ -1701,28 +1706,28 @@ macros += M K ab
 
 # [,]: @<query>, Stash-Tracker
 # !!:Negate, &&:AND, ||:OR, <<>>:Grouping
-: if you.xl() <= 9 and (you.race() == "Minotaur" or you.race() == "Troll") then
+: if you.xl() <= 9 and (you.race() == "Minotaur" or you.race() == "Troll" or you.class() == "Fighter" or you.class() == "Berserker") then
 macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!anim\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!a\{32}leat\{32}&&\{32}!!a\{32}ring\{32}ma\{32}&&\{32}!!a\{32}scal\{32}&&\{32}!!a\{32}chai\{32}&&\{32}!!a\{32}plat\{32}&&\{32}!!a\{32}buck\{32}&&\{32}!!a\{32}cloa\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!0\{32}mace\{32}&&\{32}!!0\{32}ham\{32}&&\{32}!!grea\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spea\{32}&&\{32}!!0\{32}trid\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battl\{32}&&\{32}!!0\{32}hand\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!rang\{32}&&\{32}!!blad\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 : end
 
-: if you.xl() >= 10 and you.xl() <= 16 and (you.race() == "Minotaur" or you.race() == "Troll") then
+: if you.xl() >= 10 and you.xl() <= 16 and (you.race() == "Minotaur" or you.race() == "Troll" or you.class() == "Fighter" or you.class() == "Berserker") then
 macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!quart\{32}&&\{32}!!rang\{32}&&\{32}!!blad\{32}&&\{32}!!club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!0\{32}mace\{32}&&\{32}!!0\{32}ham\{32}&&\{32}!!grea\{32}&&\{32}!!gian\{32}&&\{32}!!nd\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!spea\{32}&&\{32}!!0\{32}trid\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battl\{32}&&\{32}!!anim\{32}&&\{32}!!robe\{32}&&\{32}!!leat\{32}&&\{32}!!a\{32}ring\{32}ma\{32}&&\{32}!!a\{32}scal\{32}&&\{32}!!a\{32}chai\{32}&&\{32}!!a\{32}plat\{32}&&\{32}!!a\{32}buck\{32}&&\{32}!!a\{32}cloa\{32}&&\{32}!!orb\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 : end
 
-: if you.xl() >= 17 and (you.race() == "Minotaur" or you.race() == "Troll") then
+: if you.xl() >= 17 and (you.race() == "Minotaur" or you.race() == "Troll" or you.class() == "Fighter" or you.class() == "Berserker") then
 macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!quart\{32}&&\{32}!!rang\{32}&&\{32}!!blad\{32}&&\{32}!!club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!r\{32}ax\{32}&&\{32}!!mace\{32}&&\{32}!!ham\{32}&&\{32}!!flai\{32}&&\{32}!!grea\{32}&&\{32}!!gian\{32}&&\{32}!!nd\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!spea\{32}&&\{32}!!0\{32}trid\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battl\{32}&&\{32}!!mail\{32}&&\{32}!!0\{32}chai\{32}&&\{32}!!0\{32}plat\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!a\{32}cloa\{32}&&\{32}!!anim\{32}&&\{32}!!robe\{32}&&\{32}!!leat\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 : end
 
-: if you.race() ~= "Minotaur" and you.race() ~= "Troll" then
+: if you.race() ~= "Minotaur" and you.race() ~= "Troll" and you.class() ~= "Fighter" and you.class() ~= "Berserker" then
 macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!anim\{32}&&\{32}!!a\{32}robe\{32}&&\{32}!!a\{32}leat\{32}&&\{32}!!a\{32}ring\{32}ma\{32}&&\{32}!!a\{32}scal\{32}&&\{32}!!a\{32}chai\{32}&&\{32}!!a\{32}plat\{32}&&\{32}!!a\{32}buck\{32}&&\{32}!!a\{32}cloa\{32}&&\{32}!!0\{32}dagg\{32}&&\{32}!!0\{32}shor\{32}&&\{32}!!0\{32}rapie\{32}&&\{32}!!0\{32}falc\{32}&&\{32}!!0\{32}long\{32}\{32}&&\{32}!!0\{32}grea\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!0\{32}mace\{32}&&\{32}!!0\{32}ham\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spea\{32}&&\{32}!!0\{32}trid\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battl\{32}&&\{32}!!0\{32}hand\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 : end
 
 # [P]: Shop Items
-: if you.race() == "Minotaur" or you.race() == "Troll" then
+: if you.race() == "Minotaur" or you.race() == "Troll" or you.class() == "Fighter" or you.class() == "Berserker" then
 macros += M P *fin_shop\{32}&&\{32}!!rang\{32}&&\{32}!!blad\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!0\{32}mace\{32}&&\{32}!!0\{32}ham\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spea\{32}&&\{32}!!0\{32}trid\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battl\{32}&&\{32}!!0\{32}hand\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!anim\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!0\{32}leat\{32}&&\{32}!!0\{32}ring\{32}ma\{32}&&\{32}!!0\{32}scal\{32}&&\{32}!!a\{32}chai\{32}&&\{32}!!a\{32}plat\{32}&&\{32}!!0\{32}buck\{32}&&\{32}!!a\{32}cloa\{32}&&\{32}!!book\{32}&&\{32}!!parchm\{32}&&\{32}!!carri\{13}
 : end
 
-: if you.race() ~= "Minotaur" and you.race() ~= "Troll" then
+: if you.race() ~= "Minotaur" and you.race() ~= "Troll" and you.class() ~= "Fighter" and you.class() ~= "Berserker" then
 macros += M P *fin_shop\{32}&&\{32}!!0\{32}dagg\{32}&&\{32}!!0\{32}shor\{32}&&\{32}!!0\{32}rapie\{32}&&\{32}!!0\{32}falc\{32}&&\{32}!!0\{32}long\{32}\{32}&&\{32}!!0\{32}grea\{32}&&\{32}!!0\{32}sling\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!0\{32}mace\{32}&&\{32}!!0\{32}ham\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spea\{32}&&\{32}!!0\{32}trid\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battl\{32}&&\{32}!!0\{32}hand\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!anim\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!a\{32}leat\{32}&&\{32}!!a\{32}ring\{32}ma\{32}&&\{32}!!a\{32}scal\{32}&&\{32}!!a\{32}chai\{32}&&\{32}!!a\{32}plat\{32}&&\{32}!!a\{32}buck\{32}&&\{32}!!a\{32}cloa\{32}&&\{32}!!carri\{13}
 : end
 
