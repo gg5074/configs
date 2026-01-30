@@ -669,7 +669,7 @@ force_spell_targeter += Silence
 confirm_action += Conjure Ball Lightning, Chain Lightning
 : end
 
-confirm_action += Potion Petition, Call Merchant, Blink, Silence, Maxwell's Capacitive Coupling, Sublimation of Blood, Borgnjor's Revivification, Death's Door
+confirm_action += Potion Petition, Call Merchant, Blink[^bolt], Silence, Maxwell's Capacitive Coupling, Sublimation of Blood, Borgnjor's Revivification, Death's Door
 
 ############
 # Messages #
@@ -1047,7 +1047,11 @@ more += You are unable to access your magic
 more += You assume a fearsome visage
 flash += is a mimic
 stop += (?<!into|through) a shaft
+
+: if you.transform() ~= "storm" then
 more += You blink
+: end
+
 more += (?<!raiju) bursts into living lightning
 more += blinks into view
 flash += (?<!Your )draconian.*blinks!
