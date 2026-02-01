@@ -773,8 +773,8 @@ stop += You reach the end of your prayer and your brethren are recalled
 stop += You now have enough gold to
 more += Your bribe of.*has been exhausted
 more += Ashenzari invites you to partake
-more += you knowledge of
-flash += you knowledge of
+more += offers you knowledge of
+flash += offers you knowledge of
 more += Vehumet is now
 more += You hear a faint sloshing
 more += seems mollified
@@ -1392,6 +1392,10 @@ ae += large rock
 ae += amulet, ring of
 : end
 
+: if you.race() == "Djinni" then
+ae += book of, parchment of
+: end
+
 : if you.race() == "Minotaur" then
 stop += You see here.* hat of
 : end
@@ -1780,8 +1784,13 @@ macros += M ) V45
 macros += M ( V55
 macros += M < V15
 macros += M > V25
-macros += M E zaf
-macros += M U zbf
+
+: if you.class() == "Conjurer" or you.class() == "Fire Elementalist" or you.class() == "Air Elementalist" or you.class() == "Earth Elementalist" then
+macros += M \{9} zaf
+: end
+
+macros += M E zbf
+macros += M U zcf
 macros += M 1 za
 macros += M 2 zb
 macros += M 3 zc
@@ -1818,7 +1827,11 @@ bindkey = [C] CMD_MAP_CLEAR_EXCLUDES
 bindkey = [W] CMD_WIELD_WEAPON
 bindkey = [w] CMD_WEAR_ARMOUR
 bindkey = [p] CMD_WEAR_JEWELLERY
+
+: if you.class() ~= "Conjurer" and  you.class() ~= "Fire Elementalist" and you.class() ~= "Air Elementalist" and you.class() ~= "Earth Elementalist" then
 bindkey = [Tab] CMD_AUTOFIGHT_NOMOVE
+: end
+
 bindkey = [k] CMD_AUTOFIRE
 bindkey = [u] CMD_PREV_CMD_AGAIN
 bindkey = [i] CMD_RESISTS_SCREEN
