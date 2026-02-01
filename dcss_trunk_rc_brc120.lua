@@ -622,7 +622,15 @@ more_gem_info = true
 # Interface #
 #############
 autofight_nomove_fires = false
+
+: if you.class() ~= "Hunter" and you.class() ~= "Hexslinger" then
 autofight_fire_stop = true
+: end
+
+: if you.class() == "Hunter" or you.class() == "Hexslinger" then
+autofight_fire_stop = false
+: end
+
 autofight_caught = true
 autofight_wait = true
 autofight_stop = 55
