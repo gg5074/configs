@@ -1031,6 +1031,7 @@ more += seems to grow stronger
 # more += suddenly seems more resistant
 
 # Interrupts
+more += Lucky!
 more += You don't.*that spell
 more += You fail to use your ability
 more += You miscast.*(Blink|Borgnjor|Door|Invisibility)
