@@ -910,7 +910,7 @@ more += You feel a malign power afflict you
 more += shimmers and splits apart
 flash += You are too injured to fight recklessly
 flash += MASSIVE DAMAGE
-flash += BIG DAMAGE
+flash += ❗ BIG DAMAGE ❗
 flash += LOW HITPOINT WARNING
 
 : if not (you.race() == "Minotaur" or you.race() == "Troll") then
@@ -1001,7 +1001,7 @@ more += You turn into a filthy swine
 flash += You turn into a filthy swine
 more += You feel strangely unstable
 more += (?<!Your (shadowghast|vampire)) flickers and vanishes
-flash += (?<!Your).*flickers and vanishes
+flash += (?<!Your (shadowghast|vampire)) flickers and vanishes
 more += is no longer charmed
 flash += is no longer charmed
 stop += is no longer charmed
@@ -1786,9 +1786,9 @@ macros += M ( V55
 macros += M < V15
 macros += M > V25
 
-: if you.class() == "Conjurer" or you.class() == "Fire Elementalist" or you.class() == "Air Elementalist" or you.class() == "Earth Elementalist" then
-macros += M \{9} zaf
-: end
+# : if you.class() == "Conjurer" or you.class() == "Fire Elementalist" or you.class() == "Air Elementalist" or you.class() == "Earth Elementalist" then
+# macros += M \{9} zaf
+# : end
 
 macros += M E zbf
 macros += M U zcf
