@@ -60,7 +60,7 @@ brc_config_explicit = {
     freeze = { factor = 1.25, offset = 0 },
     heavy = { factor = 1.8, offset = 0 },    -- Speed is accounted for elsewhere
     pain = { factor = 1.0, offset = you.skill("Necromancy") / 2 },
-    spect = { factor = 1.7, offset = 0 },    -- Fudged down for increased incoming damage
+    spect = { factor = 1.4, offset = 0 },    -- Fudged down for increased incoming damage
     venom = { factor = 1.0, offset = 5.0 },  -- 5 dmg per poisoning
 
     subtle = { -- Values to use for weapon "scores" (not damage)
@@ -1981,8 +1981,8 @@ flash += The forest starts to sway and rumble
 flash += Your?.*suddenly stops? moving
 
 # Crowd control
-more += You.*(?<! too|less) confused
-more += You .*(slow.*down|lose consciousness)
+more += You[^r].*(?<! too|less) confused
+more += You[^r] .*(slow.*down|lose consciousness)
 more += infuriates you
 
 flash += You .* (blown|knocked back|mesmerised|trampled|stumble backwards|encased)
@@ -3824,7 +3824,7 @@ BRC.Configs.Default.BrandBonus = {
     freeze = { factor = 1.25, offset = 0 },
     heavy = { factor = 1.8, offset = 0 },    -- Speed is accounted for elsewhere
     pain = { factor = 1.0, offset = you.skill("Necromancy") / 2 },
-    spect = { factor = 1.7, offset = 0 },    -- Fudged down for increased incoming damage
+    spect = { factor = 1.4, offset = 0 },    -- Fudged down for increased incoming damage
     venom = { factor = 1.0, offset = 5.0 },  -- 5 dmg per poisoning
 
     subtle = { -- Values to use for weapon "scores" (not damage)
