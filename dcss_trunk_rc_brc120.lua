@@ -1490,6 +1490,7 @@ ai += condenser vane:(65+3.5*Evo)/1.6%
 ai += tin of tremorstones:Evo 2.5 6 11 18, 5x5 6d6 40%
 ai += lightning rod:(2+PreUses)d(0.75*Evo+46.25)/3, 2d16(Evo1)
 ai += Gell's gravitambourine:Evo 9.5 23.2
+ai += flux bauble:!v
 
 ai += of fire resistance:rF+
 ai += of cold resistance:rC+
