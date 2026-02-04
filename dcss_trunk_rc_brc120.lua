@@ -1592,6 +1592,7 @@ gear_slot ^= ( hat |cloak|scarf|pair of gloves|pair of boots):ABCDEFGHIJKLMNOPQR
 gear_slot ^= orb:ABCDEFGHIJKLMNOPQRSTUVWXYZ
 gear_slot ^= amulet:ABCDEFGHIJKLMNOPQRSTUVWXYZ
 gear_slot ^= talisman:ABCDEFGHIJKLMNOPQRSTUVWXYZ
+gear_slot ^= flux bauble:ABCDEFGHIJKLMNOPQRSTUVWXYZ
 
 # github.com/crawl/crawl/blob/master/crawl-ref/source/dat/defaults/consumable_shortcuts.txt
 consumable_shortcut += javelin:abcdefghijklmnopqrstuwxyz
@@ -1899,7 +1900,7 @@ my_feature.Config = {
 
 local need_skills_opened = true
 function my_feature.ready()
-if you.turns() == 0 and you.race() ~= "Gnoll" and need_skills_opened then
+if you.turns() == 0 and you.race() ~= "Gnoll" and you.race() ~= "Djinni" and need_skills_opened then
 need_skills_opened = false
 crawl.sendkeys("!d10" .. string.char(13) .. "Lair D11-12 Orc D13-15 S-Runes V1-4" .. string.char(13))
 you.set_training_target("Maces & Flails",12)
