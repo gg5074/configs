@@ -52,7 +52,7 @@ brc_config_explicit = {
 
   --- How weapon damage is calculated for inscriptions+pickup/alert: (factor * DMG + offset)
   BrandBonus = {
-    chaos = { factor = 1.15, offset = 2.0 }, -- Approximate weighted average
+    chaos = { factor = 1.2, offset = 2.0 }, -- Approximate weighted average
     distort = { factor = 1.0, offset = 6.0 },
     drain = { factor = 1.25, offset = 2.0 },
     elec = { factor = 1.0, offset = 4.5 },   -- 3.5 on avg; fudged up for AC pen
@@ -60,7 +60,7 @@ brc_config_explicit = {
     freeze = { factor = 1.25, offset = 0 },
     heavy = { factor = 1.8, offset = 0 },    -- Speed is accounted for elsewhere
     pain = { factor = 1.0, offset = you.skill("Necromancy") / 2 },
-    spect = { factor = 1.4, offset = 0 },    -- Fudged down for increased incoming damage
+    spect = { factor = 1.35, offset = 0 },    -- Fudged down for increased incoming damage
     venom = { factor = 1.0, offset = 5.0 },  -- 5 dmg per poisoning
 
     subtle = { -- Values to use for weapon "scores" (not damage)
@@ -3825,7 +3825,7 @@ BRC.Configs.Default.dump = {
 
 --- How weapon damage is calculated for inscriptions+pickup/alert: (factor * DMG + offset)
 BRC.Configs.Default.BrandBonus = {
-    chaos = { factor = 1.15, offset = 2.0 }, -- Approximate weighted average
+    chaos = { factor = 1.2, offset = 2.0 }, -- Approximate weighted average
     distort = { factor = 1.0, offset = 6.0 },
     drain = { factor = 1.25, offset = 2.0 },
     elec = { factor = 1.0, offset = 4.5 },   -- 3.5 on avg; fudged up for AC pen
@@ -3833,7 +3833,7 @@ BRC.Configs.Default.BrandBonus = {
     freeze = { factor = 1.25, offset = 0 },
     heavy = { factor = 1.8, offset = 0 },    -- Speed is accounted for elsewhere
     pain = { factor = 1.0, offset = you.skill("Necromancy") / 2 },
-    spect = { factor = 1.4, offset = 0 },    -- Fudged down for increased incoming damage
+    spect = { factor = 1.35, offset = 0 },    -- Fudged down for increased incoming damage
     venom = { factor = 1.0, offset = 5.0 },  -- 5 dmg per poisoning
 
     subtle = { -- Values to use for weapon "scores" (not damage)
