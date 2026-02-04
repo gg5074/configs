@@ -1184,7 +1184,7 @@ more += the reach of Zot diminish
 more += The shining eye gazes at you
 flash += encounter.*(death scarab)
 
-# Slime
+# New Slime Monsters
 more += encounter.*(morphogenic ooze|slymdra|colossal amoeba|creeping plasmodi(um|a)|star jell(y|ies)|eyes? of draining)
 more += The.*headed slymdra grows
 flash += The.*headed slymdra grows
