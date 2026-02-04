@@ -668,7 +668,7 @@ warn_hatches = true
 explore_stop = greedy_pickup_smart
 explore_stop += stairs,shops,altars,portals,branches,runed_doors,glowing_items,artefacts,runes
 
-# combo += MiFi . trident
+combo += MiFi . trident
 # combo += DECj
 
 force_spell_targeter += Silence
@@ -1909,7 +1909,7 @@ function my_feature.ready()
 if you.turns() == 0 and you.race() ~= "Gnoll" and you.race() ~= "Djinni" and need_skills_opened then
 need_skills_opened = false
 crawl.sendkeys("!d10" .. string.char(13) .. "Lair D11-12 Orc D13-15 S-Runes V1-4" .. string.char(13))
-crawl.sendkeys("!d12" .. string.char(13) .. "Rupert D12- Lair3- Orc Snak1 Spid1" .. string.char(13))
+crawl.sendkeys("!d12" .. string.char(13) .. "Rupert D12- Lair3- Orc Snake1 Spider1" .. string.char(13))
 you.set_training_target("Maces & Flails",12)
 you.set_training_target("Axes",16)
 you.set_training_target("Polearms",14)
