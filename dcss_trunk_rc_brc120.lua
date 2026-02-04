@@ -987,7 +987,10 @@ flash += You feel extremely sick
 more += lethally poison
 flash += The acid corrodes you[^r]
 more += You are covered in intense liquid fire
+
+: if you.res_draining() <= 0 then
 flash += You feel drained
+: end
 
 : if you.res_shock() <= 0 then
 more += You are engulfed in a thunderstorm
@@ -997,6 +1000,8 @@ more += You are engulfed in excruciating misery
 flash += You are engulfed in dark miasma
 more += You are engulfed in seething chaos
 flash += You are engulfed in seething chaos
+more += zaps a wand. You turn into
+flash += zaps a wand. You turn into
 more += You turn into a filthy swine
 flash += You turn into a filthy swine
 more += You feel strangely unstable
