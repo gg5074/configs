@@ -1119,6 +1119,7 @@ flash += You pick up a manual of
 # Monsters #
 ############
 # Uniques and baddies
+# github.com/crawl/crawl/blob/master/crawl-ref/source/dat/des/builder/uniques.des
 # github.com/crawl/crawl/blob/master/crawl-ref/source/mon-gear.cc
 unusual_monster_items += ( the |distortion|chaos|silver)
 more += encounter.*(undying armour(y|ies)|wendigo|antique champion|torpor snail|nekomata|oblivion hound|protean progenitor|acid blob|entropy weaver|ghost moth|death knight|apocalypse crab|eyes? of devastation)(?! (zombie|draugr|simulacr))
@@ -1908,6 +1909,7 @@ function my_feature.ready()
 if you.turns() == 0 and you.race() ~= "Gnoll" and you.race() ~= "Djinni" and need_skills_opened then
 need_skills_opened = false
 crawl.sendkeys("!d10" .. string.char(13) .. "Lair D11-12 Orc D13-15 S-Runes V1-4" .. string.char(13))
+crawl.sendkeys("!d12" .. string.char(13) .. "Rupert D12- Lair3- Orc Snak1 Spid1" .. string.char(13))
 you.set_training_target("Maces & Flails",12)
 you.set_training_target("Axes",16)
 you.set_training_target("Polearms",14)
