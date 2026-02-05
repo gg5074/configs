@@ -1496,7 +1496,7 @@ ai += condenser vane:(65+3.5*Evo)/1.6%
 ai += tin of tremorstones:Evo 2.5 6 11 18, 5x5 6d6 40%
 ai += lightning rod:(2+PreUses)d(0.75*Evo+46.25)/3, 2d16(Evo1)
 ai += Gell's gravitambourine:Evo 9.5 23.2
-ai += flux bauble:!v
+ai += flux bauble:5-14 MeldWeapShieBodyGlov, !v
 
 ai += of fire resistance:rF+
 ai += of cold resistance:rC+
@@ -1528,6 +1528,11 @@ ai += ring of resist corrosion:rCorr
 ai += ring of see invisible:sInv
 ai += ring of wizardry:Wiz+
 ai += ring of magical power:MP+9
+
+ai += quill talisman:0-7 MeldHelmGlovBootCloaBard, !P
+ai += medusa talisman:8-14 MeldHelmCloa, !P
+ai += granite talisman:17-25 MeldWeapBodyGlovBoot, !P
+ai += talisman of death:26-27, !P
 
 ai += staff of conjuration:IrresistibleDmg-20%
 ai += staff of earth:PhysicalDmg-5%
@@ -1733,7 +1738,7 @@ macros += M \{NP0} vf
 macros += M O aa
 macros += M K ab
 
-# [,]: @<query>, Stash-Tracker
+# [,]: @<query>, Stash-Tracker, Search Character Limit:835
 # !!:Negate, &&:AND, ||:OR, <<>>:Grouping
 : if you.xl() <= 9 and (you.race() == "Minotaur" or you.race() == "Troll" or you.class() == "Fighter" or you.class() == "Berserker") then
 macros += M , *f@\{32}&&\{32}!!transp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!anim\{32}&&\{32}!!0\{32}robe\{32}&&\{32}!!a\{32}leat\{32}&&\{32}!!a\{32}ring\{32}ma\{32}&&\{32}!!a\{32}scal\{32}&&\{32}!!a\{32}chai\{32}&&\{32}!!a\{32}plat\{32}&&\{32}!!a\{32}buck\{32}&&\{32}!!a\{32}cloa\{32}&&\{32}!!0\{32}club\{32}&&\{32}!!0\{32}whip\{32}&&\{32}!!0\{32}mace\{32}&&\{32}!!0\{32}ham\{32}&&\{32}!!grea\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spea\{32}&&\{32}!!0\{32}trid\{32}&&\{32}!!0\{32}halb\{32}&&\{32}!!0\{32}glai\{32}&&\{32}!!0\{32}battl\{32}&&\{32}!!0\{32}hand\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}broa\{32}&&\{32}!!rang\{32}&&\{32}!!blad\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
