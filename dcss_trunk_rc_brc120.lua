@@ -1343,7 +1343,7 @@ user_note_prefix =
 note_items += of experience,(?<!potions?) of resistance,archmagi,crystal plate armour,pearl dragon scales
 note_messages += You pass through the gate
 note_messages += cast.*Abyss
-note_messages += BOSS
+note_messages += BOSS, Dungeon Descent, Dungeon Sprint
 note_messages += Yredelemnul refuses to let your conquest be stopped by a trick of the earth!, 's soul is now yours, Your bound.*is destroyed!
 
 dump_order  = header,hiscore,stats,misc,apostles,mutations,overview,inventory,skills,spells
