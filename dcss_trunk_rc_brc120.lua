@@ -1129,8 +1129,8 @@ more += Xak'krixis conjures a prism
 more += Nobody ignites a memory of
 more += (Rupert|Snorg) goes berserk
 flash += (Rupert|Snorg) goes berserk
-more += BOSS
-flash += BOSS
+more +=  BOSS 
+flash +=  BOSS 
 flash += changes into,Something shouts
 stop += encounter Crazy Yiuf
 monster_alert += pandemonium lord
@@ -1343,7 +1343,7 @@ user_note_prefix =
 note_items += of experience,(?<!potions?) of resistance,archmagi,crystal plate armour,pearl dragon scales
 note_messages += You pass through the gate
 note_messages += cast.*Abyss
-note_messages += BOSS, Dungeon Descent, Dungeon Sprint
+note_messages +=  BOSS , Dungeon Descent, Dungeon Sprint
 note_messages += Yredelemnul refuses to let your conquest be stopped by a trick of the earth!, 's soul is now yours, Your bound.*is destroyed!
 
 dump_order  = header,hiscore,stats,misc,apostles,mutations,overview,inventory,skills,spells
@@ -1714,7 +1714,7 @@ macros += M \{NP.} ===smart_stairs
 # Tab:\{9}, Enter:\{13}, Esc:\{27}, Space:\{32}, Ctrl:*, Shift:/, Backspace:\{8}
 
 # List of Banes
-# macros += M \{} ?/n\{32}\{13}
+macros += M ' ?/n\{32}\{13}
 
 # Ctrl-L: Help, Monster 
 macros += M \{12} ?/m
@@ -1818,6 +1818,7 @@ macros += M 0 zj
 
 # github.com/brianfaires/crawl-rc/blob/main/rc/macros.rc
 # Confirm targeting with same keys as spellcasting
+# "K2" targeting context keymap (during targeting and `x` view)
 macros += K2 1 \{13}
 macros += K2 2 \{13}
 macros += K2 4 \{13}
