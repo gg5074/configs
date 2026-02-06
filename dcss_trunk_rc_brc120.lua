@@ -1547,8 +1547,8 @@ ai += dragon-coil talisman:17-25 -WeapShielAllArmo, !P
 ai += granite talisman:17-25 -WeapBodyGlovBoot, !P
 ai += riddle talisman:17-25 -WeapShielBodyHelmGlovBoot, !P
 ai += hive talisman:17-25 -BodyHelm, !P
-ai += blade talisman:17-25 -WeapShielGlov, !P
 ai += sanguine talisman:17-25, !P
+ai += blade talisman:17-25, !P
 ai += storm talisman:23-27 -WeapShielAllArmo, !P
 ai += talisman of death:26-27, !P
 
