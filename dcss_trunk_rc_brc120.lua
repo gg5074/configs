@@ -668,7 +668,7 @@ warn_hatches = true
 explore_stop = greedy_pickup_smart
 explore_stop += stairs,shops,altars,portals,branches,runed_doors,glowing_items,artefacts,runes
 
-combo += MiFi . trident
+# combo += MiFi . trident
 # combo += DECj
 
 force_spell_targeter += Silence
@@ -1529,18 +1529,20 @@ ai += ring of see invisible:sInv
 ai += ring of wizardry:Wiz+
 ai += ring of magical power:MP+9
 
+ai += protean talisman:Shp 6 ScarabRimehornSporeMedusa
 ai += inkwell talisman:0-7 -WeapShielAllArmo, !P
 ai += quill talisman:0-7 -HelmGlovBootCloaBard, !P
 ai += scarab talisman:8-14 -WeapShielAllArmo, !P
 ai += rimehorn talisman:8-14 -WeapShielAllArmo, !P
 ai += spore talisman:8-14 -OffhanBoot, !P
 ai += medusa talisman:8-14 -HelmCloa, !P
+ai += spider talisman:12-20 -WeapShielAllArmo, !P
 ai += serpent talisman:12-20 -WeapShielAllArmo, !P
 ai += lupine talisman:12-20 -HelmGlovBootCloaBard, !P
 ai += eel talisman:12-20 -WeapOffhanGlov, !P
 ai += wellspring talisman:12-20 -Body, !P
-ai += maw talisman:12-20 -Body, !P
 ai += fortress talisman:12-20 -OffhanHelmGlovBootCloaBard, !P
+ai += maw talisman:12-20 -BodyAC, !P
 ai += dragon-coil talisman:17-25 -WeapShielAllArmo, !P
 ai += granite talisman:17-25 -WeapBodyGlovBoot, !P
 ai += riddle talisman:17-25 -WeapShielBodyHelmGlovBoot, !P
