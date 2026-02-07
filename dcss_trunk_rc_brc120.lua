@@ -1933,9 +1933,9 @@ local need_skills_opened = true
 function my_feature.ready()
 if you.turns() == 0 and you.race() ~= "Gnoll" and you.race() ~= "Djinni" and need_skills_opened then
 need_skills_opened = false
-crawl.sendkeys("!d10" .. string.char(13) .. "L D11-12 O D13- S-Runes V1-4 E U V5 C Slime Z1 Zig" .. string.char(13))
-crawl.sendkeys("!d11" .. string.char(13) .. "IceCave:L D11-13 O, Volcano:L O, Gauntlet:L D11- O" .. string.char(13))
-crawl.sendkeys("!d12" .. string.char(13) .. "Rupert:D12- L3- O Sna1 Spi1, Trove:D12- SnaSpiSwaSho" .. string.char(13))
+crawl.sendkeys("!d10" .. string.char(13) .. "L D11-12 O D13- S-B V1-4 E U V5 C M Z1 Zig1-7" .. string.char(13))
+crawl.sendkeys("!d11" .. string.char(13) .. "IceC:L D11-13 O, Volc:L O, Gaun:L D11- O" .. string.char(13))
+crawl.sendkeys("!d12" .. string.char(13) .. "Rupe:D12- L3- O P1 N1, Trov:D12- S-B" .. string.char(13))
 you.set_training_target("Maces & Flails",12)
 you.set_training_target("Axes",16)
 you.set_training_target("Polearms",14)
