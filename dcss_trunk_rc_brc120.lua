@@ -1234,6 +1234,7 @@ more += encounter.*(chonchon|oni incarcerator|undertaker|demonspawn warmonger|dr
 more += (hits|warns) you[^r].*of (distortion|chaos)
 more += encounter.*(air elemental|tengu reaver|(deep elf|draconian) annihilator|void ooze|orb guardian)(?! (zombie|draugr|simulacr))
 more += encounter.*(?<!spectral) (lich|shadow dragon|walking.*tome|juggernaut|caustic shrike|wyrmhole|spriggan berserker)(?! (zombie|draugr|simulacr))
+flash += encounter.*(spriggan berserker)(?! (zombie|draugr|simulacr))
 more += The spriggan berserker utters an invocation to Trog
 more += The spriggan roars madly and goes into a rage
 # Agony
@@ -1448,7 +1449,7 @@ ai += potions? of berserk rage:10-19T, ImmuneSleep
 
 ai += scrolls? of identify:@r1, 26%Iden 13%Common 4.7%Uncom, 18.4%Curi 10%Common 6.4%Uncom
 ai += scrolls? of teleportation:@r2, 3-5T, Zot8-14T
-ai += scrolls? of blinking:@r3, Unable-TeleTreeMesm
+ai += scrolls? of blinking:@r3, UnableTreeMesm-Tele
 ai += scrolls? of acquirement:200-1400Gold
 ai += scrolls? of enchant armour:@r4, GDR AC6Scale25% 10Plate28.5% 32+10PlateAux38%
 ai += scrolls? of enchant weapon:@r5, ToHit Dex/2+1d(FighS+1)+1d(WeaS+1)
