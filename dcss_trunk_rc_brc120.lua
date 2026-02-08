@@ -1227,6 +1227,8 @@ more += encounter.*(chonchon|oni incarcerator|undertaker|demonspawn warmonger|dr
 more += encounter.*(morphogenic ooze|slymdra|colossal amoeba|creeping plasmodi(um|a)|star jell(y|ies)|eyes? of draining)
 more += The.*headed slymdra grows
 flash += The.*headed slymdra grows
+more += A flurry of magic pours from the star jelly's injured body!
+flash += A flurry of magic pours from the star jelly's injured body!
 : end
 
 : if you.xl() <= 24 then
