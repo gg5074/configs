@@ -1185,11 +1185,6 @@ more += the reach of Zot diminish
 more += The shining eye gazes at you
 flash += encounter.*(death scarab)
 
-# New Slime Monsters
-more += encounter.*(morphogenic ooze|slymdra|colossal amoeba|creeping plasmodi(um|a)|star jell(y|ies)|eyes? of draining)
-more += The.*headed slymdra grows
-flash += The.*headed slymdra grows
-
 # Damnation/Flay
 more += encounter.*(deep elf (sorcerer|high priest)|(brimstone|ice) fiend)(?! (zombie|draugr|simulacr))
 flash += encounter.*(deep elf (sorcerer|high priest)|(brimstone|ice) fiend)(?! (zombie|draugr|simulacr))
@@ -1228,6 +1223,10 @@ more += encounter.*(kobold geomancer|deep elf elementalist|deep troll earth mage
 
 : if you.xl() <= 26 then
 more += encounter.*(chonchon|oni incarcerator|undertaker|demonspawn warmonger|draconian stormcaller|(ancient|dread) lich)
+# New Slime Monsters
+more += encounter.*(morphogenic ooze|slymdra|colossal amoeba|creeping plasmodi(um|a)|star jell(y|ies)|eyes? of draining)
+more += The.*headed slymdra grows
+flash += The.*headed slymdra grows
 : end
 
 : if you.xl() <= 24 then
@@ -1246,7 +1245,7 @@ flash += encounter.*(imperial myrmidons|necromancer)(?! (zombie|draugr|simulacr)
 more += encounter.*(glass eye|death drake|war gargoyle|crystal guardian)
 more += encounter.*(deep elf master archer|vault (warden|sentinel)|merfolk (avatar|siren))(?! (zombie|draugr|simulacr))
 more += encounter.*(executioner|guardian serpent|draconian shifter|ironbound (convoker|preserver)|deep troll shaman|death cob)(?! (zombie|draugr|simulacr))
-more += encounter.*(kobold fleshcrafter|phantasmal warrior|iron giant)(?! (zombie|draugr|simulacr))
+more += encounter.*(bone dragon|kobold fleshcrafter|phantasmal warrior|iron giant)(?! (zombie|draugr|simulacr))
 more += encounter.*(ragged hierophant|halazid warlock|glowing orange brain|moths? of wrath)(?! (zombie|draugr|simulacr))
 flash += encounter.*(halazid warlock)(?! (zombie|draugr|simulacr))
 more += encounter.*(player|('s|s')) ghost
@@ -1305,7 +1304,7 @@ unusual_monster_items += of (electrocution|flaming|freezing|pain)
 unusual_monster_items += of (venom|charming|polymorph)
 unusual_monster_items += triple sword,executioner's axe,halberd,glaive,bardiche,arbalest,hand cannon,triple crossbow
 unusual_monster_items += great sword,demon trident,partisan,trishula,longbow
-more += encounter.*(drude|water moccasin|rime drake|(steam|acid) dragon|wyvern|polar bear|brain worm|queen bee|wraith|gnoll bouda|centaur)(?! (zombie|draugr|simulacr))
+more += encounter.*(weeping skull|drude|water moccasin|rime drake|(steam|acid) dragon|wyvern|polar bear|brain worm|queen bee|wraith|gnoll bouda|centaur)(?! (zombie|draugr|simulacr))
 more += The polar bear roars madly and goes into a rage
 flash += encounter.*(wight|yak|vampire mosquito)(?! (zombie|draugr|simulacr))
 : end
