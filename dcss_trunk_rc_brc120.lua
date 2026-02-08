@@ -1179,7 +1179,7 @@ more += encounter.*(cloud mage|lernaean hydra|seraph|boundless tesseract|wretche
 flash += encounter.*(lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orbs? of (fire|winter|entropy))
 
 # Paralysis: 5+ 33% 1T, 7+ 50% 2T
-flash += starcursed mass
+flash += encounter.*(starcursed mass)
 
 more += the reach of Zot diminish
 more += The shining eye gazes at you
