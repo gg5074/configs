@@ -1839,7 +1839,11 @@ macros += M 0 zj
 
 # github.com/brianfaires/crawl-rc/blob/main/rc/macros.rc
 # Confirm targeting with same keys as spellcasting
+# "K1" level-map context keymap (during the `X` view only)
 # "K2" targeting context keymap (during targeting and `x` view)
+# "K3" confirmation context keymap (when responding to a y/n prompt)
+# "K4" menu context keymap (all menus, except the skill menu)
+# "K" default context keymap (any other context)
 macros += K2 1 \{13}
 macros += K2 2 \{13}
 macros += K2 4 \{13}
