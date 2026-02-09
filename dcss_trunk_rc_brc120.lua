@@ -582,10 +582,10 @@ menu := menu_colour
 # menu ^= lightgrey:potions? of (attraction|lignification|mutation)
 # menu ^= lightgrey:scrolls? of (poison|torment|immolation|vulnerability|noise)
 
-: if you.race() == "Minotaur" then
+# : if you.race() == "Minotaur" then
 # menu ^= lightgrey:helmet
 # menu ^= lightgrey: hat of
-: end
+# : end
 
 msc := message_colour
 msc ^= lightgrey:( miss | misses |no damage|fail to reach past|returns to the grave|disappears in a puff of smoke|putting on your|removing your)
@@ -710,7 +710,6 @@ stop += - (a|[2-7]) scrolls? of enchant weapon
 stop += - (a|[2-8]) scrolls? of revelation
 stop += - [2-9] scrolls labelled
 stop += - [7-9] potions of mutation
-stop += - [2-9] scrolls labelled
 stop += - [2-9] .* potions
 
 : if you.xl() <= 14 then
@@ -1422,7 +1421,7 @@ ae += (datura|atropa)-tipped dart
 : end
 
 : if you.xl() > 22 then
-ae += of identify, poisoned dart, amulet of (acrobat|faith|guardian spirit|reflection|alchemy|dissipation|wildshape), ring of (evasion|strength|intelligence|dexterity|slaying|wizardry|magical power)
+ae += of identify, poisoned dart, amulet of (acrobat|faith|guardian spirit|reflection|chemistry|dissipation|wildshape), ring of (evasion|strength|intelligence|dexterity|slaying|wizardry|magical power)
 : end
 
 ################
@@ -1599,6 +1598,11 @@ ai += (?<!the) \+0 (morningstar|broad axe|partisan|tower shield) (?!"|of):~~DROP
 ##################
 ### Item Slots ###
 ##################
+
+: if you.xl() < 8 then
+gear_slot ^= (sling|hand cannon) : abW
+: end
+
 gear_slot ^= (war axe|broad axe|whip|mace|flail|ningstar|scourge|spear|trident|trishula|partisan|halberd|glaive|bardiche) : abW
 gear_slot ^= (ring of protection (?!from)|the ring .* AC\+) : ptcmPTCM
 gear_slot ^= (ring of evasion|the ring .* EV\+) : edgvEDGV
