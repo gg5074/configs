@@ -1750,7 +1750,7 @@ end
 function safe_shout()
   if not you.feel_safe() then
     crawl.setopt("tile_key_repeat_delay = 0")
-    local insisted = crawl.sendkeys({32})
+    local insisted = crawl.sendkeys({27})
     if insisted then
       crawl.setopt("tile_key_repeat_delay = 200")
       shout()
@@ -1856,9 +1856,8 @@ macros += M < V15
 macros += M > V25
 
 # : if you.class() == "Conjurer" or you.class() == "Fire Elementalist" or you.class() == "Air Elementalist" or you.class() == "Earth Elementalist" then
+# : if you.skill("Spellcasting") >= 5 then
 # macros += M \{9} zaf
-# : end
-
 macros += M E zbf
 macros += M U zcf
 macros += M 1 za
@@ -1871,6 +1870,7 @@ macros += M 7 zg
 macros += M 8 zh
 macros += M 9 zi
 macros += M 0 zj
+# : end
 
 # github.com/brianfaires/crawl-rc/blob/main/rc/macros.rc
 # "K1" level-map context keymap (during the `X` view only)
@@ -1882,8 +1882,8 @@ macros += M 0 zj
 # Space to close menus
 macros += K1 \{32} \{27}
 macros += K2 \{32} \{27}
-macros += K4 \{32} \{27}
-macros += K \{32} \{27}
+# macros += K4 \{32} \{27} -- Inventory
+# macros += K \{32} \{27} -- Annotation
 
 # Confirm targeting with same keys as spellcasting
 macros += K2 1 \{13}
