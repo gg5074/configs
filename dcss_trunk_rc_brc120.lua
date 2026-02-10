@@ -1736,6 +1736,32 @@ end
 }
 macros += M \{NP.} ===smart_stairs
 
+# reddit.com/r/dcss/comments/1qzzy2w/xdminsys_noise_guide/
+{
+local shout_keys = "tt"
+
+function shout()
+  -- crawl.do_commands({'CMD_WAIT'})
+  -- crawl.sendkeys(shout_keys)
+  crawl.process_keys(shout_keys)
+end
+
+function safe_shout()
+  if not you.feel_safe() then
+    crawl.setopt("tile_key_repeat_delay = 0")
+    local insisted = crawl.yesno("You don't feel safe! Still shout? (y/n)", true, "n")
+    if insisted then
+      crawl.setopt("tile_key_repeat_delay = 200")
+      shout()
+    end
+    return
+  end
+  crawl.setopt("tile_key_repeat_delay = 200")
+  shout()
+end
+}
+macros += M Y ===safe_shout
+
 # Tab:\{9}, Enter:\{13}, Esc:\{27}, Space:\{32}, Ctrl:*, Shift:/, Backspace:\{8}
 
 # List of Banes
@@ -1755,7 +1781,6 @@ macros += M N x-
 macros += M l x+v
 macros += M L x-v
 macros += M C X*e
-macros += M Y tt
 macros += M I II
 macros += M R \\-
 macros += M y ff
@@ -1842,12 +1867,19 @@ macros += M 9 zi
 macros += M 0 zj
 
 # github.com/brianfaires/crawl-rc/blob/main/rc/macros.rc
-# Confirm targeting with same keys as spellcasting
 # "K1" level-map context keymap (during the `X` view only)
 # "K2" targeting context keymap (during targeting and `x` view)
 # "K3" confirmation context keymap (when responding to a y/n prompt)
 # "K4" menu context keymap (all menus, except the skill menu)
 # "K" default context keymap (any other context)
+
+# Space to close menus
+macros += K1 \{32} \{27}
+macros += K2 \{32} \{27}
+macros += K4 \{32} \{27}
+macros += K \{32} \{27}
+
+# Confirm targeting with same keys as spellcasting
 macros += K2 1 \{13}
 macros += K2 2 \{13}
 macros += K2 4 \{13}
