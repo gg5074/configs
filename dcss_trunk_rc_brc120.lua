@@ -1737,6 +1737,7 @@ end
 macros += M \{NP.} ===smart_stairs
 
 # reddit.com/r/dcss/comments/1qzzy2w/xdminsys_noise_guide/
+# local insisted = crawl.yesno("You don't feel safe! Still shout? (y/n)", true, "n")
 {
 local shout_keys = "tt"
 
@@ -1749,7 +1750,7 @@ end
 function safe_shout()
   if not you.feel_safe() then
     crawl.setopt("tile_key_repeat_delay = 0")
-    local insisted = crawl.yesno("You don't feel safe! Still shout? (y/n)", true, "n")
+    local insisted = crawl.sendkeys({32})
     if insisted then
       crawl.setopt("tile_key_repeat_delay = 200")
       shout()
