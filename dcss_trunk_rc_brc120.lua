@@ -93,6 +93,10 @@ brc_config_explicit = {
     disabled = false,
   },
 
+  ["announce_teleport"] = {
+    disabled = false,
+  },
+
   ["announce-hp-mp"] = {
     disabled = false,
     dmg_flash_threshold = 0.15, -- Flash screen when losing this % of max HP
@@ -1748,19 +1752,17 @@ function shout()
 end
 
 function safe_shout()
+  crawl.setopt("tile_key_repeat_delay = 200")
   if not you.feel_safe() then
     crawl.setopt("tile_key_repeat_delay = 0")
-    local insisted = crawl.sendkeys({27})
-    if insisted then
-      crawl.setopt("tile_key_repeat_delay = 200")
-      shout()
-    end
-    return
+    crawl.sendkeys({27})
+  else
+    crawl.setopt("tile_key_repeat_delay = 200")
+    shout()
   end
-  crawl.setopt("tile_key_repeat_delay = 200")
-  shout()
 end
 }
+
 macros += M Y ===safe_shout
 
 # Tab:\{9}, Enter:\{13}, Esc:\{27}, Space:\{32}, Ctrl:*, Shift:/, Backspace:\{8}
@@ -2015,6 +2017,33 @@ end
 end
 }
 ############################ End lua/my-feature.lua ############################
+
+############################ Begin lua/announce_teleport.lua ############################
+{
+announce_teleport = {}
+announce_teleport.BRC_FEATURE_NAME = "announce_teleport" -- This registers announce_teleport with BRC
+
+announce_teleport.Config = {
+} -- always put a comment after a lone '}' (or else crawl's RC parser breaks)
+
+function announce_teleport.ready()
+
+local previous_teleport_time = -1
+function announce_teleport()
+  if previous_teleport_time < 0 and you.teleporting() then
+    previous_teleport_time = you.time()
+  end
+  if not you.teleporting() then
+    if previous_teleport_time >= 0 then
+      crawl.mpr("The teleport costs " .. ((you.time() - previous_teleport_time) / 10) .. " decaAuts.")
+    end
+    previous_teleport_time = -1
+  end
+end
+
+end
+}
+############################ End lua/announce_teleport.lua ############################
 
 ################################### Begin rc/fm-messages.rc ###################################
 ############### https://github.com/brianfaires/crawl-rc/ ###############
