@@ -2041,6 +2041,10 @@ function announce_teleport()
   end
 end
 
+function ready()
+  announce_teleport()
+end
+
 end
 }
 ############################ End lua/announce_teleport.lua ############################
