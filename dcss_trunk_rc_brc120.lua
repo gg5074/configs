@@ -672,7 +672,7 @@ warn_hatches = true
 explore_stop = greedy_pickup_smart
 explore_stop += stairs,shops,altars,portals,branches,runed_doors,glowing_items,artefacts,runes
 
-combo += MiFi . trident
+# combo += MiFi . trident
 # combo += DECj
 
 force_spell_targeter += Silence
@@ -776,6 +776,7 @@ stop += You reach the end of your prayer and your brethren are recalled
 stop += You now have enough gold to
 more += Your bribe of.*has been exhausted
 more += Ashenzari invites you to partake
+flash += Ashenzari invites you to partake
 more += offers you knowledge of
 flash += offers you knowledge of
 more += Vehumet is now
@@ -2039,10 +2040,6 @@ function announce_teleport()
     end
     previous_teleport_time = -1
   end
-end
-
-function ready()
-  announce_teleport()
 end
 
 end
