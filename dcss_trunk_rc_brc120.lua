@@ -518,7 +518,6 @@ brc_config_explicit = {
 ##########################################################################################
 
 ################################### Begin rc/main.rc ###################################
-
 sound_on = true
 one_SDL_sound_channel = true
 sound_volume = 0.07
@@ -5133,6 +5132,7 @@ function f_answer_prompts.c_answer_prompt(prompt)
   if prompt:contains("Really") and prompt:contains("battle") then return true end
   if prompt:contains("Really hurl") and prompt:contains("your spellforged") then return true end
   if prompt:contains("Really attack your") and prompt:contains("rat") then return true end
+  if prompt:contains("Really conjure a freezing cloud near your ") then return true end
   if prompt:contains("into that cloud of flame") and you.res_fire() == 3 then return true end
   if prompt:contains("into that cloud of freezing vapour") and you.res_cold() == 3 then return true end
   if prompt:contains("into a travel-excluded") then return true end
