@@ -95,7 +95,7 @@ brc_config_explicit = {
   },
 
   ["announce_teleport"] = {
-    disabled = false,
+    disabled = true,
   },
 
   ["announce-hp-mp"] = {
@@ -672,7 +672,7 @@ warn_hatches = true
 explore_stop = greedy_pickup_smart
 explore_stop += stairs,shops,altars,portals,branches,runed_doors,glowing_items,artefacts,runes
 
-# combo += MiFi . trident
+combo += MiFi . trident
 # combo += DECj
 
 force_spell_targeter += Silence
