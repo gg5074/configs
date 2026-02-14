@@ -1329,7 +1329,7 @@ more += encounter.*(adder)(?! (zombie|draugr|simulacr))
 
 : if you.xl() <= 4 then
 more += encounter.*(orc)(?! (zombie|draugr|simulacr))
-monster_alert += tough
+# monster_alert += tough
 : end
 
 # : if you.xl() <= 1 then
@@ -1402,7 +1402,7 @@ ae += large rock
 : end
 
 : if you.race() == "Coglin" then
-ae += amulet, ring of
+ae += amulet, ring of, ring "
 : end
 
 : if you.race() == "Djinni" then
@@ -1753,18 +1753,19 @@ function shout()
 end
 
 function safe_shout()
-  crawl.setopt("tile_key_repeat_delay = 200")
+--  crawl.setopt("tile_key_repeat_delay = 200")
   if not you.feel_safe() then
-    crawl.setopt("tile_key_repeat_delay = 0")
-    crawl.sendkeys({27})
+--    crawl.setopt("tile_key_repeat_delay = 0")
+--    crawl.sendkeys({27})
+  crawl.mpr("A monster is nearby!")
   else
-    crawl.setopt("tile_key_repeat_delay = 200")
+--    crawl.setopt("tile_key_repeat_delay = 200")
     shout()
   end
 end
 }
-
 macros += M Y ===safe_shout
+more += A monster is nearby!
 
 # Tab:\{9}, Enter:\{13}, Esc:\{27}, Space:\{32}, Ctrl:*, Shift:/, Backspace:\{8}
 
