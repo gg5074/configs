@@ -76,6 +76,7 @@ brc_config_explicit = {
       concuss = { factor = 1.1, offset = 0 },
       sunder = { factor = 1.2, offset = 0 },
       entangle = { factor = 1.1, offset = 1.5 },
+      reach = { factor = 1.15, offset = 0 },
       slay = { factor = 1.15, offset = 0 },
     },
   },
@@ -1005,8 +1006,8 @@ more += You are engulfed in seething chaos
 flash += You are engulfed in seething chaos
 more += zaps a wand. You turn into
 flash += zaps a wand. You turn into
-more += You turn into a filthy swine
-flash += You turn into a filthy swine
+more += You turn into a (filthy swine|lump of jelly)
+flash += You turn into a (filthy swine|lump of jelly)
 more += You feel strangely unstable
 more += (?<!Your (shadowghast|vampire)) flickers and vanishes
 flash += (?<!Your (shadowghast|vampire)) flickers and vanishes
@@ -1224,14 +1225,17 @@ more += encounter.*(kobold geomancer|deep elf elementalist|deep troll earth mage
 # crawl.chaosforge.org/Reaching
 # orange demon, goliath frog, snapping turtle, alligator snapping turtle, crawling flesh cage, Cigotuvi's Monster, Geryon, Serpent of Hell (Dis)
 
-: if you.xl() <= 26 then
-more += encounter.*(chonchon|oni incarcerator|undertaker|demonspawn warmonger|draconian stormcaller|(ancient|dread) lich)
 # New Slime Monsters
 more += encounter.*(morphogenic ooze|slymdra|colossal amoeba|creeping plasmodi(um|a)|star jell(y|ies)|eyes? of draining)
 more += The.*headed slymdra grows
 flash += The.*headed slymdra grows
 more += A flurry of magic pours from the star jelly's injured body!
 flash += A flurry of magic pours from the star jelly's injured body!
+more += The morphogenic ooze releases spores at you
+flash += The morphogenic ooze releases spores at you
+
+: if you.xl() <= 26 then
+more += encounter.*(chonchon|oni incarcerator|undertaker|demonspawn warmonger|draconian stormcaller|(ancient|dread) lich)
 : end
 
 : if you.xl() <= 24 then
@@ -3955,6 +3959,7 @@ BRC.Configs.Default.BrandBonus = {
       concuss = { factor = 1.1, offset = 0 },
       sunder = { factor = 1.2, offset = 0 },
       entangle = { factor = 1.1, offset = 1.5 },
+      reach = { factor = 1.15, offset = 0 },
       slay = { factor = 1.15, offset = 0 },
   },
 } -- BRC.Configs.Default.BrandBonus (do not remove this comment)
