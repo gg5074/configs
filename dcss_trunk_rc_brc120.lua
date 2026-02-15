@@ -627,6 +627,9 @@ more_gem_info = true
 #############
 # Interface #
 #############
+# tile_tooltip_ms = 0
+# tile_web_mouse_control = false
+
 autofight_nomove_fires = false
 
 : if you.class() ~= "Hunter" and you.class() ~= "Hexslinger" then
