@@ -1132,7 +1132,7 @@ flash += You pick up a manual of
 # github.com/crawl/crawl/blob/master/crawl-ref/source/dat/des/builder/uniques.des
 # github.com/crawl/crawl/blob/master/crawl-ref/source/mon-gear.cc
 unusual_monster_items += ( the |distortion|chaos|silver)
-more += encounter.*(undying armour(y|ies)|wendigo|antique champion|torpor snail|nekomata|oblivion hound|protean progenitor|acid blob|entropy weaver|ghost moth|death knight|apocalypse crab|eyes? of devastation)(?! (zombie|draugr|simulacr))
+more += encounter.*(undying armour(y|ies)|wendigo|antique champion|death drake|torpor snail|nekomata|oblivion hound|protean progenitor|acid blob|entropy weaver|ghost moth|death knight|apocalypse crab|eyes? of devastation)(?! (zombie|draugr|simulacr))
 more += The undying armouty arms its allies with
 
 more += Xak'krixis conjures a prism
@@ -1185,8 +1185,8 @@ flash += encounter.*lemure
 flash += encounter (?!orb guardian|executioner)(?-i:[A-Z])
 flash += encounter.* and (?!orb guardian|executioner)(?-i:[A-Z])
 
-more += encounter.*(cloud mage|lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orb of (fire|winter|entropy))
-flash += encounter.*(lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orbs? of (fire|winter|entropy))
+more += encounter.*(cloud mage|lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orbs? of (fire|winter|entropy))
+flash += encounter.*(cloud mage|lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orbs? of (fire|winter|entropy))
 
 # Paralysis: 5+ 33% 1T, 7+ 50% 2T
 flash += encounter.*(starcursed mass)
@@ -1257,7 +1257,7 @@ flash += encounter.*(imperial myrmidons|necromancer)(?! (zombie|draugr|simulacr)
 : end
 
 : if you.xl() <= 22 then
-more += encounter.*(glass eye|death drake|war gargoyle|crystal guardian)
+more += encounter.*(glass eye|war gargoyle|crystal guardian)
 more += encounter.*(deep elf master archer|vault (warden|sentinel)|merfolk (avatar|siren))(?! (zombie|draugr|simulacr))
 more += encounter.*(executioner|guardian serpent|draconian shifter|ironbound (convoker|preserver)|deep troll shaman|death cob)(?! (zombie|draugr|simulacr))
 more += encounter.*(bone dragon|kobold fleshcrafter|phantasmal warrior|iron giant)(?! (zombie|draugr|simulacr))
