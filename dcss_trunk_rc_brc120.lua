@@ -1131,7 +1131,7 @@ flash += You pick up a manual of
 # github.com/crawl/crawl/blob/master/crawl-ref/source/dat/des/builder/uniques.des
 # github.com/crawl/crawl/blob/master/crawl-ref/source/mon-gear.cc
 unusual_monster_items += ( the |distortion|chaos|silver)
-more += encounter.*(undying armour(y|ies)|wendigo|antique champion|death drake|torpor snail|nekomata|oblivion hound|protean progenitor|acid blob|entropy weaver|ghost moth|death knight|apocalypse crab|eyes? of devastation)(?! (zombie|draugr|simulacr))
+more += encounter.*(undying armour(y|ies)|wendigo|antique champion|torpor snail|nekomata|oblivion hound|protean progenitor|acid blob|entropy weaver|ghost moth|death knight|apocalypse crab|eyes? of devastation)(?! (zombie|draugr|simulacr))
 more += The undying armouty arms its allies with
 
 more += Xak'krixis conjures a prism
@@ -1199,6 +1199,12 @@ more += encounter.*(deep elf (sorcerer|high priest)|(brimstone|ice) fiend)(?! (z
 flash += encounter.*(deep elf (sorcerer|high priest)|(brimstone|ice) fiend)(?! (zombie|draugr|simulacr))
 more += encounter.*(hell sentinel|hellion|draconian scorcher|flayed ghost)
 flash += encounter.*(hell sentinel|hellion|draconian scorcher|flayed ghost)
+
+# Miasma Breath
+: if you.race() ~= "Gargoyle" and you.race() ~= "Revenant" and you.race() ~= "Poltergeist" and you.race() ~= "Mummy" and you.race() ~= "Djinni" then
+more += encounter.*(death drake|putrid mouth)
+flash += encounter.*(death drake|putrid mouth)
+: end
 
 # Torment/Drain Life/Siphon Essence
 : if not (you.race() == "Mummy" or you.race() == "Revenant" or you.race() == "Poltergeist" or you.transform() == "death") then
