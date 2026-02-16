@@ -1006,7 +1006,6 @@ more += You are engulfed in a thunderstorm
 : end
 
 more += You are engulfed in excruciating misery
-flash += You are engulfed in dark miasma
 more += You are engulfed in seething chaos
 flash += You are engulfed in seething chaos
 more += zaps a wand. You turn into
@@ -2117,8 +2116,12 @@ flash += engulfs you in water
 
 # Clouds
 more += danger:(calcify|mutagenic)
+
+: if you.race() ~= "Gargoyle" and you.race() ~= "Revenant" and you.race() ~= "Poltergeist" and you.race() ~= "Mummy" and you.race() ~= "Djinni" then
 more += You.*re engulfed in.*miasma
+flash += You are engulfed in dark miasma
 flash += Miasma billows from the
+: end
 
 # You Screwed Up
 more += is no longer ready
