@@ -1200,10 +1200,10 @@ flash += encounter.*(deep elf (sorcerer|high priest)|(brimstone|ice) fiend)(?! (
 more += encounter.*(hell sentinel|hellion|draconian scorcher|flayed ghost)
 flash += encounter.*(hell sentinel|hellion|draconian scorcher|flayed ghost)
 
-# Miasma Breath
+# Miasma Breath/Death Rattle
 : if you.race() ~= "Gargoyle" and you.race() ~= "Revenant" and you.race() ~= "Poltergeist" and you.race() ~= "Mummy" and you.race() ~= "Djinni" then
-more += encounter.*(death drake|putrid mouth)
-flash += encounter.*(death drake|putrid mouth)
+more += encounter.*(death drake|putrid mouth|ushabti)
+flash += encounter.*(death drake|putrid mouth|ushabti)
 : end
 
 # Torment/Drain Life/Siphon Essence
