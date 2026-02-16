@@ -586,7 +586,7 @@ menu := menu_colour
 # menu ^= lightgrey:potions? of (attraction|lignification|mutation)
 # menu ^= lightgrey:scrolls? of (poison|torment|immolation|vulnerability|noise)
 
-menu ^= lightcyan:\+(Inv|Blink)
+menu ^= lightcyan:(invisibility|\+(Inv|Blink))
 
 # : if you.race() == "Minotaur" then
 # menu ^= lightgrey:helmet
@@ -1014,8 +1014,9 @@ flash += zaps a wand. You turn into
 more += You turn into a (filthy swine|lump of jelly)
 flash += You turn into a (filthy swine|lump of jelly)
 more += You feel strangely unstable
-more += (?<!Your (shadowghast|vampire)) flickers and vanishes
-flash += (?<!Your (shadowghast|vampire)) flickers and vanishes
+# more += (?<!Your (shadowghast|vampire)) flickers and vanishes
+# flash += (?<!Your (shadowghast|vampire)) flickers and vanishes
+more += Deactivating autopickup
 more += is no longer charmed
 flash += is no longer charmed
 stop += is no longer charmed
@@ -1301,10 +1302,10 @@ unusual_monster_items += of (acid)
 more += encounter.*(raven|smoke demon|water elemental|(fire|ice) dragon|centaur warrior|yaktaur|cyclope?s|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionomae?|rakshasa)(?! (zombie|draugr|simulacr))
 more += The.*headed hydra grows
 flash += The.*headed hydra grows
-
-more += encounter.*(vault guard|deep elf|kobold blastminer|gargoyle|ghoul|hell hog|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant|wolf spider|tentacled starspawn)(?! (zombie|draugr|simulacr))
+more += encounter.*(ettin|tengu warrior|vault guard|deep elf|kobold blastminer|gargoyle|ghoul|hell hog|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant|wolf spider|tentacled starspawn)(?! (zombie|draugr|simulacr))
 flash += encounter.*(raiju|(cyan|brown) ugly thing|radroach|meliai)(?! (zombie|draugr|simulacr))
 : end
+
 : if you.xl() <= 13 then
 unusual_monster_items += of (paralysis|roots|light)
 unusual_monster_items += of (draining|vampiric|spectral|\+[5-9]), heavy
