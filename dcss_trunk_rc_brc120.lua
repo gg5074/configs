@@ -586,7 +586,7 @@ menu := menu_colour
 # menu ^= lightgrey:potions? of (attraction|lignification|mutation)
 # menu ^= lightgrey:scrolls? of (poison|torment|immolation|vulnerability|noise)
 
-menu ^= lightcyan:(invisibility|\+(Inv|Blink))
+menu ^= lightcyan:(scarf of invisibility|\+(Inv|Blink))
 
 # : if you.race() == "Minotaur" then
 # menu ^= lightgrey:helmet
