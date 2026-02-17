@@ -759,9 +759,9 @@ more += The heavenly storm settles
 flash += You may now remember your ancestor's life
 more += You now drain nearby creatures when transferring your ancestor
 
-: if you.god() == "Hepliaklqana" then
-more += (?-i:[A-Z])(?!xecutioner|rb guardian).*is destroyed!
-: end
+# : if you.god() == "Hepliaklqana" then
+# more += (?-i:[A-Z])(?!xecutioner|rb guardian).*is destroyed!
+# : end
 
 more += Beogh will now send orc apostles to challenge you
 flash += Beogh will now send orc apostles to challenge you
@@ -1075,11 +1075,12 @@ stop += (?<!into|through) a shaft
 more += You blink
 : end
 
-more += (?<!raiju) bursts into living lightning
+more += (?<!raiju|beast) bursts into living lightning
 more += blinks into view
 flash += (?<!Your )draconian.*blinks!
 more += is devoured by a tear in reality
 more += You feel a genetic drift
+flash += The Bane of.*upon you is lifted
 # flash += You can drop.*~~DROP_ME
 
 : if you.xl() <= 14 then
@@ -1246,7 +1247,7 @@ more += The morphogenic ooze releases spores at you
 flash += The morphogenic ooze releases spores at you
 
 : if you.xl() <= 26 then
-more += encounter.*(chonchon|oni incarcerator|undertaker|demonspawn warmonger|draconian stormcaller|(ancient|dread) lich)
+more += encounter.*(chonchon|oni incarcerator|undertaker|demonspawn warmonger|draconian stormcaller|(ancient|dread) lich|cognitogaunt)
 : end
 
 : if you.xl() <= 24 then
@@ -1303,7 +1304,7 @@ unusual_monster_items += vulnerable:(electrocution|flaming|freezing|pain):22
 unusual_monster_items += vulnerable:(venom):20
 
 : if you.xl() <= 16 then
-unusual_monster_items += of (acid)
+unusual_monster_items += of (acid|sundering)
 more += encounter.*(raven|smoke demon|water elemental|(fire|ice) dragon|centaur warrior|yaktaur|cyclope?s|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionomae?|rakshasa)(?! (zombie|draugr|simulacr))
 more += The.*headed hydra grows
 flash += The.*headed hydra grows
@@ -1319,7 +1320,7 @@ flash += encounter.*(skeletal warrior|death yak|elephant)(?! (zombie|draugr|simu
 : end
 
 : if you.xl() <= 10 then
-unusual_monster_items += (devious|valour|concussion|sundering|rebuke)
+unusual_monster_items += (devious|valour|concussion|rebuke)
 unusual_monster_items += of (electrocution|flaming|freezing|pain)
 unusual_monster_items += of (venom|charming|polymorph)
 unusual_monster_items += triple sword,executioner's axe,halberd,glaive,bardiche,arbalest,hand cannon,triple crossbow
@@ -2075,7 +2076,7 @@ flash := flash_screen_message
 # more -= You have reached level
 more -= Marking area around .* as unsafe
 more -= welcomes you( back)?!
-more -= upon you is lifted
+# more -= upon you is lifted
 # more -= You pick up the .* gem and feel its .* weight
 # more -= You pick up the .* rune and feel its power
 more -= need to enable at least one skill for training
