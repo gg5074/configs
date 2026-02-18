@@ -523,9 +523,13 @@ sound_on = true
 one_SDL_sound_channel = true
 sound_volume = 0.07
 sound_fade_time = 2.6
+
 # sound_pack += https://sound-packs.nemelex.cards/sdlaonline/sdlaonline.zip
 sound_pack += https://osp.nemelex.cards/build/latest.zip:["init.txt"]
 sound_pack += https://sound-packs.nemelex.cards/Autofire/BindTheEarth/BindTheEarth.zip
+
+bgm_volume = 0.04
+sound_pack += https://sound-packs.nemelex.cards/DCSS-UST/v1.0.1.zip
 
 #######################
 ### Mini Map Colors ###
@@ -1365,6 +1369,7 @@ note_items += of experience,(?<!potions?) of resistance,archmagi,crystal plate a
 note_messages += You pass through the gate
 note_messages += cast.*Abyss
 note_messages += BOSS, Dungeon Descent, Dungeon Sprint
+note_messages += and a teleportation trap
 note_messages += Yredelemnul refuses to let your conquest be stopped by a trick of the earth!, 's soul is now yours, Your bound.*is destroyed!
 note_messages += Ashenzari warns you in time for you to avoid it
 
