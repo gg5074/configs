@@ -784,6 +784,7 @@ more += You reach the end of your prayer and your brethren are recalled
 stop += You reach the end of your prayer and your brethren are recalled
 stop += You now have enough gold to
 more += Your bribe of.*has been exhausted
+more += Your oklob plant disappears in a puff of smoke!
 more += Ashenzari invites you to partake
 flash += Ashenzari invites you to partake
 more += offers you knowledge of
@@ -1085,7 +1086,7 @@ flash += (?<!Your )draconian.*blinks!
 more += is devoured by a tear in reality
 more += You feel a genetic drift
 flash += The Bane of.*upon you is lifted
-# flash += You can drop.*~~DROP_ME
+flash += You can drop.*~~DROP_ME
 
 : if you.xl() <= 14 then
 more += You feel a bit more experienced
@@ -1139,6 +1140,7 @@ unusual_monster_items += ( the |distortion|chaos|silver)
 more += encounter.*(undying armour(y|ies)|wendigo|antique champion|torpor snail|nekomata|oblivion hound|protean progenitor|acid blob|entropy weaver|ghost moth|death knight|apocalypse crab|eyes? of devastation)(?! (zombie|draugr|simulacr))
 more += The undying armouty arms its allies with
 
+more += The dying Royal Jelly
 more += Xak'krixis conjures a prism
 more += Nobody ignites a memory of
 more += (Rupert|Snorg) goes berserk
