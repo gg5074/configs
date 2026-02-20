@@ -214,7 +214,7 @@ brc_config_explicit = {
   ["remind-id"] = {
     disabled = false,
     stop_on_scrolls_count = 2, -- Stop when largest un-ID'd scroll stack increases and is >= this
-    stop_on_pots_count = 3, -- Stop when largest un-ID'd potion stack increases and is >= this
+    stop_on_pots_count = 2, -- Stop when largest un-ID'd potion stack increases and is >= this
     read_id_hotkey = true, -- Put read ID on hotkey
     emoji = "🎁",
     init = function()
@@ -1547,7 +1547,7 @@ more += You are too injured to fight blindly
 more += You feel your attacks grow feeble
 more += The blast of calcifying dust hits you[^r]
 flash += The blast of calcifying dust hits you[^r]
-more += danger:(mutagenic)
+more += danger:mutagenic
 more += Space warps horribly.*around you[^r]
 more += Space bends around you[^r]
 more += Your limbs are stiffening
@@ -1615,7 +1615,6 @@ flash += is no longer charmed
 stop += is no longer charmed
 more += You have lost all your
 more += Chaos surges forth from piles of flesh
-flash += You feel the power of Zot begin to focus
 # more += You hear a sizzling splash
 more += heals the
 
@@ -1717,8 +1716,8 @@ more += Your Shapeshifting skill increases to level (7|14|19|23|26)
 flash += Training target.*reached
 : end
 
-more += You have finished (your manual|forgetting about)
-flash += You have finished (your manual|forgetting about)
+more += You have finished your manual
+flash += You have finished your manual
 more += You pick up a manual of
 flash += You pick up a manual of
 
@@ -1849,7 +1848,7 @@ more += encounter.*(chonchon|oni incarcerator|undertaker|demonspawn warmonger|dr
 : end
 
 : if you.xl() <= 24 then
-more += (hits|warns) you[^r].*of (distortion|chaos)
+more += hits you[^r].*of (distortion|chaos)
 more += encounter.*(air elemental|tengu reaver|(deep elf|draconian) annihilator|void ooze|orb guardian)(?! (zombie|draugr|simulacr))
 more += encounter.*(?<!spectral) (lich|shadow dragon|walking.*tome|juggernaut|caustic shrike|wyrmhole|spriggan berserker)(?! (zombie|draugr|simulacr))
 flash += encounter.*(spriggan berserker)(?! (zombie|draugr|simulacr))
@@ -1902,7 +1901,7 @@ unusual_monster_items += vulnerable:(electrocution|flaming|freezing|pain):22
 unusual_monster_items += vulnerable:(venom):20
 
 : if you.xl() <= 16 then
-unusual_monster_items += of (acid|sundering)
+unusual_monster_items += (acid|sundering)
 more += encounter.*(raven|smoke demon|water elemental|(fire|ice) dragon|centaur warrior|yaktaur|cyclope?s|hydra|orc (warlord|high priest)|salamander (mystic|tyrant)|naga ritualist|spriggan druid|eleionomae?|rakshasa)(?! (zombie|draugr|simulacr))
 more += The.*headed hydra grows
 flash += The.*headed hydra grows
@@ -1911,16 +1910,16 @@ flash += encounter.*(raiju|(cyan|brown) ugly thing|radroach|meliai)(?! (zombie|d
 : end
 
 : if you.xl() <= 13 then
-unusual_monster_items += of (paralysis|roots|light)
-unusual_monster_items += of (draining|vampiric|spectral|\+[5-9]), heavy
+unusual_monster_items += (paralysis|roots|light)
+unusual_monster_items += (draining|vampiric|spectral|\+[5-9]|heavy)
 more += encounter.*(?<!spectral) (manticore|two-headed ogre|kobold geomancer|tengu|lindwurm|(ice|rust) devil|(fire|earth) elemental|lava snake|efreet|boulder beetle|hornet|black mamba|cane toad|komodo dragon|skyshark)(?! (zombie|draugr|simulacr))
 flash += encounter.*(skeletal warrior|death yak|elephant)(?! (zombie|draugr|simulacr))
 : end
 
 : if you.xl() <= 10 then
 unusual_monster_items += (devious|valour|concussion|rebuke)
-unusual_monster_items += of (electrocution|flaming|freezing|pain)
-unusual_monster_items += of (venom|charming|polymorph)
+unusual_monster_items += (electrocution|flaming|freezing|pain)
+unusual_monster_items += (venom|charming|polymorph)
 unusual_monster_items += triple sword,executioner's axe,halberd,glaive,bardiche,arbalest,hand cannon,triple crossbow
 unusual_monster_items += great sword,demon trident,partisan,trishula,longbow
 more += encounter.*(weeping skull|drude|water moccasin|rime drake|(steam|acid) dragon|wyvern|polar bear|brain worm|queen bee|wraith|gnoll bouda|centaur)(?! (zombie|draugr|simulacr))
