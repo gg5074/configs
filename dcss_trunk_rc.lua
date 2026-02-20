@@ -89,6 +89,10 @@ brc_config_explicit = {
   },
 
   ---- Feature configs ----
+  ["my-feature"] = {
+    disabled = false,
+  },
+
   ["announce-hp-mp"] = {
     disabled = false,
     dmg_flash_threshold = 0.15, -- Flash screen when losing this % of max HP
@@ -506,7 +510,7 @@ brc_config_explicit = {
   },
 
   ["mute-messages"] = {
-    disabled = false,
+    disabled = true,
     do_exploration_mutes = true, -- Mute boring messages while auto-exploring
     mute_level = 2,
     messages = {
@@ -1185,6 +1189,16 @@ ignore += safely over a trap
 
 interrupt_travel -= sense_monster
 
+more -= need to enable at least one skill for training
+more -= Okawaru grants you throwing weapons
+more -= Okawaru offers you a choice
+more -= You can now deal lightning-fast blows
+more -= The lock glows eerily
+more -= Heavy smoke blows from the lock
+more -= The gate opens wide
+more -= With a soft hiss the gate opens wide
+more -= You finish merging with the rock
+
 stop ^= Your.*disappears in a puff of smoke,Your spellspark servitor fades away,Your battlesphere wavers and loses cohesion
 
 stop += You see here the
@@ -1219,18 +1233,34 @@ flash += press f on the ability menu to create your gizmo
 more += You (can|may) now (?!stomp|pass|merge)
 more += protects you from harm
 stop += You feel like a meek peon again
+more += You hear a faint sloshing
+more += seems mollified
+more += You rejoin the land of the living
+
+# Trog
+more += god:You feel the effects of Trog's Hand fading
+more += god:You feel less resistant to hostile enchantments
 more += Trog grants you a weapon
+
 more += You feel your soul grow
+
 more += Makhleb will allow you to brand your body
 flash += Makhleb will allow you to brand your body
 more += dares provoke your wrath
 more += Your infernal gateway subsides
 more += You are dragged down into the Crucible of Flesh
+
 more += Ru believes you are ready to make a new sacrifice
 flash += Ru believes you are ready to make a new sacrifice
+
+# Yredelemnul
+more += god:soul is no.* ripe for the taking
+more += god:dark mirror aura disappears
 flash += You offer up the Black Torch's flame
 more += Your bound.*is destroyed!
+
 more += The heavenly storm settles
+
 flash += You may now remember your ancestor's life
 more += You now drain nearby creatures when transferring your ancestor
 
@@ -1253,17 +1283,48 @@ more += Your prayer is nearing its end
 stop += Your prayer is nearing its end
 more += You reach the end of your prayer and your brethren are recalled
 stop += You reach the end of your prayer and your brethren are recalled
+
 stop += You now have enough gold to
 more += Your bribe of.*has been exhausted
+
+# Fedhas
+more += god:Fedhas invokes the elements against you
 more += Your oklob plant disappears in a puff of smoke!
+
+# Qazlal
+flash += god:resistances upon receiving elemental damage
+flash += god:You are surrounded by a storm which can block enemy attacks
+
+# The Shining One
+more += god:Your divine shield starts to fade
+more += god:Your divine shield fades away
+
+# Zin
+more += god:will now cure all your mutations
+
+# Ashenzari
 more += Ashenzari invites you to partake
 flash += Ashenzari invites you to partake
+
 more += offers you knowledge of
 flash += offers you knowledge of
 more += Vehumet is now
-more += You hear a faint sloshing
-more += seems mollified
-more += You rejoin the land of the living
+
+# Dithmenos
+more += god:You are shrouded in an aura of darkness
+more += god:You.*bleed smoke
+more += god:Your shadow.*tangibly mimics your actions
+
+# Lugonu
+more += god:Lugonu will now corrupt your weapon
+more += god:Lugonu sends minions to punish you
+
+# Kikubaaqudgha
+more += god:Kikubaaqudgha will grant you
+
+# Jivya
+more += god:will now unseal the treasures of the Slime Pits
+more += god:Jiyva alters your body
 
 # crawl.chaosforge.org/Chaos_Knight_of_Xom_Guide#Xom_rc_file
 more += .* erupts in a glittering mayhem of colour
@@ -1297,6 +1358,8 @@ more += "The weather's been a little too boring around here."
 more += Xom asks Qazlal to spice things up a little.
 more += mostly cloudy.
 more += (The|Your).*falls away!
+more += staircase.*moves
+more += Some monsters swap places
 
 ####################
 # Dungeon Features #
@@ -1319,6 +1382,11 @@ more += The walls fall away. The entombed are set free!
 flash += Hurry and find it
 more += The walls and floor vibrate strangely for a moment
 flash += The walls and floor vibrate strangely for a moment
+
+# Found something important
+flash += You pick up the .* (gem|rune) and feel its
+more += You have a vision of.*gates?
+more += Press the corresponding letter to learn more about a god
 
 more += Found a faded altar of an unknown god
 more += Found a staircase to the Ecumenical Temple
@@ -1371,6 +1439,8 @@ more += You feel less protected from missiles
 more += Your reaping aura expires
 more += You finish channelling your searing ray
 more += Your rain of reagents ends
+# Death channel
+more += unholy channel is weakening
 
 #############################
 # Bad and Unexpected Things #
@@ -1402,7 +1472,13 @@ flash += LOW HITPOINT WARNING
 flash += LOW MAGIC WARNING
 : end
 
+# You Screwed Up
+more += is no longer ready
+more += You really shouldn't be using
 more += You don't have enough magic to cast this spell
+flash += Your body shudders with the violent release
+flash += power of Zot
+
 more += You fail to use your ability
 more += You stop (a|de)scending the stairs
 flash += You stop (a|de)scending the stairs
@@ -1414,22 +1490,46 @@ more += An alarm trap emits a blaring wail
 more += A sentinel's mark forms upon you
 more += invokes.*trap
 flash += invokes.*trap
-more += Your surroundings flicker
+
+# Translocations
+more += danger:sense of stasis
+more += Your surroundings.*(different|flicker)
+more += You.*re suddenly pulled into a different region
+
+: if you.transform() ~= "storm" then
+more += You blink
+: end
+
+flash += danger:You feel strangely .*stable
+flash += delaying your translocation
+
 more += You cannot teleport right now
 more += A huge blade swings out and slices into you
 more += (blundered into a|invokes the power of) Zot
 more += That really hurt
-more += You convulse
+
+# Big damage
+more += The poison in your body grows stronger
+flash += You feel extremely sick
+more += You.*re lethally poisoned
+more += danger:You convulse
+more += You feel a (horrible|terrible) chill
+more += Your.*terribly
+more += You are.*terribly
 more += Your body is wracked with pain
+
 flash += smites you[^r]
 more += You are (blasted|electrocuted)
 more += You are.*confused
 more += You are blinded
 flash += Something hits you[^r]
-flash += You stumble backwards
+more += infuriates you
+flash += Your magical (effects|defenses) are (unraveling|stripped away)
+flash += The pull of.*song draws you forward
+flash += engulfs you in water
+flash += You .* (blown|knocked back|mesmerised|trampled|stumble backwards|encased)
 flash += You are shoved backwards
 flash += drags you backwards
-flash += You are knocked back
 # more += grabs you[^r]
 flash += grabs you[^r]
 # more += roots grab you[^r]
@@ -1437,6 +1537,7 @@ flash += roots grab you[^r]
 flash += constricts you[^r]
 more += You are skewered in place
 flash += You are skewered in place
+more += The walls disappear
 more += wrath finds you
 more += god:(sends|finds|silent|anger)
 more += You feel a surge of divine spite
@@ -1446,6 +1547,7 @@ more += You are too injured to fight blindly
 more += You feel your attacks grow feeble
 more += The blast of calcifying dust hits you[^r]
 flash += The blast of calcifying dust hits you[^r]
+more += danger:(mutagenic)
 more += Space warps horribly.*around you[^r]
 more += Space bends around you[^r]
 more += Your limbs are stiffening
@@ -1453,6 +1555,19 @@ flash += Your limbs are stiffening
 more += Your body becomes as fragile as glass
 more += Water floods into your lungs
 flash += Water floods into your lungs
+more += You are covered in intense liquid fire
+
+# Unexpected monsters
+more += appears in a (shower|flash)
+more += appears out of thin air
+more += You sense the presence of something unfriendly
+more += Wisps of shadow swirl around
+
+# Monsters doing things
+more += monster_warning:wielding.*of distortion
+more += There is.*feeling in your soul
+more += wretched star pulses
+more += Strange energies course through your body
 more += (?<!Your).*conjures an orb of pure magic
 more += (?<!Your).*conjures a glowing orb
 
@@ -1468,10 +1583,16 @@ more += otherworldly place is opened
 : end
 
 more += An eldritch tentacle comes into view
-flash += You feel extremely sick
-more += lethally poison
-flash += The acid corrodes you[^r]
-more += You are covered in intense liquid fire
+
+# Hit by something
+more += Terrible wounds open
+more += The air around.*erupts in flames
+more += The air twists around and violently strikes you in flight
+more += You shudder from the earth-shattering force
+more += You feel.*(?<!less)( haunted| rot| vulnerable)
+flash += danger:corrodes you[^r]
+flash += Your damage is reflected back at you
+flash += ^(?!Your? ).*reflects
 
 : if you.res_draining() <= 0 then
 flash += You feel drained
@@ -1484,14 +1605,11 @@ more += You are engulfed in a thunderstorm
 more += You are engulfed in excruciating misery
 more += You are engulfed in seething chaos
 flash += You are engulfed in seething chaos
-more += zaps a wand. You turn into
-flash += zaps a wand. You turn into
-more += You turn into a (filthy swine|lump of jelly)
-flash += You turn into a (filthy swine|lump of jelly)
+more += You turn into a
+flash += You turn into a
 more += You feel strangely unstable
-# more += (?<!Your (shadowghast|vampire)) flickers and vanishes
-# flash += (?<!Your (shadowghast|vampire)) flickers and vanishes
 more += Deactivating autopickup
+flash += Deactivating autopickup
 more += is no longer charmed
 flash += is no longer charmed
 stop += is no longer charmed
@@ -1500,6 +1618,13 @@ more += Chaos surges forth from piles of flesh
 flash += You feel the power of Zot begin to focus
 # more += You hear a sizzling splash
 more += heals the
+
+flash += doors? slams? shut
+flash += blows.*on a signal horn
+flash += Its appearance distorts for a moment
+flash += The.*offers itself to Yredelemnul
+flash += The forest starts to sway and rumble
+flash += Your?.*suddenly stops? moving
 
 : if you.god() ~= "Nemelex Xobeh" then
 more += evaporates and reforms as
@@ -1530,7 +1655,7 @@ more += You can't (read|drink|do)
 more += You cannot.*while unable to breathe
 more += You cannot.*in your current state
 more += when.*silenced
-more += too confused
+more += (too|less) confused
 # more += There's something in the way
 # more += There's nothing to (close|open) nearby
 more += not good enough to have a special ability
@@ -1546,10 +1671,6 @@ more += You are unable to access your magic
 more += You assume a fearsome visage
 flash += is a mimic
 stop += (?<!into|through) a shaft
-
-: if you.transform() ~= "storm" then
-more += You blink
-: end
 
 more += (?<!raiju|beast) bursts into living lightning
 more += blinks into view
@@ -2513,369 +2634,6 @@ end
 end
 }
 ############################ End lua/my-feature.lua ############################
-
-#################################### Begin rc/slot-defaults.rc ####################################
-############## https://github.com/brianfaires/crawl-rc/blob/main/rc/slot-defaults.rc ##############
-####### Item Slots #########
-# See manage-consumables.lua for scrolls/potions.
-# Wands use crawl defaults
-
-# Rings to P/p for easy swapping
-gear_slot += ring of:Pp
-
-
-consumable_shortcut ^= box of beasts:B
-consumable_shortcut ^= condenser vane:C
-consumable_shortcut ^= figurine of a ziggurat:Z
-consumable_shortcut ^= Gell's gravitambourine:G
-consumable_shortcut ^= horn of Geryon:H
-consumable_shortcut ^= lightning rod:L
-consumable_shortcut ^= phantom mirror:M
-consumable_shortcut ^= phial of floods:P
-consumable_shortcut ^= sack of spiders:S
-consumable_shortcut ^= tin of tremorstones:T
-
-
-######## Spell Slots #########
-spell_slot ^= Apportation:zZ
-spell_slot ^= Passage of Golubria:zZ
-
-spell_slot ^= Alistair's Intoxication:AITX
-spell_slot ^= Alistair’s Walking Alembic:AWKLMBSTEI
-spell_slot ^= Anguish:ANGUISH
-spell_slot ^= Animate Armour:ANMT
-spell_slot ^= Animate Dead:ADNMT
-spell_slot ^= Arcjolt:AJCOLT
-spell_slot ^= Blink:BLNK
-spell_slot ^= Borgnjor's Revivification:BRVF
-spell_slot ^= Call Canine Familiar:CFN
-spell_slot ^= Call Imp:ICMP
-spell_slot ^= Cause Fear:CFSUR
-spell_slot ^= Chain Lightning:LCHGNT
-spell_slot ^= Cigotuvi's Dreadful Rot:CDRVT
-spell_slot ^= Confusing Touch:CTF
-spell_slot ^= Conjure Ball Lightning:BLCTN
-spell_slot ^= Construct Spike Launcher:CSLPKNRAUE
-spell_slot ^= Corpse Rot:CRPS
-spell_slot ^= Death Channel:DCNL
-spell_slot ^= Death's Door:DROTHEA
-spell_slot ^= Detonation Catalyst:DCTNYTSAEO
-spell_slot ^= Diamond Sawblades:DSWBLNIAO
-spell_slot ^= Discord:DISCORD
-spell_slot ^= Disjunction:DJNIS
-spell_slot ^= Dispersal:DPLIS
-spell_slot ^= Dragon's Call:DCRGN
-spell_slot ^= Forge Monarch Bomb:FMBONRCHGEA
-spell_slot ^= Forge Phalanx Beetle:FPBENXORG
-spell_slot ^= Fortress Blast:FBRTSLA
-spell_slot ^= Foxfire:abcFXOIRE
-spell_slot ^= Fugue of the Fallen:FUGALNE
-spell_slot ^= Fulsome Fusillade:FLSOMADE
-spell_slot ^= Gloom:GLOM
-spell_slot ^= Hoarfrost Cannonade:HCORFND
-spell_slot ^= Ice Form:IFORM
-spell_slot ^= Ignite Poison:IPOSN
-spell_slot ^= Ignition:IGNTO
-spell_slot ^= Infestation:INFESTAON
-spell_slot ^= Irradiate:IRADTE
-spell_slot ^= Iskenderun's Battlespehere:BSI
-spell_slot ^= Iskenderun's Mystic Blast:IMB
-spell_slot ^= Jinxbite:JNXBITE
-spell_slot ^= Leda's Liquefaction:LQFND
-spell_slot ^= Malign Gateway:MGWTN
-spell_slot ^= Manifold Assault:MANFT
-spell_slot ^= Martyr's Knell:MKNARTYEL
-spell_slot ^= Maxwell's Capacitive Coupling:MCXW
-spell_slot ^= Metabolic Englaciation:MENC
-spell_slot ^= Monstrous Menagerie:MNGR
-spell_slot ^= Nazja’s Percussive Tempering:NPTZJACUE
-spell_slot ^= Olgreb's Toxic Radiance:TOR
-spell_slot ^= Ozocubu's Armour:OAMR
-spell_slot ^= Ozocubu's Refrigeration:ROZFG
-spell_slot ^= Permafrost Eruption:PERUTFMAOSTIN
-spell_slot ^= Platinum Paragon:PLTGNMAO
-spell_slot ^= Polar Vortex:PVXT
-spell_slot ^= Rending Blade:RBENDALG
-spell_slot ^= Scorch:SCORH
-spell_slot ^= Shatter:SHTR
-spell_slot ^= Sigil of Binding:SBGILDNG
-spell_slot ^= Silence:SICL
-spell_slot ^= Spellspark Servitor:SVFR
-spell_slot ^= Sphinx Sisters:SPHINXR
-spell_slot ^= Starburst:SBUT
-spell_slot ^= Static Discharge:DSCGT
-spell_slot ^= Sublimation of Blood:SBLM
-spell_slot ^= Summon Blazeheart Golem:SBGLZOM
-spell_slot ^= Summon Cactus Giant:CGS
-spell_slot ^= Summon Forest:FSRTM
-spell_slot ^= Summon Horrible Things:HST
-spell_slot ^= Summon Hydra:HYDRA
-spell_slot ^= Summon Ice Beast:ISB
-spell_slot ^= Summon Lightning Spire:SMLIRNG
-spell_slot ^= Summon Mana Viper:MSV
-spell_slot ^= Summon Seismosaurus Egg:EGSMIEOAU
-spell_slot ^= Summon Small Mammal:abSMLAUON
-spell_slot ^= Swiftness:SWIFT
-spell_slot ^= Volatile Blastmotes:VBOLMASTE
-:if you.class() == "Summoner" then
-  spell_slot ^= (summon|call):abcdefgh
-:end
-
-##################################### End rc/slot-defaults.rc #####################################
-###################################################################################################
-
-##################################### Begin rc/autoinscribe.rc ####################################
-############### https://github.com/brianfaires/crawl-rc/blob/main/rc/autoinscribe.rc ##############
-# See manage-consumables.lua for consumable inscriptions
-ai := autoinscribe
-
-# General
-ai += of cold resistance:rC+
-ai += of fire resistance:rF+
-ai += of poison resistance:rPois
-ai += of corrosion resistance:rCorr
-ai += of invulnerability:rInv
-ai += of magic regeneration:MRegen+
-ai += of positive energy:rN+
-ai += of regeneration:Regen+
-ai += (?<!potion) of resistance:rF+, rC+
-ai += of willpower:Will+
-
-# Armour (avoid double inscribing artefacts)
-ai += (?!.*artefact)fire dragon scale:rF++, rC-
-ai += (?!.*artefact)gold dragon scale:rC+, rF+, rPois
-ai += (?!.*artefact)ice dragon scale:rC++, rF-
-ai += (?!.*artefact)pearl dragon scale:rN+
-ai += (?!.*artefact)storm dragon scale:rElec
-ai += (?!.*artefact)swamp dragon scale:rPois
-ai += (?!.*artefact)quicksilver dragon scale:Will+
-ai += (?!.*artefact)shadow dragon scale:Stlth+
-ai += (?!.*artefact)(?<!moon) troll leather:Regen+
-
-
-# Amulets
-ai += amulet of faith:Faith, !P
-
-# Rings
-ai += ring of fire:rF+, rC-
-ai += ring of flight:+Fly
-ai += ring of ice:rC+, rF-
-ai += ring of magical power:MP+9
-ai += ring of protection from cold:rC+
-ai += ring of protection from fire:rF+
-ai += ring of resist corrosion:rCorr
-ai += ring of see invisible:sInv
-ai += ring of wizardry:Wiz+
-
-# Staves
-ai += staff of air:rElec
-ai += staff of alchemy:rPois
-ai += staff of cold:rC+
-ai += staff of fire:rF+
-ai += staff of necromancy:rN+
-
-###################################### End rc/autoinscribe.rc #####################################
-###################################################################################################
-
-####################################### Begin rc/display.rc #######################################
-################# https://github.com/brianfaires/crawl-rc/blob/main/rc/display.rc #################
-show_resist_percent = false
-stat_colour = 3:red, 6:yellow
-
-hp_colour = 100:green, 99:lightgrey, 75:yellow, 50:lightred, 25:red
-mp_colour = 100:green, 99:lightgrey, 75:yellow, 50:lightred, 25:red
-
-####### Menu Colors #######
-# Set Alias & clear defaults
-menu := menu_colour
-menu =
-
-#### Item colours
-$i_equipped := lightgreen
-$i_boring := darkgrey
-$i_plain := lightgrey
-$i_ego := white
-$i_wand := lightblue
-$i_evoker := yellow
-$i_misc := brown
-$i_shade_artefact := cyan
-$i_shade_jewellery := magenta
-$i_shade_consumables := green
-
-## Consumables
-$i_warning := lightred
-$i_useful := lightblue
-$i_heal := green
-$i_emergency := lightcyan
-$i_rare := yellow
-
-#### Assign item menu_colours
-## Highest priority; always correct
-menu += $i_boring:(melded|useless_item)
-menu += $i_warning:forbidden
-menu += inventory:$i_equipped:.*equipped
-
-## Menu-specific overrides
-# Begin workaround for https://github.com/crawl/crawl/issues/4825 (to override inventory color only)
-menu += pickup:light$i_shade_artefact:artefact
-menu += stash:light$i_shade_artefact:artefact
-
-menu += pickup:$i_evoker:inert
-menu += stash:$i_evoker:inert
-menu += inventory:$i_boring:inert
-
-menu += pickup:light$i_shade_jewellery:amulet
-menu += stash:light$i_shade_jewellery:amulet
-menu += inventory:$i_shade_jewellery:amulet
-# End workaround
-
-menu += inventory:$i_boring:inert
-menu += inventory:$i_shade_jewellery:amulet
-menu += pickup:light$i_shade_consumables:potion
-menu += pickup:$i_shade_consumables:scroll
-menu += pickup:$i_shade_artefact:artefact.*weapon
-menu += pickup:$i_ego:(ego|(unidentified.*(glowing|runed|shiny|embroidered)|troll leather|dragon scales))
-menu += pickup:$i_wand:wand of
-menu += resists:$i_shade_artefact:artefact
-menu += resists:$i_ego:ego
-menu += resists:$i_plain:(armour|weapon|jewellery)
-menu += shop:$i_ego:(ego|(unidentified.*(glowing|runed|shiny|embroidered)|troll leather|dragon scales))
-
-
-## Main item colours
-menu += $i_equipped:.*equipped.*(weapon|armour|jewellery)
-menu += light$i_shade_artefact:artefact
-menu += light$i_shade_jewellery:jewellery
-menu += $i_ego:ego
-
-# Decks
-menu += $i_emergency:deck of escape
-menu += $i_useful:deck of summoning
-menu += $i_warning:deck of destruction
-
-# Misc
-menu += $i_rare:manual of
-menu += $i_misc:(spellbook|staff of|talisman|bauble)
-menu += $i_evoker:(curare|disjunction|throwing net)
-menu += $i_evoker:evoker
-
-# Potions
-menu += $i_emergency:potions? of (cancellation|haste|resistance)
-menu += $i_heal:potions? of (ambrosia|curing|i_heal wounds|magic)
-menu += $i_rare:potions? of experience
-menu += $i_useful:potions? of (brilliance|enlightenment|invisibility|might)
-menu += $i_warning:potions? of (attraction|berserk|lignification|mutation)
-
-# Scrolls
-menu += $i_plain:scrolls? of (amnesia|enchant|identify)
-menu += $i_emergency:scrolls? of (blinking|butterflies|fear|fog|summoning)
-menu += $i_rare:scrolls? of (acquirement|brand)
-menu += $i_useful:scrolls? of (revelation|teleportation)
-menu += $i_warning:scrolls? of (immolation|noise|poison|silence|torment|vulnerability)
-
-# Wands
-menu += $i_emergency:wand of digging
-menu += $i_plain:wand of (flame|paralysis|charming|mindburst|polymorph)
-menu += $i_useful:wand of (acid|iceblast|light|quicksilver|roots|warping)
-
-
-####### Message Channels #######
-# (Main changes are god, timed_portal, mutation, and several mute/boring)
-$m_boring := darkgrey
-$m_normal := lightgrey
-$m_interesting := white
-$m_noteworthy := lightcyan
-$m_interface := cyan
-$m_info := blue
-$m_attention := lightmagenta
-$m_danger  := red
-$m_warning := lightred
-$m_alert := yellow
-$m_gain := green
-$m_restore := lightblue
-
-channel.plain = $m_normal
-channel.prompt = $m_interface
-channel.god = $m_alert
-channel.duration = $m_restore
-channel.danger = $m_danger
-channel.warning = $m_warning
-channel.recovery = $m_gain
-channel.talk = mute
-channel.talk_visual = mute
-channel.timed_portal = $m_alert
-channel.sound = $m_normal
-channel.intrinsic_gain = $m_gain
-channel.mutation = $m_attention
-channel.monster_spell = $m_interesting
-channel.monster_enchant = $m_interesting
-channel.monster_warning = $m_warning
-channel.friend_spell = mute
-channel.friend_enchant = mute
-channel.friend_action = mute
-#channel.monster_damage = mute
-channel.monster_target = mute
-channel.banishment = $m_alert
-channel.equipment = $m_normal
-channel.floor = $m_boring
-channel.multiturn = $m_boring
-channel.examine = $m_normal
-channel.examine_filter = $m_boring
-channel.diagnostic = $m_info
-channel.error = $m_attention
-channel.tutorial = $m_info
-channel.orb = $m_attention
-channel.hell_effect = $m_warning
-channel.dgl_message = $m_attention
-
-####### Message-specific colors
-msc := message_colour
-
-# Easy-to-miss messages
-msc ^= $m_alert:You feel .*more experienced
-
-# Found things
-msc += $m_interesting:Found
-msc ^= $m_interface:Found a faded altar
-msc ^= $m_interface:Found a.* altar of
-msc ^= $m_alert:Found a (gate|stair).* to
-
-# Travel / Exploring
-msc ^= $m_alert:You now have enough gold to buy 
-msc ^= $m_alert:You have identified the last 
-msc ^= $m_boring:You .*(open|close) the door
-msc ^= $m_boring:You climb (upwards|downwards)
-msc ^= $m_interesting:Done exploring
-msc ^= $m_interesting:You disentangle yourself
-msc ^= $m_warning:You are caught in .* web
-
-# Combat
-msc ^= $m_boring:(T|t)he (bush|plant|fungus)
-msc ^= $m_boring:does no damage
-msc ^= $m_boring:You block .* attack
-msc ^= $m_boring:fails to defend itself
-msc ^= $m_boring:No (reachable )?target in view
-msc ^= $m_boring:struggles against the net
-msc ^= $m_boring:You furiously retaliate
-msc ^= $m_boring:You swing at nothing
-msc ^= $m_boring:You hear a splash
-msc ^= $m_interesting:flickers and vanishes
-msc ^= $m_interesting:is touched by paradox
-msc ^= $m_interesting:seems to slow down
-msc ^= $m_interesting:Your unstable footing causes you to 
-msc ^= $m_interesting:You become entangled in the net
-msc ^= $m_interesting:You feel a bit more experienced
-msc ^= $m_interesting:You .*miss something
-msc ^= $m_interesting:You are blasted
-
-# Equipment
-msc ^= $m_boring:You unwield your 
-
-# Bad things
-msc ^= $m_danger: delaying your translocation
-
-######################################## End rc/display.rc ########################################
-###################################################################################################
 
 ####################################### Begin rc/runrest.rc #######################################
 ################# https://github.com/brianfaires/crawl-rc/blob/main/rc/runrest.rc #################
@@ -4921,7 +4679,7 @@ end
 local function display_cur_message()
   if BRC.Hotkey.Config.wait_for_safety and not you.feel_safe() then return end
   local msg = string.format("[BRC] Press %s to %s.", BRC.Hotkey.Config.key.name, cur_action.msg)
-  BRC.mpr.que(msg, BRC.COL.darkgrey)
+  BRC.mpr.que(msg, BRC.COL.magenta)
 end
 
 local function load_next_action()
@@ -6087,7 +5845,7 @@ local function format_delta(delta)
   if delta > 0 then
     return BRC.txt.green("+" .. delta)
   elseif delta < 0 then
-    return BRC.txt.red(delta)
+    return BRC.txt.lightred(delta)
   else
     return BRC.txt.darkgrey("+0")
   end
@@ -6096,13 +5854,13 @@ end
 local function format_ratio(cur, max)
   local ratio_color
   if cur <= (max * 0.25) then
-    ratio_color = BRC.COL.lightred
-  elseif cur <= (max * 0.50) then
     ratio_color = BRC.COL.red
+  elseif cur <= (max * 0.50) then
+    ratio_color = BRC.COL.lightred
   elseif cur <= (max * 0.75) then
     ratio_color = BRC.COL.yellow
   elseif cur < max then
-    ratio_color = BRC.COL.white
+    ratio_color = BRC.COL.lightgrey
   else
     ratio_color = BRC.COL.green
   end
@@ -6394,486 +6152,6 @@ end
 
 }
 ############################### End lua/features/answer-prompts.lua ###############################
-###################################################################################################
-
-############################### Begin lua/features/bread-swinger.lua ##############################
-######### https://github.com/brianfaires/crawl-rc/blob/main/lua/features/bread-swinger.lua ########
-{
----------------------------------------------------------------------------------------------------
--- BRC feature module: bread-swinger
--- @module f_bread_swinger
--- @author gammafunk, buehler
--- Efficient resting during turncount runs, by wielding slow weapons, or walking back and forth.
--- Based on: https://github.com/gammafunk/dcss-rc/blob/master/speedrun_rest.lua
---
--- Press '5' to rest a variable number of turns. Will swap to slowest weapon in inventory.
--- Press 'cntl-5' to manually set the weapon slot to swing.
----------------------------------------------------------------------------------------------------
-
-f_bread_swinger = {}
-f_bread_swinger.BRC_FEATURE_NAME = "bread-swinger"
-f_bread_swinger.Config = {
-  disabled = true, -- Disable by default
-  allow_plant_damage = false, -- Allow damaging plants to rest
-  walk_delay = 50, -- ms delay between walk commands. Makes visuals less jarring. 0 to disable
-  alert_slow_weap_min = 1.5, -- Alert when finding the slowest weapon yet, starting at this delay
-  set_manual_slot_key = BRC.util.cntl("5"), -- Manually set which weapon slot to swing
-  max_heal_perc = 90, -- Stop resting at this percentage of max HP/MP
-  emoji = "🍞",
-
-  init = function()
-    if not BRC.Config.emojis then
-      f_bread_swinger.Config.emoji = BRC.txt.cyan("---- ")
-    end
-  end,
-} -- f_bread_swinger.Config (do not remove this comment)
-
----- Persistent variables ----
-bs_manual_swing_slot = BRC.Data.persist("bs_manual_swing_slot", nil)
-bs_highest_delay = BRC.Data.persist("bs_highest_delay", 0)
-bs_highest_delay_1h = BRC.Data.persist("bs_highest_delay_1h", 0)
-
----- Local constants ----
-local CUR_WEAP_BIAS = 0.05 -- Borderline config; don't swap weaps unless delay diff > this
-local DIR_TO_VI = {
-  [-1] = { [-1] = "y", [0] = "h", [1] = "b" },
-  [0] = { [-1] = "k", [1] = "j" },
-  [1] = { [-1] = "u", [0] = "l", [1] = "n" },
-} -- DIR_TO_VI (do not remove this comment)
-local SH_PROMPT = "Unequip shield to rest with "
-local FULLY_RECOVERED_MSG = "Fully recovered"
-
----- Local variables ----
-local C -- config alias
-local swing_slot
-local turns_remaining
-local turns_to_rest
-local prev_num_turns_to_rest
-local rest_type
-local wielding
-local dir
-local removed_shield
-local do_overheal
-
----- Local functions ----
-local function has_bad_duration()
-  local status = you.status()
-  return util.exists(BRC.BAD_DURATIONS, function(x) return status:contains(x) end)
-end
-
-local function reset_rest(msg)
-  if msg then
-    if turns_remaining > 0 and turns_remaining ~= turns_to_rest then
-      local diff = turns_to_rest - turns_remaining
-      msg = string.format("%s (Rested %s/%s turns)", msg, diff, turns_to_rest)
-    end
-
-    if msg:contains(FULLY_RECOVERED_MSG) then
-      BRC.mpr.lightgreen(msg)
-    else
-      BRC.mpr.warning(msg)
-    end
-  end
-
-  if removed_shield then
-    BRC.mpr.que(BRC.txt.lightmagenta("Remember to re-equip your shield after resting!"))
-  end
-
-  swing_slot = nil
-  turns_remaining = 0
-  turns_to_rest = 0
-  rest_type = nil
-  wielding = false
-  dir = { x = nil, y = nil }
-  removed_shield = false
-  do_overheal = false
-end
-
-local function get_num_turns()
-  local msg = BRC.txt.white("Enter turns to rest")
-  if prev_num_turns_to_rest > 0 then
-    msg = msg .. " ([Enter] for " .. BRC.txt.white(prev_num_turns_to_rest) .. " turns)"
-  end
-  BRC.mpr.lightgrey(msg .. ": ")
-  local input = crawl.c_input_line()
-  if input == "" then return prev_num_turns_to_rest end
-
-  local turns = tonumber(input)
-  if not turns or turns <= 0 then
-    return nil
-  end
-  prev_num_turns_to_rest = turns
-  return turns
-end
-
-local function do_alert(msg, it)
-  local tokens = {}
-  tokens[1] = f_bread_swinger.Config.emoji .. " "
-  tokens[#tokens + 1] = msg .. ": "
-  tokens[#tokens + 1] = BRC.txt.cyan(it.name() .. " (")
-  tokens[#tokens + 1] = BRC.txt.lightmagenta(string.format("%.2f", BRC.eq.get_weap_delay(it)))
-  tokens[#tokens + 1] = BRC.txt.cyan(") ")
-  tokens[#tokens + 1] = f_bread_swinger.Config.emoji
-  BRC.mpr.que(table.concat(tokens))
-  you.stop_activity()
-end
-
--- Weapon functions
-local function weapon_can_swap()
-  local weapon = items.equipped_at("Weapon")
-  if not weapon then return true end
-
-  if weapon.ego() == "distortion" and you.god() ~= "Lugonu" then return false end
-
-  if weapon.artefact then
-    local artp = weapon.artprops
-    return not (artp["*Contam"] or artp["*Drain"])
-  end
-
-  return true
-end
-
-local function get_slowest_slot()
-  local slowest_item = nil
-  local largest_delay = 0
-  local slowest_item_1h = nil
-  local largest_delay_1h = 0
-
-  -- Initialize to wielded weapon + BIAS; so we don't swap for an (approximate) equivalent.
-  local it = items.equipped_at("Weapon")
-  if it and it.class() == "Hand Weapons" then
-    local weap_delay = BRC.eq.get_weap_delay(it) + CUR_WEAP_BIAS
-    largest_delay = weap_delay
-    slowest_item = it
-    if BRC.eq.get_hands(it) == 1 then
-      largest_delay_1h = weap_delay
-      slowest_item_1h = it
-    end
-  end
-
-  -- Scan inventory for slowest weapon
-  for _, item in ipairs(items.inventory()) do
-    if item.class() == "Hand Weapons" then
-      local weap_delay = BRC.eq.get_weap_delay(item)
-      if weap_delay > largest_delay then
-        largest_delay = weap_delay
-        slowest_item = item
-      end
-      if BRC.eq.get_hands(item) == 1 and weap_delay > largest_delay_1h then
-        largest_delay_1h = weap_delay
-        slowest_item_1h = item
-      end
-    end
-  end
-  if not slowest_item then return nil end
-
-  -- Often is more efficient to unequip shield and rest with a slower 2-handed weapon.
-  if not BRC.you.free_offhand() and BRC.eq.get_hands(slowest_item) > 1 then
-    local msg = BRC.txt.white(SH_PROMPT .. BRC.txt.lightcyan(slowest_item.name("db")) .. "?")
-    if BRC.mpr.yesno(msg) then
-      items.equipped_at("offhand").remove()
-      removed_shield = true
-    elseif slowest_item_1h then
-      slowest_item = slowest_item_1h
-    else
-      return nil
-    end
-  end
-
-  return items.index_to_letter(slowest_item.slot)
-end
-
-local function swing_item_wielded()
-  local weapon = items.equipped_at("Weapon")
-  if not weapon and not swing_slot then return true end
-  if not weapon or not swing_slot then return false end
-  return weapon.slot == items.letter_to_index(swing_slot)
-end
-
-local function wield_swing_item()
-  if not swing_slot then return end
-  wielding = true
-  BRC.opt.single_turn_mute("You unwield ")
-  BRC.opt.single_turn_mute(swing_slot .. " - ")
-  crawl.sendkeys({ "w", "*", swing_slot })
-  crawl.flush_input()
-end
-
--- Feature checks
-local function is_water(x, y)
-  local feat = view.feature_at(x, y)
-  return feat and feat:contains("water") and not you.status("flying")
-end
-
-local function is_monster(x, y)
-  local mon = monster.get_monster_at(x, y)
-  return mon and not (C.allow_plant_damage and mon.is_stationary())
-end
-
--- Setting direction to move or swing
-local function is_good_dir_walk(x, y)
-  if x == 0 and y == 0 then return false end
-  return is_water(x, y) == is_water(0, 0)
-    and view.is_safe_square(x, y)
-    and not travel.feature_solid(view.feature_at(x, y))
-    and not monster.get_monster_at(x, y)
-end
-
-local function is_good_dir_swing(x, y)
-  if x == 0 and y == 0 then return false end
-  if not view.in_known_map_bounds(x, y) then return false end
-
-  local weapon = items.equipped_at("Weapon")
-  if weapon then
-    if weapon.is_ranged then
-      -- Confirm no monsters in straight line
-      for i = 1, you.los() do
-        local cur_x = i * x
-        local cur_y = i * y
-        if is_monster(cur_x, cur_y) then return false end
-        if travel.feature_solid(view.feature_at(cur_x, cur_y)) then break end
-      end
-    end
-
-    if weapon.weap_skill:contains("Axes") then
-      -- Confirm no monsters in adjacent squares
-      for cur_x = -1, 1 do
-        for cur_y = -1, 1 do
-          if is_monster(cur_x, cur_y) then return false end
-        end
-      end
-    end
-  end
-
-  return not (travel.feature_solid(view.feature_at(x, y)) or is_monster(x, y))
-end
-
-local function get_good_direction()
-  local func_is_good_dir = rest_type == "walk" and is_good_dir_walk or is_good_dir_swing
-  for x = -1, 1 do
-    for y = -1, 1 do
-      if func_is_good_dir(x, y) then return x, y end
-    end
-  end
-  return nil
-end
-
-local function set_good_direction()
-  if rest_type == "walk" and dir.x ~= nil then
-    -- Try to move back and forth by saving next dir
-    if is_good_dir_walk(dir.x, dir.y) then return true end
-    dir.x = nil
-  end
-  if dir.x == nil or not is_good_dir_swing(dir.x, dir.y) then
-    dir.x, dir.y = get_good_direction()
-    if not dir.x then
-      reset_rest("No good direction found!")
-      return false
-    end
-  end
-
-  return true
-end
-
--- Resting
-local function set_rest_type()
-  local inv = swing_slot and items.inslot(items.letter_to_index(swing_slot))
-  local weap_delay = inv and BRC.eq.get_weap_delay(inv) or BRC.you.unarmed_attack_delay()
-  if (not swing_item_wielded() and not weapon_can_swap())
-    or you.movement_cost and you.movement_cost() > 10 * weap_delay
-  then
-    rest_type = "walk"
-  elseif weap_delay > 1 then
-    rest_type = "item"
-  else
-    rest_type = "wait"
-  end
-end
-
-local function verify_safe_rest()
-  local hp, mhp = you.hp()
-  local mp, mmp = you.mp()
-  mhp = mhp * C.max_heal_perc / 100
-  mmp = mmp * C.max_heal_perc / 100
-  if hp >= mhp and mp >= mmp and not has_bad_duration() and not do_overheal then
-    if turns_remaining == turns_to_rest then
-      if BRC.mpr.yesno("You're healthy enough! Rest anyway?", BRC.COL.yellow) then
-        do_overheal = true
-        return true
-      else
-        BRC.mpr.okay()
-        reset_rest()
-        return false
-      end
-    end
-
-    reset_rest(FULLY_RECOVERED_MSG)
-    return false
-  end
-
-  if not you.feel_safe() then
-    reset_rest("Hostile monster in view!")
-    return false
-  elseif rest_type == "walk" then
-    if you.status("barbs") then
-      reset_rest("You must remove the barbs first.")
-      return false
-    end
-  end
-  return true
-end
-
-local function do_resting()
-  if not set_good_direction() then return end
-  if f_announce_hp_mp then f_announce_hp_mp.single_turn_mute() end
-
-  if rest_type == "wait" then
-    BRC.util.do_cmd("CMD_SAFE_WAIT")
-  elseif rest_type == "item" then
-    BRC.opt.single_turn_mute("You swing at nothing.")
-    BRC.opt.single_turn_mute("You shoot ")
-    BRC.opt.single_turn_mute("unstable footing causes you to fumble your attack")
-    crawl.sendkeys({ BRC.util.cntl(DIR_TO_VI[dir.x][dir.y]) })
-    crawl.flush_input()
-  else
-    -- Save the return direction as our next direction
-    local cur_x = dir.x
-    local cur_y = dir.y
-    dir.x = -dir.x
-    dir.y = -dir.y
-    crawl.sendkeys({ DIR_TO_VI[cur_x][cur_y] })
-    crawl.flush_input()
-
-    if C.walk_delay > 0 then crawl.delay(C.walk_delay) end
-  end
-
-  turns_remaining = turns_remaining - 1
-  if turns_remaining <= 0 then
-    BRC.mpr.green("Resting complete. (" .. turns_to_rest .. " turns)")
-    reset_rest()
-  end
-end
-
---- Checks if weapon has slowest swing speed. Returns 2 if slowest, and 1 for slowest 1-handed.
-local function is_slowest_weapon(it)
-  if not it or it.is_useless or not it.is_weapon then return nil end
-  local delay = BRC.eq.get_weap_delay(it)
-  if delay < C.alert_slow_weap_min then return nil end
-
-  if delay > bs_highest_delay then
-    bs_highest_delay = delay
-    if BRC.eq.get_hands(it) == 1 then bs_highest_delay_1h = delay end
-    return 2
-  elseif delay > bs_highest_delay_1h and BRC.eq.get_hands(it) == 1 then
-    bs_highest_delay_1h = delay
-    return 1
-  end
-end
-
----- Public API ----
-function macro_brc_bread_swing(turns)
-  if BRC.active == false or f_bread_swinger.Config.disabled then
-    return BRC.util.do_cmd("CMD_REST")
-  end
-
-  if not verify_safe_rest() then return end
-
-  turns_to_rest = turns or get_num_turns()
-  if not turns_to_rest or turns_to_rest <= 0 then
-    return
-  end
-  turns_remaining = turns_to_rest
-
-  -- Set swing slot
-  swing_slot = bs_manual_swing_slot or get_slowest_slot()
-  if swing_slot then
-    local weap = items.inslot(items.letter_to_index(swing_slot))
-    if not weap or not weap.is_weapon then
-      BRC.mpr.warning("Swing slot " .. BRC.txt.lightmagenta(swing_slot) .. " is not a weapon!")
-      return
-    end
-  end
-
-  -- Determine rest type
-  set_rest_type()
-  if rest_type == "walk" and turns_to_rest % 2 == 1 then
-    turns_to_rest = turns_to_rest - 1
-    turns_remaining = turns_remaining - 1
-  end
-
-  f_bread_swinger.ready()
-end
-
-function macro_brc_set_swing_slot()
-  BRC.mpr.info(BRC.txt.white("Enter the inventory slot") .. " for the swing item: ")
-  local letter = crawl.getch()
-  if not letter or letter < string.byte('A') or letter > string.byte('z') then
-    bs_manual_swing_slot = nil
-    BRC.mpr.info(BRC.txt.magenta("Swing slot cleared.") .. " (Must be a letter a-z or A-Z).")
-    return
-  end
-  bs_manual_swing_slot = string.char(letter)
-  BRC.mpr.info(BRC.txt.lightgrey("Set swing slot to " .. BRC.txt.cyan(bs_manual_swing_slot) .. "."))
-end
-
----- Initialization ----
-function f_bread_swinger.init()
-  C = f_bread_swinger.Config
-  prev_num_turns_to_rest = 0
-  reset_rest()
-  BRC.opt.macro(BRC.util.get_cmd_key("CMD_REST") or "5", "macro_brc_bread_swing", true)
-  BRC.opt.macro(C.set_manual_slot_key, "macro_brc_set_swing_slot", true)
-
-  for _, it in ipairs(items.inventory()) do
-    is_slowest_weapon(it)
-  end
-end
-
----- Crawl hook functions ----
-function f_bread_swinger.c_message(text, channel)
-  -- Don't stop for expiring effects or removing shield
-  if turns_remaining <= 0
-    or channel == "recovery"
-    or channel == "duration"
-    or text:find("Your magical contamination .* fade")
-    or removed_shield and text:find("You .* removing your") or text:contains(SH_PROMPT)
-  then return end
-
-  reset_rest()
-end
-
-function f_bread_swinger.ready()
-  if not turns_remaining or turns_remaining <= 0 then
-    reset_rest()
-    return
-  end
-  if not verify_safe_rest() then return end
-
-  if wielding and not swing_item_wielded() then
-    -- An error happened with the 'w' command
-    reset_rest("Unable to wield swing item on slot " .. swing_slot .. "!")
-    return
-  end
-
-  if rest_type == "item" and not swing_item_wielded() then
-    wield_swing_item()
-  else
-    do_resting()
-  end
-end
-
-function f_bread_swinger.autopickup(it)
-  if f_pickup_alert and f_pickup_alert.is_paused() then return end -- follow pause pattern
-  local num_hands = is_slowest_weapon(it)
-  if num_hands == 2 then
-    do_alert("Found slowest weapon", it)
-  elseif num_hands == 1 then
-    do_alert("Found slowest 1-handed weapon", it)
-  end
-end
-
-}
-################################ End lua/features/bread-swinger.lua ###############################
 ###################################################################################################
 
 ############################## Begin lua/features/color-inscribe.lua ##############################
