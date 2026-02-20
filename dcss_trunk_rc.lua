@@ -105,9 +105,9 @@ brc_config_explicit = {
       hp_gain_limit = 4, -- Announce when HP gain >= this
       mp_loss_limit = 2, -- Announce when MP loss >= this
       mp_gain_limit = 3, -- Announce when MP gain >= this
-      hp_first = false, -- Show HP first in the message
-      same_line = true, -- Show HP/MP on the same line
-      always_both = true, -- If showing one, show both
+      hp_first = true, -- Show HP first in the message
+      same_line = false, -- Show HP/MP on the same line
+      always_both = false, -- If showing one, show both
       very_low_hp = 0.25, -- At this % of max HP, show all HP changes and mute % HP alerts
     },
 
@@ -1156,7 +1156,7 @@ warn_hatches = true
 explore_stop = greedy_pickup_smart
 explore_stop += stairs,shops,altars,portals,branches,runed_doors,glowing_items,artefacts,runes
 
-combo += MiFi . trident
+# combo += MiFi . trident
 # combo += DECj
 
 force_spell_targeter += Silence
@@ -1173,6 +1173,7 @@ confirm_action += Potion Petition, Call Merchant, Blink[^bolt], Silence, Maxwell
 # github.com/crawl/crawl/blob/master/crawl-ref/source/dat/defaults/messages.txt
 # github.com/crawl/crawl/blob/master/crawl-ref/source/dat/defaults/runrest_messages.txt
 # github.com/crawl/crawl/blob/master/crawl-ref/source/dat/defaults/misc.txt
+# github.com/crawl/crawl/blob/master/crawl-ref/source/god-abil.cc
 
 ignore := runrest_ignore_message
 stop := runrest_stop_message
@@ -1226,7 +1227,6 @@ stop += scroll labelled, - (a|[2-6]) .* potion
 stop += You see here.*scrolls? of enchant armour
 : end
 
-# github.com/crawl/crawl/blob/master/crawl-ref/source/god-abil.cc
 more += You have reached level
 more += press f on the ability menu to create your gizmo
 flash += press f on the ability menu to create your gizmo
@@ -2476,7 +2476,10 @@ macros += M > V25
 
 # : if you.class() == "Conjurer" or you.class() == "Fire Elementalist" or you.class() == "Air Elementalist" or you.class() == "Earth Elementalist" then
 # : if you.skill("Spellcasting") >= 5 then
-# macros += M \{9} zaf
+: if you.race() == "Deep Elf" then
+macros += M \{9} zaf
+: end
+
 macros += M E zbf
 macros += M U zcf
 macros += M 1 za
@@ -2489,7 +2492,6 @@ macros += M 7 zg
 macros += M 8 zh
 macros += M 9 zi
 macros += M 0 zj
-# : end
 
 # github.com/brianfaires/crawl-rc/blob/main/rc/macros.rc
 # "K1" level-map context keymap (during the `X` view only)
@@ -2529,7 +2531,8 @@ bindkey = [W] CMD_WIELD_WEAPON
 bindkey = [w] CMD_WEAR_ARMOUR
 bindkey = [p] CMD_WEAR_JEWELLERY
 
-: if you.class() ~= "Conjurer" and  you.class() ~= "Fire Elementalist" and you.class() ~= "Air Elementalist" and you.class() ~= "Earth Elementalist" then
+# : if you.class() ~= "Conjurer" and  you.class() ~= "Fire Elementalist" and you.class() ~= "Air Elementalist" and you.class() ~= "Earth Elementalist" then
+: if you.race() ~= "Deep Elf" then
 bindkey = [Tab] CMD_AUTOFIGHT_NOMOVE
 : end
 
