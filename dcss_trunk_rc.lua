@@ -2479,6 +2479,17 @@ macros += M > V25
 # macros += M \{9} zaf
 # : end
 
+{
+function TAB()
+    if you.class() == "Conjurer" or you.class() == "Fire Elementalist" or you.class() == "Air Elementalist" or you.class() == "Earth Elementalist" then
+        crawl.sendkeys("zaf")
+    else
+        crawl.do_commands({'CMD_AUTOFIGHT_NOMOVE'})
+    end
+end
+}
+macros += M \{9} ===TAB
+
 macros += M E zbf
 macros += M U zcf
 macros += M 1 za
@@ -2530,9 +2541,9 @@ bindkey = [W] CMD_WIELD_WEAPON
 bindkey = [w] CMD_WEAR_ARMOUR
 bindkey = [p] CMD_WEAR_JEWELLERY
 
-# : if you.class() ~= "Conjurer" and  you.class() ~= "Fire Elementalist" and you.class() ~= "Air Elementalist" and you.class() ~= "Earth Elementalist" then
+# : if you.class() ~= "Conjurer" and you.class() ~= "Fire Elementalist" and you.class() ~= "Air Elementalist" and you.class() ~= "Earth Elementalist" then
 # : if you.race() ~= "Deep Elf" then
-bindkey = [Tab] CMD_AUTOFIGHT_NOMOVE
+# bindkey = [Tab] CMD_AUTOFIGHT_NOMOVE
 # : end
 
 bindkey = [k] CMD_AUTOFIRE
