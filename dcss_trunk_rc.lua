@@ -2475,9 +2475,9 @@ macros += M > V25
 
 # : if you.class() == "Conjurer" or you.class() == "Fire Elementalist" or you.class() == "Air Elementalist" or you.class() == "Earth Elementalist" then
 # : if you.skill("Spellcasting") >= 5 then
-: if you.race() == "Deep Elf" then
-macros += M \{9} zaf
-: end
+# : if you.race() == "Deep Elf" then
+# macros += M \{9} zaf
+# : end
 
 macros += M E zbf
 macros += M U zcf
@@ -2531,9 +2531,9 @@ bindkey = [w] CMD_WEAR_ARMOUR
 bindkey = [p] CMD_WEAR_JEWELLERY
 
 # : if you.class() ~= "Conjurer" and  you.class() ~= "Fire Elementalist" and you.class() ~= "Air Elementalist" and you.class() ~= "Earth Elementalist" then
-: if you.race() ~= "Deep Elf" then
+# : if you.race() ~= "Deep Elf" then
 bindkey = [Tab] CMD_AUTOFIGHT_NOMOVE
-: end
+# : end
 
 bindkey = [k] CMD_AUTOFIRE
 bindkey = [u] CMD_PREV_CMD_AGAIN
