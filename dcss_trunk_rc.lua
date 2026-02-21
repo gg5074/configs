@@ -996,7 +996,8 @@ brc_config_explicit = {
 ################################### Begin rc/main.rc ###################################
 sound_on = true
 one_SDL_sound_channel = true
-sound_volume = 0.07
+# sound_volume = 0.07
+sound_volume = 0.17
 sound_fade_time = 2.6
 
 # sound_pack += https://sound-packs.nemelex.cards/sdlaonline/sdlaonline.zip
@@ -1156,7 +1157,7 @@ warn_hatches = true
 explore_stop = greedy_pickup_smart
 explore_stop += stairs,shops,altars,portals,branches,runed_doors,glowing_items,artefacts,runes
 
-# combo += MiFi . trident
+combo += MiFi . trident
 # combo += DECj
 
 force_spell_targeter += Silence
@@ -2098,7 +2099,7 @@ ai += wand of digging:@v3
 
 # Enemy AC 2 (gnoll), Dizzy's DCSS Doodad, Mulch%
 # https://pastebin.com/raw/2DKqrVha
-ai += (?<!tremor)stone:Dmg/T 0.4 1 3 Thr 0 3 6
+ai += (?<!tremor)stone:0.4 1 3 Thr 0 3 6
 ai += boomerang:@f2@Q2, F2, 5%
 ai += (?<!silver) javelin:@f3@Q3, H, 5%
 ai += silver javelin:@f6@Q6, 5%
@@ -2479,17 +2480,6 @@ macros += M > V25
 # macros += M \{9} zaf
 # : end
 
-{
-function TAB()
-    if you.class() == "Conjurer" or you.class() == "Fire Elementalist" or you.class() == "Air Elementalist" or you.class() == "Earth Elementalist" then
-        crawl.sendkeys("zaf")
-    else
-        crawl.do_commands({'CMD_AUTOFIGHT_NOMOVE'})
-    end
-end
-}
-macros += M \{9} ===TAB
-
 macros += M E zbf
 macros += M U zcf
 macros += M 1 za
@@ -2543,7 +2533,7 @@ bindkey = [p] CMD_WEAR_JEWELLERY
 
 # : if you.class() ~= "Conjurer" and you.class() ~= "Fire Elementalist" and you.class() ~= "Air Elementalist" and you.class() ~= "Earth Elementalist" then
 # : if you.race() ~= "Deep Elf" then
-# bindkey = [Tab] CMD_AUTOFIGHT_NOMOVE
+bindkey = [Tab] CMD_AUTOFIGHT_NOMOVE
 # : end
 
 bindkey = [k] CMD_AUTOFIRE
