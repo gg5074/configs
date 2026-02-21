@@ -3897,8 +3897,8 @@ function BRC.eq.wpn_stats(it, dmg_type, skip_dps)
 
   --TODO: This would be nice if it worked in all UIs
   --return string.format("DPS=<w>%s</w> (%s/%s) Ac<w>%s</w>", dps, dmg, delay_str, acc)
-  if skip_dps then return string.format("Dmg=%s/%s A%s", dmg, delay_str, acc) end
-  return string.format("DPS=%s (%s/%s) A%s", dps, dmg, delay_str, acc)
+  if skip_dps then return string.format("Dmg:%s/%s A%s", dmg, delay_str, acc) end
+  return string.format("DPS:%s (%s/%s) A%s", dps, dmg, delay_str, acc)
 end
 
 
@@ -6149,6 +6149,21 @@ local BAD_FOR_TREES = { "deep_water", "lava", "open_sea", "endless_lava" }
 function f_answer_prompts.c_answer_prompt(prompt)
   if prompt == "Die?" then return false end
 
+  if prompt:contains("Really fire") and prompt:contains("your spellforged") then return true end
+  if prompt:contains("Really refrigerate") and prompt:contains("your spellforged") then return true end
+  if prompt:contains("Permafrost Eruption might hit") and prompt:contains("servitor") then return true end
+  if prompt:contains("Plasma Beam") and prompt:contains("might") then return true end
+  if prompt:contains("Plasma Beam") and prompt:contains("your spellforged") then return true end
+  if prompt:contains("Really") and prompt:contains("fire vort") then return true end
+  if prompt:contains("Really") and prompt:contains("battle") then return true end
+  if prompt:contains("Really hurl") and prompt:contains("your spellforged") then return true end
+  if prompt:contains("Really attack your") and prompt:contains("rat") then return true end
+  if prompt:contains("Really conjure a freezing cloud near your ") then return true end
+  if prompt:contains("into that cloud of flame") and you.res_fire() == 3 then return true end
+  if prompt:contains("into that cloud of freezing vapour") and you.res_cold() == 3 then return true end
+  if prompt:contains("into a travel-excluded") then return true end
+  if prompt:contains("icy armour will break") then return true end
+  
   if prompt:contains("cheaper one?") and you.branch() ~= "Bazaar" then
     BRC.mpr.yellow("Replacing shopping list items")
     return true
