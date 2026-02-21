@@ -997,14 +997,15 @@ brc_config_explicit = {
 sound_on = true
 one_SDL_sound_channel = true
 # sound_volume = 0.07
-sound_volume = 0.17
+sound_volume = 0.27
 sound_fade_time = 2.6
 
 # sound_pack += https://sound-packs.nemelex.cards/sdlaonline/sdlaonline.zip
 sound_pack += https://osp.nemelex.cards/build/latest.zip:["init.txt"]
 sound_pack += https://sound-packs.nemelex.cards/Autofire/BindTheEarth/BindTheEarth.zip
 
-bgm_volume = 0.04
+# bgm_volume = 0.04
+bgm_volume = 0.14
 sound_pack += https://sound-packs.nemelex.cards/DCSS-UST/v1.0.1.zip
 
 #######################
@@ -1606,8 +1607,8 @@ more += You are engulfed in a thunderstorm
 more += You are engulfed in excruciating misery
 more += You are engulfed in seething chaos
 flash += You are engulfed in seething chaos
-more += You turn into a
-flash += You turn into a
+more += You turn into
+flash += You turn into
 more += You feel strangely unstable
 more += Deactivating autopickup
 flash += Deactivating autopickup
