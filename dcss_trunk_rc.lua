@@ -997,15 +997,15 @@ brc_config_explicit = {
 sound_on = true
 one_SDL_sound_channel = true
 # sound_volume = 0.07
-sound_volume = 0.27
+sound_volume = 0.17
+# bgm_volume = 0.04
+bgm_volume = 0.14
 sound_fade_time = 2.6
 
 # sound_pack += https://sound-packs.nemelex.cards/sdlaonline/sdlaonline.zip
 sound_pack += https://osp.nemelex.cards/build/latest.zip:["init.txt"]
 sound_pack += https://sound-packs.nemelex.cards/Autofire/BindTheEarth/BindTheEarth.zip
 
-# bgm_volume = 0.04
-bgm_volume = 0.14
 sound_pack += https://sound-packs.nemelex.cards/DCSS-UST/v1.0.1.zip
 
 #######################
@@ -1870,7 +1870,6 @@ more += encounter.*(ragged hierophant|halazid warlock|glowing orange brain|moths
 flash += encounter.*(halazid warlock)(?! (zombie|draugr|simulacr))
 more += encounter.*(player|('s|s')) ghost
 stop += encounter.*(player|('s|s')) ghost
-more += guardian serpent weaves intricate patterns
 more += ironbound convoker begins to recite a word of recall
 more += kobold fleshcrafter chants and writhes
 more += halazid warlock gestures
@@ -1890,7 +1889,7 @@ flash += The boggart gestures wildly while chanting
 : end
 
 : if you.xl() <= 18 then
-more += encounter.*(water nymph|azure jell|anaconda|shambling mangrove|thorn hunter|bloated husk|ghost crab|ironbound thunderhulk|polterguardian)(?! (zombie|draugr|simulacr))
+more += encounter.*(minotaur|water nymph|azure jell|anaconda|shambling mangrove|thorn hunter|bloated husk|ghost crab|ironbound thunderhulk|polterguardian)(?! (zombie|draugr|simulacr))
 flash += The water rises up and strikes you
 more += Thorny briars emerge from the ground
 : end
@@ -2612,7 +2611,7 @@ you.set_training_target("Maces & Flails",12)
 you.set_training_target("Axes",16)
 you.set_training_target("Polearms",14)
 you.set_training_target("Staves",12)
-you.set_training_target("Throwing",9)
+you.set_training_target("Throwing",2)
 you.set_training_target("Short Blades",14)
 you.set_training_target("Long Blades",12)
 you.set_training_target("Ranged Weapons",14)
@@ -4630,7 +4629,7 @@ override_table(BRC.Config, BRC.Configs.Default)
 BRC.Hotkey = {}
 BRC.Hotkey.BRC_FEATURE_NAME = "hotkey"
 BRC.Hotkey.Config = {
-  key = { keycode = BRC.KEYS.ENTER, name = "[Enter]" },
+  key = { keycode = BRC.KEYS.NPenter, name = "[NPenter]" },
   skip_keycode = BRC.KEYS.ESC,
   equip_hotkey = true, -- Offer to equip after picking up equipment
   wait_for_safety = true, -- Don't expire the hotkey with monsters in view
