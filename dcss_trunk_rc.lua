@@ -153,7 +153,7 @@ brc_config_explicit = {
 
   ["display-realtime"] = {
     disabled = false, -- Disabled by default
-    interval_s = 60, -- seconds between updates
+    interval_s = 600, -- seconds between updates
     emoji = "🕒",
     init = function()
       if not BRC.Config.emojis then
@@ -2139,7 +2139,8 @@ ai += pearl dragon scales (?!"|of):rN+
 ai += quicksilver dragon scales (?!"|of):Will+
 ai += shadow dragon scales (?!"|of):Stlth+
 ai += (?<!moon) troll leather (?!"|of):Regen+
-ai += \+(Inv|Blink) :17% 12% 4% Evo 3 5 9
+ai += \+(Inv|Blink):17% 12% 4% Evo 3 5 9
+ai += crown of vainglory:12-22T
 
 ai += ring of flight:+Fly
 ai += ring of protection from fire:rF+
