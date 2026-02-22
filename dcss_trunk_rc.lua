@@ -996,10 +996,8 @@ brc_config_explicit = {
 ################################### Begin rc/main.rc ###################################
 sound_on = true
 one_SDL_sound_channel = true
-# sound_volume = 0.07
-sound_volume = 0.17
-# bgm_volume = 0.04
-bgm_volume = 0.14
+sound_volume = 0.07
+bgm_volume = 0.04
 sound_fade_time = 2.6
 
 # sound_pack += https://sound-packs.nemelex.cards/sdlaonline/sdlaonline.zip
@@ -1729,7 +1727,7 @@ flash += You pick up a manual of
 # Uniques and baddies
 # github.com/crawl/crawl/blob/master/crawl-ref/source/dat/des/builder/uniques.des
 # github.com/crawl/crawl/blob/master/crawl-ref/source/mon-gear.cc
-unusual_monster_items += ( the |distortion|chaos|silver)
+unusual_monster_items += ( the [^acrobat]|distortion|chaos|silver)
 more += encounter.*(undying armour(y|ies)|wendigo|antique champion|torpor snail|nekomata|oblivion hound|protean progenitor|acid blob|entropy weaver|ghost moth|death knight|apocalypse crab|eyes? of devastation)(?! (zombie|draugr|simulacr))
 more += The undying armouty arms its allies with
 
@@ -2042,7 +2040,7 @@ ae += (datura|atropa)-tipped dart
 : end
 
 : if you.xl() > 22 then
-ae += of identify, poisoned dart, amulet of (acrobat|faith|guardian spirit|reflection|chemistry|dissipation|wildshape), ring of (evasion|strength|intelligence|dexterity|slaying|wizardry|magical power)
+ae += of identify, poisoned dart, amulet of (the acrobat|faith|guardian spirit|reflection|chemistry|dissipation|wildshape), ring of (evasion|strength|intelligence|dexterity|slaying|wizardry|magical power)
 : end
 
 ################
