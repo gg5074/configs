@@ -1844,6 +1844,7 @@ more += A flurry of magic pours from the star jelly's injured body!
 flash += A flurry of magic pours from the star jelly's injured body!
 more += The morphogenic ooze releases spores at you
 flash += The morphogenic ooze releases spores at you
+flash += The creeping plasmodium launches a sporangium
 
 : if you.xl() <= 26 then
 more += encounter.*(chonchon|oni incarcerator|undertaker|demonspawn warmonger|draconian stormcaller|(ancient|dread) lich|cognitogaunt)
