@@ -1384,7 +1384,7 @@ user_note_prefix =
 note_items += of experience,(?<!potions?) of resistance,archmagi,crystal plate armour,pearl dragon scales
 note_messages += You pass through the gate
 note_messages += cast.*Abyss
-note_messages += BOSS, Dungeon Descent, Dungeon Sprint, custom seed
+note_messages += BOSS, Welcome\, .*Dungeon Descent, Welcome\, .*Dungeon Sprint, custom seed
 note_messages += and a teleportation trap
 note_messages += Yredelemnul refuses to let your conquest be stopped by a trick of the earth!, 's soul is now yours, Your bound.*is destroyed!
 note_messages += Ashenzari warns you in time for you to avoid it
@@ -1646,7 +1646,7 @@ ai += (?<!the) \+0 (morningstar|broad axe|partisan|tower shield) (?!"|of):~~DROP
 gear_slot ^= (sling|hand cannon) : abW
 : end
 
-gear_slot ^= (war axe|broad axe|whip|mace|flail|ningstar|scourge|spear|trident|trishula|partisan|halberd|glaive|bardiche) : abW
+gear_slot ^= (war axe|broad axe|whip|mace|flail|ningstar|scourge|spear|trident|trishula|partisan|halberd|glaive|bardiche|shortbow|orcbow|arbalest|longbow|triple crossbow) : abW
 gear_slot ^= (ring of protection (?!from)|the ring .* AC\+) : ptcmPTCM
 gear_slot ^= (ring of evasion|the ring .* EV\+) : edgvEDGV
 gear_slot ^= (ring of strength|the ring .* Str\+) : strhSTRH
@@ -3223,7 +3223,7 @@ function BRC.eq.wpn_stats(it, dmg_type, skip_dps)
   --TODO: This would be nice if it worked in all UIs
   --return string.format("DPS=<w>%s</w> (%s/%s) Ac<w>%s</w>", dps, dmg, delay_str, acc)
   if skip_dps then return string.format("Dmg:%s/%s A%s", dmg, delay_str, acc) end
-  return string.format("DPS:%s (%s/%s) A%s", dps, dmg, delay_str, acc)
+  return string.format("DPS:%s (/%s) A%s", dps, delay_str, acc)
 end
 
 
@@ -5694,7 +5694,7 @@ end
 
 local function get_staff_dmg_str(it)
   local _, dmg, chance = BRC.eq.get_staff_bonus_dmg(it)
-  if dmg == 0 or chance == 0 then return "(+0)" end
+  if dmg == 0 or chance == 0 then return "" end
   if chance >= 1 then return string.format("(+%d)", math.floor(dmg)) end
   return string.format("(+%.0f|%.0f%%%%)", dmg, chance * 100)
 end
