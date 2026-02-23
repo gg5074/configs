@@ -523,6 +523,7 @@ more_gem_info = true
 # tile_tooltip_ms = 0
 # tile_web_mouse_control = false
 
+autofight_no_stampede = true
 autofight_nomove_fires = false
 
 : if you.class() ~= "Hunter" and you.class() ~= "Hexslinger" then
@@ -570,7 +571,7 @@ warn_hatches = true
 explore_stop = greedy_pickup_smart
 explore_stop += stairs,shops,altars,portals,branches,runed_doors,glowing_items,artefacts,runes
 
-combo += MiFi . trident
+# combo += MiFi . trident
 # combo += DECj
 
 force_spell_targeter += Silence
@@ -1377,7 +1378,7 @@ user_note_prefix =
 note_items += of experience,(?<!potions?) of resistance,archmagi,crystal plate armour,pearl dragon scales
 note_messages += You pass through the gate
 note_messages += cast.*Abyss
-note_messages += BOSS, Dungeon Descent, Dungeon Sprint
+note_messages += BOSS, Dungeon Descent, Dungeon Sprint, custom seed
 note_messages += and a teleportation trap
 note_messages += Yredelemnul refuses to let your conquest be stopped by a trick of the earth!, 's soul is now yours, Your bound.*is destroyed!
 note_messages += Ashenzari warns you in time for you to avoid it
