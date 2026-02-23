@@ -205,12 +205,6 @@ brc_config_explicit = {
     orb_ignore_hp_max = 0.90, -- HP percent to ignore monsters at min distance away (2 tiles)
   },
 
-  ["quiver-reminders"] = {
-    disabled = true,
-    confirm_consumables = true,
-    warn_diff_missile_turns = 10,
-  },
-
   ["remind-id"] = {
     disabled = false,
     stop_on_scrolls_count = 2, -- Stop when largest un-ID'd scroll stack increases and is >= this
@@ -222,18 +216,6 @@ brc_config_explicit = {
         f_remind_id.Config.emoji = BRC.txt.magenta("?")
       end
     end,
-  },
-
-  ["runrest-features"] = {
-    disabled = true,
-    after_shaft = true, -- stop on stairs after being shafted, until returned to original floor
-    ignore_altars = true, -- when you don't need a god
-    ignore_portal_exits = true, -- don't stop explore on portal exits
-    stop_on_hell_stairs = true, -- stop explore on hell stairs
-    stop_on_pan_gates = true, -- stop explore on pan gates
-    temple_search = true, -- on entering or exploring temple, auto-search
-    gauntlet_search = true, -- on entering or exploring gauntlet, auto-search with filters
-    necropolis_search = true, -- on exploring necropolis, auto-search with filters
   },
 
   ---- Large config sections ----
@@ -684,6 +666,8 @@ ignore += safely over a trap
 
 interrupt_travel -= sense_monster
 
+stop -= it creaks loudly
+stop -= The hatch slams shut behind you
 more -= need to enable at least one skill for training
 more -= Okawaru grants you throwing weapons
 more -= Okawaru offers you a choice
@@ -2131,94 +2115,6 @@ end
 end
 }
 ############################ End lua/my-feature.lua ############################
-
-####################################### Begin rc/runrest.rc #######################################
-################# https://github.com/brianfaires/crawl-rc/blob/main/rc/runrest.rc #################
-# Aliases
-stop := runrest_stop_message
-ignore := runrest_ignore_message
-
-# Ignore these stops
-interrupt_travel -= sense_monster
-interrupt_travel -= mimic
-ignore ^= "sense a monster nearby"
-ignore ^= recovery:.*
-ignore ^= duration:.*
-
-# Monsters to ignore at a distance
-runrest_ignore_monster += fire vortex:1
-
-# Stop for consumables you want to use immediately
-stop += potions? of experience
-stop += scrolls? of acquirement
-
-# Don't stop for noisy doors unless someone shouts back
-stop -= it creaks loudly
-stop -= flies open with a bang
-stop += You hear
-
-# Ignore some stops for ally actions, then stop on the rest
-ignore -= friend_action:
-ignore -= friend_spell:
-ignore -= friend_enchant:
-ignore ^= butterfly disappears
-ignore ^= friend_action:(a|the) web
-ignore ^= friend_action:(seems|blinks)
-ignore ^= clockwork bee (falls|winds down)
-stop += friend_action:
-stop += friend_spell:
-stop += friend_enchant:
-stop += appears from out of your range of vision
-stop += hits your
-stop += our.*is destroyed
-
-# Expiring effects; Turn on transmutation|flight|swiftness ending and ignore the rest
-ignore -= transformation is almost over\.
-ignore -= transformation has ended\.
-ignore -= revert to.*form\.
-ignore -= You feel yourself come back to life
-ignore ^= unholy channel is weakening
-ignore ^= magical contamination.*faded
-ignore ^= our foxfire dissipates
-stop ^= unholy channel expires
-stop ^= are starting to lose your buoyancy
-stop ^= You feel.*sluggish
-# Expiring effects for friends too
-stop ^= no longer petrified
-ignore ^= no longer.*(covered in acid|unusually strong)
-ignore ^= looks more healthy
-
-# Misc
-stop -= You now have enough gold to
-stop ^= timed_portal:.*
-ignore ^= nearby plant withers and dies
-ignore ^= disentangle yourself
-ignore ^= You swap places.
-
-# Summonings
-ignore ^= our.*crimson imp blinks
-ignore ^= our.*simulacrum vaporises
-ignore ^= our.*returns to the shadows of the Dungeon
-ignore ^= our.*skeleton crumbles into dust
-ignore ^= our.*fades into mist
-ignore ^= our.*looks more healthy
-ignore ^= our.*is no longer (corroded|moving slowly)
-ignore ^= our.*dissolves into a puddle of slime
-
-# Ashenzari
-stop += god:Ashenzari invites you to partake
-# Ru
-stop += god:Ru believes you are ready to make a new sacrifice
-# Hepliaklqana
-ignore ^= emerges from the mists of memory
-# Wu Jian Council
-ignore += heavenly storm settles
-# Yredelemnul
-ignore += offer up the Black Torch's flame
-ignore += mindless puppets stay behind to rot
-
-######################################## End rc/runrest.rc ########################################
-###################################################################################################
 
 ### buehler.rc core files ###
 
@@ -6383,131 +6279,6 @@ end
 
 }
 ################################# End lua/features/misc-alerts.lua ################################
-###################################################################################################
-
-############################# Begin lua/features/quiver-reminders.lua #############################
-####### https://github.com/brianfaires/crawl-rc/blob/main/lua/features/quiver-reminders.lua #######
-{
----------------------------------------------------------------------------------------------------
--- BRC feature module: quiver-reminders
--- @module f_quiver_reminders
--- A handful of useful quiver-related reminders. (AKA things I often forget.)
----------------------------------------------------------------------------------------------------
-
-f_quiver_reminders = {}
-f_quiver_reminders.BRC_FEATURE_NAME = "quiver-reminders"
-f_quiver_reminders.Config = {
-  confirm_consumables = true,
-  warn_diff_missile_turns = 10,
-} -- f_quiver_reminders.Config (do not remove this comment)
-
----- Local variables ----
-local C -- config alias
-local last_thrown
-local last_thrown_turn
-local last_queued
-local last_queued_turn
-
----- Initialization ----
-function f_quiver_reminders.init()
-  C = f_quiver_reminders.Config
-  last_thrown = nil
-  last_thrown_turn = -1
-  last_queued = nil
-  last_queued_turn = -1
-  BRC.opt.macro(BRC.util.get_cmd_key("CMD_FIRE") or "f", "macro_brc_fire")
-end
-
----- Local functions ----
---- Generate a string that matches the "Throw: <qty> <name> (<ego>)" format
-local function parse_name_from_item(it)
-  local ego = it.ego()
-  if not ego then return it.name("db") end
-  return it.name("db") .. " (" .. ego .. ")"
-end
-
-
-local function quiver_missile_by_name(name)
-  local slot = nil
-  for _, inv in ipairs(items.inventory()) do
-    if parse_name_from_item(inv) == name then
-      slot = inv.slot
-      break
-    end
-  end
-
-  if not slot then
-    BRC.mpr.error("Not found in inventory: " .. name)
-    return
-  end
-  crawl.sendkeys(BRC.util.get_cmd_key("CMD_QUIVER_ITEM") .. "*(" .. BRC.txt.int2char(slot))
-  crawl.flush_input()
-end
-
----- Macro function: Fire from quiver ----
-function macro_brc_fire()
-  if BRC.active == false or f_quiver_reminders.Config.disabled then
-    return BRC.util.do_cmd("CMD_FIRE")
-  end
-
-  local quivered = items.fired_item()
-  if not quivered then return end
-
-  if C.confirm_consumables then
-    local cls = quivered.class(true)
-    if cls == "potion" or cls == "scroll" then
-      local action = cls == "potion" and "drink" or "read"
-      local q = BRC.txt.lightgreen(quivered.name())
-      local msg = string.format("Really %s %s from quiver?", action, q)
-      if not BRC.mpr.yesno(msg) then return BRC.mpr.okay() end
-    end
-  end
-
-  if last_thrown and (you.turns() - last_thrown_turn <= C.warn_diff_missile_turns) then
-    local eq_name = items.equipped_at("Weapon") and items.equipped_at("Weapon").name("qual") or nil
-    local quiv_name = parse_name_from_item(quivered)
-    if quiv_name ~= last_thrown and quiv_name ~= eq_name then
-      local q = BRC.txt.lightgreen(quiv_name)
-      if not BRC.mpr.yesno("Did you mean to throw " .. q .. "?") then
-        local t = BRC.txt.lightgreen(last_thrown)
-        if BRC.mpr.yesno("Quiver and throw " .. t .. " instead?") then
-          quiver_missile_by_name(last_thrown)
-        else
-          return BRC.mpr.okay()
-        end
-      end
-    end
-  end
-
-  BRC.util.do_cmd("CMD_FIRE")
-end
-
----- Crawl hook functions ----
-function f_quiver_reminders.c_message(text, _)
-  local cleaned = BRC.txt.clean(text)
-  if cleaned:sub(1, 7) == "Throw: " then
-    last_queued_turn = you.turns()
-    -- Missile name is shown in message like: "Throw: 23 darts (curare)". Strip prefix.
-    last_queued = cleaned:sub(8, #cleaned)
-
-    -- Remove quantity and pluralization
-    last_queued = last_queued:gsub("^%d+ ", "")
-    if last_queued:sub(-1) == "s" then
-      last_queued = last_queued:sub(1, -2)
-    else
-      last_queued = last_queued:gsub("s %(", " (")
-    end
-  elseif cleaned:sub(1, 10) == "You throw " then
-    if you.turns() ~= last_queued_turn then
-      BRC.mpr.error("quiver-remind turn changed: " .. last_queued_turn .. " -> " .. you.turns())
-    end
-    last_thrown = last_queued
-    last_thrown_turn = last_queued_turn
-  end
-end
-
-}
-############################## End lua/features/quiver-reminders.lua ##############################
 ###################################################################################################
 
 ################################# Begin lua/features/remind-id.lua ################################
