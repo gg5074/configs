@@ -245,6 +245,7 @@ brc_config_explicit = {
         "ring of", "amulet of", "6 ring of strength", "6 ring of dexterity", "dragonskin cloak", "moon troll leather armour", "Cigotuvi's embrace",
         "spear of", "trident of", "partisan", "partisan of", "demon trident", "demon trident of", "trishula", "glaive", "bardiche",
         "broad axe", "morningstar", "eveningstar", "demon whip", "sacred scourge", "demon blade",
+        --"hand cannon", "orcbow",  "arbalest", "longbow", "triple crossbow",
         "buckler", "buckler of", "kite shield", "kite shield of", "tower shield", "tower shield of", "wand of digging", "quill talisman", "medusa talisman",
         "ring mail of", "scale mail of", "chain mail", "chain mail of", "plate armour", "plate armour of",
         "crystal plate armour", "golden dragon scales", "storm dragon scales", "swamp dragon scales",
@@ -1308,6 +1309,7 @@ more += encounter.*(formless jellyfish|broodmother|spark wasp|orb spider|merfolk
 more += encounter.*(fenstrider witch|orc sorcerer|ogre mage|occultist|great orbs? of eyes|sphinx)(?! (zombie|draugr|simulacr))
 more += encounter.*(?<!spectral) (jorogumo|basilisk|catoblepa(s|e)|deep elf (sorcerer|demonologist)|vampire knight)(?! (zombie|draugr|simulacr))
 flash += The boggart gestures wildly while chanting
+more += The broodmother summons spiders!
 : end
 
 : if you.xl() <= 18 then
