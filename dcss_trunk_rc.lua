@@ -469,7 +469,7 @@ tile_font_msg_family = UD デジタル 教科書体 N-B
 tile_font_lbl_family = UD デジタル 教科書体 N-B
 tile_realtime_anim = true
 
-: if you.race() ~= "Felid" and you.race() ~= "Gargoyle" then
+: if you.race() ~= "Felid" and you.race() ~= "Gargoyle" and you.race() ~= "Anemocentaur" then
 tile_show_player_species = true
 : end
 
@@ -579,6 +579,7 @@ explore_stop = greedy_pickup_smart
 explore_stop += stairs,shops,altars,portals,branches,runed_doors,glowing_items,artefacts,runes
 
 # combo += MiFi . trident
+# combo += DgHu
 # combo += DECj
 
 force_spell_targeter += Silence
@@ -1438,6 +1439,14 @@ ae = <Necromancy, Call Imp, Sculpt Simulacrum, Malign Gateway, Summon Horrible T
 
 : if you.race() ~= "Troll" and you.race() ~= "Oni" then
 ae += large rock
+: end
+
+: if you.race() == "Minotaur" or you.race() == "Troll" or you.class() == "Fighter" or you.class() == "Berserker" then
+ae += staff of (conjuration|earth)
+: end
+
+: if you.race() == "Demigod" or you.god() == "Gozag Ym Sagoz" or you.god() == "Ashenzari" then
+ae += amulet of faith
 : end
 
 : if you.race() == "Coglin" then
