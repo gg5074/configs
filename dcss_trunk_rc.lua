@@ -469,7 +469,7 @@ tile_font_msg_family = UD デジタル 教科書体 N-B
 tile_font_lbl_family = UD デジタル 教科書体 N-B
 tile_realtime_anim = true
 
-: if you.race() ~= "Felid" and you.race() ~= "Gargoyle" and you.race() ~= "Anemocentaur" then
+: if you.race() ~= "Felid" and you.race() ~= "Gargoyle" and you.race() ~= "Anemocentaur" and you.race() ~= "Human" then
 tile_show_player_species = true
 : end
 
@@ -1864,7 +1864,7 @@ macros += M , *f@\{32}&&\{32}!!ransp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&
 : end
 
 : if you.class() == "Hunter" or you.class() == "Hexslinger" then
-macros += M , *f@\{32}&&\{32}!!ransp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!anim\{32}&&\{32}!!a\{32}rob\{32}&&\{32}!!a\{32}lea\{32}&&\{32}!!a\{32}tro\{32}&&\{32}!!a\{32}ring\{32}m\{32}&&\{32}!!scale\{32}m\{32}&&\{32}!!chai\{32}&&\{32}!!plat\{32}&&\{32}!!ire\{32}d\{32}&&\{32}!!ice\{32}d\{32}&&\{32}!!dow\{32}d\{32}&&\{32}!!den\{32}d\{32}&&\{32}!!a\{32}buc\{32}&&\{32}!!kite\{32}&&\{32}!!towe\{32}&&\{32}!!a\{32}clo\{32}&&\{32}!!a\{32}hel\{32}&&\{32}!!blad\{32}&&\{32}!!axe\{32}&&\{32}!!mace\{32}&&\{32}!!pole\{32}&&\{32}!!quart\{32}&&\{32}!!laja\{32}&&\{32}!!a\{32}sli\{32}&&\{32}!!a\{32}sho\{32}&&\{32}!!a\{32}orc\{32}&&\{32}!!a\{32}arb\{32}&&\{32}!!a\{32}lon\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+macros += M , *f@\{32}&&\{32}!!ransp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!anim\{32}&&\{32}!!a\{32}rob\{32}&&\{32}!!a\{32}lea\{32}&&\{32}!!a\{32}tro\{32}&&\{32}!!a\{32}ring\{32}m\{32}&&\{32}!!scale\{32}m\{32}&&\{32}!!chai\{32}&&\{32}!!plat\{32}&&\{32}!!ice\{32}d\{32}&&\{32}!!dow\{32}d\{32}&&\{32}!!den\{32}d\{32}&&\{32}!!a\{32}buc\{32}&&\{32}!!kite\{32}&&\{32}!!towe\{32}&&\{32}!!a\{32}clo\{32}&&\{32}!!a\{32}hel\{32}&&\{32}!!blad\{32}&&\{32}!!axe\{32}&&\{32}!!mace\{32}&&\{32}!!pole\{32}&&\{32}!!quart\{32}&&\{32}!!laja\{32}&&\{32}!!a\{32}sli\{32}&&\{32}!!a\{32}sho\{32}&&\{32}!!a\{32}orc\{32}&&\{32}!!a\{32}arb\{32}&&\{32}!!a\{32}lon\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 : end
 
 # [P]: Shop Items
