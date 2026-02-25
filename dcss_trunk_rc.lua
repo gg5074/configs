@@ -241,13 +241,13 @@ brc_config_explicit = {
 
       -- Alert the first time each item is found. Can require training with OTA_require_skill.
       one_time = {
-        "of gloves", "of gloves of", "of boots", "of boots of", "cloak", "cloak of", "scarf of", " hat ", " hat of",
+        "of gloves", "of boots", "cloak", "scarf of", " hat ", "helmet",
         "ring of", "amulet of", "6 ring of strength", "6 ring of dexterity", "dragonskin cloak", "moon troll leather armour", "Cigotuvi's embrace",
-        "spear of", "trident of", "partisan", "partisan of", "demon trident", "demon trident of", "trishula", "glaive", "bardiche",
+        "partisan", "demon trident", "trishula", "glaive", "bardiche",
         "broad axe", "morningstar", "eveningstar", "demon whip", "sacred scourge", "demon blade",
         "hand cannon", "orcbow", "arbalest", "longbow", "triple crossbow",
-        "buckler", "buckler of", "kite shield", "kite shield of", "tower shield", "tower shield of", "wand of digging", "quill talisman", "medusa talisman",
-        "ring mail of", "scale mail of", "chain mail", "chain mail of", "plate armour", "plate armour of",
+        "buckler", "kite shield", "tower shield", "wand of digging", "quill talisman", "medusa talisman",
+        "chain mail", "plate armour",
         "crystal plate armour", "golden dragon scales", "storm dragon scales", "swamp dragon scales",
         "quicksilver dragon scales", "pearl dragon scales", "shadow dragon scales",
       },
@@ -421,7 +421,7 @@ sound_fade_time = 2.6
 
 # sound_pack += https://sound-packs.nemelex.cards/sdlaonline/sdlaonline.zip
 sound_pack += https://osp.nemelex.cards/build/latest.zip:["init.txt"]
-sound_pack += https://sound-packs.nemelex.cards/Autofire/BindTheEarth/BindTheEarth.zip
+# sound_pack += https://sound-packs.nemelex.cards/Autofire/BindTheEarth/BindTheEarth.zip
 
 sound_pack += https://sound-packs.nemelex.cards/DCSS-UST/v1.0.1.zip
 
@@ -1206,6 +1206,8 @@ flash += encounter.*lemure
 # more += encounter (?!orb guardian|executioner)(?-i:[A-Z])
 flash += encounter (?!orb guardian|executioner)(?-i:[A-Z])
 flash += encounter.* and (?!orb guardian|executioner)(?-i:[A-Z])
+more += (?!orb guardian|executioner)(?-i:[A-Z]).*comes into view
+flash += (?!orb guardian|executioner)(?-i:[A-Z]).*comes into view
 
 more += encounter.*(cloud mage|lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orbs? of (fire|winter|entropy))
 flash += encounter.*(cloud mage|lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orbs? of (fire|winter|entropy))
@@ -1391,6 +1393,7 @@ note_messages += BOSS, Welcome\, .*Dungeon Descent, Welcome\, .*Dungeon Sprint, 
 note_messages += and a teleportation trap
 note_messages += Yredelemnul refuses to let your conquest be stopped by a trick of the earth!, 's soul is now yours, Your bound.*is destroyed!
 note_messages += Ashenzari warns you in time for you to avoid it
+note_messages += Game time: .:00:0
 
 dump_order  = header,hiscore,stats,misc,apostles,mutations,overview,inventory,skills,spells
 dump_order += messages,screenshot,monlist,kills
