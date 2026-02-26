@@ -247,7 +247,7 @@ brc_config_explicit = {
         "broad axe", "morningstar", "eveningstar", "demon whip", "sacred scourge", "demon blade",
         "hand cannon", "orcbow", "arbalest", "longbow", "triple crossbow",
         "buckler", "kite shield", "tower shield", "wand of digging", "quill talisman", "medusa talisman",
-        "chain mail", "plate armour",
+        "troll leather armour", "steam dragon scales", "acid dragon scales", "chain mail", "plate armour", "of archery",
         "crystal plate armour", "golden dragon scales", "storm dragon scales", "swamp dragon scales",
         "quicksilver dragon scales", "pearl dragon scales", "shadow dragon scales",
       },
@@ -588,7 +588,8 @@ force_spell_targeter += Silence
 confirm_action += Conjure Ball Lightning, Chain Lightning
 : end
 
-confirm_action += Potion Petition, Call Merchant, Blink[^bolt], Silence, Maxwell's Capacitive Coupling, Sublimation of Blood, Borgnjor's Revivification, Death's Door
+# Blink[^bolt]
+confirm_action += Potion Petition, Call Merchant, Blink, Silence, Maxwell's Capacitive Coupling, Sublimation of Blood, Borgnjor's Revivification, Death's Door
 
 ############
 # Messages #
@@ -1103,6 +1104,7 @@ more += is devoured by a tear in reality
 more += You feel a genetic drift
 flash += The Bane of.*upon you is lifted
 flash += You can drop.*~~DROP_ME
+more += Hidden under stack
 
 : if you.xl() <= 14 then
 more += You feel a bit more experienced
