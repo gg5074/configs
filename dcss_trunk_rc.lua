@@ -953,7 +953,7 @@ more += infuriates you
 flash += Your magical (effects|defenses) are (unraveling|stripped away)
 flash += The pull of.*song draws you forward
 flash += engulfs you in water
-flash += You .* (blown|knocked back|mesmerised|trampled|stumble backwards|encased)
+flash += You .*(blown|knocked back|mesmerised|trampled|backwards|encased)
 flash += You are shoved backwards
 flash += drags you backwards
 # more += grabs you[^r]
@@ -1336,7 +1336,7 @@ more += encounter.*(raven|smoke demon|water elemental|(fire|ice) dragon|centaur 
 more += The.*headed hydra grows
 flash += The.*headed hydra grows
 more += encounter.*(ettin|tengu warrior|vault guard|deep elf|kobold blastminer|gargoyle|ghoul|hell hog|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant|wolf spider|tentacled starspawn)(?! (zombie|draugr|simulacr))
-flash += encounter.*(raiju|(cyan|brown) ugly thing|radroach|meliai)(?! (zombie|draugr|simulacr))
+flash += encounter.*(centaur warrior|freezing wraith|raiju|(cyan|brown) ugly thing|radroach|meliai)(?! (zombie|draugr|simulacr))
 : end
 
 : if you.xl() <= 13 then
@@ -1395,7 +1395,7 @@ note_messages += BOSS, Welcome\, .*Dungeon Descent, Welcome\, .*Dungeon Sprint, 
 note_messages += and a teleportation trap
 note_messages += Yredelemnul refuses to let your conquest be stopped by a trick of the earth!, 's soul is now yours, Your bound.*is destroyed!
 note_messages += Ashenzari warns you in time for you to avoid it
-note_messages += Game time: .:00:0
+note_messages += Game time:..?:(0|30):0
 
 dump_order  = header,hiscore,stats,misc,apostles,mutations,overview,inventory,skills,spells
 dump_order += messages,screenshot,monlist,kills
@@ -1464,6 +1464,10 @@ ae += book of, parchment of
 
 : if you.race() == "Minotaur" then
 stop += You see here.* hat of
+: end
+
+: if you.class() == "Hunter" or you.class() == "Hexslinger" then
+ae = <boomerang, (poisoned|tipped) dart, (?<!tremor)stone, of might
 : end
 
 : if you.xl() > 4 then
@@ -1807,13 +1811,11 @@ function shout()
 end
 
 function safe_shout()
---  crawl.setopt("tile_key_repeat_delay = 200")
   if not you.feel_safe() then
---    crawl.setopt("tile_key_repeat_delay = 0")
---    crawl.sendkeys({27})
-  crawl.mpr("A monster is nearby!")
+    --crawl.setopt("tile_key_repeat_delay = 0")
+    crawl.mpr("A monster is nearby!")
+    --crawl.setopt("tile_key_repeat_delay = 200")
   else
---    crawl.setopt("tile_key_repeat_delay = 200")
     shout()
   end
 end
