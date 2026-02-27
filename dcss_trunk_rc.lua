@@ -95,8 +95,8 @@ brc_config_explicit = {
 
   ["announce-hp-mp"] = {
     disabled = false,
-    dmg_flash_threshold = 0.15, -- Flash screen when losing this % of max HP
-    dmg_fm_threshold = 0.25, -- Force more for losing this % of max HP
+    dmg_flash_threshold = 0.10, -- Flash screen when losing this % of max HP
+    dmg_fm_threshold = 0.20, -- Force more for losing this % of max HP
     always_on_bottom = false, -- Rewrite HP/MP meters after each turn with messages
     meter_length = 6, -- Number of pips in each meter
 
@@ -503,6 +503,9 @@ msc += mute:You swap places with (your|(?-i:[A-Z]))
 msc += mute:(Your.*|The butterfly) leaves your sight
 msc += mute:Your.*is recalled
 
+# Safe Shout Lua Error
+msc += mute:6: Cannot currently process new keys
+
 : if you.god() == "Yredelemnul" then
 msc += mute:Your.*(something|the (plant|bush|fungus|withered plant))
 msc += mute:Something.*the (plant|bush|fungus|withered plant)
@@ -875,6 +878,7 @@ more += unholy channel is weakening
 # github.com/crawl/crawl/blob/master/crawl-ref/source/dat/database/monspell.txt
 # github.com/crawl/crawl/blob/master/crawl-ref/source/beam.cc
 flash += mutation:
+more += You are dangerously contaminated with residual magic
 more += The horns on your head grow some more
 more += The horns on your head shrink a bit
 more += You feel vulnerable to
@@ -890,7 +894,9 @@ more += You feel an ill-omen
 more += You feel a malign power afflict you
 more += shimmers and splits apart
 flash += You are too injured to fight recklessly
+more += MASSIVE DAMAGE
 flash += MASSIVE DAMAGE
+more += ❗ BIG DAMAGE ❗
 flash += ❗ BIG DAMAGE ❗
 flash += LOW HITPOINT WARNING
 
@@ -1925,7 +1931,7 @@ macros += M > V25
 # macros += M \{9} zaf
 # : end
 
-# macros += M E zbf
+macros += M E zaf
 macros += M U zcf
 macros += M 1 za
 macros += M 2 zb
