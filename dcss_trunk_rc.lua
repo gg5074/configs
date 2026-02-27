@@ -242,12 +242,13 @@ brc_config_explicit = {
       -- Alert the first time each item is found. Can require training with OTA_require_skill.
       one_time = {
         "of gloves", "of boots", "cloak", "scarf of", " hat ", "helmet",
-        "ring of", "amulet of", "6 ring of strength", "6 ring of dexterity", "dragonskin cloak", "moon troll leather armour", "Cigotuvi's embrace",
+        "ring of", "amulet of", "6 ring of strength", "6 ring of dexterity",
+        "dragonskin cloak", "ratskin cloak", "moon troll leather armour", "Cigotuvi's embrace",
         "partisan", "demon trident", "trishula", "glaive", "bardiche",
         "broad axe", "morningstar", "eveningstar", "demon whip", "sacred scourge", "demon blade",
-        "hand cannon", "orcbow", "arbalest", "longbow", "triple crossbow",
+        "hand cannon", "orcbow", "arbalest", "longbow", "triple crossbow", "of archery",
         "buckler", "kite shield", "tower shield", "wand of digging", "quill talisman", "medusa talisman",
-        "troll leather armour", "steam dragon scales", "acid dragon scales", "chain mail", "plate armour", "of archery",
+        "troll leather armour", "steam dragon scales", "acid dragon scales", "chain mail", "plate armour",
         "crystal plate armour", "golden dragon scales", "storm dragon scales", "swamp dragon scales",
         "quicksilver dragon scales", "pearl dragon scales", "shadow dragon scales",
       },
@@ -504,7 +505,7 @@ msc += mute:(Your.*|The butterfly) leaves your sight
 msc += mute:Your.*is recalled
 
 # Safe Shout Lua Error
-msc += mute:6: Cannot currently process new keys
+msc += mute:Cannot currently process new keys
 
 : if you.god() == "Yredelemnul" then
 msc += mute:Your.*(something|the (plant|bush|fungus|withered plant))
@@ -1217,7 +1218,8 @@ flash += encounter.* and (?!orb guardian|executioner)(?-i:[A-Z])
 more += (?!orb guardian|executioner)(?-i:[A-Z]).*comes into view
 flash += (?!orb guardian|executioner)(?-i:[A-Z]).*comes into view
 
-more += encounter.*(cloud mage|lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orbs? of (fire|winter|entropy))
+# Wizlab Bosses
+more += encounter.*(head instructor|cloud mage|lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orbs? of (fire|winter|entropy))
 flash += encounter.*(cloud mage|lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orbs? of (fire|winter|entropy))
 
 # Paralysis: 5+ 33% 1T, 7+ 50% 2T
@@ -1895,6 +1897,9 @@ macros += M % *f<<misc\{32}||\{32}wand\{32}||\{32}throwin\{32}||\{32}talis\{32}|
 # ["]: Jewellery, Orbs
 macros += M " *f<<jewell\{32}||\{32}orb>>\{32}&&\{32}!!statu\{32}&&\{32}!!carri\{13}
 
+# [U]: Artefacts (!!Talismans)
+macros += M U *f<<artef>>\{32}&&\{32}!!talis\{32}&&\{32}!!carri\{13}
+
 # "[": Body, Aux
 macros += M [ *f<<body\{32}||\{32}aux>>\{32}&&\{32}!!orb\{32}&&\{32}!!anim\{32}&&\{32}!!a\{32}rob\{32}&&\{32}!!a\{32}lea\{32}&&\{32}!!a\{32}ring\{32}m\{32}&&\{32}!!a\{32}scal\{32}&&\{32}!!a\{32}cha\{32}&&\{32}!!a\{32}pla\{32}&&\{32}!!a\{32}buc\{32}&&\{32}!!a\{32}clo\{32}&&\{32}!!talis\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 
@@ -1932,7 +1937,7 @@ macros += M > V25
 # : end
 
 macros += M E zaf
-macros += M U zcf
+# macros += M U zcf
 macros += M 1 za
 macros += M 2 zb
 macros += M 3 zc
