@@ -234,7 +234,7 @@ brc_config_explicit = {
       weapon_sensitivity = 1.0, -- Adjust all weapon alerts; 0 to disable all (range 0.5-2.0)
       orbs = true,
       staff_resists = true,
-      talismans = true,
+      talismans = false,
       first_ranged = true,
       first_polearm = true,
       stacked_items = true, -- Special handling for items hidden in stacks, to alert before visiting
@@ -243,7 +243,7 @@ brc_config_explicit = {
       one_time = {
         "of gloves", "of boots", "cloak", "scarf of", " hat ", "helmet",
         "ring of", "amulet of", "6 ring of strength", "6 ring of dexterity",
-        "dragonskin cloak", "ratskin cloak", "moon troll leather armour", "Cigotuvi's embrace",
+        --"dragonskin cloak", "ratskin cloak", "moon troll leather armour", "Cigotuvi's embrace",
         "partisan", "demon trident", "trishula", "glaive", "bardiche",
         "broad axe", "morningstar", "eveningstar", "demon whip", "sacred scourge", "demon blade",
         "hand cannon", "orcbow", "arbalest", "longbow", "triple crossbow", "of archery",
@@ -1290,7 +1290,7 @@ more += hits you[^r].*of (distortion|chaos)
 more += encounter.*(air elemental|tengu reaver|(deep elf|draconian) annihilator|void ooze|orb guardian)(?! (zombie|draugr|simulacr))
 more += encounter.*(?<!spectral) (lich|shadow dragon|walking.*tome|juggernaut|caustic shrike|wyrmhole|spriggan berserker)(?! (zombie|draugr|simulacr))
 flash += encounter.*(spriggan berserker)(?! (zombie|draugr|simulacr))
-more += The spriggan berserker utters an invocation to Trog
+more += The spriggan berserker.*Trog
 more += The spriggan roars madly and goes into a rage
 # Agony
 more += encounter.*(imperial myrmidons|necromancer)(?! (zombie|draugr|simulacr))
@@ -1317,7 +1317,7 @@ flash += slime creatures merge to form a (very large|enormous|titanic)
 
 : if you.xl() <= 20 then
 more += encounter.*(boggart|bunyips|deep elf elementalist|balrug|stone giant|ironbound beastmaster)(?! (zombie|draugr|simulacr))
-more += encounter.*(formless jellyfish|broodmother|spark wasp|orb spider|merfolk (aquamancer|javelineer|impaler)|nagaraja)(?! (zombie|draugr|simulacr))
+more += encounter.*(?<!spectral) (formless jellyfish|broodmother|spark wasp|orb spider|merfolk (aquamancer|javelineer|impaler)|nagaraja)(?! (zombie|draugr|simulacr))
 # Paralysis/Petrify/Banish
 more += encounter.*(fenstrider witch|orc sorcerer|ogre mage|occultist|great orbs? of eyes|sphinx)(?! (zombie|draugr|simulacr))
 more += encounter.*(?<!spectral) (jorogumo|basilisk|catoblepa(s|e)|deep elf (sorcerer|demonologist)|vampire knight)(?! (zombie|draugr|simulacr))
@@ -1897,8 +1897,8 @@ macros += M % *f<<misc\{32}||\{32}wand\{32}||\{32}throwin\{32}||\{32}talis\{32}|
 # ["]: Jewellery, Orbs
 macros += M " *f<<jewell\{32}||\{32}orb>>\{32}&&\{32}!!statu\{32}&&\{32}!!carri\{13}
 
-# [U]: Artefacts (!!Talismans)
-macros += M U *f<<artef>>\{32}&&\{32}!!talis\{32}&&\{32}!!carri\{13}
+# [_]: Artefacts (!!Talismans)
+macros += M _ *f<<artef>>\{32}&&\{32}!!talis\{32}&&\{32}!!carri\{13}
 
 # "[": Body, Aux
 macros += M [ *f<<body\{32}||\{32}aux>>\{32}&&\{32}!!orb\{32}&&\{32}!!anim\{32}&&\{32}!!a\{32}rob\{32}&&\{32}!!a\{32}lea\{32}&&\{32}!!a\{32}ring\{32}m\{32}&&\{32}!!a\{32}scal\{32}&&\{32}!!a\{32}cha\{32}&&\{32}!!a\{32}pla\{32}&&\{32}!!a\{32}buc\{32}&&\{32}!!a\{32}clo\{32}&&\{32}!!talis\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
@@ -1910,7 +1910,7 @@ macros += M ` *f<<ranged\{32}||\{32}blades\{32}||\{32}magica>>\{32}&&\{32}!!jewe
 macros += M & *f<<axe\{32}||\{32}polea\{32}||\{32}mace>>\{32}&&\{32}!!magica\{32}&&\{32}!!0\{32}clu\{32}&&\{32}!!0\{32}whi\{32}&&\{32}!!0\{32}mac\{32}&&\{32}!!0\{32}ham\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spe\{32}&&\{32}!!0\{32}trid\{32}&&\{32}!!0\{32}hal\{32}&&\{32}!!0\{32}gla\{32}&&\{32}!!0\{32}bat\{32}&&\{32}!!0\{32}hand\{32}a\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}bro\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 
 # [_]: Maces & Flails, Cross-Trained Weapons
-macros += M _ *f<<mace\{32}||\{32}axe\{32}||\{32}stav>>\{32}&&\{32}!!magica\{32}&&\{32}!!0\{32}clu\{32}&&\{32}!!0\{32}whi\{32}&&\{32}!!0\{32}mac\{32}&&\{32}!!0\{32}ham\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}hand\{32}a\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}bro\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+# macros += M _ *f<<mace\{32}||\{32}axe\{32}||\{32}stav>>\{32}&&\{32}!!magica\{32}&&\{32}!!0\{32}clu\{32}&&\{32}!!0\{32}whi\{32}&&\{32}!!0\{32}mac\{32}&&\{32}!!0\{32}ham\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}hand\{32}a\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}bro\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 
 # [:]: Polearms, Cross-Trained Weapons
 : if you.xl() <= 16  then
@@ -1936,8 +1936,8 @@ macros += M > V25
 # macros += M \{9} zaf
 # : end
 
-macros += M E zaf
-# macros += M U zcf
+macros += M E zbf
+macros += M U zcf
 macros += M 1 za
 macros += M 2 zb
 macros += M 3 zc
