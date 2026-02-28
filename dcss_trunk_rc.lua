@@ -1491,7 +1491,7 @@ ae += of identify, poisoned dart, amulet of (the acrobat|faith|guardian spirit|r
 # crawl.chaosforge.org/Inscriptions
 ai := autoinscribe
 
-# ai += magical staff:!a
+ai += magical staff:!a
 ai += (throwing net|(curare|datura|atropa)-tipped dart|of disjunction):=f
 
 ai += potions? of heal wounds:@q1, 10-37HP
@@ -1921,11 +1921,11 @@ macros += M ( V55
 macros += M < V15
 macros += M > V25
 
-# : if you.class() == "Conjurer" or you.class() == "Fire Elementalist" or you.class() == "Air Elementalist" or you.class() == "Earth Elementalist" then
+: if you.class() == "Conjurer" or you.class() == "Fire Elementalist" or you.class() == "Air Elementalist" or you.class() == "Earth Elementalist" then
 # : if you.skill("Spellcasting") >= 5 then
 # : if you.race() == "Deep Elf" then
-# macros += M \{9} zaf
-# : end
+macros += M \{9} zaf
+: end
 
 macros += M E zbf
 macros += M U zcf
@@ -2070,8 +2070,8 @@ you.set_training_target("Hexes",6)
 you.set_training_target("Summonings",6)
 you.set_training_target("Necromancy",6)
 you.set_training_target("Forgecraft",6)
-you.set_training_target("Translocations",9)
-you.set_training_target("Alchemy",3)
+you.set_training_target("Translocations",6)
+you.set_training_target("Alchemy",6)
 you.set_training_target("Fire Magic",18)
 you.set_training_target("Air Magic",6)
 you.set_training_target("Ice Magic",18)
