@@ -236,12 +236,13 @@ brc_config_explicit = {
         --"ring of", "amulet of", "6 ring of strength", "6 ring of dexterity",
         --"dragonskin cloak", "ratskin cloak", "moon troll leather armour", "Cigotuvi's embrace",
         "partisan", "demon trident", "trishula", "glaive", "bardiche",
-        "broad axe", "morningstar", "eveningstar", "demon whip", "sacred scourge", "demon blade",
-        "hand cannon", "orcbow", "arbalest", "longbow", "triple crossbow", "of archery",
+        "demon whip", "demon blade",
+        --"broad axe", "morningstar", "eveningstar", "sacred scourge",
+        --"hand cannon", "orcbow", "arbalest", "longbow", "triple crossbow", "of archery",
         "buckler", "kite shield", "tower shield", "wand of digging", "quill talisman", "medusa talisman",
-        "troll leather armour", "steam dragon scales", "acid dragon scales", "chain mail", "plate armour",
+        --"troll leather armour", "steam dragon scales", "chain mail", "plate armour",
         "crystal plate armour", "golden dragon scales", "storm dragon scales", "swamp dragon scales",
-        "quicksilver dragon scales", "pearl dragon scales", "shadow dragon scales",
+        "quicksilver dragon scales", "acid dragon scales", "pearl dragon scales", "shadow dragon scales",
       },
       OTA_require_skill = { weapon = 2, armour = 2.5, shield = 0 }, -- No alert if skill < this
 
@@ -1491,7 +1492,6 @@ ae += of identify, poisoned dart, amulet of (the acrobat|faith|guardian spirit|r
 # crawl.chaosforge.org/Inscriptions
 ai := autoinscribe
 
-ai += magical staff:!a
 ai += (throwing net|(curare|datura|atropa)-tipped dart|of disjunction):=f
 
 ai += potions? of heal wounds:@q1, 10-37HP
@@ -1623,6 +1623,7 @@ ai += staff of cold:rC+
 ai += staff of alchemy:rPois
 ai += staff of air:rElec
 ai += staff of necromancy:rN+
+ai += magical staff:, !a
 
 : if you.xl() > 4 then
 ai += (?<!the) \+0 (dagger|short sword|club|whip|giant club|giant spiked|hand axe|spear|sling|shortbow|(?<!tremor)stone|animal skin|robe|leather armour) (?!"|of):~~DROP_ME
@@ -1921,12 +1922,7 @@ macros += M ( V55
 macros += M < V15
 macros += M > V25
 
-: if you.class() == "Conjurer" or you.class() == "Fire Elementalist" or you.class() == "Air Elementalist" or you.class() == "Earth Elementalist" then
-# : if you.skill("Spellcasting") >= 5 then
-# : if you.race() == "Deep Elf" then
-macros += M \{9} zaf
-: end
-
+# macros += M \{9} zaf
 macros += M E zbf
 macros += M U zcf
 macros += M 1 za
@@ -1956,7 +1952,9 @@ macros += K2 \{32} \{27}
 # Confirm targeting with same keys as spellcasting
 macros += K2 1 \{13}
 macros += K2 2 \{13}
+macros += K2 3 \{13}
 macros += K2 4 \{13}
+macros += K2 5 \{13}
 macros += K2 6 \{13}
 macros += K2 7 \{13}
 macros += K2 8 \{13}
