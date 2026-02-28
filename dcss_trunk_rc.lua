@@ -138,7 +138,7 @@ brc_config_explicit = {
   },
 
   ["display-realtime"] = {
-    disabled = true, -- Disabled by default
+    disabled = false, -- Disabled by default
     interval_s = 300, -- seconds between updates
     emoji = "🕒",
     init = function()
@@ -232,8 +232,8 @@ brc_config_explicit = {
 
       -- Alert the first time each item is found. Can require training with OTA_require_skill.
       one_time = {
-        "of gloves", "of boots", "cloak", "scarf of", " hat ", "helmet",
-        "ring of", "amulet of", "6 ring of strength", "6 ring of dexterity",
+        --"of gloves", "of boots", "cloak", "scarf of", " hat ", "helmet",
+        --"ring of", "amulet of", "6 ring of strength", "6 ring of dexterity",
         --"dragonskin cloak", "ratskin cloak", "moon troll leather armour", "Cigotuvi's embrace",
         "partisan", "demon trident", "trishula", "glaive", "bardiche",
         "broad axe", "morningstar", "eveningstar", "demon whip", "sacred scourge", "demon blade",
@@ -417,7 +417,7 @@ sound_pack += https://osp.nemelex.cards/build/latest.zip:["init.txt"]
 
 sound_pack += https://sound-packs.nemelex.cards/DCSS-UST/v1.0.1.zip
 
-# record_wtrec = true
+record_wtrec = true
 
 #######################
 ### Mini Map Colors ###
