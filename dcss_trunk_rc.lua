@@ -1566,6 +1566,7 @@ ai += lightning rod:(2+PreUses)d(0.75*Evo+46.25)/3, 2d16(Evo1)
 ai += Gell's gravitambourine:Evo 9.5 23.2
 ai += flux bauble:5-14 -WeapShieBodyGlov, !v
 
+: if you.god() ~= "Ashenzari" then
 ai += of fire resistance:rF+
 ai += of cold resistance:rC+
 ai += (?<!potions?) of resistance:rF+, rC+
@@ -1576,7 +1577,6 @@ ai += of willpower:Will+
 ai += of invulnerability:rInv
 ai += of regeneration:Regen+
 ai += of magic regeneration:MRegen+
-
 ai += fire dragon scales (?!"|of):rF++, rC-
 ai += ice dragon scales (?!"|of):rC++, rF-
 ai += swamp dragon scales (?!"|of):rPois
@@ -1589,7 +1589,6 @@ ai += shadow dragon scales (?!"|of):Stlth+
 ai += (?<!moon) troll leather (?!"|of):Regen+
 ai += \+(Inv|Blink):17% 12% 4% Evo 3 5 9
 ai += crown of vainglory:12-22T
-
 ai += ring of flight:+Fly
 ai += ring of protection from fire:rF+
 ai += ring of protection from cold:rC+
@@ -1597,7 +1596,6 @@ ai += ring of resist corrosion:rCorr
 ai += ring of see invisible:sInv
 ai += ring of wizardry:Wiz+
 ai += ring of magical power:MP+9
-
 # github.com/crawl/crawl/tree/master/crawl-ref/source/dat/forms
 ai += protean talisman:Shp 6 ScarabRimehornSporeMedusa
 ai += inkwell talisman:0-7 -WeapShieAllArmo, !P
@@ -1621,7 +1619,6 @@ ai += sanguine talisman:17-25, !P
 ai += blade talisman:17-25 -BodyAC, !P
 ai += storm talisman:23-27 -WeapShieAllArmo, !P
 ai += talisman of death:26-27, !P
-
 ai += staff of conjuration:IrresistibleDmg-20%
 ai += staff of earth:PhysicalDmg-5%
 ai += staff of fire:rF+
@@ -1630,6 +1627,7 @@ ai += staff of alchemy:rPois
 ai += staff of air:rElec
 ai += staff of necromancy:rN+
 ai += magical staff:, !a
+: end
 
 : if you.xl() > 4 then
 ai += (?<!the) \+0 (dagger|short sword|club|whip|giant club|giant spiked|hand axe|spear|sling|shortbow|(?<!tremor)stone|animal skin|robe|leather armour) (?!"|of):~~DROP_ME
@@ -1929,7 +1927,7 @@ macros += M < V15
 macros += M > V25
 
 bindkey = [Tab] CMD_AUTOFIGHT_NOMOVE
-# macros += M \{9} zaf
+macros += M \{9} zaf
 
 macros += M E zbf
 macros += M U zcf
