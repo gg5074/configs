@@ -495,8 +495,12 @@ msc += mute:You swap places with (your|(?-i:[A-Z]))
 msc += mute:(Your.*|The butterfly) leaves your sight
 msc += mute:Your.*is recalled
 
-# Safe Shout Lua Error
+# Lua Error: Safe Shout
 msc += mute:Cannot currently process new keys
+
+: if you.branch() == "Gauntlet" or you.branch() == "Necropolis" or you.branch() == "Trove" or you.branch() == "Temple" then
+msc += mute:Found a transporter
+: end
 
 : if you.god() == "Yredelemnul" then
 msc += mute:Your.*(something|the (plant|bush|fungus|withered plant))
@@ -1102,8 +1106,8 @@ flash += (?<!Your )draconian.*blinks!
 more += is devoured by a tear in reality
 more += You feel a genetic drift
 flash += The Bane of.*upon you is lifted
-more += The lance glows as it skewers
 flash += Wyrmbane glows as a worthy foe approaches
+# more += The lance glows as it skewers
 flash += You can drop.*~~DROP_ME
 more += Hidden under stack
 
