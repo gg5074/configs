@@ -64,7 +64,6 @@ brc_config_explicit = {
       reap = { factor = 1.3, offset = 0 },
       rebuke = { factor = 1.1, offset = 0 },
       vamp = { factor = 1.2, offset = 0 },
-      slay = { factor = 1.15, offset = 0 },
     },
   }, -- BrandBonus (do not remove this comment)
 
@@ -1962,6 +1961,15 @@ macros += K2 7 \{13}
 macros += K2 8 \{13}
 macros += K2 9 \{13}
 macros += K2 0 \{13}
+macros += K2 a \{13}
+macros += K2 b \{13}
+macros += K2 c \{13}
+macros += K2 d \{13}
+macros += K2 e \{13}
+macros += K2 g \{13}
+macros += K2 h \{13}
+macros += K2 i \{13}
+macros += K2 j \{13}
 
 ###############
 # Keybindings #
