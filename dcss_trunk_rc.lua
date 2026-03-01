@@ -487,7 +487,7 @@ menu ^= lightcyan:(scarf of invisibility|\+(Inv|Blink))
 
 msc := message_colour
 msc ^= lightgrey:( miss | misses |no damage|fail to reach past|returns to the grave|disappears in a puff of smoke|putting on your|removing your)
-msc ^= yellow:(You feel a bit more experienced|Something appears at your feet)
+msc ^= yellow:(You feel a bit more experienced|Something appears at your feet|Autopickup disabled for)
 
 msc += mute:Search for what.*(~D|in_shop|ransp)
 msc += mute:There is an open door here
@@ -512,6 +512,7 @@ hp_warning = 50
 mp_warning = 30
 
 tile_show_threat_levels = trivial, easy, tough, nasty, unusual
+monster_list_colour += trivial:lightgrey, easy:white
 tile_show_demon_tier = true
 always_show_zot = true
 # always_show_gems = true
@@ -1101,6 +1102,8 @@ flash += (?<!Your )draconian.*blinks!
 more += is devoured by a tear in reality
 more += You feel a genetic drift
 flash += The Bane of.*upon you is lifted
+more += The lance glows as it skewers
+flash += Wyrmbane glows as a worthy foe approaches
 flash += You can drop.*~~DROP_ME
 more += Hidden under stack
 
@@ -1661,11 +1664,11 @@ ai += (?<!the) \+0 (morningstar|broad axe|partisan|tower shield) (?!"|of):~~DROP
 ### Item Slots ###
 ##################
 
-: if you.xl() < 8 then
-gear_slot ^= (sling|hand cannon) : abW
+: if you.xl() < 12 then
+gear_slot ^= (war axe|broad axe|whip|mace|flail|ningstar|scourge|spear|(?<!demon) trident|halberd|glaive|bardiche|sling|hand cannon) : abW
 : end
 
-gear_slot ^= (war axe|broad axe|whip|mace|flail|ningstar|scourge|spear|trident|trishula|partisan|halberd|glaive|bardiche|shortbow|orcbow|arbalest|longbow|triple crossbow) : abW
+gear_slot ^= (demon trident|trishula|partisan|shortbow|orcbow|arbalest|longbow|triple crossbow) : abW
 gear_slot ^= (ring of protection (?!from)|the ring .* AC\+) : ptcmPTCM
 gear_slot ^= (ring of evasion|the ring .* EV\+) : edgvEDGV
 gear_slot ^= (ring of strength|the ring .* Str\+) : strhSTRH
@@ -1970,6 +1973,7 @@ macros += K2 g \{13}
 macros += K2 h \{13}
 macros += K2 i \{13}
 macros += K2 j \{13}
+macros += K2 z \{13}
 
 ###############
 # Keybindings #
