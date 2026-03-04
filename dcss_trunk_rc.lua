@@ -168,7 +168,7 @@ brc_config_explicit = {
     inscribe_armour = true, -- Inscribe armour stats on pickup
     dmg_type = "scoring", -- unbranded, plain, branded, scoring
     skip_dps = false, -- Skip DPS in weapon inscriptions
-    prefix_staff_dmg = true, -- Special prefix for magical staves
+    prefix_staff_dmg = false, -- Special prefix for magical staves
   },
 
   ["misc-alerts"] = {
@@ -498,9 +498,9 @@ msc += mute:Your.*is recalled
 # Lua Error: Safe Shout
 msc += mute:Cannot currently process new keys
 
-: if you.branch() == "Gauntlet" or you.branch() == "Necropolis" or you.branch() == "Trove" or you.branch() == "Temple" then
-msc += mute:Found a transporter
-: end
+# : if you.branch() == "Gauntlet" or you.branch() == "Necropolis" or you.branch() == "Trove" or you.branch() == "Temple" then
+# msc += mute:Found a transporter
+# : end
 
 : if you.god() == "Yredelemnul" then
 msc += mute:Your.*(something|the (plant|bush|fungus|withered plant))
@@ -530,7 +530,6 @@ more_gem_info = true
 # tile_tooltip_ms = 0
 # tile_web_mouse_control = false
 
-autofight_no_stampede = true
 autofight_nomove_fires = false
 
 : if you.class() ~= "Hunter" and you.class() ~= "Hexslinger" then
@@ -956,7 +955,8 @@ more += infuriates you
 flash += Your magical (effects|defenses) are (unraveling|stripped away)
 flash += The pull of.*song draws you forward
 flash += engulfs you in water
-flash += You .*(blown|knocked back|mesmerised|trampled|backwards|encased)
+flash += You .*(blown|knocked back|mesmerised|trampled|encased)
+flash += You stumble backwards
 flash += You are shoved backwards
 flash += drags you backwards
 # more += grabs you[^r]
@@ -1533,7 +1533,7 @@ ai += scrolls? of torment:-10%N+
 ai += scrolls? of summoning:Mons2d2, NamelessH HD(2*MiscastIntensity/3) Spd10 AC8 Ak30
 ai += scrolls? of butterflies:12-28, Immo3d15, NamelessH HD(2*MiscastIntensity/3) Spd10 AC8 Atk30
 ai += scrolls? of revelation:Necropolis900, Gauntlet400, Others600
-ai += scrolls? of fog:AtkOut ExploIceblaTremor AlliNeuCharmBribFrenMons TukimPoisSticF
+ai += scrolls? of fog:AtkOut ExploIceblaTremor AlliNeuCharmBribFrenMons OoDTukimPoisSticF
 ai += scrolls? of amnesia:Intensity (SpellLv)d(SpellLv+Failure)/9, Contam 2x(SpellLv)^2xFailure+250
 
 ai += wand of roots:@v1, \<, 2d(5.7+Evo/2)DmgT 3((15+3.5Evo)/22 To 4+((15+3.5Evo)/16)T
@@ -1626,8 +1626,8 @@ ai += staff of cold:rC+
 ai += staff of alchemy:rPois
 ai += staff of air:rElec
 ai += staff of necromancy:rN+
-ai += magical staff:, !a
 : end
+ai += magical staff:, !a
 
 : if you.xl() > 4 then
 ai += (?<!the) \+0 (dagger|short sword|club|whip|giant club|giant spiked|hand axe|spear|sling|shortbow|(?<!tremor)stone|animal skin|robe|leather armour) (?!"|of):~~DROP_ME
@@ -1705,6 +1705,8 @@ consumable_shortcut += dart:abcdefghijklmnopqrstuwxyz
 consumable_shortcut += potion of mutation:t
 consumable_shortcut += scroll of noise:n
 consumable_shortcut += scroll of revelation:R
+
+# spell_slot ^= Stone Arrow :z
 
 ##############
 ### Macros ###
