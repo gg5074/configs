@@ -942,7 +942,6 @@ flash += You feel extremely sick
 more += You.*re lethally poisoned
 more += danger:You convulse
 more += You feel a (horrible|terrible) chill
-more += Your.*terribly
 more += You are.*terribly
 more += Your body is wracked with pain
 
@@ -1347,13 +1346,13 @@ flash += encounter.*(centaur warrior|freezing wraith|raiju|(cyan|brown) ugly thi
 
 : if you.xl() <= 13 then
 unusual_monster_items += (paralysis|roots|light)
-unusual_monster_items += (draining|vampiric|spectral|\+[5-9]|heavy)
+unusual_monster_items += (devious|draining|vampiric|spectral|\+[5-9]|heavy)
 more += encounter.*(?<!spectral) (manticore|two-headed ogre|kobold geomancer|tengu|lindwurm|(ice|rust) devil|(fire|earth) elemental|lava snake|efreet|boulder beetle|hornet|black mamba|cane toad|komodo dragon|skyshark)(?! (zombie|draugr|simulacr))
 flash += encounter.*(skeletal warrior|death yak|elephant)(?! (zombie|draugr|simulacr))
 : end
 
 : if you.xl() <= 10 then
-unusual_monster_items += (devious|valour|concussion|rebuke)
+unusual_monster_items += (valour|concussion|rebuke)
 unusual_monster_items += (electrocution|flaming|freezing|pain)
 unusual_monster_items += (venom|charming|polymorph)
 unusual_monster_items += triple sword,executioner's axe,halberd,glaive,bardiche,arbalest,hand cannon,triple crossbow
