@@ -33,3 +33,15 @@ display:none;
 #left_column > .action-panel{
 display:none;
 }
+
+#stats_weapon_letter{
+display:none;
+}
+
+p:nth-of-type(6){
+display:none;
+}
+
+p:nth-of-type(3){
+display:none;
+}
