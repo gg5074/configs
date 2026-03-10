@@ -1455,7 +1455,7 @@ ae += large rock
 ae += staff of (conjuration|earth)
 : end
 
-: if you.race() == "Demigod" or you.god() == "Gozag Ym Sagoz" or you.god() == "Ashenzari" then
+: if you.race() == "Demigod" or you.god() == "Gozag" or you.god() == "Ashenzari" then
 ae += amulet of faith
 : end
 
@@ -1928,7 +1928,7 @@ macros += M < V15
 macros += M > V25
 
 bindkey = [Tab] CMD_AUTOFIGHT_NOMOVE
-macros += M \{9} zaf
+# macros += M \{9} zaf
 
 macros += M E zbf
 macros += M U zcf
