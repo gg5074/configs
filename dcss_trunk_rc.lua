@@ -234,12 +234,12 @@ brc_config_explicit = {
         --"of gloves", "of boots", "cloak", "scarf of", " hat ", "helmet",
         --"ring of", "amulet of", "6 ring of strength", "6 ring of dexterity",
         --"dragonskin cloak", "ratskin cloak", "moon troll leather armour", "Cigotuvi's embrace",
-        "partisan", "demon trident", "trishula", "glaive", "bardiche",
+        --"partisan", "demon trident", "trishula", "glaive", "bardiche",
         "demon whip", "demon blade",
         --"broad axe", "morningstar", "eveningstar", "sacred scourge",
-        --"hand cannon", "orcbow", "arbalest", "longbow", "triple crossbow", "of archery",
+        "hand cannon", "orcbow", "arbalest", "longbow", "triple crossbow", "of archery",
         "buckler", "kite shield", "tower shield", "wand of digging", "quill talisman", "medusa talisman",
-        --"troll leather armour", "steam dragon scales", "chain mail", "plate armour",
+        "troll leather armour", "steam dragon scales",
         "crystal plate armour", "golden dragon scales", "storm dragon scales", "swamp dragon scales",
         "quicksilver dragon scales", "acid dragon scales", "pearl dragon scales", "shadow dragon scales",
       },
@@ -1365,6 +1365,8 @@ flash += encounter.*(wight|yak|vampire mosquito)(?! (zombie|draugr|simulacr))
 : if you.xl() <= 7 then
 # unusual_monster_items += spear,(?<!demon) trident,sling,shortbow,orcbow
 more += encounter.*(?<!spectral) (marrowcuda|phantom|bombardier beetle|ice beast|jell(y|ies)|iguana|hound|black bear|sky beast|electric eel|sleepcap)(?! (zombie|draugr|simulacr))
+more += Another marrowcuda is drawn to the feast!
+flash += Another marrowcuda is drawn to the feast!
 more += The black bear roars madly and goes into a rage
 more += encounter.*(ogre|gnoll|orc (wizard|priest|warrior))(?! (zombie|draugr|simulacr))
 flash += encounter.*(ogre|gnoll|orc (wizard|priest|warrior))(?! (zombie|draugr|simulacr))
@@ -1856,19 +1858,19 @@ macros += M K ab
 
 # [,]: @<query>, Stash-Tracker
 # !!:Negate, &&:AND, ||:OR, <<>>:Grouping
-: if you.xl() <= 9 and (you.race() == "Minotaur" or you.race() == "Troll" or you.class() == "Fighter" or you.class() == "Berserker") then
+: if you.xl() <= 9 and (you.race() == "Troll" or you.class() == "Fighter" or you.class() == "Berserker") then
 macros += M , *f@\{32}&&\{32}!!ransp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!anim\{32}&&\{32}!!0\{32}rob\{32}&&\{32}!!a\{32}lea\{32}&&\{32}!!a\{32}tro\{32}&&\{32}!!a\{32}ring\{32}m\{32}&&\{32}!!a\{32}scal\{32}&&\{32}!!a\{32}cha\{32}&&\{32}!!a\{32}pla\{32}&&\{32}!!a\{32}buc\{32}&&\{32}!!a\{32}clo\{32}&&\{32}!!0\{32}clu\{32}&&\{32}!!0\{32}whi\{32}&&\{32}!!0\{32}mac\{32}&&\{32}!!0\{32}ham\{32}&&\{32}!!grea\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spe\{32}&&\{32}!!0\{32}trid\{32}&&\{32}!!0\{32}hal\{32}&&\{32}!!0\{32}gla\{32}&&\{32}!!0\{32}bat\{32}&&\{32}!!0\{32}hand\{32}a\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}bro\{32}&&\{32}!!rang\{32}&&\{32}!!blad\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 : end
 
-: if you.xl() >= 10 and you.xl() <= 16 and (you.race() == "Minotaur" or you.race() == "Troll" or you.class() == "Fighter" or you.class() == "Berserker") then
+: if you.xl() >= 10 and you.xl() <= 16 and (you.race() == "Troll" or you.class() == "Fighter" or you.class() == "Berserker") then
 macros += M , *f@\{32}&&\{32}!!ransp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!quart\{32}&&\{32}!!laja\{32}&&\{32}!!rang\{32}&&\{32}!!blad\{32}&&\{32}!!club\{32}&&\{32}!!0\{32}whi\{32}&&\{32}!!0\{32}mac\{32}&&\{32}!!0\{32}ham\{32}&&\{32}!!grea\{32}&&\{32}!!gian\{32}&&\{32}!!nd\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}bro\{32}&&\{32}!!spea\{32}&&\{32}!!0\{32}trid\{32}&&\{32}!!0\{32}hal\{32}&&\{32}!!0\{32}gla\{32}&&\{32}!!0\{32}bat\{32}&&\{32}!!anim\{32}&&\{32}!!robe\{32}&&\{32}!!leat\{32}&&\{32}!!a\{32}ring\{32}m\{32}&&\{32}!!a\{32}scal\{32}&&\{32}!!a\{32}cha\{32}&&\{32}!!a\{32}pla\{32}&&\{32}!!a\{32}buc\{32}&&\{32}!!a\{32}clo\{32}&&\{32}!!orb\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 : end
 
-: if you.xl() >= 17 and (you.race() == "Minotaur" or you.race() == "Troll" or you.class() == "Fighter" or you.class() == "Berserker") then
+: if you.xl() >= 17 and (you.race() == "Troll" or you.class() == "Fighter" or you.class() == "Berserker") then
 macros += M , *f@\{32}&&\{32}!!ransp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!quart\{32}&&\{32}!!laja\{32}&&\{32}!!rang\{32}&&\{32}!!blad\{32}&&\{32}!!club\{32}&&\{32}!!0\{32}whi\{32}&&\{32}!!r\{32}ax\{32}&&\{32}!!0\{32}mac\{32}&&\{32}!!ham\{32}&&\{32}!!0\{32}flai\{32}&&\{32}!!grea\{32}&&\{32}!!gian\{32}&&\{32}!!dire\{32}&&\{32}!!nd\{32}ax\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}bro\{32}&&\{32}!!spea\{32}&&\{32}!!0\{32}trid\{32}&&\{32}!!0\{32}hal\{32}&&\{32}!!0\{32}gla\{32}&&\{32}!!0\{32}bat\{32}&&\{32}!!mail\{32}&&\{32}!!0\{32}cha\{32}&&\{32}!!0\{32}pla\{32}&&\{32}!!0\{32}buc\{32}&&\{32}!!a\{32}clo\{32}&&\{32}!!anim\{32}&&\{32}!!robe\{32}&&\{32}!!leat\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 : end
 
-: if you.race() ~= "Minotaur" and you.race() ~= "Troll" and you.class() ~= "Fighter" and you.class() ~= "Berserker" and you.class() ~= "Hunter" and you.class() ~= "Hexslinger" then
+: if you.race() ~= "Troll" and you.class() ~= "Fighter" and you.class() ~= "Berserker" and you.class() ~= "Hunter" and you.class() ~= "Hexslinger" then
 macros += M , *f@\{32}&&\{32}!!ransp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!anim\{32}&&\{32}!!a\{32}rob\{32}&&\{32}!!a\{32}lea\{32}&&\{32}!!a\{32}tro\{32}&&\{32}!!a\{32}ring\{32}m\{32}&&\{32}!!a\{32}scal\{32}&&\{32}!!a\{32}cha\{32}&&\{32}!!a\{32}pla\{32}&&\{32}!!a\{32}buc\{32}&&\{32}!!a\{32}clo\{32}&&\{32}!!0\{32}dag\{32}&&\{32}!!0\{32}sho\{32}&&\{32}!!0\{32}rap\{32}&&\{32}!!0\{32}fal\{32}&&\{32}!!0\{32}lon\{32}\{32}&&\{32}!!0\{32}gre\{32}&&\{32}!!0\{32}clu\{32}&&\{32}!!0\{32}whi\{32}&&\{32}!!0\{32}mac\{32}&&\{32}!!0\{32}ham\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spe\{32}&&\{32}!!0\{32}trid\{32}&&\{32}!!0\{32}hal\{32}&&\{32}!!0\{32}gla\{32}&&\{32}!!0\{32}bat\{32}&&\{32}!!0\{32}hand\{32}a\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}bro\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 : end
 
@@ -1877,11 +1879,11 @@ macros += M , *f@\{32}&&\{32}!!ransp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&
 : end
 
 # [P]: Shop Items
-: if you.race() == "Minotaur" or you.race() == "Troll" or you.class() == "Fighter" or you.class() == "Berserker" then
+: if you.race() == "Troll" or you.class() == "Fighter" or you.class() == "Berserker" then
 macros += M P *fin_shop\{32}&&\{32}!!rang\{32}&&\{32}!!blad\{32}&&\{32}!!0\{32}clu\{32}&&\{32}!!0\{32}whi\{32}&&\{32}!!0\{32}mac\{32}&&\{32}!!0\{32}ham\{32}&&\{32}!!gian\{32}&&\{32}!!dire\{32}&&\{32}!!0\{32}spe\{32}&&\{32}!!0\{32}trid\{32}&&\{32}!!0\{32}hal\{32}&&\{32}!!0\{32}gla\{32}&&\{32}!!0\{32}bat\{32}&&\{32}!!0\{32}hand\{32}a\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}bro\{32}&&\{32}!!anim\{32}&&\{32}!!0\{32}rob\{32}&&\{32}!!0\{32}lea\{32}&&\{32}!!0\{32}ring\{32}m\{32}&&\{32}!!0\{32}scal\{32}&&\{32}!!a\{32}cha\{32}&&\{32}!!a\{32}pla\{32}&&\{32}!!0\{32}buc\{32}&&\{32}!!a\{32}clo\{32}&&\{32}!!book\{32}&&\{32}!!parchm\{32}&&\{32}!!carri\{13}
 : end
 
-: if you.race() ~= "Minotaur" and you.race() ~= "Troll" and you.class() ~= "Fighter" and you.class() ~= "Berserker" then
+: if you.race() ~= "Troll" and you.class() ~= "Fighter" and you.class() ~= "Berserker" then
 macros += M P *fin_shop\{32}&&\{32}!!0\{32}dag\{32}&&\{32}!!0\{32}sho\{32}&&\{32}!!0\{32}rap\{32}&&\{32}!!0\{32}fal\{32}&&\{32}!!0\{32}lon\{32}\{32}&&\{32}!!0\{32}gre\{32}&&\{32}!!a\{32}sli\{32}&&\{32}!!0\{32}clu\{32}&&\{32}!!0\{32}whi\{32}&&\{32}!!0\{32}mac\{32}&&\{32}!!0\{32}ham\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spe\{32}&&\{32}!!0\{32}trid\{32}&&\{32}!!0\{32}hal\{32}&&\{32}!!0\{32}gla\{32}&&\{32}!!0\{32}bat\{32}&&\{32}!!0\{32}hand\{32}a\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}bro\{32}&&\{32}!!anim\{32}&&\{32}!!0\{32}rob\{32}&&\{32}!!a\{32}lea\{32}&&\{32}!!a\{32}ring\{32}m\{32}&&\{32}!!a\{32}scal\{32}&&\{32}!!a\{32}cha\{32}&&\{32}!!a\{32}pla\{32}&&\{32}!!a\{32}buc\{32}&&\{32}!!a\{32}clo\{32}&&\{32}!!carri\{13}
 : end
 
