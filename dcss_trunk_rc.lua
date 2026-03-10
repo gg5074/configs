@@ -1163,6 +1163,7 @@ more += encounter.*(undying armour(y|ies)|wendigo|antique champion|moths? of wra
 more += The undying armouty arms its allies with
 
 more += The dying Royal Jelly
+more += You kill Nessos!
 more += Xak'krixis conjures a prism
 more += Nobody ignites a memory of
 more += (Rupert|Snorg) goes berserk
@@ -1318,7 +1319,7 @@ more += encounter.*(?<!spectral) (formless jellyfish|broodmother|spark wasp|orb 
 # Paralysis/Petrify/Banish
 more += encounter.*(fenstrider witch|orc sorcerer|ogre mage|occultist|great orbs? of eyes|sphinx)(?! (zombie|draugr|simulacr))
 more += encounter.*(?<!spectral) (jorogumo|basilisk|catoblepa(s|e)|deep elf (sorcerer|demonologist)|vampire knight)(?! (zombie|draugr|simulacr))
-flash += The boggart gestures wildly while chanting
+more += The deep elf elementalist sculpts a pair of cannons out of ice!
 more += The broodmother summons spiders!
 : end
 
