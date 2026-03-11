@@ -6,10 +6,54 @@ BRC = {}
 BRC.Config = {}
 
 -- Specify a config by name, or "ask" to prompt at start of each new game
-BRC.Config.to_use = "Explicit"
+BRC.Config.to_use = "Explicit" -- Testing, Explicit
 
 }
 ##################################### End lua/core/_header.lua ####################################
+###################################################################################################
+
+################################### Begin lua/config/testing.lua ##################################
+############# https://github.com/brianfaires/crawl-rc/blob/main/lua/config/testing.lua ############
+{
+--- Testing Main Config: Isolate and test specific features
+
+brc_config_testing = {
+  BRC_CONFIG_NAME = "Testing",
+
+  emojis = false,
+
+  mpr = {
+    show_debug_messages = true,
+    logs_to_stderr = true,
+  },
+
+  disable_other_features = false, -- only use features explicitly configured below
+
+  ["pickup-alert"] = {
+    Alert = {
+      armour_sensitivity = 0.5,
+      weapon_sensitivity = 0.5,
+    },
+    Tuning = {
+      Armour = {
+        diff_body_ego_is_good = false,
+      },
+    },
+  },
+
+  init = function()
+    if BRC.Config.disable_other_features then
+      for _, v in pairs(_G) do
+        if BRC.is_feature_module(v) and not BRC.Config[v.BRC_FEATURE_NAME] then
+          BRC.Config[v.BRC_FEATURE_NAME] = { disabled = true }
+        end
+      end
+    end
+  end,
+} -- brc_config_testing (do not remove this comment)
+
+}
+#################################### End lua/config/testing.lua ###################################
 ###################################################################################################
 
 ################################## Begin lua/config/explicit.lua ##################################
@@ -488,6 +532,7 @@ menu ^= lightcyan:(scarf of invisibility|\+(Inv|Blink))
 msc := message_colour
 msc ^= lightgrey:( miss | misses |no damage|fail to reach past|returns to the grave|disappears in a puff of smoke|putting on your|removing your)
 msc ^= yellow:(You feel a bit more experienced|Something appears at your feet|Autopickup disabled for)
+msc ^= lightmagenta:(Your damage rating with your)
 
 msc += mute:Search for what.*(~D|in_shop|ransp)
 msc += mute:There is an open door here
