@@ -417,7 +417,7 @@ sound_pack += https://osp.nemelex.cards/build/latest.zip:["init.txt"]
 
 sound_pack += https://sound-packs.nemelex.cards/DCSS-UST/v1.0.1.zip
 
-record_wtrec = true
+# record_wtrec = true
 
 #######################
 ### Mini Map Colors ###
@@ -461,7 +461,7 @@ tile_font_msg_family = UD デジタル 教科書体 N-B
 tile_font_lbl_family = UD デジタル 教科書体 N-B
 tile_realtime_anim = true
 
-: if you.race() ~= "Felid" and you.race() ~= "Gargoyle" and you.race() ~= "Anemocentaur" and you.race() ~= "Human" then
+: if you.race() ~= "Felid" and you.race() ~= "Gargoyle" and you.race() ~= "Gale Centaur" and you.race() ~= "Human" then
 tile_show_player_species = true
 : end
 
@@ -534,10 +534,6 @@ autofight_nomove_fires = false
 
 : if you.class() ~= "Hunter" and you.class() ~= "Hexslinger" then
 autofight_fire_stop = true
-: end
-
-: if you.class() == "Hunter" or you.class() == "Hexslinger" then
-autofight_fire_stop = false
 : end
 
 autofight_caught = true
@@ -695,8 +691,8 @@ more += You now drain nearby creatures when transferring your ancestor
 
 more += Beogh will now send orc apostles to challenge you
 flash += Beogh will now send orc apostles to challenge you
-more += the orc apostle comes into view
 more += encounter.*the orc apostle
+more += the orc apostle comes into view
 more += falls to his knees and submits
 
 : if you.god() == "Beogh" then
@@ -945,6 +941,7 @@ more += You feel a (horrible|terrible) chill
 more += You are.*terribly
 more += Your body is wracked with pain
 
+more += The crystal spear hits you!!!
 flash += smites you[^r]
 more += You are (blasted|electrocuted)
 more += You are.*confused
@@ -958,9 +955,7 @@ flash += You .*(blown|knocked back|mesmerised|trampled|encased)
 flash += You stumble backwards
 flash += You are shoved backwards
 flash += drags you backwards
-# more += grabs you[^r]
 flash += grabs you[^r]
-# more += roots grab you[^r]
 flash += roots grab you[^r]
 flash += constricts you[^r]
 more += You are skewered in place
@@ -1247,7 +1242,6 @@ more += encounter.*(tormentor|curse toe|curse skull)
 flash += encounter.*(tormentor|curse toe|curse skull)
 more += encounter.*(deathcap|soul eater|vampire bloodprince|alderking)
 flash += encounter.*(deathcap|soul eater|vampire bloodprince|alderking)
-more += The curse toe gestures
 : end
 
 # Holy/Dispel Undead
@@ -1308,7 +1302,6 @@ more += ironbound convoker begins to recite a word of recall
 more += kobold fleshcrafter chants and writhes
 more += halazid warlock gestures
 more += ironbound mechanist forges a skittering defender to stand by its side
-# more += slime creatures merge to form a (very large|enormous|titanic)
 more += slime creatures merge to form a (normous|titanic)
 flash += slime creatures merge to form a (very large|enormous|titanic)
 : end
@@ -1380,7 +1373,11 @@ more += encounter.*(adder)(?! (zombie|draugr|simulacr))
 
 : if you.xl() <= 4 then
 more += encounter.*(orc)(?! (zombie|draugr|simulacr))
-# monster_alert += tough
+flash += flash.*(ribbon worm)(?! (zombie|draugr|simulacr))
+: end
+
+: if you.xl() <= 4 and (you.class() == "Hunter" or you.class() == "Hexslinger") then
+more += encounter.*(ribbon worm)(?! (zombie|draugr|simulacr))
 : end
 
 # : if you.xl() <= 1 then
@@ -1478,15 +1475,15 @@ stop += You see here.* hat of
 ae = <boomerang, (poisoned|tipped) dart, (?<!tremor)stone, of might
 : end
 
-: if you.xl() > 4 then
+: if you.xl() > 4 or (you.class() == "Conjurer" or you.class() == "Fire Elementalist" or you.class() == "Air Elementalist" or you.class() == "Earth Elementalist" or you.class() == "Hunter" or you.class() == "Hexslinger") then
 ae +=  (?<!tremor)stone
 : end
 
-: if you.xl() > 12 and you.race() == "Deep Elf" then
+: if you.xl() > 12 and (you.class() == "Conjurer" or you.class() == "Fire Elementalist" or you.class() == "Air Elementalist" or you.class() == "Earth Elementalist") then
 ae = <boomerang, javelin, tipped dart, throwing net
 : end
 
-: if you.xl() > 18 then
+: if you.xl() > 18 and (you.race() == "Troll" or you.class() == "Fighter" or you.class() == "Berserker") then
 ae += (datura|atropa)-tipped dart
 : end
 
