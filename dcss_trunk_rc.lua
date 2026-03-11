@@ -531,7 +531,7 @@ menu ^= lightcyan:(scarf of invisibility|\+(Inv|Blink))
 
 msc := message_colour
 msc ^= lightgrey:( miss | misses |no damage|fail to reach past|returns to the grave|disappears in a puff of smoke|putting on your|removing your)
-msc ^= yellow:(You feel a bit more experienced|Something appears at your feet|Autopickup disabled for)
+msc ^= yellow:(You feel a bit more experienced|Something appears at your feet|Autopickup disabled for|The.*leaves your sight)
 
 msc += mute:Search for what.*(~D|in_shop|ransp)
 msc += mute:There is an open door here
