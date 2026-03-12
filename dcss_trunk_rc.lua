@@ -1530,12 +1530,13 @@ flash += slime creatures merge to form a (very large|enormous|titanic)
 : end
 
 : if you.xl() <= 20 then
-more += encounter.*(boggart|bunyips|deep elf elementalist|balrug|stone giant|ironbound beastmaster)(?! (zombie|draugr|simulacr))
+more += encounter.*(boggart|bunyips|deep elf (elementalist|death mage)|balrug|stone giant|ironbound beastmaster)(?! (zombie|draugr|simulacr))
 more += encounter.*(?<!spectral) (formless jellyfish|broodmother|spark wasp|orb spider|merfolk (aquamancer|javelineer|impaler)|nagaraja)(?! (zombie|draugr|simulacr))
 # Paralysis/Petrify/Banish
 more += encounter.*(fenstrider witch|orc sorcerer|ogre mage|occultist|great orbs? of eyes|sphinx)(?! (zombie|draugr|simulacr))
 more += encounter.*(?<!spectral) (jorogumo|basilisk|catoblepa(s|e)|deep elf (sorcerer|demonologist)|vampire knight)(?! (zombie|draugr|simulacr))
 more += The deep elf elementalist sculpts a pair of cannons out of ice!
+more += The deep elf death mage beckons forth restless souls!
 more += The broodmother summons spiders!
 : end
 
@@ -2289,7 +2290,7 @@ function my_feature.ready()
 if you.turns() == 0 and you.race() ~= "Gnoll" and you.race() ~= "Djinni" and need_skills_opened then
 need_skills_opened = false
 crawl.sendkeys("!d4" .. string.char(13) .. "T:D4-7" .. string.char(13))
-crawl.sendkeys("!d10" .. string.char(13) .. "L D11-12 O D13- S V4 E U/V5/C M Z4 Zig7" .. string.char(13))
+crawl.sendkeys("!d10" .. string.char(13) .. "L D11-12 O D13- S V4 E U/V5/C/A M Z4 Zig7" .. string.char(13))
 crawl.sendkeys("!d11" .. string.char(13) .. "Ice:L D11-13 O, Vol:L O, Gau:L D11- O" .. string.char(13))
 crawl.sendkeys("!d12" .. string.char(13) .. "Rup:D12- L3- O P1 N1, Tro:D12- S" .. string.char(13))
 you.set_training_target("Maces & Flails",12)
@@ -2300,9 +2301,9 @@ you.set_training_target("Throwing",2)
 you.set_training_target("Short Blades",14)
 you.set_training_target("Long Blades",12)
 you.set_training_target("Ranged Weapons",14)
-you.set_training_target("Armour",9)
+you.set_training_target("Armour",4)
 you.set_training_target("Dodging",4)
-you.set_training_target("Shields",9)
+you.set_training_target("Shields",4)
 you.set_training_target("Stealth",2)
 you.set_training_target("Hexes",6)
 you.set_training_target("Summonings",6)
