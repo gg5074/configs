@@ -20,7 +20,7 @@ BRC.Config.to_use = "Explicit" -- Testing, Explicit
 brc_config_testing = {
   BRC_CONFIG_NAME = "Testing",
 
-  emojis = false,
+  emojis = true,
 
   mpr = {
     show_debug_messages = true,
@@ -29,6 +29,185 @@ brc_config_testing = {
 
   disable_other_features = false, -- only use features explicitly configured below
 
+  dump = {
+    max_lines_per_table = 200, -- Avoid huge tables (alert_monsters.Config.Alerts) in debug dumps
+    omit_pointers = true, -- Don't dump functions and userdata (they only show a hex address)
+  },
+
+  unskilled_egos_usable = false, -- Does "Armour of <MagicSkill>" have an ego when skill is 0?
+
+  --- How weapon damage is calculated for inscriptions+pickup/alert: (factor * DMG + offset)
+  BrandBonus = {
+    chaos = { factor = 1.2, offset = 2.0 }, -- Approximate weighted average
+    distort = { factor = 1.0, offset = 6.0 },
+    drain = { factor = 1.25, offset = 2.0 },
+    elec = { factor = 1.0, offset = 4.5 },   -- 3.5 on avg; fudged up for AC pen
+    entangle = { factor = 1.1, offset = 2 },
+    flame = { factor = 1.25, offset = 0 },
+    freeze = { factor = 1.25, offset = 0 },
+    heavy = { factor = 1.8, offset = 0 },    -- Speed is accounted for elsewhere
+    pain = { factor = 1.0, offset = you.skill("Necromancy") / 2 },
+    spect = { factor = 1.35, offset = 0 },    -- Fudged down for increased incoming damage
+    sunder = { factor = 1.2, offset = 0 },
+    valour = { factor = 1.15, offset = 0 },
+    venom = { factor = 1.0, offset = 5.0 },  -- 5 dmg per poisoning
+
+    subtle = { -- Values to use for weapon "scores" (not damage)
+      antimagic = { factor = 1.15, offset = 0 },
+      concuss = { factor = 1.15, offset = 0 },
+      devious = { factor = 1.1, offset = 0 },
+      holy = { factor = 1.15, offset = 0 },
+      penet = { factor = 1.3, offset = 0 },
+      protect = { factor = 1.1, offset = 0 },
+      reap = { factor = 1.3, offset = 0 },
+      rebuke = { factor = 1.1, offset = 0 },
+      vamp = { factor = 1.2, offset = 0 },
+    },
+  }, -- BrandBonus (do not remove this comment)
+
+
+  hotkey = {
+    key = { keycode = -1010, name = "[NPenter]" },
+    skip_keycode = 27, -- ESC keycode
+    equip_hotkey = true, -- Offer to equip after picking up equipment
+    wait_for_safety = true, -- Don't expire the hotkey with monsters in view
+    explore_clears_queue = false, -- Clear the hotkey queue on explore
+    newline_before_hotkey = true, -- Add a newline before the hotkey message
+    move_to_feature = {
+      -- Hotkey for "move to _" when you find these features
+      enter_temple = "Temple", enter_lair = "Lair", altar_ecumenical = "faded altar",
+      enter_bailey = "flagged portal", enter_bazaar = "bazaar",
+      enter_desolation = "crumbling gateway", enter_gauntlet = "gauntlet",
+      enter_ice_cave = "frozen archway", enter_necropolis = "phantasmal passage",
+      enter_ossuary = "sand-covered staircase", enter_sewer = "glowing drain",
+      enter_trove = "trove of treasure", enter_volcano = "dark tunnel",
+      enter_wizlab = "magical portal", enter_ziggurat = "ziggurat",
+    },
+  },
+
+  ---- Feature configs ----
+  ["my-feature"] = {
+    disabled = false,
+  },
+
+  ["announce-hp-mp"] = {
+    disabled = false,
+    dmg_flash_threshold = 0.10, -- Flash screen when losing this % of max HP
+    dmg_fm_threshold = 0.20, -- Force more for losing this % of max HP
+    always_on_bottom = false, -- Rewrite HP/MP meters after each turn with messages
+    meter_length = 6, -- Number of pips in each meter
+
+    Announce = {
+      hp_loss_limit = 1, -- Announce when HP loss >= this
+      hp_gain_limit = 4, -- Announce when HP gain >= this
+      mp_loss_limit = 2, -- Announce when MP loss >= this
+      mp_gain_limit = 3, -- Announce when MP gain >= this
+      hp_first = true, -- Show HP first in the message
+      same_line = false, -- Show HP/MP on the same line
+      always_both = false, -- If showing one, show both
+      very_low_hp = 0.25, -- At this % of max HP, show all HP changes and mute % HP alerts
+    },
+
+    HP_METER = { FULL = "❤️", PART = "🩹", EMPTY = "🤍" },
+    MP_METER = { FULL = "🟦", PART = "🔹", EMPTY = "➖" },
+
+    init = function()
+      if not BRC.Config.emojis then
+        f_announce_hp_mp.Config.HP_METER = {
+          BORDER = BRC.txt.white("|"),
+          FULL = BRC.txt.lightgreen("+"),
+          PART = BRC.txt.lightgrey("+"),
+          EMPTY = BRC.txt.darkgrey("-"),
+        } -- HP_METER (do not remove this comment)
+        f_announce_hp_mp.Config.MP_METER = {
+          BORDER = BRC.txt.white("|"),
+          FULL = BRC.txt.lightblue("+"),
+          PART = BRC.txt.lightgrey("+"),
+          EMPTY = BRC.txt.darkgrey("-"),
+        } -- MP_METER (do not remove this comment)
+      end
+    end,
+  },
+
+  ["answer-prompts"] = {
+    disabled = true,
+    -- No config; See answer-prompts.lua for Questions/Answers
+  },
+
+  ["display-realtime"] = {
+    disabled = true, -- Disabled by default
+    interval_s = 300, -- seconds between updates
+    emoji = "🕒",
+    init = function()
+      if not BRC.Config.emojis then
+        f_display_realtime.Config.emoji = BRC.txt.white("--")
+      end
+    end,
+  },
+
+  ["drop-inferior"] = {
+    disabled = true,
+    msg_on_inscribe = true, -- Show a message when an item is marked for drop
+    hotkey_drop = true, -- BRC hotkey drops all items on the drop list
+  },
+
+  ["exclude-dropped"] = {
+    disabled = true,
+    not_weapon_scrolls = true, -- Don't exclude enchant/brand scrolls if holding enchantable weapon
+  },
+
+  ["fully-recover"] = {
+    disabled = true,
+  },
+
+  ["inscribe-stats"] = {
+    disabled = true,
+    inscribe_weapons = true, -- Inscribe weapon stats on pickup
+    inscribe_armour = true, -- Inscribe armour stats on pickup
+    dmg_type = "scoring", -- unbranded, plain, branded, scoring
+    skip_dps = false, -- Skip DPS in weapon inscriptions
+    prefix_staff_dmg = false, -- Special prefix for magical staves
+  },
+
+  ["misc-alerts"] = {
+    disabled = true,
+    preferred_god = "", -- Stop on first altar with this text (Ex. "Wu Jian"); nil or "" disables
+    force_more_on_pref_altar = true, -- Force more message on first altar for preferred god
+    save_with_msg = true, -- Shift-S to save and leave yourself a message
+    alert_low_hp_threshold = 55, -- % max HP to alert; 0 to disable
+    alert_spell_level_changes = true, -- Alert when you gain additional spell levels
+    alert_remove_faith = true, -- Reminder to remove amulet at max piety
+    remove_faith_hotkey = true, -- Hotkey remove amulet
+  },
+
+  ["go-up-macro"] = {
+    disabled = false,
+    go_up_macro_key = 5, -- (Cntl-E) Key for "go up closest stairs" macro
+    ignore_mon_on_orb_run = false, -- Ignore monsters on orb run
+    orb_ignore_hp_min = 0.80, -- HP percent to stop ignoring monsters
+    orb_ignore_hp_max = 0.90, -- HP percent to ignore monsters at min distance away (2 tiles)
+  },
+
+  ["remind-id"] = {
+    disabled = false,
+    stop_on_scrolls_count = 2, -- Stop when largest un-ID'd scroll stack increases and is >= this
+    stop_on_pots_count = 2, -- Stop when largest un-ID'd potion stack increases and is >= this
+    read_id_hotkey = true, -- Put read ID on hotkey
+    emoji = "🎁",
+    init = function()
+      if not BRC.Config.emojis then
+        f_remind_id.Config.emoji = BRC.txt.magenta("?")
+      end
+    end,
+  },
+
+  ["runrest-features"] = {
+    ignore_portal_exits = true, -- don't stop explore on portal exits
+    temple_search = true,       -- on enter or explore, auto-search altars
+    gauntlet_search = true,     -- on enter or explore, auto-search gauntlet with filters
+  },
+
+  ---- Large config sections ----
   ["pickup-alert"] = {
     Alert = {
       armour_sensitivity = 0.5,
@@ -540,7 +719,7 @@ msc += mute:(Your.*|The butterfly) leaves your sight
 msc += mute:Your.*is recalled
 
 # Lua Error: Safe Shout
-msc += mute:Cannot currently process new keys
+# msc += mute:Cannot currently process new keys
 
 # : if you.branch() == "Gauntlet" or you.branch() == "Necropolis" or you.branch() == "Trove" or you.branch() == "Temple" then
 # msc += mute:Found a transporter
@@ -1162,7 +1341,7 @@ more += You add the spells?.*(Summon Small Mammal|Call Imp|Call Canine Familiar|
 more += You add the spells?.*(Apportation|Blink|Lesser Beckoning|Maxwell's Portable Piledriver|Teleport Other|Passage of Golubria)
 : end
 
-: if you.xl() >= 27 and you.class() ~= "Conjurer" then
+: if you.xl() >= 26 and you.class() ~= "Conjurer" and you.class() ~= "Fire Elementalist" and you.class() ~= "Air Elementalist" and you.class() ~= "Earth Elementalist" and you.class() ~= "Hunter" and you.class() ~= "Hexslinger" then
 more += You add the spells?.*(Vhi's Electric|Manifold Assault|Fugue of the|Animate Dead|Death Channel|Awaken Armour)
 : end
 
@@ -1230,8 +1409,6 @@ more += Suddenly you stand beside yourself
 flash += Suddenly you stand beside yourself
 more += sudden wrenching feeling in your soul
 flash += sudden wrenching feeling in your soul
-more += 's illusion shouts
-flash += 's illusion shouts
 
 # Kirke (Lair3-5 D12-15 S-B1 Elf1), Butcher's Vault
 # : if you.xl() <= 16 then
