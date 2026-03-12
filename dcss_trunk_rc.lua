@@ -30,7 +30,7 @@ brc_config_testing = {
   disable_other_features = false, -- only use features explicitly configured below
 
   dump = {
-    max_lines_per_table = 200, -- Avoid huge tables (alert_monsters.Config.Alerts) in debug dumps
+    max_lines_per_table = 80, -- Avoid huge tables (alert_monsters.Config.Alerts) in debug dumps
     omit_pointers = true, -- Don't dump functions and userdata (they only show a hex address)
   },
 
@@ -255,7 +255,7 @@ brc_config_explicit = {
   },
 
   dump = {
-    max_lines_per_table = 200, -- Avoid huge tables (alert_monsters.Config.Alerts) in debug dumps
+    max_lines_per_table = 80, -- Avoid huge tables (alert_monsters.Config.Alerts) in debug dumps
     omit_pointers = true, -- Don't dump functions and userdata (they only show a hex address)
   },
 
@@ -710,8 +710,9 @@ menu ^= lightcyan:(scarf of invisibility|\+(Inv|Blink))
 
 msc := message_colour
 msc ^= lightgrey:( miss | misses |no damage|fail to reach past|returns to the grave|disappears in a puff of smoke|putting on your|removing your)
-msc ^= yellow:(You feel a bit more experienced|Something appears at your feet|Autopickup disabled for|The.*leaves your sight)
-
+msc ^= yellow:(You feel a bit more experienced|Something appears at your feet|Autopickup disabled for|You hear an? |The.*leaves your sight)
+msc ^= lightred:(You encounter)
+    
 msc += mute:Search for what.*(~D|in_shop|ransp)
 msc += mute:There is an open door here
 msc += mute:You swap places with (your|(?-i:[A-Z]))
