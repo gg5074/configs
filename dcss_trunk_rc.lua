@@ -181,7 +181,7 @@ brc_config_testing = {
   },
 
   ["go-up-macro"] = {
-    disabled = false,
+    disabled = true,
     go_up_macro_key = 5, -- (Cntl-E) Key for "go up closest stairs" macro
     ignore_mon_on_orb_run = false, -- Ignore monsters on orb run
     orb_ignore_hp_min = 0.80, -- HP percent to stop ignoring monsters
@@ -406,7 +406,7 @@ brc_config_explicit = {
   },
 
   ["go-up-macro"] = {
-    disabled = false,
+    disabled = true,
     go_up_macro_key = 5, -- (Cntl-E) Key for "go up closest stairs" macro
     ignore_mon_on_orb_run = false, -- Ignore monsters on orb run
     orb_ignore_hp_min = 0.80, -- HP percent to stop ignoring monsters
@@ -1694,7 +1694,7 @@ stop += You see here.* hat of
 : end
 
 : if you.class() == "Hunter" or you.class() == "Hexslinger" then
-ae = <boomerang, poisoned dart, (?<!tremor)stone, of might
+ae = <boomerang, poisoned dart, (?<!tremor)stone
 : end
 
 : if you.xl() > 4 or (you.class() == "Conjurer" or you.class() == "Fire Elementalist" or you.class() == "Air Elementalist" or you.class() == "Earth Elementalist" or you.class() == "Hunter" or you.class() == "Hexslinger") then
@@ -2062,7 +2062,13 @@ macros += M \{12} ?/m
 macros += M . *f<<case\{32}to\{32}th\{32}||\{32}gate\{32}to\{32}||\{32}hole\{32}to\{32}||\{32}gate\{32}lead>>\{32}&&\{32}!!one-\{13}
 
 # Ctrl-D (Go down closest stairs w/ {Cntl-G, '>'})
-macros += M \{4} \{7}>
+# macros += M \{4} \{7}>
+
+# Ctrl-D
+macros += M \{4} ?:
+
+# Ctrl-E
+macros += M \{5} x+k
 
 macros += M n x+
 macros += M N x-
