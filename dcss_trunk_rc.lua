@@ -130,12 +130,12 @@ brc_config_testing = {
   },
 
   ["answer-prompts"] = {
-    disabled = true,
+    disabled = false,
     -- No config; See answer-prompts.lua for Questions/Answers
   },
 
   ["display-realtime"] = {
-    disabled = true, -- Disabled by default
+    disabled = false, -- Disabled by default
     interval_s = 300, -- seconds between updates
     emoji = "🕒",
     init = function()
@@ -146,7 +146,7 @@ brc_config_testing = {
   },
 
   ["drop-inferior"] = {
-    disabled = true,
+    disabled = false,
     msg_on_inscribe = true, -- Show a message when an item is marked for drop
     hotkey_drop = true, -- BRC hotkey drops all items on the drop list
   },
@@ -157,11 +157,11 @@ brc_config_testing = {
   },
 
   ["fully-recover"] = {
-    disabled = true,
+    disabled = false,
   },
 
   ["inscribe-stats"] = {
-    disabled = true,
+    disabled = false,
     inscribe_weapons = true, -- Inscribe weapon stats on pickup
     inscribe_armour = true, -- Inscribe armour stats on pickup
     dmg_type = "scoring", -- unbranded, plain, branded, scoring
@@ -170,7 +170,7 @@ brc_config_testing = {
   },
 
   ["misc-alerts"] = {
-    disabled = true,
+    disabled = false,
     preferred_god = "", -- Stop on first altar with this text (Ex. "Wu Jian"); nil or "" disables
     force_more_on_pref_altar = true, -- Force more message on first altar for preferred god
     save_with_msg = true, -- Shift-S to save and leave yourself a message
@@ -2069,7 +2069,7 @@ macros += M . *f<<case\{32}to\{32}th\{32}||\{32}gate\{32}to\{32}||\{32}hole\{32}
 macros += M \{4} ?:
 
 # Ctrl-E
-macros += M \{5} x+k
+macros += M \{5} x+k\{27}
 
 macros += M n x+
 macros += M N x-
@@ -2102,7 +2102,7 @@ macros += M , *f@\{32}&&\{32}!!ransp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&
 : end
 
 : if you.class() == "Hunter" or you.class() == "Hexslinger" then
-macros += M , *f@\{32}&&\{32}!!ransp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!anim\{32}&&\{32}!!a\{32}rob\{32}&&\{32}!!a\{32}lea\{32}&&\{32}!!a\{32}tro\{32}&&\{32}!!a\{32}ring\{32}m\{32}&&\{32}!!scale\{32}m\{32}&&\{32}!!chai\{32}&&\{32}!!plat\{32}&&\{32}!!ice\{32}d\{32}&&\{32}!!dow\{32}d\{32}&&\{32}!!den\{32}d\{32}&&\{32}!!a\{32}buc\{32}&&\{32}!!kite\{32}&&\{32}!!towe\{32}&&\{32}!!a\{32}clo\{32}&&\{32}!!a\{32}hel\{32}&&\{32}!!0\{32}dag\{32}&&\{32}!!a\{32}sho\{32}&&\{32}!!0\{32}rap\{32}&&\{32}!!0\{32}fal\{32}\{32}&&\{32}!!0\{32}gre\{32}&&\{32}!!axe\{32}&&\{32}!!mace\{32}&&\{32}!!pole\{32}&&\{32}!!quart\{32}&&\{32}!!laja\{32}&&\{32}!!a\{32}sli\{32}&&\{32}!!a\{32}sho\{32}&&\{32}!!a\{32}orc\{32}&&\{32}!!a\{32}arb\{32}&&\{32}!!a\{32}lon\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+macros += M , *f@\{32}&&\{32}!!ransp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!anim\{32}&&\{32}!!a\{32}rob\{32}&&\{32}!!a\{32}lea\{32}&&\{32}!!a\{32}tro\{32}&&\{32}!!a\{32}ring\{32}m\{32}&&\{32}!!scale\{32}m\{32}&&\{32}!!chai\{32}&&\{32}!!plat\{32}&&\{32}!!ice\{32}d\{32}&&\{32}!!dow\{32}d\{32}&&\{32}!!den\{32}d\{32}&&\{32}!!a\{32}buc\{32}&&\{32}!!kite\{32}&&\{32}!!towe\{32}&&\{32}!!a\{32}clo\{32}&&\{32}!!a\{32}hel\{32}&&\{32}!!0\{32}dag\{32}&&\{32}!!a\{32}sho\{32}&&\{32}!!0\{32}rap\{32}&&\{32}!!0\{32}fal\{32}&&\{32}!!0\{32}gre\{32}&&\{32}!!axe\{32}&&\{32}!!mace\{32}&&\{32}!!pole\{32}&&\{32}!!quart\{32}&&\{32}!!laja\{32}&&\{32}!!a\{32}sli\{32}&&\{32}!!a\{32}sho\{32}&&\{32}!!a\{32}orc\{32}&&\{32}!!a\{32}arb\{32}&&\{32}!!a\{32}lon\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 : end
 
 # [P]: Shop Items
