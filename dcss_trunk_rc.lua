@@ -457,8 +457,8 @@ brc_config_explicit = {
         --"of gloves", "of boots", "cloak", "scarf of", " hat ", "helmet",
         --"ring of", "amulet of", "6 ring of strength", "6 ring of dexterity",
         --"dragonskin cloak", "ratskin cloak", "moon troll leather armour", "Cigotuvi's embrace",
-        --"partisan", "demon trident", "trishula", "glaive", "bardiche",
-        "demon whip", "demon blade",
+        --"partisan", "trishula", "glaive", "bardiche",
+        "demon trident", "demon whip", "demon blade",
         --"broad axe", "morningstar", "eveningstar", "sacred scourge",
         "hand cannon", "orcbow", "arbalest", "longbow", "triple crossbow", "of archery",
         "buckler", "kite shield", "tower shield", "wand of digging", "quill talisman", "medusa talisman",
@@ -1204,6 +1204,7 @@ flash += Water floods into your lungs
 more += You are covered in intense liquid fire
 
 # Unexpected monsters
+more += There is a strange disturbance nearby!
 more += appears in a (shower|flash)
 more += appears out of thin air
 more += You sense the presence of something unfriendly
@@ -1693,7 +1694,7 @@ stop += You see here.* hat of
 : end
 
 : if you.class() == "Hunter" or you.class() == "Hexslinger" then
-ae = <boomerang, (poisoned|tipped) dart, (?<!tremor)stone, of might
+ae = <boomerang, poisoned dart, (?<!tremor)stone, of might
 : end
 
 : if you.xl() > 4 or (you.class() == "Conjurer" or you.class() == "Fire Elementalist" or you.class() == "Air Elementalist" or you.class() == "Earth Elementalist" or you.class() == "Hunter" or you.class() == "Hexslinger") then
@@ -2094,7 +2095,7 @@ macros += M , *f@\{32}&&\{32}!!ransp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&
 : end
 
 : if you.class() == "Hunter" or you.class() == "Hexslinger" then
-macros += M , *f@\{32}&&\{32}!!ransp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!anim\{32}&&\{32}!!a\{32}rob\{32}&&\{32}!!a\{32}lea\{32}&&\{32}!!a\{32}tro\{32}&&\{32}!!a\{32}ring\{32}m\{32}&&\{32}!!scale\{32}m\{32}&&\{32}!!chai\{32}&&\{32}!!plat\{32}&&\{32}!!ice\{32}d\{32}&&\{32}!!dow\{32}d\{32}&&\{32}!!den\{32}d\{32}&&\{32}!!a\{32}buc\{32}&&\{32}!!kite\{32}&&\{32}!!towe\{32}&&\{32}!!a\{32}clo\{32}&&\{32}!!a\{32}hel\{32}&&\{32}!!blad\{32}&&\{32}!!axe\{32}&&\{32}!!mace\{32}&&\{32}!!pole\{32}&&\{32}!!quart\{32}&&\{32}!!laja\{32}&&\{32}!!a\{32}sli\{32}&&\{32}!!a\{32}sho\{32}&&\{32}!!a\{32}orc\{32}&&\{32}!!a\{32}arb\{32}&&\{32}!!a\{32}lon\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+macros += M , *f@\{32}&&\{32}!!ransp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!anim\{32}&&\{32}!!a\{32}rob\{32}&&\{32}!!a\{32}lea\{32}&&\{32}!!a\{32}tro\{32}&&\{32}!!a\{32}ring\{32}m\{32}&&\{32}!!scale\{32}m\{32}&&\{32}!!chai\{32}&&\{32}!!plat\{32}&&\{32}!!ice\{32}d\{32}&&\{32}!!dow\{32}d\{32}&&\{32}!!den\{32}d\{32}&&\{32}!!a\{32}buc\{32}&&\{32}!!kite\{32}&&\{32}!!towe\{32}&&\{32}!!a\{32}clo\{32}&&\{32}!!a\{32}hel\{32}&&\{32}!!0\{32}dag\{32}&&\{32}!!a\{32}sho\{32}&&\{32}!!0\{32}rap\{32}&&\{32}!!0\{32}fal\{32}\{32}&&\{32}!!0\{32}gre\{32}&&\{32}!!axe\{32}&&\{32}!!mace\{32}&&\{32}!!pole\{32}&&\{32}!!quart\{32}&&\{32}!!laja\{32}&&\{32}!!a\{32}sli\{32}&&\{32}!!a\{32}sho\{32}&&\{32}!!a\{32}orc\{32}&&\{32}!!a\{32}arb\{32}&&\{32}!!a\{32}lon\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 : end
 
 # [P]: Shop Items
@@ -2103,7 +2104,7 @@ macros += M P *fin_shop\{32}&&\{32}!!rang\{32}&&\{32}!!blad\{32}&&\{32}!!0\{32}c
 : end
 
 : if you.race() ~= "Troll" and you.class() ~= "Fighter" and you.class() ~= "Berserker" then
-macros += M P *fin_shop\{32}&&\{32}!!0\{32}dag\{32}&&\{32}!!0\{32}sho\{32}&&\{32}!!0\{32}rap\{32}&&\{32}!!0\{32}fal\{32}&&\{32}!!0\{32}lon\{32}\{32}&&\{32}!!0\{32}gre\{32}&&\{32}!!a\{32}sli\{32}&&\{32}!!0\{32}clu\{32}&&\{32}!!0\{32}whi\{32}&&\{32}!!0\{32}mac\{32}&&\{32}!!0\{32}ham\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spe\{32}&&\{32}!!0\{32}trid\{32}&&\{32}!!0\{32}hal\{32}&&\{32}!!0\{32}gla\{32}&&\{32}!!0\{32}bat\{32}&&\{32}!!0\{32}hand\{32}a\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}bro\{32}&&\{32}!!anim\{32}&&\{32}!!0\{32}rob\{32}&&\{32}!!a\{32}lea\{32}&&\{32}!!a\{32}ring\{32}m\{32}&&\{32}!!a\{32}scal\{32}&&\{32}!!a\{32}cha\{32}&&\{32}!!a\{32}pla\{32}&&\{32}!!a\{32}buc\{32}&&\{32}!!a\{32}clo\{32}&&\{32}!!carri\{13}
+macros += M P *fin_shop\{32}&&\{32}!!0\{32}dag\{32}&&\{32}!!0\{32}sho\{32}&&\{32}!!0\{32}rap\{32}&&\{32}!!0\{32}fal\{32}\{32}&&\{32}!!0\{32}gre\{32}&&\{32}!!a\{32}sli\{32}&&\{32}!!0\{32}clu\{32}&&\{32}!!0\{32}whi\{32}&&\{32}!!0\{32}mac\{32}&&\{32}!!0\{32}ham\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spe\{32}&&\{32}!!0\{32}trid\{32}&&\{32}!!0\{32}hal\{32}&&\{32}!!0\{32}gla\{32}&&\{32}!!0\{32}bat\{32}&&\{32}!!0\{32}hand\{32}a\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}bro\{32}&&\{32}!!anim\{32}&&\{32}!!0\{32}rob\{32}&&\{32}!!a\{32}lea\{32}&&\{32}!!a\{32}ring\{32}m\{32}&&\{32}!!a\{32}scal\{32}&&\{32}!!a\{32}cha\{32}&&\{32}!!a\{32}pla\{32}&&\{32}!!a\{32}buc\{32}&&\{32}!!a\{32}clo\{32}&&\{32}!!carri\{13}
 : end
 
 # [S]: Scrolls, Potions
@@ -2122,7 +2123,7 @@ macros += M _ *f<<artef>>\{32}&&\{32}!!talis\{32}&&\{32}!!carri\{13}
 macros += M [ *f<<body\{32}||\{32}aux>>\{32}&&\{32}!!orb\{32}&&\{32}!!anim\{32}&&\{32}!!a\{32}rob\{32}&&\{32}!!a\{32}lea\{32}&&\{32}!!a\{32}ring\{32}m\{32}&&\{32}!!a\{32}scal\{32}&&\{32}!!a\{32}cha\{32}&&\{32}!!a\{32}pla\{32}&&\{32}!!a\{32}buc\{32}&&\{32}!!a\{32}clo\{32}&&\{32}!!talis\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 
 # [`]: Dexterity Weapons, Magical Staves
-macros += M ` *f<<ranged\{32}||\{32}blades\{32}||\{32}magica>>\{32}&&\{32}!!jewell\{32}&&\{32}!!0\{32}dag\{32}&&\{32}!!0\{32}sho\{32}&&\{32}!!0\{32}rap\{32}&&\{32}!!0\{32}fal\{32}&&\{32}!!0\{32}lon\{32}\{32}&&\{32}!!0\{32}gre\{32}&&\{32}!!a\{32}sli\{32}&&\{32}!!body\{32}&&\{32}!!talis\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+macros += M ` *f<<ranged\{32}||\{32}blades\{32}||\{32}magica>>\{32}&&\{32}!!jewell\{32}&&\{32}!!0\{32}dag\{32}&&\{32}!!0\{32}sho\{32}&&\{32}!!0\{32}rap\{32}&&\{32}!!0\{32}fal\{32}\{32}&&\{32}!!0\{32}gre\{32}&&\{32}!!a\{32}sli\{32}&&\{32}!!body\{32}&&\{32}!!talis\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 
 # [&]: Axes, Cross-Trained Weapons
 macros += M & *f<<axe\{32}||\{32}polea\{32}||\{32}mace>>\{32}&&\{32}!!magica\{32}&&\{32}!!0\{32}clu\{32}&&\{32}!!0\{32}whi\{32}&&\{32}!!0\{32}mac\{32}&&\{32}!!0\{32}ham\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spe\{32}&&\{32}!!0\{32}trid\{32}&&\{32}!!0\{32}hal\{32}&&\{32}!!0\{32}gla\{32}&&\{32}!!0\{32}bat\{32}&&\{32}!!0\{32}hand\{32}a\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}bro\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
