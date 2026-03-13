@@ -209,16 +209,190 @@ brc_config_testing = {
 
   ---- Large config sections ----
   ["pickup-alert"] = {
+    disabled = false,
+    Pickup = {
+      armour = true,
+      weapons = true,
+      weapons_pure_upgrades_only = true, -- Only pick up better versions of same exact weapon
+      staves = true,
+    },
+
     Alert = {
-      armour_sensitivity = 0.5,
-      weapon_sensitivity = 0.5,
-    },
-    Tuning = {
-      Armour = {
-        diff_body_ego_is_good = false,
+      armour_sensitivity = 1.0, -- Adjust all armour alerts; 0 to disable all (range 0.5-2.0)
+      weapon_sensitivity = 1.0, -- Adjust all weapon alerts; 0 to disable all (range 0.5-2.0)
+      orbs = true,
+      staff_resists = true,
+      talismans = false,
+      first_ranged = true,
+      first_polearm = true,
+      stacked_items = true, -- Special handling for items hidden in stacks, to alert before visiting
+
+      -- Alert the first time each item is found. Can require training with OTA_require_skill.
+      one_time = {
+        --"of gloves", "of boots", "cloak", "scarf of", " hat ", "helmet",
+        --"ring of", "amulet of", "6 ring of strength", "6 ring of dexterity",
+        --"dragonskin cloak", "ratskin cloak", "moon troll leather armour", "Cigotuvi's embrace",
+        --"partisan", "trishula", "glaive", "bardiche",
+        "demon trident", "demon whip", "demon blade",
+        --"broad axe", "morningstar", "eveningstar", "sacred scourge",
+        "hand cannon", "orcbow", "arbalest", "longbow", "triple crossbow", "of archery",
+        "buckler", "kite shield", "tower shield", "wand of digging", "quill talisman", "medusa talisman",
+        "troll leather armour", "steam dragon scales",
+        "crystal plate armour", "golden dragon scales", "storm dragon scales", "swamp dragon scales",
+        "quicksilver dragon scales", "acid dragon scales", "pearl dragon scales", "shadow dragon scales",
       },
-    },
-  },
+      OTA_require_skill = { weapon = 2, armour = 2.5, shield = 0 }, -- No alert if skill < this
+
+      hotkey_travel = true,
+      hotkey_pickup = true,
+
+      allow_arte_weap_upgrades = true, -- If false, won't alert weapons as upgrades to an artefact
+
+      -- Only alert a plain talisman if its min_skill <= Shapeshifting + talisman_lvl_diff
+      talisman_lvl_diff = you.class() == "Shapeshifter" and 27 or 6,
+
+      -- Which alerts generate a force_more
+      More = {
+        early_weap = true, -- Good weapons found early
+        upgrade_weap = true, -- Better DPS / weapon_score
+        weap_ego = true, -- New or diff egos
+        body_armour = true,
+        shields = true,
+        aux_armour = true,
+        armour_ego = true, -- New or diff egos
+        high_score_weap = true, -- Highest damage found
+        high_score_armour = true, -- Highest AC found
+        one_time_alerts = true,
+        artefact = true, -- Any artefact
+        trained_artefacts = true, -- Artefacts where you have corresponding skill > 0
+        orbs = false, -- Unique orbs
+        talismans = you.class() == "Shapeshifter", -- True for shapeshifter, false for everyone else
+        staff_resists = true, -- When a staff gives a missing resistance
+        autopickup_disabled = true, -- Alerts for autopickup items, when autopickup is disabled
+      }, -- Alert.More
+    }, -- Alert
+
+    ---- Heuristics for tuning the pickup/alert system. Advanced behavior customization.
+    Tuning = {
+      --[[
+        Tuning.Armour: Magic numbers for the armour pickup/alert system.
+        For armour with different encumbrance, alert when ratio of gain/loss (AC|EV) is > value
+        Lower values mean more alerts. gain/diff/same/lose refers to egos.
+        min_gain/max_loss block alerts for new egos, when AC or EV delta is outside limits
+        ignore_small: if abs(AC+EV) <= this, ignore ratios and alert any gain/diff ego
+      --]]
+      Armour = {
+        Lighter = {
+          gain_ego = 0.6,
+          new_ego = 0.7,
+          diff_ego = 0.9,
+          same_ego = 1.2,
+          lost_ego = 2.0,
+          min_gain = 3.0,
+          max_loss = 4.0,
+          ignore_small = 3.5,
+        }, -- Tuning.Armour.Lighter
+
+        Heavier = {
+          gain_ego = 0.4,
+          new_ego = 0.5,
+          diff_ego = 0.6,
+          same_ego = 0.7,
+          lost_ego = 2.0,
+          min_gain = 3.0,
+          max_loss = 8.0,
+          ignore_small = 5,
+        }, -- Tuning.Armour.Heavier
+
+        encumb_penalty_weight = 0.7, -- [0-2.0] Penalty to heavy armour when training magic/ranged
+        early_xl = 6, -- Alert all usable runed body armour if XL <= early_xl
+        diff_body_ego_is_good = false, -- More alerts for diff armour ego (skips min_gain check)
+      }, -- Tuning.Armour
+
+      --[[
+        Tuning.Weap: Magic numbers for the weapon pickup/alert system, namely:
+          1. Cutoffs for pickup/alert weapons (when DPS ratio exceeds a value)
+          2. Cutoffs for when alerts are active (XL, skill_level)
+        Pickup/alert system will try to upgrade ANY weapon in your inventory.
+        "DPS ratio" is (new_weap_score / inventory_weap_score). Score considers DPS/brand/accuracy.
+      --]]
+      Weap = {
+        Pickup = {
+          add_ego = 1.0, -- Pickup weapon that gains a brand if DPS ratio > add_ego
+          same_type_melee = 1.2, -- Pickup melee weap of same school if DPS ratio > same_type_melee
+          same_type_ranged = 1.1, -- Pickup ranged weap if DPS ratio > same_type_ranged
+          accuracy_weight = 0.25, -- Treat +1 Accuracy as +accuracy_weight DPS
+        }, -- Tuning.Weap.Pickup
+
+        Alert = {
+          -- Alerts for weapons not requiring an extra hand
+          pure_dps = 1.0, -- Alert if DPS ratio > pure_dps
+          gain_ego = 0.8, -- Gaining ego; Alert if DPS ratio > gain_ego
+          new_ego = 0.8, -- Get ego not in inventory; Alert if DPS ratio > new_ego
+          low_skill_penalty_damping = 8, -- [0-20] Reduce penalty to weap of lower-trained schools
+
+          -- Alerts for 2-handed weapons, when carrying 1-handed
+          AddHand = {
+            ignore_sh_lvl = 4.0, -- Treat offhand as empty if shield_skill < ignore_sh_lvl
+            add_ego_lose_sh = 0.8, -- Alert 1h -> 2h (using shield) if DPS ratio > add_ego_lose_sh
+            not_using = 1.0, --  Alert 1h -> 2h (not using 2nd hand) if DPS ratio > not_using
+          },
+
+          -- Alerts for good early weapons of all types
+          Early = {
+            xl = 7, -- Alert early weapons if XL <= xl
+            skill = { factor = 1.5, offset = 2.0 }, -- Ignore weap w skill_diff > XL*factor+offset
+            branded_min_plus = 4, -- Alert branded weapons with plus >= branded_min_plus
+          },
+
+          -- Alerts for particularly strong ranged weapons
+          EarlyRanged = {
+            xl = 14, -- Alert strong ranged weapons if XL <= xl
+            min_plus = 7, -- Alert ranged weapons with plus >= min_plus
+            branded_min_plus = 4, -- Alert branded ranged weapons with plus >= branded_min_plus
+            max_shields = 8.0, -- Alert 2h ranged despite  shield, if shield_skill <= max_shields
+          },
+        }, -- Tuning.Weap.Alert
+      }, -- Tuning.Weap
+    }, -- Tuning
+
+    AlertColor = {
+      weapon = { desc = "magenta", item = "yellow", stats = "lightgrey" },
+      body_arm = { desc = "lightblue", item = "lightcyan", stats = "lightgrey" },
+      aux_arm = { desc = "lightblue", item = "yellow" },
+      orb = { desc = "green", item = "lightgreen" },
+      talisman = { desc = "green", item = "lightgreen" },
+      misc = { desc = "brown", item = "white" },
+    }, -- AlertColor
+
+    Emoji = {
+      RARE_ITEM = "💎",
+      ARTEFACT = "💠",
+      ORB = "🔮",
+      TALISMAN = "🧬",
+      STAFF_RES = "🔥",
+
+      WEAPON = "⚔️",
+      RANGED = "🏹",
+      POLEARM = "🔱",
+      TWO_HAND = "✋🤚",
+
+      EGO = "✨",
+      ACCURACY = "🎯",
+      STRONGER = "💪",
+      STRONGEST = "💪💪",
+      LIGHTER = "⏬",
+      HEAVIER = "⏫",
+
+      AUTOPICKUP_ITEM = "👍",
+    }, -- Emoji (do not remove this comment)
+
+    init = function()
+      if not BRC.Config.emojis then
+        f_pickup_alert.Config.Emoji = {}
+      end
+    end,
+  }, -- pickup-alert
 
   init = function()
     if BRC.Config.disable_other_features then
@@ -790,7 +964,9 @@ skill_focus = true
 skill_focus = false
 : end
 
-explore_delay = 15
+explore_delay = 1
+rest_delay = -1
+travel_delay = -1
 view_delay = 550
 level_map_cursor_step = 8
 warn_hatches = true
@@ -916,7 +1092,7 @@ more += You now drain nearby creatures when transferring your ancestor
 more += Beogh will now send orc apostles to challenge you
 flash += Beogh will now send orc apostles to challenge you
 more += encounter.*the orc apostle
-more += the orc apostle comes into view
+more += the orc apostle comes? into view
 more += falls to his knees and submits
 
 : if you.god() == "Beogh" then
@@ -1230,7 +1406,7 @@ flash += Your magic feels tainted
 more += otherworldly place is opened
 : end
 
-more += An eldritch tentacle comes into view
+more += An eldritch tentacle comes? into view
 
 # Hit by something
 more += Terrible wounds open
@@ -1238,9 +1414,15 @@ more += The air around.*erupts in flames
 more += The air twists around and violently strikes you in flight
 more += You shudder from the earth-shattering force
 more += You feel.*(?<!less)( haunted| rot| vulnerable)
-flash += danger:corrodes you[^r]
 flash += Your damage is reflected back at you
 flash += ^(?!Your? ).*reflects
+
+# Lua Error: attempt to compare boolean with number
+# : if you.res_corr() <= 0 then
+more += danger:(?<!walls )corrodes you[^r]
+flash += danger:(?<!walls )corrodes you[^r]
+# flash += danger:Acid dripping from the walls corrodes you
+# : end
 
 : if you.res_draining() <= 0 then
 flash += You feel drained
@@ -1382,6 +1564,7 @@ unusual_monster_items += ( the [^acrobat]|distortion|chaos|silver)
 more += encounter.*(undying armour(y|ies)|wendigo|antique champion|moths? of wrath|torpor snail|nekomata|oblivion hound|protean progenitor|acid blob|entropy weaver|ghost moth|death knight|apocalypse crab|eyes? of devastation)(?! (zombie|draugr|simulacr))
 more += The undying armouty arms its allies with
 
+more += The Royal Jelly spits out another jelly
 more += The dying Royal Jelly
 more += You kill Nessos!
 more += Xak'krixis conjures a prism
@@ -1431,8 +1614,8 @@ flash += encounter.*lemure
 # more += encounter (?!orb guardian|executioner)(?-i:[A-Z])
 flash += encounter (?!orb guardian|executioner)(?-i:[A-Z])
 flash += encounter.* and (?!orb guardian|executioner)(?-i:[A-Z])
-more += (?!orb guardian|executioner)(?-i:[A-Z]).*comes into view
-flash += (?!orb guardian|executioner)(?-i:[A-Z]).*comes into view
+more += (?!orb guardian|executioner)(?-i:[A-Z]).*comes? into view
+flash += (?!orb guardian|executioner)(?-i:[A-Z]).*comes? into view
 
 # Wizlab Bosses
 more += encounter.*(head instructor|cloud mage|lernaean hydra|seraph|boundless tesseract|wretched star|neqoxec|shining eye|cacodemon|zykzyl|orbs? of (fire|winter|entropy))
@@ -1850,7 +2033,10 @@ ai += staff of alchemy:rPois
 ai += staff of air:rElec
 ai += staff of necromancy:rN+
 : end
-ai += magical staff:, !a
+
+# magical staff
+ai += a staff of:, !a
+ai += the.*staff:!a
 
 : if you.xl() > 4 then
 ai += (?<!the) \+0 (dagger|short sword|club|whip|giant club|giant spiked|hand axe|spear|sling|shortbow|(?<!tremor)stone|animal skin|robe|leather armour) (?!"|of):~~DROP_ME
@@ -1889,11 +2075,22 @@ ai += (?<!the) \+0 (morningstar|broad axe|partisan|tower shield) (?!"|of):~~DROP
 ### Item Slots ###
 ##################
 
-: if you.xl() < 12 then
+: if you.xl() < 12 and (you.class() == "Fighter" or you.class() == "Berserker") then
 gear_slot ^= (war axe|broad axe|whip|mace|flail|ningstar|scourge|spear|(?<!demon) trident|halberd|glaive|bardiche|sling|hand cannon) : abW
 : end
 
-gear_slot ^= (demon trident|trishula|partisan|shortbow|orcbow|arbalest|longbow|triple crossbow) : abW
+: if you.class() == "Fighter" or you.class() == "Berserker" then
+gear_slot ^= (demon trident|trishula|partisan) : abW
+: end
+
+: if you.class() == "Hunter" or you.class() == "Hexslinger" then
+gear_slot ^= (sling|hand cannon|shortbow|orcbow|arbalest|longbow|triple crossbow) : abW
+: end
+
+: if you.class() == "Conjurer" or you.class() == "Fire Elementalist" or you.class() == "Air Elementalist" or you.class() == "Earth Elementalist" then
+gear_slot ^= (staff) : abW
+: end
+
 gear_slot ^= (ring of protection (?!from)|the ring .* AC\+) : ptcmPTCM
 gear_slot ^= (ring of evasion|the ring .* EV\+) : edgvEDGV
 gear_slot ^= (ring of strength|the ring .* Str\+) : strhSTRH
