@@ -229,12 +229,11 @@ brc_config_testing = {
 
       -- Alert the first time each item is found. Can require training with OTA_require_skill.
       one_time = {
-        --"of gloves", "of boots", "cloak", "scarf of", " hat ", "helmet",
-        --"ring of", "amulet of", "6 ring of strength", "6 ring of dexterity",
         --"dragonskin cloak", "ratskin cloak", "moon troll leather armour", "Cigotuvi's embrace",
-        --"partisan", "trishula", "glaive", "bardiche",
-        "demon trident", "demon whip", "demon blade",
-        --"broad axe", "morningstar", "eveningstar", "sacred scourge",
+        "boots of flying", "cloak of willpower", "scarf of resistance", "hat of willpower", "helmet of see invisible",
+        "pair of gloves of strength", "pair of gloves of dexterity", "amulet of regeneration", "6 ring of strength", "6 ring of dexterity",
+        "demon blade", "demon trident", "partisan", "trishula", "glaive", "bardiche",
+        "demon whip", "morningstar", "eveningstar", "sacred scourge", "broad axe",
         "hand cannon", "orcbow", "arbalest", "longbow", "triple crossbow", "of archery",
         "buckler", "kite shield", "tower shield", "wand of digging", "quill talisman", "medusa talisman",
         "troll leather armour", "steam dragon scales",
@@ -628,12 +627,11 @@ brc_config_explicit = {
 
       -- Alert the first time each item is found. Can require training with OTA_require_skill.
       one_time = {
-        --"of gloves", "of boots", "cloak", "scarf of", " hat ", "helmet",
-        --"ring of", "amulet of", "6 ring of strength", "6 ring of dexterity",
         --"dragonskin cloak", "ratskin cloak", "moon troll leather armour", "Cigotuvi's embrace",
-        --"partisan", "trishula", "glaive", "bardiche",
-        "demon trident", "demon whip", "demon blade",
-        --"broad axe", "morningstar", "eveningstar", "sacred scourge",
+        "boots of flying", "cloak of willpower", "scarf of resistance", "hat of willpower", "helmet of see invisible",
+        "pair of gloves of strength", "pair of gloves of dexterity", "amulet of regeneration", "6 ring of strength", "6 ring of dexterity",
+        "demon blade", "demon trident", "partisan", "trishula", "glaive", "bardiche",
+        "demon whip", "morningstar", "eveningstar", "sacred scourge", "broad axe",
         "hand cannon", "orcbow", "arbalest", "longbow", "triple crossbow", "of archery",
         "buckler", "kite shield", "tower shield", "wand of digging", "quill talisman", "medusa talisman",
         "troll leather armour", "steam dragon scales",
