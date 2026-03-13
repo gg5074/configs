@@ -1583,24 +1583,24 @@ flash += Bai Suzhen roars in fury and transforms into a fierce dragon
 more += You kill.*(Bai Suzhen)
 flash += You kill.*(Bai Suzhen)
 
-# Dissolution (Slime:2-5)
+# Dissolution (M2-5)
 # github.com/crawl/crawl/blob/master/crawl-ref/source/mon-act.cc
 : if you.branch() == "Slime" then
 flash += You hear a (sizzling sound|grinding noise)
 : end
 
-# Mara (S-B3-4 V2-5 Elf3 Depths)
+# Mara (S3-4 V2-5 E3 U)
 more += Suddenly you stand beside yourself
 flash += Suddenly you stand beside yourself
 more += sudden wrenching feeling in your soul
 flash += sudden wrenching feeling in your soul
 
-# Kirke (Lair3-5 D12-15 S-B1 Elf1), Butcher's Vault
+# Kirke (L3-5 D12-15 S1 E1), Butcher's Vault
 # : if you.xl() <= 16 then
 # flash += encounter.* hog
 # : end
 
-# Amaemon (Lair Orc1 D8-12)
+# Amaemon (L O1 D8-12)
 : if you.xl() <= 16 then
 more += encounter.*orange demon
 flash += encounter.*orange demon
@@ -2487,7 +2487,7 @@ function my_feature.ready()
 if you.turns() == 0 and you.race() ~= "Gnoll" and you.race() ~= "Djinni" and need_skills_opened then
 need_skills_opened = false
 crawl.sendkeys("!d4" .. string.char(13) .. "T:D4-7" .. string.char(13))
-crawl.sendkeys("!d10" .. string.char(13) .. "L D11-12 O D13- S V4 E U/V5/C/A M Z4 Zig7" .. string.char(13))
+crawl.sendkeys("!d10" .. string.char(13) .. "L D12 O D15 S V4 E U/V5/C/A M Z4 Zig7" .. string.char(13))
 crawl.sendkeys("!d11" .. string.char(13) .. "Ice:L D11-13 O, Vol:L O, Gau:L D11- O" .. string.char(13))
 crawl.sendkeys("!d12" .. string.char(13) .. "Rup:D12- L3- O P1 N1, Tro:D12- S" .. string.char(13))
 you.set_training_target("Maces & Flails",12)
