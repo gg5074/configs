@@ -1187,6 +1187,7 @@ more += mostly cloudy.
 more += (The|Your).*falls away!
 more += staircase.*moves
 more += Some monsters swap places
+flash += danger:sense of stasis
 
 ####################
 # Dungeon Features #
@@ -1330,7 +1331,6 @@ more += invokes.*trap
 flash += invokes.*trap
 
 # Translocations
-flash += danger:sense of stasis
 more += Your surroundings.*(different|flicker)
 more += You.*re suddenly pulled into a different region
 
@@ -1525,9 +1525,9 @@ flash += Wyrmbane glows as a worthy foe approaches
 # more += The lance glows as it skewers
 flash += You can drop.*~~DROP_ME
 
-: if you.turns() ~= 0 then
+# : if you.turns() ~= 0 then
 flash += Found first, Hidden under stack, (Heavier|Lighter) Armour, Highest AC, Higher SH, (Gain|New|Diff) ego, Weapon upgrade, DPS increase, Highest damage, Highest plain damage, Staff resistance
-: end
+# : end
 
 : if you.xl() <= 14 then
 more += You feel a bit more experienced
