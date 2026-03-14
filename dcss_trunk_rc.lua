@@ -1018,6 +1018,7 @@ more -= Heavy smoke blows from the lock
 more -= The gate opens wide
 more -= With a soft hiss the gate opens wide
 more -= You finish merging with the rock
+more -= You feel a strange sense of stasis
 
 stop ^= Your.*disappears in a puff of smoke,Your spellspark servitor fades away,Your battlesphere wavers and loses cohesion
 
@@ -1329,7 +1330,7 @@ more += invokes.*trap
 flash += invokes.*trap
 
 # Translocations
-more += danger:sense of stasis
+flash += danger:sense of stasis
 more += Your surroundings.*(different|flicker)
 more += You.*re suddenly pulled into a different region
 
@@ -1525,18 +1526,7 @@ flash += Wyrmbane glows as a worthy foe approaches
 flash += You can drop.*~~DROP_ME
 
 : if you.turns() ~= 0 then
-more += Hidden under stack
-more += Found first
-more += Highest AC
-more += Higher SH
-more += Weapon upgrade
-more += DPS increase
-more += Highest damage
-more += Highest plain damage
-more += Gain ego
-more += New ego
-more += Diff ego
-more += Staff resistance
+flash += Found first, Hidden under stack, (Heavier|Lighter) Armour, Highest AC, Higher SH, (Gain|New|Diff) ego, Weapon upgrade, DPS increase, Highest damage, Highest plain damage, Staff resistance
 : end
 
 : if you.xl() <= 14 then
