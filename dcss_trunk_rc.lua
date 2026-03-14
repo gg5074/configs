@@ -2153,8 +2153,6 @@ consumable_shortcut += potion of mutation:t
 consumable_shortcut += scroll of noise:n
 consumable_shortcut += scroll of revelation:R
 
-# spell_slot ^= Stone Arrow :z
-
 ##############
 ### Macros ###
 ##############
@@ -2424,6 +2422,7 @@ macros += K2 7 \{13}
 macros += K2 8 \{13}
 macros += K2 9 \{13}
 macros += K2 0 \{13}
+
 macros += K2 a \{13}
 macros += K2 b \{13}
 macros += K2 c \{13}
@@ -2433,7 +2432,16 @@ macros += K2 g \{13}
 macros += K2 h \{13}
 macros += K2 i \{13}
 macros += K2 j \{13}
+
 macros += K2 z \{13}
+macros += K2 s \{13}
+macros += K2 x \{13}
+macros += K2 w \{13}
+macros += K2 q \{13}
+macros += K2 r \{13}
+macros += K2 t \{13}
+
+spell_slot ^= Summon Forest :z
 
 ###############
 # Keybindings #
