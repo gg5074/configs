@@ -95,7 +95,7 @@ brc_config_testing = {
     dmg_flash_threshold = 0.10, -- Flash screen when losing this % of max HP
     dmg_fm_threshold = 0.20, -- Force more for losing this % of max HP
     always_on_bottom = false, -- Rewrite HP/MP meters after each turn with messages
-    meter_length = 6, -- Number of pips in each meter
+    meter_length = 8, -- Number of pips in each meter
 
     Announce = {
       hp_loss_limit = 1, -- Announce when HP loss >= this
@@ -493,7 +493,7 @@ brc_config_explicit = {
     dmg_flash_threshold = 0.10, -- Flash screen when losing this % of max HP
     dmg_fm_threshold = 0.20, -- Force more for losing this % of max HP
     always_on_bottom = false, -- Rewrite HP/MP meters after each turn with messages
-    meter_length = 6, -- Number of pips in each meter
+    meter_length = 8, -- Number of pips in each meter
 
     Announce = {
       hp_loss_limit = 1, -- Announce when HP loss >= this
@@ -1516,7 +1516,21 @@ flash += The Bane of.*upon you is lifted
 flash += Wyrmbane glows as a worthy foe approaches
 # more += The lance glows as it skewers
 flash += You can drop.*~~DROP_ME
+
+: if you.turns() ~= 0 then
 more += Hidden under stack
+more += Found first
+more += Highest AC
+more += Higher SH
+more += Weapon upgrade
+more += DPS increase
+more += Highest damage
+more += Highest plain damage
+more += Gain ego
+more += New ego
+more += Diff ego
+more += Staff resistance
+: end
 
 : if you.xl() <= 14 then
 more += You feel a bit more experienced
