@@ -1229,9 +1229,17 @@ flash += Found.*(The Shining One|Zin)
 stop += There is a portal to a secret trove of treasure here
 stop += Found a runed translucent door
 flash += There is a (staircase to the (?!Ecumenical)|gate to|hole to|gate leading to|gateway (?!back|out))
+
+# Abyss
 more += Found a gateway leading.*Abyss
 more += and a gateway leading out appears
+more += You detect the abyssal rune!
+flash += You detect the abyssal rune!
+flash += Found.*runelights
+
+# Unique Realms
 more += The mighty Pandemonium lord.*resides here
+# The Demonic Rune
 more += The tension of great conflict fills the air
 
 ####################
@@ -2258,13 +2266,13 @@ macros += M \{12} ?/m
 # [.]: Branches
 macros += M . *f<<case\{32}to\{32}th\{32}||\{32}gate\{32}to\{32}||\{32}hole\{32}to\{32}||\{32}gate\{32}lead>>\{32}&&\{32}!!one-\{13}
 
-# Ctrl-D (Go down closest stairs w/ {Cntl-G, '>'})
+# Ctrl-D: Go down closest stairs w/ {Cntl-G, '>'}
 # macros += M \{4} \{7}>
 
-# Ctrl-D
+# Ctrl-D:
 macros += M \{4} ?:
 
-# Ctrl-E
+# Ctrl-E:
 macros += M \{5} x+k\{27}
 
 macros += M n x+
@@ -2354,6 +2362,9 @@ macros += M > V25
 
 bindkey = [Tab] CMD_AUTOFIGHT_NOMOVE
 # macros += M \{9} zaf
+
+# Shift-Tab:
+# macros += M \{-233} zaf
 
 macros += M E zbf
 macros += M U zcf
