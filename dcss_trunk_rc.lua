@@ -1061,14 +1061,15 @@ more += god:You feel the effects of Trog's Hand fading
 more += god:You feel less resistant to hostile enchantments
 more += Trog grants you a weapon
 
+# Makhleb
 more += You feel your soul grow
-
 more += Makhleb will allow you to brand your body
 flash += Makhleb will allow you to brand your body
 more += dares provoke your wrath
 more += Your infernal gateway subsides
 more += You are dragged down into the Crucible of Flesh
 
+# Ru
 more += Ru believes you are ready to make a new sacrifice
 flash += Ru believes you are ready to make a new sacrifice
 
@@ -1078,31 +1079,32 @@ more += god:dark mirror aura disappears
 flash += You offer up the Black Torch's flame
 more += Your bound.*is destroyed!
 
+# Wu Jian
 more += The heavenly storm settles
 
+# Hepliaklqana
 flash += You may now remember your ancestor's life
 more += You now drain nearby creatures when transferring your ancestor
-
 # : if you.god() == "Hepliaklqana" then
 # more += (?-i:[A-Z])(?!xecutioner|rb guardian).*is destroyed!
 # : end
 
+# Beogh
 more += Beogh will now send orc apostles to challenge you
 flash += Beogh will now send orc apostles to challenge you
 more += encounter.*the orc apostle
 more += the orc apostle comes? into view
 more += falls to his knees and submits
-
-: if you.god() == "Beogh" then
-more += (?-i:[A-Z])(?!xecutioner|rb guardian).*(dies!|is blown up!)
-: end
-
 more += has fought their way back out of the Abyss!
 more += Your prayer is nearing its end
 stop += Your prayer is nearing its end
 more += You reach the end of your prayer and your brethren are recalled
 stop += You reach the end of your prayer and your brethren are recalled
+: if you.god() == "Beogh" then
+more += (?-i:[A-Z])(?!xecutioner|rb guardian).*(dies!|is blown up!)
+: end
 
+# Gozag
 stop += You now have enough gold to
 more += Your bribe of.*has been exhausted
 
@@ -1125,6 +1127,7 @@ more += god:will now cure all your mutations
 more += Ashenzari invites you to partake
 flash += Ashenzari invites you to partake
 
+# Vehumet
 more += offers you knowledge of
 flash += offers you knowledge of
 more += Vehumet is now
@@ -1145,7 +1148,11 @@ more += god:Kikubaaqudgha will grant you
 more += god:will now unseal the treasures of the Slime Pits
 more += god:Jiyva alters your body
 
+# Xom
 # crawl.chaosforge.org/Chaos_Knight_of_Xom_Guide#Xom_rc_file
+# github.com/crawl/crawl/commit/41e759f0eee4a68cb4becd82386d540ef17e162c
+# github.com/crawl/crawl/commit/db04a1d58d73a1da99ae1d7e338ac4ec6a89585e
+# github.com/crawl/crawl/commit/0c9ac3fb94f1a3405762e005e397097afb7e35be
 more += .* erupts in a glittering mayhem of colour
 more += "Time to have some fun!"
 more += "Fight to survive, mortal."
