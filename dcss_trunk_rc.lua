@@ -926,6 +926,7 @@ more_gem_info = true
 # tile_tooltip_ms = 0
 # tile_web_mouse_control = false
 
+autofight_stampede = true
 autofight_nomove_fires = false
 
 : if you.class() ~= "Hunter" and you.class() ~= "Hexslinger" then
@@ -1791,17 +1792,18 @@ flash += encounter.*(ogre|gnoll|orc (wizard|priest|warrior))(?! (zombie|draugr|s
 flash += encounter.*(killer bee)(?! (zombie|draugr|simulacr))
 : end
 
+: if you.xl() <= 4 then
+more += encounter.*(orc)(?! (zombie|draugr|simulacr))
+: end
+
 : if you.xl() <= 4 and you.race() ~= "Gargoyle" and you.race() ~= "Revenant" and you.race() ~= "Poltergeist" and you.race() ~= "Mummy" and you.race() ~= "Djinni" then
 more += encounter.*(adder)(?! (zombie|draugr|simulacr))
 : end
 
-: if you.xl() <= 4 then
-more += encounter.*(orc)(?! (zombie|draugr|simulacr))
-flash += flash.*(ribbon worm)(?! (zombie|draugr|simulacr))
-: end
-
-: if you.xl() <= 4 and (you.class() == "Hunter" or you.class() == "Hexslinger") then
+# : if you.xl() <= 4 and (you.class() == "Hunter" or you.class() == "Hexslinger") then
+: if you.xl() <= 4 and you.race() ~= "Troll" and you.class() ~= "Fighter" and you.class() ~= "Berserker" and you.class() ~= "Conjurer" and you.class() ~= "Summoner" then
 more += encounter.*(ribbon worm)(?! (zombie|draugr|simulacr))
+flash += encounter.*(ribbon worm)(?! (zombie|draugr|simulacr))
 : end
 
 # : if you.xl() <= 1 then
@@ -2273,7 +2275,7 @@ more += A monster is nearby!
 macros += M \{12} ?/m
 
 # [.]: Branches
-macros += M . *f<<case\{32}to\{32}th\{32}||\{32}gate\{32}to\{32}||\{32}hole\{32}to\{32}||\{32}gate\{32}lead>>\{32}&&\{32}!!one-\{13}
+macros += M . *f<<case\{32}to\{32}th\{32}||\{32}gate\{32}to\{32}||\{32}hole\{32}to\{32}||\{32}gate\{32}lead\{32}||\{32}zigg>>\{32}&&\{32}!!one-\{13}
 
 # Ctrl-D: Go down closest stairs w/ {Cntl-G, '>'}
 # macros += M \{4} \{7}>
