@@ -561,7 +561,7 @@ brc_config_explicit = {
 
   ["inscribe-stats"] = {
     disabled = false,
-    inscribe_weapons = true, -- Inscribe weapon stats on pickup, return string.format("DPS
+    inscribe_weapons = true, -- Inscribe weapon stats on pickup, string.format("DPS:%s (/%s) A%s", dps, delay_str, acc)
     inscribe_armour = true, -- Inscribe armour stats on pickup
     dmg_type = "scoring", -- unbranded, plain, branded, scoring
     skip_dps = false, -- Skip DPS in weapon inscriptions
@@ -3734,7 +3734,7 @@ function BRC.eq.wpn_stats(it, dmg_type, skip_dps)
   --TODO: This would be nice if it worked in all UIs
   --return string.format("DPS=<w>%s</w> (%s/%s) Ac<w>%s</w>", dps, dmg, delay_str, acc)
   if skip_dps then return string.format("Dmg:%s/%s A%s", dmg, delay_str, acc) end
-  return string.format("DPS:%s (/%s) A%s", dps, delay_str, acc)
+  return string.format("DPS:%s (%s) A%s", dps, delay_str, acc)
 end
 
 
