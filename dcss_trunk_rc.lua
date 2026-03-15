@@ -230,11 +230,12 @@ brc_config_testing = {
       -- Alert the first time each item is found. Can require training with OTA_require_skill.
       one_time = {
         --"dragonskin cloak", "ratskin cloak", "moon troll leather armour", "Cigotuvi's embrace",
-        "boots of flying", "cloak of willpower", "scarf of resistance", "hat of willpower", "helmet of see invisible",
-        "pair of gloves of strength", "pair of gloves of dexterity", "amulet of regeneration", "6 ring of strength", "6 ring of dexterity",
+        --"boots of flying", "cloak of willpower", "scarf of resistance", "hat of willpower", "helmet of see invisible",
+        --"pair of gloves of strength", "pair of gloves of dexterity", "amulet of regeneration", "6 ring of strength", "6 ring of dexterity",
         "demon blade", "demon trident", "partisan", "trishula", "glaive", "bardiche",
         "demon whip", "morningstar", "eveningstar", "sacred scourge", "broad axe",
-        "hand cannon", "orcbow", "arbalest", "longbow", "triple crossbow", "of archery",
+        "hand cannon", "orcbow", "arbalest", "longbow", "triple crossbow",
+        --"of sniping", "of archery",
         "buckler", "kite shield", "tower shield", "wand of digging", "quill talisman", "medusa talisman",
         "troll leather armour", "steam dragon scales",
         "crystal plate armour", "golden dragon scales", "storm dragon scales", "swamp dragon scales",
@@ -891,6 +892,11 @@ msc += mute:You swap places with (your|(?-i:[A-Z]))
 msc += mute:(Your.*|The butterfly) leaves your sight
 msc += mute:Your.*is recalled
 
+# BRC: Waypoint \\d (re-)?assigned
+# Waypoint 9 assigned to D:1, (8) Lair:5   (9) Orc:2
+# msc += mute:Waypoint.*assigned
+# msc += mute:^\(8-9) [A-Z]
+
 # Lua Error: Safe Shout
 # msc += mute:Cannot currently process new keys
 
@@ -1015,11 +1021,15 @@ more -= Okawaru grants you throwing weapons
 more -= Okawaru offers you a choice
 more -= You can now deal lightning-fast blows
 more -= The lock glows eerily
+# Zot's entrance
 more -= Heavy smoke blows from the lock
 more -= The gate opens wide
 more -= With a soft hiss the gate opens wide
 more -= You finish merging with the rock
+# Xom
 more -= You feel a strange sense of stasis
+# basilisk
+more -= You are unaffected
 
 stop ^= Your.*disappears in a puff of smoke,Your spellspark servitor fades away,Your battlesphere wavers and loses cohesion
 
@@ -1781,6 +1791,10 @@ more += The polar bear roars madly and goes into a rage
 flash += encounter.*(wight|yak|vampire mosquito)(?! (zombie|draugr|simulacr))
 : end
 
+: if you.xl() <= 9 and you.race() ~= "Gargoyle" and you.race() ~= "Revenant" and you.race() ~= "Poltergeist" and you.race() ~= "Mummy" and you.race() ~= "Djinni" then
+more += encounter.*(scorpion)(?! (zombie|draugr|simulacr))
+: end
+
 : if you.xl() <= 7 then
 # unusual_monster_items += spear,(?<!demon) trident,sling,shortbow,orcbow
 more += encounter.*(?<!spectral) (marrowcuda|phantom|bombardier beetle|ice beast|jell(y|ies)|iguana|hound|black bear|sky beast|electric eel|sleepcap)(?! (zombie|draugr|simulacr))
@@ -2500,6 +2514,12 @@ bindkey = [U] CMD_MAP_EXIT_MAP
 bindkey = [Y] CMD_MAP_EXIT_MAP
 
 # github.com/brianfaires/crawl-rc?tab=readme-ov-file#in-game-commands
+# BRC.unregister("pickup-alert")
+# BRC.unregister("inscribe-stats")
+# BRC.unregister("hotkey")
+# BRC.Data.reset() 
+# BRC.active = false
+# BRC.active = true
 bindkey = [~] CMD_LUA_CONSOLE
 
 ############################### End rc/main.rc ###############################
