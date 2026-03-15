@@ -561,7 +561,7 @@ brc_config_explicit = {
 
   ["inscribe-stats"] = {
     disabled = false,
-    inscribe_weapons = true, -- Inscribe weapon stats on pickup
+    inscribe_weapons = true, -- Inscribe weapon stats on pickup, return string.format("DPS
     inscribe_armour = true, -- Inscribe armour stats on pickup
     dmg_type = "scoring", -- unbranded, plain, branded, scoring
     skip_dps = false, -- Skip DPS in weapon inscriptions
@@ -2068,8 +2068,9 @@ ai += staff of necromancy:rN+
 : end
 
 # magical staff
-ai += a staff of:, !a
-ai += the.*staff:!a
+ai += staff of (fire|cold|alchemy|necromancy):, !a
+ai += the.*staff ("|of):!a
+ai += (Majin-Bo|Elemental Staff):!a
 
 : if you.xl() > 4 then
 ai += (?<!the) \+0 (dagger|short sword|club|whip|giant club|giant spiked|hand axe|spear|sling|shortbow|(?<!tremor)stone|animal skin|robe|leather armour) (?!"|of):~~DROP_ME
@@ -2389,7 +2390,7 @@ bindkey = [Tab] CMD_AUTOFIGHT_NOMOVE
 # macros += M \{9} zaf
 
 # Shift-Tab:
-# macros += M \{-233} zaf
+macros += M \{-233} zaf
 
 macros += M E zbf
 macros += M U zcf
