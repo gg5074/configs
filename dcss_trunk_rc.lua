@@ -106,7 +106,7 @@ brc_config_testing = {
     dmg_flash_threshold = 0.10, -- Flash screen when losing this % of max HP
     dmg_fm_threshold = 0.20, -- Force more for losing this % of max HP
     always_on_bottom = false, -- Rewrite HP/MP meters after each turn with messages
-    meter_length = 8, -- Number of pips in each meter
+    meter_length = 10, -- Number of pips in each meter
 
     Announce = {
       hp_loss_limit = 1, -- Announce when HP loss >= this
@@ -501,7 +501,7 @@ brc_config_explicit = {
     dmg_flash_threshold = 0.10, -- Flash screen when losing this % of max HP
     dmg_fm_threshold = 0.20, -- Force more for losing this % of max HP
     always_on_bottom = false, -- Rewrite HP/MP meters after each turn with messages
-    meter_length = 8, -- Number of pips in each meter
+    meter_length = 10, -- Number of pips in each meter
 
     Announce = {
       hp_loss_limit = 1, -- Announce when HP loss >= this
@@ -2076,9 +2076,11 @@ ai += staff of necromancy:rN+
 : end
 
 # magical staff
+: if you.race() ~= "Gnoll" then
 ai += staff of (fire|cold|alchemy|necromancy):, !a
 ai += the.*staff ("|of):!a
 ai += (Majin-Bo|Elemental Staff):!a
+: end
 
 : if you.xl() > 4 then
 ai += (?<!the) \+0 (dagger|short sword|club|whip|giant club|giant spiked|hand axe|spear|sling|shortbow|(?<!tremor)stone|animal skin|robe|leather armour) (?!"|of):~~DROP_ME
