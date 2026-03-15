@@ -1002,7 +1002,7 @@ confirm_action += Conjure Ball Lightning, Chain Lightning
 : end
 
 # Blink[^bolt]
-confirm_action += Potion Petition, Call Merchant, Blink, Silence, Maxwell's Capacitive Coupling, Sublimation of Blood, Borgnjor's Revivification, Death's Door
+confirm_action += Potion Petition, Call Merchant, ^Blink$, Silence, Maxwell's Capacitive Coupling, Sublimation of Blood, Borgnjor's Revivification, Death's Door
 
 ############
 # Messages #
