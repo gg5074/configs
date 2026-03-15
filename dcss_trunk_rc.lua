@@ -8,6 +8,17 @@ BRC.Config = {}
 -- Specify a config by name, or "ask" to prompt at start of each new game
 BRC.Config.to_use = "Explicit" -- Testing, Explicit
 
+-- Testing:
+--  ["drop-inferior"] = {
+--    disabled = true,
+--  ["inscribe-stats"] = {
+--    disabled = true,
+--  ["pickup-alert"] = {
+--    Pickup = {
+--      weapons = false,
+--      staves = false,
+--      hotkey_travel = false,
+
 }
 ##################################### End lua/core/_header.lua ####################################
 ###################################################################################################
@@ -146,7 +157,7 @@ brc_config_testing = {
   },
 
   ["drop-inferior"] = {
-    disabled = false,
+    disabled = true,
     msg_on_inscribe = true, -- Show a message when an item is marked for drop
     hotkey_drop = true, -- BRC hotkey drops all items on the drop list
   },
@@ -161,7 +172,7 @@ brc_config_testing = {
   },
 
   ["inscribe-stats"] = {
-    disabled = false,
+    disabled = true,
     inscribe_weapons = true, -- Inscribe weapon stats on pickup
     inscribe_armour = true, -- Inscribe armour stats on pickup
     dmg_type = "scoring", -- unbranded, plain, branded, scoring
@@ -212,9 +223,9 @@ brc_config_testing = {
     disabled = false,
     Pickup = {
       armour = true,
-      weapons = true,
+      weapons = false,
       weapons_pure_upgrades_only = true, -- Only pick up better versions of same exact weapon
-      staves = true,
+      staves = false,
     },
 
     Alert = {
@@ -229,13 +240,9 @@ brc_config_testing = {
 
       -- Alert the first time each item is found. Can require training with OTA_require_skill.
       one_time = {
-        --"dragonskin cloak", "ratskin cloak", "moon troll leather armour", "Cigotuvi's embrace",
-        --"boots of flying", "cloak of willpower", "scarf of resistance", "hat of willpower", "helmet of see invisible",
-        --"pair of gloves of strength", "pair of gloves of dexterity", "amulet of regeneration", "6 ring of strength", "6 ring of dexterity",
         "demon blade", "demon trident", "partisan", "trishula", "glaive", "bardiche",
         "demon whip", "morningstar", "eveningstar", "sacred scourge", "broad axe",
         "hand cannon", "orcbow", "arbalest", "longbow", "triple crossbow",
-        --"of sniping", "of archery",
         "buckler", "kite shield", "tower shield", "wand of digging", "quill talisman", "medusa talisman",
         "troll leather armour", "steam dragon scales",
         "crystal plate armour", "golden dragon scales", "storm dragon scales", "swamp dragon scales",
@@ -243,7 +250,7 @@ brc_config_testing = {
       },
       OTA_require_skill = { weapon = 2, armour = 2.5, shield = 0 }, -- No alert if skill < this
 
-      hotkey_travel = true,
+      hotkey_travel = false,
       hotkey_pickup = true,
 
       allow_arte_weap_upgrades = true, -- If false, won't alert weapons as upgrades to an artefact
@@ -629,11 +636,12 @@ brc_config_explicit = {
       -- Alert the first time each item is found. Can require training with OTA_require_skill.
       one_time = {
         --"dragonskin cloak", "ratskin cloak", "moon troll leather armour", "Cigotuvi's embrace",
-        "boots of flying", "cloak of willpower", "scarf of resistance", "hat of willpower", "helmet of see invisible",
-        "pair of gloves of strength", "pair of gloves of dexterity", "amulet of regeneration", "6 ring of strength", "6 ring of dexterity",
+        --"boots of flying", "cloak of willpower", "scarf of resistance", "hat of willpower", "helmet of see invisible",
+        --"pair of gloves of strength", "pair of gloves of dexterity", "amulet of regeneration", "6 ring of strength", "6 ring of dexterity",
         "demon blade", "demon trident", "partisan", "trishula", "glaive", "bardiche",
         "demon whip", "morningstar", "eveningstar", "sacred scourge", "broad axe",
-        "hand cannon", "orcbow", "arbalest", "longbow", "triple crossbow", "of archery",
+        "hand cannon", "orcbow", "arbalest", "longbow", "triple crossbow",
+        --"of sniping", "of archery",
         "buckler", "kite shield", "tower shield", "wand of digging", "quill talisman", "medusa talisman",
         "troll leather armour", "steam dragon scales",
         "crystal plate armour", "golden dragon scales", "storm dragon scales", "swamp dragon scales",
@@ -2514,6 +2522,7 @@ bindkey = [N] CMD_MAP_EXIT_MAP
 bindkey = [U] CMD_MAP_EXIT_MAP
 bindkey = [Y] CMD_MAP_EXIT_MAP
 
+# BRC management
 # github.com/brianfaires/crawl-rc?tab=readme-ov-file#in-game-commands
 # BRC.unregister("pickup-alert")
 # BRC.unregister("inscribe-stats")
