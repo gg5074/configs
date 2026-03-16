@@ -11,9 +11,8 @@ BRC.Config.to_use = "Explicit" -- Testing, Explicit
 -- Testing:
 --  ["drop-inferior"] = {
 --    disabled = true,
---  ["inscribe-stats"] = {
---    inscribe_weapons = false,
 --  ["pickup-alert"] = {
+--    disabled = true,
 --    Pickup = {
 --      weapons = false,
 --      staves = false,
@@ -173,7 +172,7 @@ brc_config_testing = {
 
   ["inscribe-stats"] = {
     disabled = false,
-    inscribe_weapons = false, -- Inscribe weapon stats on pickup
+    inscribe_weapons = true, -- Inscribe weapon stats on pickup
     inscribe_armour = true, -- Inscribe armour stats on pickup
     dmg_type = "scoring", -- unbranded, plain, branded, scoring
     skip_dps = false, -- Skip DPS in weapon inscriptions
@@ -220,7 +219,7 @@ brc_config_testing = {
 
   ---- Large config sections ----
   ["pickup-alert"] = {
-    disabled = false,
+    disabled = true,
     Pickup = {
       armour = true,
       weapons = false,
@@ -890,8 +889,8 @@ menu ^= lightcyan:(scarf of invisibility|\+(Inv|Blink))
 # : end
 
 msc := message_colour
-msc ^= white:(Done waiting|Done exploring)
-msc ^= lightgrey:(You start waiting| miss | misses |no damage|fail to reach past|returns to the grave|disappears in a puff of smoke|putting on your|removing your)
+msc ^= white:(Done waiting|Done exploring|putting on your)
+msc ^= lightgrey:(You start (resting|waiting)| miss | misses |no damage|fail to reach past|returns to the grave|disappears in a puff of smoke|removing your)
 msc ^= yellow:(You feel a bit more experienced|Something appears at your feet|Autopickup disabled for|You hear an? |The.*leaves your sight)
 msc ^= lightred:(You encounter)
 
@@ -2086,8 +2085,8 @@ ai += staff of necromancy:rN+
 
 # magical staff
 : if you.race() ~= "Gnoll" then
-ai += staff of (fire|cold|alchemy|necromancy):, !a
-ai += the.*staff ("|of):!a
+ai += staff of (fire|cold|alchemy|air|earth|conjurationnecromancy):, !a
+ai += (the.*staff):!a
 ai += (Majin-Bo|Elemental Staff):!a
 : end
 
@@ -2382,7 +2381,7 @@ macros += M [ *f<<body\{32}||\{32}aux>>\{32}&&\{32}!!orb\{32}&&\{32}!!anim\{32}&
 macros += M ` *f<<ranged\{32}||\{32}blades\{32}||\{32}magica>>\{32}&&\{32}!!jewell\{32}&&\{32}!!0\{32}dag\{32}&&\{32}!!0\{32}sho\{32}&&\{32}!!0\{32}rap\{32}&&\{32}!!0\{32}fal\{32}\{32}&&\{32}!!0\{32}gre\{32}&&\{32}!!a\{32}sli\{32}&&\{32}!!body\{32}&&\{32}!!talis\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 
 # [&]: Axes, Cross-Trained Weapons
-macros += M & *f<<axe\{32}||\{32}polea\{32}||\{32}mace>>\{32}&&\{32}!!magica\{32}&&\{32}!!0\{32}clu\{32}&&\{32}!!0\{32}whi\{32}&&\{32}!!0\{32}mac\{32}&&\{32}!!0\{32}ham\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spe\{32}&&\{32}!!0\{32}trid\{32}&&\{32}!!0\{32}hal\{32}&&\{32}!!0\{32}gla\{32}&&\{32}!!0\{32}bat\{32}&&\{32}!!0\{32}hand\{32}a\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}bro\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+# macros += M & *f<<axe\{32}||\{32}polea\{32}||\{32}mace>>\{32}&&\{32}!!magica\{32}&&\{32}!!0\{32}clu\{32}&&\{32}!!0\{32}whi\{32}&&\{32}!!0\{32}mac\{32}&&\{32}!!0\{32}ham\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spe\{32}&&\{32}!!0\{32}trid\{32}&&\{32}!!0\{32}hal\{32}&&\{32}!!0\{32}gla\{32}&&\{32}!!0\{32}bat\{32}&&\{32}!!0\{32}hand\{32}a\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}bro\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 
 # [_]: Maces & Flails, Cross-Trained Weapons
 # macros += M _ *f<<mace\{32}||\{32}axe\{32}||\{32}stav>>\{32}&&\{32}!!magica\{32}&&\{32}!!0\{32}clu\{32}&&\{32}!!0\{32}whi\{32}&&\{32}!!0\{32}mac\{32}&&\{32}!!0\{32}ham\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}hand\{32}a\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}bro\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
@@ -2542,6 +2541,7 @@ bindkey = [Y] CMD_MAP_EXIT_MAP
 # BRC.active = false
 # BRC.active = true
 bindkey = [~] CMD_LUA_CONSOLE
+macros += M & ~BRC.unregister("pickup-alert")\{13}
 
 ############################### End rc/main.rc ###############################
 
