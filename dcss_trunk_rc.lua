@@ -1569,6 +1569,12 @@ more += You add the spells?.*(Apportation|Blink|Lesser Beckoning|Maxwell's Porta
 more += You add the spells?.*(Vhi's Electric|Manifold Assault|Fugue of the|Animate Dead|Death Channel|Awaken Armour)
 : end
 
+# Sprint VI: "Thunderdome"
+more += Get ready!
+flash += ROUND [1-9]?[0-9]! FIGHT!
+more += You sense a tension in the
+more += Victory!
+
 ##########
 # Skills #
 ##########
@@ -1857,6 +1863,9 @@ note_messages += and a teleportation trap
 note_messages += Yredelemnul refuses to let your conquest be stopped by a trick of the earth!, 's soul is now yours, Your bound.*is destroyed!
 note_messages += Ashenzari warns you in time for you to avoid it
 note_messages += Game time:..?:(0|30):0
+
+# Sprint VI: "Thunderdome"
+note_messages += You have entered the arena!, You will win if you kill everything that spawns, If it is a boss round, If it is a lightning round
 
 dump_order  = header,hiscore,stats,misc,apostles,mutations,overview,inventory,skills,spells
 dump_order += messages,screenshot,monlist,kills
@@ -2499,6 +2508,7 @@ bindkey = [\{NP*}] CMD_MAP_NEXT_LEVEL
 bindkey = [\{NP/}] CMD_CYCLE_QUIVER_BACKWARD
 bindkey = [\{NP*}] CMD_CYCLE_QUIVER_FORWARD
 bindkey = [\{8}] CMD_SWAP_QUIVER_RECENT
+# bindkey = [;] CMD_REPLAY_MESSAGES
 bindkey = [ ] CMD_TARGET_CANCEL
 bindkey = [ ] CMD_MAP_EXIT_MAP
 bindkey = [b] CMD_TARGET_CANCEL
