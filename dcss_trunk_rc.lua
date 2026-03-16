@@ -890,7 +890,7 @@ menu ^= lightcyan:(scarf of invisibility|\+(Inv|Blink))
 # : end
 
 msc := message_colour
-msc ^= white:(Done waiting)
+msc ^= white:(Done waiting|Done exploring)
 msc ^= lightgrey:(You start waiting| miss | misses |no damage|fail to reach past|returns to the grave|disappears in a puff of smoke|putting on your|removing your)
 msc ^= yellow:(You feel a bit more experienced|Something appears at your feet|Autopickup disabled for|You hear an? |The.*leaves your sight)
 msc ^= lightred:(You encounter)
@@ -1584,6 +1584,7 @@ stop += Your Axes skill increases to level (16|18|20|26)
 more += Your Polearms skill increases to level (14|16|20|26)
 stop += Your Staves skill increases to level (12|14)
 stop += Your Throwing skill increases to level (6|10|16)
+more += Your Stealth skill increases to level (2|3|4|6|8)
 more += Your Evocations skill increases to level (2.5|6|10|11|13|15|18|21)
 more += Your Invocations skill increases to level (6|8|10|11|12|13|14|15|16|17)
 more += Your Shapeshifting skill increases to level (7|14|19|23|26)
@@ -1804,6 +1805,10 @@ more += The polar bear roars madly and goes into a rage
 flash += encounter.*(wight|yak|vampire mosquito)(?! (zombie|draugr|simulacr))
 : end
 
+: if you.xl() <= 10 and you.class() == "Hunter" or you.class() == "Hexslinger" then
+flash += encounter.*(rock fish(?! (zombie|draugr|simulacr))
+: end
+
 : if you.xl() <= 9 and you.race() ~= "Gargoyle" and you.race() ~= "Revenant" and you.race() ~= "Poltergeist" and you.race() ~= "Mummy" and you.race() ~= "Djinni" then
 more += encounter.*(scorpion)(?! (zombie|draugr|simulacr))
 : end
@@ -1827,7 +1832,6 @@ more += encounter.*(orc)(?! (zombie|draugr|simulacr))
 more += encounter.*(adder)(?! (zombie|draugr|simulacr))
 : end
 
-# : if you.xl() <= 4 and (you.class() == "Hunter" or you.class() == "Hexslinger") then
 : if you.xl() <= 4 and you.race() ~= "Troll" and you.class() ~= "Fighter" and you.class() ~= "Berserker" and you.class() ~= "Conjurer" and you.class() ~= "Summoner" then
 more += encounter.*(ribbon worm)(?! (zombie|draugr|simulacr))
 flash += encounter.*(ribbon worm)(?! (zombie|draugr|simulacr))
@@ -2650,7 +2654,7 @@ BRC.NONLIVING_RACES = { "Djinni", "Gargoyle" }
 BRC.POIS_RES_RACES = { "Djinni", "Gargoyle", "Mummy", "Naga", "Poltergeist", "Revenant" }
 BRC.LITTLE_RACES = { "Spriggan" }
 BRC.SMALL_RACES = { "Kobold" }
-BRC.LARGE_RACES = { "Armataur", "Naga", "Oni", "Troll" }
+BRC.LARGE_RACES = { "Armataur", "Gale Centaur", "Naga", "Oni", "Troll" }
 
 ---- Skills ----
 BRC.MAGIC_SCHOOLS = {
