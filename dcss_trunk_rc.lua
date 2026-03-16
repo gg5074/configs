@@ -12,7 +12,7 @@ BRC.Config.to_use = "Explicit" -- Testing, Explicit
 --  ["drop-inferior"] = {
 --    disabled = true,
 --  ["inscribe-stats"] = {
---    disabled = true,
+--    inscribe_weapons = false,
 --  ["pickup-alert"] = {
 --    Pickup = {
 --      weapons = false,
@@ -172,8 +172,8 @@ brc_config_testing = {
   },
 
   ["inscribe-stats"] = {
-    disabled = true,
-    inscribe_weapons = true, -- Inscribe weapon stats on pickup
+    disabled = false,
+    inscribe_weapons = false, -- Inscribe weapon stats on pickup
     inscribe_armour = true, -- Inscribe armour stats on pickup
     dmg_type = "scoring", -- unbranded, plain, branded, scoring
     skip_dps = false, -- Skip DPS in weapon inscriptions
