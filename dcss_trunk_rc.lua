@@ -259,9 +259,9 @@ brc_config_testing = {
 
       -- Which alerts generate a force_more
       More = {
-        early_weap = true, -- Good weapons found early
+        early_weap = false, -- Good weapons found early
         upgrade_weap = true, -- Better DPS / weapon_score
-        weap_ego = true, -- New or diff egos
+        weap_ego = false, -- New or diff egos
         body_armour = true,
         shields = true,
         aux_armour = true,
@@ -658,9 +658,9 @@ brc_config_explicit = {
 
       -- Which alerts generate a force_more
       More = {
-        early_weap = true, -- Good weapons found early
+        early_weap = false, -- Good weapons found early
         upgrade_weap = true, -- Better DPS / weapon_score
-        weap_ego = true, -- New or diff egos
+        weap_ego = false, -- New or diff egos
         body_armour = true,
         shields = true,
         aux_armour = true,
@@ -2551,7 +2551,7 @@ bindkey = [Y] CMD_MAP_EXIT_MAP
 # BRC.active = false
 # BRC.active = true
 bindkey = [~] CMD_LUA_CONSOLE
-macros += M & ~BRC.unregister("pickup-alert")\{13}
+macros += M & ~BRC.unregister("pickup-alert")\{13}\{27}
 
 ############################### End rc/main.rc ###############################
 
