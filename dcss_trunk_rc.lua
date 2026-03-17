@@ -2340,7 +2340,7 @@ macros += M O aa
 macros += M K ab
 
 # [,]: @<query>, Stash-Tracker
-# !!:Negate, &&:AND, ||:OR, <<>>:Grouping
+# !!:Negate, &&:AND, ||:OR, <<>>:Grouping, /<regex>, =<string>
 : if you.xl() <= 9 and (you.race() == "Troll" or you.class() == "Fighter" or you.class() == "Berserker") then
 macros += M , *f@\{32}&&\{32}!!ransp\{32}&&\{32}!!stair\{32}&&\{32}!!hatc\{32}&&\{32}!!trap\{32}&&\{32}!!gate\{32}&&\{32}!!door\{32}&&\{32}!!anim\{32}&&\{32}!!0\{32}rob\{32}&&\{32}!!a\{32}lea\{32}&&\{32}!!a\{32}tro\{32}&&\{32}!!a\{32}ring\{32}m\{32}&&\{32}!!a\{32}scal\{32}&&\{32}!!a\{32}cha\{32}&&\{32}!!a\{32}pla\{32}&&\{32}!!a\{32}buc\{32}&&\{32}!!a\{32}clo\{32}&&\{32}!!0\{32}clu\{32}&&\{32}!!0\{32}whi\{32}&&\{32}!!0\{32}mac\{32}&&\{32}!!0\{32}ham\{32}&&\{32}!!grea\{32}&&\{32}!!gian\{32}&&\{32}!!0\{32}spe\{32}&&\{32}!!0\{32}trid\{32}&&\{32}!!0\{32}hal\{32}&&\{32}!!0\{32}gla\{32}&&\{32}!!0\{32}bat\{32}&&\{32}!!0\{32}hand\{32}a\{32}&&\{32}!!0\{32}war\{32}&&\{32}!!0\{32}bro\{32}&&\{32}!!rang\{32}&&\{32}!!blad\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 : end
@@ -2381,6 +2381,9 @@ macros += M " *f<<jewell\{32}||\{32}orb>>\{32}&&\{32}!!statu\{32}&&\{32}!!carri\
 
 # [_]: Artefacts (!!Talismans)
 macros += M _ *f<<artef>>\{32}&&\{32}!!talis\{32}&&\{32}!!carri\{13}
+
+# [-]: Dragon Scales, Runed Items
+macros += M - *f@/dragon|artef|ego|\\+[1-9]\{13}
 
 # "[": Body, Aux
 macros += M [ *f<<body\{32}||\{32}aux>>\{32}&&\{32}!!orb\{32}&&\{32}!!anim\{32}&&\{32}!!a\{32}rob\{32}&&\{32}!!a\{32}lea\{32}&&\{32}!!a\{32}ring\{32}m\{32}&&\{32}!!a\{32}scal\{32}&&\{32}!!a\{32}cha\{32}&&\{32}!!a\{32}pla\{32}&&\{32}!!a\{32}buc\{32}&&\{32}!!a\{32}clo\{32}&&\{32}!!talis\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
@@ -2480,7 +2483,7 @@ spell_slot ^= Summon Forest :z
 # Keybindings #
 ###############
 # github.com/crawl/crawl/blob/master/crawl-ref/docs/keybind.txt
-bindkey = [-] CMD_GAME_MENU
+# bindkey = [-] CMD_GAME_MENU
 bindkey = [NP5] CMD_WAIT
 bindkey = [NP5] CMD_TARGET_SELECT_ENDPOINT
 bindkey = [B] CMD_EXPLORE_NO_REST
