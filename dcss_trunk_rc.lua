@@ -1571,8 +1571,10 @@ more += You add the spells?.*(Vhi's Electric|Manifold Assault|Fugue of the|Anima
 
 # Sprint VI: "Thunderdome"
 more += Get ready!
+stop += Get ready!
 flash += ROUND [1-9]?[0-9]! FIGHT!
 more += You sense a tension in the
+stop += You sense a tension in the
 more += Victory!
 
 ##########
@@ -1858,7 +1860,7 @@ user_note_prefix =
 note_items += of experience,(?<!potions?) of resistance,archmagi,crystal plate armour,pearl dragon scales
 note_messages += You pass through the gate
 note_messages += cast.*Abyss
-note_messages += BOSS, Welcome\, .*Dungeon Descent, Welcome\, .*Dungeon Sprint, Welcome\, .*custom seed
+note_messages += Welcome\, .*custom seed, Welcome\, .*Dungeon Descent, Welcome\, .*Dungeon Sprint, BOSS, LIGHTNING ROUND!
 note_messages += and a teleportation trap
 note_messages += Yredelemnul refuses to let your conquest be stopped by a trick of the earth!, 's soul is now yours, Your bound.*is destroyed!
 note_messages += Ashenzari warns you in time for you to avoid it
