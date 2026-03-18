@@ -6,7 +6,7 @@ BRC = {}
 BRC.Config = {}
 
 -- Specify a config by name, or "ask" to prompt at start of each new game
-BRC.Config.to_use = "Explicit" -- Testing, Explicit
+BRC.Config.to_use = "Testing" -- Testing, Explicit
 
 -- Testing:
 --  ["drop-inferior"] = {
@@ -1047,6 +1047,7 @@ stop ^= Your.*disappears in a puff of smoke,Your spellspark servitor fades away,
 
 stop += You see here the
 more += You see here.*(of experience|of acquirement)
+flash += You see here.*(of experience|of acquirement)
 stop += - (a|[2-6]) scrolls? of brand weapon
 stop += - (a|[2-7]) scrolls? of enchant weapon
 stop += - (a|[2-8]) scrolls? of revelation
@@ -2571,7 +2572,7 @@ function my_feature.ready()
 if you.turns() == 0 and you.race() ~= "Gnoll" and you.race() ~= "Djinni" and need_skills_opened then
 need_skills_opened = false
 crawl.sendkeys("!d4" .. string.char(13) .. "T:D4-7" .. string.char(13))
-crawl.sendkeys("!d10" .. string.char(13) .. "L D12 O D15 S V4 E U/V5/C/A M Z4 Zig7" .. string.char(13))
+crawl.sendkeys("!d10" .. string.char(13) .. "L D12 O D15 S V4 E U/V5/C/A/H M Z4 Zig7" .. string.char(13))
 crawl.sendkeys("!d11" .. string.char(13) .. "Ice:L D11-13 O, Vol:L O, Gau:L D11- O" .. string.char(13))
 crawl.sendkeys("!d12" .. string.char(13) .. "Rup:D12- L3- O P1 N1, Tro:D12- S" .. string.char(13))
 you.set_training_target("Maces & Flails",12)
