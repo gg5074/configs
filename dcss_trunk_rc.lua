@@ -2374,7 +2374,7 @@ macros += M P *fin_shop\{32}&&\{32}!!0\{32}dag\{32}&&\{32}!!0\{32}sho\{32}&&\{32
 macros += M S *f<<scrol\{32}||\{32}potio>>\{32}&&\{32}!!iden\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 
 # [%]: Evocable, Throwable, Talismans, Baubles
-macros += M % *f<<misc\{32}||\{32}wand\{32}||\{32}throwin\{32}||\{32}talis\{32}||\{32}baubl>>\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
+# macros += M % *f<<misc\{32}||\{32}wand\{32}||\{32}throwin\{32}||\{32}talis\{32}||\{32}baubl>>\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
 
 # ["]: Jewellery, Orbs
 macros += M " *f<<jewell\{32}||\{32}orb>>\{32}&&\{32}!!statu\{32}&&\{32}!!carri\{13}
@@ -2554,6 +2554,7 @@ bindkey = [Y] CMD_MAP_EXIT_MAP
 # BRC.active = true
 bindkey = [~] CMD_LUA_CONSOLE
 macros += M & ~BRC.unregister("pickup-alert")\{13}\{27}
+macros += M % ~BRC.active\{32}=\{32}false\{13}\{27}
 
 ############################### End rc/main.rc ###############################
 
