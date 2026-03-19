@@ -6,7 +6,7 @@ BRC = {}
 BRC.Config = {}
 
 -- Specify a config by name, or "ask" to prompt at start of each new game
-BRC.Config.to_use = "Testing" -- Testing, Explicit
+BRC.Config.to_use = "Explicit" -- Testing, Explicit
 
 -- Testing:
 --  ["drop-inferior"] = {
@@ -889,8 +889,8 @@ menu ^= lightcyan:(scarf of invisibility|\+(Inv|Blink))
 # : end
 
 msc := message_colour
-msc ^= white:(Done waiting|Done exploring|putting on your)
-msc ^= lightgrey:(You start (resting|waiting)| miss | misses |no damage|fail to reach past|returns to the grave|disappears in a puff of smoke|removing your)
+msc ^= white:(Done waiting|Done exploring|(start|finish) putting on your)
+msc ^= lightgrey:(You start (resting|waiting)|continue putting on your| miss | misses |no damage|fail to reach past|returns to the grave|disappears in a puff of smoke|removing your)
 msc ^= yellow:(You feel a bit more experienced|Something appears at your feet|Autopickup disabled for|You hear an? |The.*leaves your sight)
 msc ^= lightred:(You encounter)
 
@@ -899,10 +899,10 @@ msc += mute:There is an open door here
 msc += mute:You swap places with (your|(?-i:[A-Z]))
 msc += mute:(Your.*|The butterfly) leaves your sight
 msc += mute:Your.*is recalled
-
-msc += mute:Shift-Dir - straight line
 msc += mute:What are your orders
 msc += mute:t - Shout!
+msc += mute:Shift-Dir - straight line
+msc += mute: - help\, Dir - move target
 
 # BRC: Waypoint \\d (re-)?assigned
 # Waypoint 9 assigned to D:1, (8) Lair:5   (9) Orc:2
@@ -916,6 +916,11 @@ msc += mute:t - Shout!
 # msc += mute:Found a transporter
 # : end
 
+# Religion
+msc += mute:accepts your kill
+msc += mute:is honoured by your kill
+msc += mute:appreciates the change of pace
+
 : if you.god() == "Yredelemnul" then
 msc += mute:Your.*(something|the (plant|bush|fungus|withered plant))
 msc += mute:Something.*the (plant|bush|fungus|withered plant)
@@ -923,6 +928,10 @@ msc += mute:(The|A nearby) (plant|bush|fungus|withered plant).*die
 msc += mute:Your.*web
 msc += mute:The confined air twists around weakly and strikes your
 : end
+
+# Spells
+msc += mute:Your foxfire dissipates
+msc += mute:Your fire vortex dissipates
 
 hp_colour = 100:green, 99:lightgray, 75:yellow, 50:lightred, 25:red
 mp_colour = 100:green, 99:lightgray, 75:yellow, 50:lightred, 25:red
@@ -1298,6 +1307,7 @@ more += You flicker
 more += You feel less protected from missiles
 more += Your reaping aura expires
 more += You finish channelling your searing ray
+more += Your blazeheart golem falls apart
 more += Your rain of reagents ends
 # Death channel
 more += unholy channel is weakening
@@ -1537,7 +1547,7 @@ more += You don't have the energy to cast that spell
 more += You are unable to access your magic
 more += You assume a fearsome visage
 flash += is a mimic
-stop += (?<!into|through) a shaft
+flash += (?<!into|through) a shaft
 
 more += (?<!raiju|beast) bursts into living lightning
 more += blinks into view
@@ -1793,6 +1803,10 @@ more += The.*headed hydra grows
 flash += The.*headed hydra grows
 more += encounter.*(ettin|tengu warrior|vault guard|deep elf|kobold blastminer|gargoyle|ghoul|hell hog|dire elephant|skyshark|freezing wraith|shock serpent|arcanist|radroach|tarantella|pharaoh ant|wolf spider|tentacled starspawn)(?! (zombie|draugr|simulacr))
 flash += encounter.*(centaur warrior|freezing wraith|raiju|(cyan|brown) ugly thing|radroach|meliai)(?! (zombie|draugr|simulacr))
+: end
+
+: if you.xl() <= 16 and you.res_cold() <= 0 then
+more += encounter.*(hydra) simulacr
 : end
 
 : if you.xl() <= 13 then
