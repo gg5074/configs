@@ -2405,7 +2405,7 @@ macros += M " *f<<jewell\{32}||\{32}orb>>\{32}&&\{32}!!statu\{32}&&\{32}!!carri\
 macros += M _ *f<<artef>>\{32}&&\{32}!!talis\{32}&&\{32}!!carri\{13}
 
 # [-]: Dragon Scales, Runed Items
-macros += M - *f@/dragon|artef|ego|\\+[1-9]\{13}
+macros += M - *f@/dragon|artef|ego|(an?|the)\{32}\\+[1-9]\{13}
 
 # "[": Body, Aux
 macros += M [ *f<<body\{32}||\{32}aux>>\{32}&&\{32}!!orb\{32}&&\{32}!!anim\{32}&&\{32}!!a\{32}rob\{32}&&\{32}!!a\{32}lea\{32}&&\{32}!!a\{32}ring\{32}m\{32}&&\{32}!!a\{32}scal\{32}&&\{32}!!a\{32}cha\{32}&&\{32}!!a\{32}pla\{32}&&\{32}!!a\{32}buc\{32}&&\{32}!!a\{32}clo\{32}&&\{32}!!talis\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
