@@ -889,8 +889,8 @@ menu ^= lightcyan:(scarf of invisibility|\+(Inv|Blink))
 # : end
 
 msc := message_colour
-msc ^= white:(Done waiting|Done exploring|(start|finish) putting on your)
-msc ^= lightgrey:(You start (resting|waiting)|continue putting on your| miss | misses |no damage|fail to reach past|returns to the grave|disappears in a puff of smoke|removing your)
+msc ^= white:(Done waiting|Done exploring|(start|finish) putting on)
+msc ^= lightgrey:(You start (resting|waiting)|continue putting on| miss | misses |no damage|fail to reach past|returns to the grave|disappears in a puff of smoke|removing your)
 msc ^= yellow:(You feel a bit more experienced|Something appears at your feet|Autopickup disabled for|You hear an? |The.*leaves your sight|Partly explored|You continue winding your clockwork bee)
 msc ^= lightred:(You encounter)
 
@@ -1741,7 +1741,7 @@ flash += The morphogenic ooze releases spores at you
 flash += The creeping plasmodium launches a sporangium
 
 : if you.xl() <= 26 then
-more += encounter.*(chonchon|oni incarcerator|undertaker|demonspawn warmonger|draconian stormcaller|(ancient|dread) lich|cognitogaunt)
+more += encounter.*(chonchon|oni incarcerator|undertaker|demonspawn warmonger|draconian stormcaller|(ancient|dread) lich|cognitogaunt|shard shrike)
 : end
 
 : if you.xl() <= 24 then
@@ -2341,7 +2341,13 @@ macros += M . *f<<case\{32}to\{32}th\{32}||\{32}gate\{32}to\{32}||\{32}hole\{32}
 macros += M \{4} ?:
 
 # Ctrl-E:
+: if you.god() ~= "Hepliaklqana" then
 macros += M \{5} x+k\{27}
+: end
+
+: if you.god() == "Hepliaklqana" then
+macros += M \{5} x-k\{27}
+: end
 
 macros += M n x+
 macros += M N x-
