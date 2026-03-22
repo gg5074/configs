@@ -1065,6 +1065,10 @@ stop += - [2-9] scrolls labelled
 stop += - [7-9] potions of mutation
 stop += - [2-9] .* potions
 
+: if you.skill("Spellcasting") >= 5 then
+stop += - (a|[2-6]) scrolls? of amnesia
+: end
+
 : if you.xl() <= 14 then
 stop += You see here.*(ring of|the ring|amulet)
 : end
