@@ -2079,6 +2079,22 @@ ai += ring of resist corrosion:rCorr
 ai += ring of see invisible:sInv
 ai += ring of wizardry:Wiz+
 ai += ring of magical power:MP+9
+ai += staff of conjuration:IrresistibleDmg-20%
+ai += staff of earth:PhysicalDmg-5%
+ai += staff of fire:rF+
+ai += staff of cold:rC+
+ai += staff of alchemy:rPois
+ai += staff of air:rElec
+ai += staff of necromancy:rN+
+: end
+
+# magical staff
+: if you.race() ~= "Gnoll" then
+ai += staff of (fire|cold|alchemy|air|earth|conjurationnecromancy):, !a
+ai += (the.*staff):!a
+ai += (Majin-Bo|Elemental Staff):!a
+: end
+
 # github.com/crawl/crawl/tree/master/crawl-ref/source/dat/forms
 ai += protean talisman:Shp 6 ScarabRimehornSporeMedusa
 ai += inkwell talisman:0-7 -WeapShieAllArmo, !P
@@ -2102,21 +2118,6 @@ ai += sanguine talisman:17-25, !P
 ai += blade talisman:17-25 -BodyAC, !P
 ai += storm talisman:23-27 -WeapShieAllArmo, !P
 ai += talisman of death:26-27, !P
-ai += staff of conjuration:IrresistibleDmg-20%
-ai += staff of earth:PhysicalDmg-5%
-ai += staff of fire:rF+
-ai += staff of cold:rC+
-ai += staff of alchemy:rPois
-ai += staff of air:rElec
-ai += staff of necromancy:rN+
-: end
-
-# magical staff
-: if you.race() ~= "Gnoll" then
-ai += staff of (fire|cold|alchemy|air|earth|conjurationnecromancy):, !a
-ai += (the.*staff):!a
-ai += (Majin-Bo|Elemental Staff):!a
-: end
 
 : if you.xl() > 4 then
 ai += (?<!the) \+0 (dagger|short sword|club|whip|giant club|giant spiked|hand axe|spear|sling|shortbow|(?<!tremor)stone|animal skin|robe|leather armour) (?!"|of):~~DROP_ME
