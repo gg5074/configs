@@ -2499,7 +2499,13 @@ macros += K2 q \{13}
 macros += K2 r \{13}
 macros += K2 t \{13}
 
-spell_slot ^= Summon Forest :z
+spell_slot ^= Apportation :z
+spell_slot ^= Swiftness :s
+spell_slot ^= Forge Phalanx Beetle :x
+spell_slot ^= Blink :w
+spell_slot ^= Passage of Golubria :q
+spell_slot ^= Passwall :r
+spell_slot ^= Summon Forest :t
 
 ###############
 # Keybindings #
