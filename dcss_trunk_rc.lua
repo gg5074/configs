@@ -2110,13 +2110,13 @@ ai += eel talisman:12-20 -WeapShieGlov, !P
 ai += wellspring talisman:12-20 -Body, !P
 ai += fortress talisman:12-20 -OffhanAux, !P
 ai += maw talisman:12-20 -BodyAC, !P
-ai += dragon-coil talisman:17-25 -WeapShieAllArmo, !P
+ai += dragon-coil talisman:17-25 -WeapShieAllArmoFly, !P
 ai += granite talisman:17-25 -BodyGlovBootBard, !P
 ai += riddle talisman:17-25 -WeapOffhanBodyHelmGlovBoot, !P
 ai += hive talisman:17-25 -BodyHelm, !P
-ai += sanguine talisman:17-25, !P
+ai += sanguine talisman:17-25, RegenTrogHandJiyva, BatFly, !P
 ai += blade talisman:17-25 -BodyAC, !P
-ai += storm talisman:23-27 -WeapShieAllArmo, !P
+ai += storm talisman:23-27 -WeapShieAllArmoFly, !P
 ai += talisman of death:26-27, !P
 
 : if you.xl() > 4 then
@@ -2410,7 +2410,7 @@ macros += M " *f<<jewell\{32}||\{32}orb>>\{32}&&\{32}!!statu\{32}&&\{32}!!carri\
 macros += M _ *f<<artef>>\{32}&&\{32}!!talis\{32}&&\{32}!!carri\{13}
 
 # [-]: Dragon Scales, Runed Items
-macros += M - *f@/dragon|artef|ego|(an?|the)\{32}\\+[1-9]\{13}
+macros += M - *f@/dragon|artef|ego|an?\{32}\\+[1-9]\{13}
 
 # "[": Body, Aux
 macros += M [ *f<<body\{32}||\{32}aux>>\{32}&&\{32}!!orb\{32}&&\{32}!!anim\{32}&&\{32}!!a\{32}rob\{32}&&\{32}!!a\{32}lea\{32}&&\{32}!!a\{32}ring\{32}m\{32}&&\{32}!!a\{32}scal\{32}&&\{32}!!a\{32}cha\{32}&&\{32}!!a\{32}pla\{32}&&\{32}!!a\{32}buc\{32}&&\{32}!!a\{32}clo\{32}&&\{32}!!talis\{32}&&\{32}!!~D\{32}&&\{32}!!carri\{13}
