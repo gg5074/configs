@@ -42,9 +42,7 @@ brc_config_testing = {
   dump = {
     max_lines_per_table = 80, -- Avoid huge tables (alert_monsters.Config.Alerts) in debug dumps
     omit_pointers = true, -- Don't dump functions and userdata (they only show a hex address)
-  },
-
-  unskilled_egos_usable = false, -- Does "Armour of <MagicSkill>" have an ego when skill is 0?
+  }, -- BRC.Configs.Default.dump (do not remove this comment)
 
   --- How weapon damage is calculated for inscriptions+pickup/alert: (factor * DMG + offset)
   BrandBonus = {
@@ -73,8 +71,7 @@ brc_config_testing = {
       rebuke = { factor = 1.1, offset = 0 },
       vamp = { factor = 1.2, offset = 0 },
     },
-  }, -- BrandBonus (do not remove this comment)
-
+  }, -- BRC.Configs.Default.BrandBonus (do not remove this comment)
 
   hotkey = {
     key = { keycode = -1010, name = "[NPenter]" },
@@ -192,11 +189,13 @@ brc_config_testing = {
 
   ["go-up-macro"] = {
     disabled = true,
-    go_up_macro_key = 5, -- (Cntl-E) Key for "go up closest stairs" macro
-    ignore_mon_on_orb_run = false, -- Ignore monsters on orb run
-    orb_ignore_hp_min = 0.80, -- HP percent to stop ignoring monsters
-    orb_ignore_hp_max = 0.90, -- HP percent to ignore monsters at min distance away (2 tiles)
-  },
+    go_up_macro_key = 5, -- Key for "go up closest stairs" macro
+
+    ignore_mon_on_orb_run = true, -- Ignore monsters on orb run
+    -- %HP thresholds for ignoring monsters during orb run (2-7 tiles away, depending on HP percent)
+    orb_ignore_hp_min = 0.30, -- HP percent to stop ignoring monsters
+    orb_ignore_hp_max = 0.70, -- HP percent to ignore monsters at min distance away (2 tiles)
+    },
 
   ["remind-id"] = {
     disabled = false,
@@ -228,8 +227,8 @@ brc_config_testing = {
     },
 
     Alert = {
-      armour_sensitivity = 1.0, -- Adjust all armour alerts; 0 to disable all (range 0.5-2.0)
-      weapon_sensitivity = 1.0, -- Adjust all weapon alerts; 0 to disable all (range 0.5-2.0)
+      armour_sensitivity = 0.9, -- [0.5-2.0] Adjust all armour alerts; 0 to disable
+      weapon_sensitivity = 0.9, -- [0.5-2.0] Adjust all weapon alerts; 0 to disable
       orbs = true,
       staff_resists = true,
       talismans = false,
@@ -237,7 +236,7 @@ brc_config_testing = {
       first_polearm = true,
       stacked_items = true, -- Special handling for items hidden in stacks, to alert before visiting
 
-      -- Alert the first time each item is found. Can require training with OTA_require_skill.
+      -- Each usable item is alerted once.
       one_time = {
         "demon blade", "demon trident", "partisan", "trishula", "glaive", "bardiche",
         "demon whip", "morningstar", "eveningstar", "sacred scourge", "broad axe",
@@ -247,7 +246,8 @@ brc_config_testing = {
         "crystal plate armour", "golden dragon scales", "storm dragon scales", "swamp dragon scales",
         "quicksilver dragon scales", "acid dragon scales", "pearl dragon scales", "shadow dragon scales",
       },
-      OTA_require_skill = { weapon = 2, armour = 2.5, shield = 0 }, -- No alert if skill < this
+      -- Only do one-time alerts if your skill >= this value, in weap_school/armour/shield
+      OTA_require_skill = { weapon = 2, armour = 2.5, shield = 0 },
 
       hotkey_travel = false,
       hotkey_pickup = true,
@@ -275,17 +275,17 @@ brc_config_testing = {
         talismans = you.class() == "Shapeshifter", -- True for shapeshifter, false for everyone else
         staff_resists = true, -- When a staff gives a missing resistance
         autopickup_disabled = true, -- Alerts for autopickup items, when autopickup is disabled
-      }, -- Alert.More
+      },
     }, -- Alert
 
     ---- Heuristics for tuning the pickup/alert system. Advanced behavior customization.
     Tuning = {
       --[[
-        Tuning.Armour: Magic numbers for the armour pickup/alert system.
-        For armour with different encumbrance, alert when ratio of gain/loss (AC|EV) is > value
-        Lower values mean more alerts. gain/diff/same/lose refers to egos.
-        min_gain/max_loss block alerts for new egos, when AC or EV delta is outside limits
-        ignore_small: if abs(AC+EV) <= this, ignore ratios and alert any gain/diff ego
+      f_pickup_alert.Config.Tuning.Armour: Magic numbers for the armour pickup/alert system.
+      For armour with different encumbrance, alert when ratio of gain/loss (AC|EV) is > value
+      Lower values mean more alerts. gain/diff/same/lose refers to egos.
+      min_gain/max_loss block alerts for new egos, when AC or EV delta is outside limits
+      ignore_small: if abs(AC+EV) <= this, ignore ratios and alert any gain/diff ego
       --]]
       Armour = {
         Lighter = {
@@ -297,7 +297,7 @@ brc_config_testing = {
           min_gain = 3.0,
           max_loss = 4.0,
           ignore_small = 3.5,
-        }, -- Tuning.Armour.Lighter
+        },
 
         Heavier = {
           gain_ego = 0.4,
@@ -311,16 +311,16 @@ brc_config_testing = {
         }, -- Tuning.Armour.Heavier
 
         encumb_penalty_weight = 0.7, -- [0-2.0] Penalty to heavy armour when training magic/ranged
-        early_xl = 6, -- Alert all usable runed body armour if XL <= early_xl
-        diff_body_ego_is_good = false, -- More alerts for diff armour ego (skips min_gain check)
-      }, -- Tuning.Armour
+        early_xl = 6, -- Alert any usable runed body armour when XL <= `early_xl`
+        diff_body_ego_is_good = false, -- More body_armour alerts for diff_ego (no min_gain check)
+      }, -- Armour
 
       --[[
-        Tuning.Weap: Magic numbers for the weapon pickup/alert system, namely:
-          1. Cutoffs for pickup/alert weapons (when DPS ratio exceeds a value)
-          2. Cutoffs for when alerts are active (XL, skill_level)
-        Pickup/alert system will try to upgrade ANY weapon in your inventory.
-        "DPS ratio" is (new_weap_score / inventory_weap_score). Score considers DPS/brand/accuracy.
+      f_pickup_alert.Config.Tuning.Weap: Magic numbers for the weapon pickup/alert system, namely:
+      1. Cutoffs for pickup/alert weapons (when DPS ratio exceeds a value)
+      2. Cutoffs for when alerts are active (XL, skill_level)
+      Pickup/alert system will try to upgrade ANY weapon in your inventory.
+      "DPS ratio" is (new_weapon_score / inventory_weapon_score). Score considers DPS/brand/accuracy.
       --]]
       Weap = {
         Pickup = {
@@ -328,14 +328,13 @@ brc_config_testing = {
           same_type_melee = 1.2, -- Pickup melee weap of same school if DPS ratio > same_type_melee
           same_type_ranged = 1.1, -- Pickup ranged weap if DPS ratio > same_type_ranged
           accuracy_weight = 0.25, -- Treat +1 Accuracy as +accuracy_weight DPS
-        }, -- Tuning.Weap.Pickup
-
+        }, -- Pickup
         Alert = {
           -- Alerts for weapons not requiring an extra hand
           pure_dps = 1.0, -- Alert if DPS ratio > pure_dps
           gain_ego = 0.8, -- Gaining ego; Alert if DPS ratio > gain_ego
           new_ego = 0.8, -- Get ego not in inventory; Alert if DPS ratio > new_ego
-          low_skill_penalty_damping = 8, -- [0-20] Reduce penalty to weap of lower-trained schools
+          low_skill_penalty_damping = 8, -- [0-20] Reduce penalty to lower-trained weapons
 
           -- Alerts for 2-handed weapons, when carrying 1-handed
           AddHand = {
@@ -347,7 +346,7 @@ brc_config_testing = {
           -- Alerts for good early weapons of all types
           Early = {
             xl = 7, -- Alert early weapons if XL <= xl
-            skill = { factor = 1.5, offset = 2.0 }, -- Ignore weap w skill_diff > XL*factor+offset
+            skill = { factor = 1.5, offset = 2.0 }, -- Ignore weapons w skill_diff > XL*fact+offset
             branded_min_plus = 4, -- Alert branded weapons with plus >= branded_min_plus
           },
 
@@ -356,10 +355,10 @@ brc_config_testing = {
             xl = 14, -- Alert strong ranged weapons if XL <= xl
             min_plus = 7, -- Alert ranged weapons with plus >= min_plus
             branded_min_plus = 4, -- Alert branded ranged weapons with plus >= branded_min_plus
-            max_shields = 8.0, -- Alert 2h ranged despite  shield, if shield_skill <= max_shields
+            max_shields = 8.0, -- Require max_shields skill to block 2h ranged alerts
           },
-        }, -- Tuning.Weap.Alert
-      }, -- Tuning.Weap
+        }, -- Alert
+      }, -- Weap
     }, -- Tuning
 
     AlertColor = {
@@ -391,8 +390,7 @@ brc_config_testing = {
       HEAVIER = "⏫",
 
       AUTOPICKUP_ITEM = "👍",
-    }, -- Emoji (do not remove this comment)
-
+    }, -- Emoji
     init = function()
       if not BRC.Config.emojis then
         f_pickup_alert.Config.Emoji = {}
@@ -419,27 +417,30 @@ brc_config_testing = {
 ############ https://github.com/brianfaires/crawl-rc/blob/main/lua/config/explicit.lua ############
 {
 --- Explicit config: All config values from all features listed explicitly, set to defaults
--- Large feature config sections are at the end
--- @warning Since this lives at the top of the RC, it can't reference constants.lua or util/*.lua
---   So it must hardcode values like keycodes, where feature configs get to use BRC.KEYS, etc
+--- Auto-generated by build/generate_explicit_config.py — do not edit manually.
+--- To regenerate: python3 build/generate_explicit_config.py
+--- Large feature config sections are at the end
+--- @warning Since this lives at the top of the RC, it can't reference constants.lua or util/*.lua
+---   So it must hardcode values like keycodes, where feature configs get to use BRC.KEYS, etc
 
 brc_config_explicit = {
   BRC_CONFIG_NAME = "Explicit",
 
   ---- BRC Core values ----
-  emojis = true,
+  emojis = true, -- Include emojis in alerts
+
+  unskilled_egos_usable = false,
 
   mpr = {
     show_debug_messages = false,
     logs_to_stderr = false,
-  },
+    take_note_on_error = true, -- Note BRC errors in the character file for debugging with char dump
+  }, -- BRC.Configs.Default.mpr (do not remove this comment)
 
   dump = {
     max_lines_per_table = 80, -- Avoid huge tables (alert_monsters.Config.Alerts) in debug dumps
     omit_pointers = true, -- Don't dump functions and userdata (they only show a hex address)
-  },
-
-  unskilled_egos_usable = false, -- Does "Armour of <MagicSkill>" have an ego when skill is 0?
+  }, -- BRC.Configs.Default.dump (do not remove this comment)
 
   --- How weapon damage is calculated for inscriptions+pickup/alert: (factor * DMG + offset)
   BrandBonus = {
@@ -468,8 +469,7 @@ brc_config_explicit = {
       rebuke = { factor = 1.1, offset = 0 },
       vamp = { factor = 1.2, offset = 0 },
     },
-  }, -- BrandBonus (do not remove this comment)
-
+  }, -- BRC.Configs.Default.BrandBonus (do not remove this comment)
 
   hotkey = {
     key = { keycode = -1010, name = "[NPenter]" },
@@ -587,11 +587,13 @@ brc_config_explicit = {
 
   ["go-up-macro"] = {
     disabled = true,
-    go_up_macro_key = 5, -- (Cntl-E) Key for "go up closest stairs" macro
-    ignore_mon_on_orb_run = false, -- Ignore monsters on orb run
-    orb_ignore_hp_min = 0.80, -- HP percent to stop ignoring monsters
-    orb_ignore_hp_max = 0.90, -- HP percent to ignore monsters at min distance away (2 tiles)
-  },
+    go_up_macro_key = 5, -- Key for "go up closest stairs" macro
+
+    ignore_mon_on_orb_run = true, -- Ignore monsters on orb run
+    -- %HP thresholds for ignoring monsters during orb run (2-7 tiles away, depending on HP percent)
+    orb_ignore_hp_min = 0.30, -- HP percent to stop ignoring monsters
+    orb_ignore_hp_max = 0.70, -- HP percent to ignore monsters at min distance away (2 tiles)
+    },
 
   ["remind-id"] = {
     disabled = false,
@@ -632,7 +634,7 @@ brc_config_explicit = {
       first_polearm = true,
       stacked_items = true, -- Special handling for items hidden in stacks, to alert before visiting
 
-      -- Alert the first time each item is found. Can require training with OTA_require_skill.
+      -- Each usable item is alerted once.
       one_time = {
         --"dragonskin cloak", "ratskin cloak", "moon troll leather armour", "Cigotuvi's embrace",
         --"boots of flying", "cloak of willpower", "scarf of resistance", "hat of willpower", "helmet of see invisible",
@@ -646,7 +648,8 @@ brc_config_explicit = {
         "crystal plate armour", "golden dragon scales", "storm dragon scales", "swamp dragon scales",
         "quicksilver dragon scales", "acid dragon scales", "pearl dragon scales", "shadow dragon scales",
       },
-      OTA_require_skill = { weapon = 2, armour = 2.5, shield = 0 }, -- No alert if skill < this
+      -- Only do one-time alerts if your skill >= this value, in weap_school/armour/shield
+      OTA_require_skill = { weapon = 2, armour = 2.5, shield = 0 },
 
       hotkey_travel = true,
       hotkey_pickup = true,
@@ -674,17 +677,17 @@ brc_config_explicit = {
         talismans = you.class() == "Shapeshifter", -- True for shapeshifter, false for everyone else
         staff_resists = true, -- When a staff gives a missing resistance
         autopickup_disabled = true, -- Alerts for autopickup items, when autopickup is disabled
-      }, -- Alert.More
+      },
     }, -- Alert
 
     ---- Heuristics for tuning the pickup/alert system. Advanced behavior customization.
     Tuning = {
       --[[
-        Tuning.Armour: Magic numbers for the armour pickup/alert system.
-        For armour with different encumbrance, alert when ratio of gain/loss (AC|EV) is > value
-        Lower values mean more alerts. gain/diff/same/lose refers to egos.
-        min_gain/max_loss block alerts for new egos, when AC or EV delta is outside limits
-        ignore_small: if abs(AC+EV) <= this, ignore ratios and alert any gain/diff ego
+      f_pickup_alert.Config.Tuning.Armour: Magic numbers for the armour pickup/alert system.
+      For armour with different encumbrance, alert when ratio of gain/loss (AC|EV) is > value
+      Lower values mean more alerts. gain/diff/same/lose refers to egos.
+      min_gain/max_loss block alerts for new egos, when AC or EV delta is outside limits
+      ignore_small: if abs(AC+EV) <= this, ignore ratios and alert any gain/diff ego
       --]]
       Armour = {
         Lighter = {
@@ -696,7 +699,7 @@ brc_config_explicit = {
           min_gain = 3.0,
           max_loss = 4.0,
           ignore_small = 3.5,
-        }, -- Tuning.Armour.Lighter
+        },
 
         Heavier = {
           gain_ego = 0.4,
@@ -710,16 +713,16 @@ brc_config_explicit = {
         }, -- Tuning.Armour.Heavier
 
         encumb_penalty_weight = 0.7, -- [0-2.0] Penalty to heavy armour when training magic/ranged
-        early_xl = 6, -- Alert all usable runed body armour if XL <= early_xl
-        diff_body_ego_is_good = false, -- More alerts for diff armour ego (skips min_gain check)
-      }, -- Tuning.Armour
+        early_xl = 6, -- Alert any usable runed body armour when XL <= `early_xl`
+        diff_body_ego_is_good = false, -- More body_armour alerts for diff_ego (no min_gain check)
+      }, -- Armour
 
       --[[
-        Tuning.Weap: Magic numbers for the weapon pickup/alert system, namely:
-          1. Cutoffs for pickup/alert weapons (when DPS ratio exceeds a value)
-          2. Cutoffs for when alerts are active (XL, skill_level)
-        Pickup/alert system will try to upgrade ANY weapon in your inventory.
-        "DPS ratio" is (new_weap_score / inventory_weap_score). Score considers DPS/brand/accuracy.
+      f_pickup_alert.Config.Tuning.Weap: Magic numbers for the weapon pickup/alert system, namely:
+      1. Cutoffs for pickup/alert weapons (when DPS ratio exceeds a value)
+      2. Cutoffs for when alerts are active (XL, skill_level)
+      Pickup/alert system will try to upgrade ANY weapon in your inventory.
+      "DPS ratio" is (new_weapon_score / inventory_weapon_score). Score considers DPS/brand/accuracy.
       --]]
       Weap = {
         Pickup = {
@@ -727,14 +730,13 @@ brc_config_explicit = {
           same_type_melee = 1.2, -- Pickup melee weap of same school if DPS ratio > same_type_melee
           same_type_ranged = 1.1, -- Pickup ranged weap if DPS ratio > same_type_ranged
           accuracy_weight = 0.25, -- Treat +1 Accuracy as +accuracy_weight DPS
-        }, -- Tuning.Weap.Pickup
-
+        }, -- Pickup
         Alert = {
           -- Alerts for weapons not requiring an extra hand
           pure_dps = 1.0, -- Alert if DPS ratio > pure_dps
           gain_ego = 0.8, -- Gaining ego; Alert if DPS ratio > gain_ego
           new_ego = 0.8, -- Get ego not in inventory; Alert if DPS ratio > new_ego
-          low_skill_penalty_damping = 8, -- [0-20] Reduce penalty to weap of lower-trained schools
+          low_skill_penalty_damping = 8, -- [0-20] Reduce penalty to lower-trained weapons
 
           -- Alerts for 2-handed weapons, when carrying 1-handed
           AddHand = {
@@ -746,7 +748,7 @@ brc_config_explicit = {
           -- Alerts for good early weapons of all types
           Early = {
             xl = 7, -- Alert early weapons if XL <= xl
-            skill = { factor = 1.5, offset = 2.0 }, -- Ignore weap w skill_diff > XL*factor+offset
+            skill = { factor = 1.5, offset = 2.0 }, -- Ignore weapons w skill_diff > XL*fact+offset
             branded_min_plus = 4, -- Alert branded weapons with plus >= branded_min_plus
           },
 
@@ -755,10 +757,10 @@ brc_config_explicit = {
             xl = 14, -- Alert strong ranged weapons if XL <= xl
             min_plus = 7, -- Alert ranged weapons with plus >= min_plus
             branded_min_plus = 4, -- Alert branded ranged weapons with plus >= branded_min_plus
-            max_shields = 8.0, -- Alert 2h ranged despite  shield, if shield_skill <= max_shields
+            max_shields = 8.0, -- Require max_shields skill to block 2h ranged alerts
           },
-        }, -- Tuning.Weap.Alert
-      }, -- Tuning.Weap
+        }, -- Alert
+      }, -- Weap
     }, -- Tuning
 
     AlertColor = {
@@ -790,15 +792,13 @@ brc_config_explicit = {
       HEAVIER = "⏫",
 
       AUTOPICKUP_ITEM = "👍",
-    }, -- Emoji (do not remove this comment)
-
+    }, -- Emoji
     init = function()
-      if not BRC.Config.emojis then
-        f_pickup_alert.Config.Emoji = {}
-      end
-    end,
-  }, -- pickup-alert
-
+  if not BRC.Config.emojis then
+    f_pickup_alert.Config.Emoji = {}
+  end
+end,
+  },
 } -- brc_config_explicit (do not remove this comment)
 
 }
@@ -3170,6 +3170,10 @@ function BRC.mpr.error(message, context, skip_more)
     crawl.more()
   end
 
+  if BRC.Config.mpr.take_note_on_error then
+    crawl.take_note("[BRC] (Error) " .. tostring(message))
+  end
+
   if BRC.Config.mpr.logs_to_stderr then
     crawl.stderr(BRC.mpr.brc_prefix .. "(Error) " .. message)
   end
@@ -3974,7 +3978,8 @@ function BRC.eq.is_useless_ego(ego)
 
   local race = you.race()
   return ego == "holy" and util.contains(BRC.UNDEAD_RACES, race)
-    or ego == "rPois" and util.contains(BRC.POIS_RES_RACES, race)
+    or (ego == "rPois" or ego == "rpois" or ego == "poison resistance")
+       and util.contains(BRC.POIS_RES_RACES, race)
     or ego == "pain" and you.skill("Necromancy") == 0
 end
 
@@ -4346,6 +4351,7 @@ BRC.Configs.Default.unskilled_egos_usable = false
 BRC.Configs.Default.mpr = {
   show_debug_messages = false,
   logs_to_stderr = false,
+  take_note_on_error = true, -- Note BRC errors in the character file for debugging with char dump
 } -- BRC.Configs.Default.mpr (do not remove this comment)
 
 BRC.Configs.Default.dump = {
@@ -4447,6 +4453,46 @@ local function override_table(dest, source)
   end
 end
 
+--- Warn about unknown keys in the user config that don't match any feature or core config key.
+-- Catches typos like ["pickup-alerts"] (plural) or misspelled option names.
+local function validate_config_keys()
+  local feature_modules = BRC.get_all_feature_modules()
+
+  -- Collect known core keys from BRC.Configs.Default
+  local core_keys = {}
+  for key, _ in pairs(BRC.Configs.Default) do
+    core_keys[key] = true
+  end
+
+  -- Check each key in BRC.Config
+  for key, value in pairs(BRC.Config) do
+    -- Skip known core keys, init functions, and non-string keys
+    if core_keys[key] or key == "init" or type(key) ~= "string" then -- luacheck: ignore 542
+    elseif feature_modules[key] then
+      -- Known feature name — validate its top-level sub-keys against defaults
+      local defaults = feature_modules[key].ConfigDefaults or feature_modules[key].Config
+      if type(value) == "table" and type(defaults) == "table" then
+        for sub_key, _ in pairs(value) do
+          if sub_key ~= "disabled" and sub_key ~= "init"
+            and defaults[sub_key] == nil
+          then
+            BRC.mpr.debug(string.format(
+              "Unknown config key: %s.%s",
+              BRC.txt.lightcyan(key), BRC.txt.yellow(sub_key)
+            ))
+          end
+        end
+      end
+    elseif type(value) == "table" and key:find("-") then
+      -- Looks like a feature name (contains hyphen) but no such module exists
+      BRC.mpr.warning(string.format(
+        "Unknown feature in config: %s (not registered — possible typo?)",
+        BRC.txt.yellow(key)
+      ))
+    end
+  end
+end
+
 ---- Public API ----
 --- Main config loading entry point
 -- @param config_name string name of a config
@@ -4475,7 +4521,12 @@ function BRC.init_config(config_name)
   local m = BRC.mpr.brc_prefix .. "Using config: " .. BRC.txt.lightcyan(BRC.Config.BRC_CONFIG_NAME)
   BRC.mpr.white(m)
   BRC.init_emojis() -- Updates constant values based on BRC.Config.emojis
+  -- validate_config_keys() runs from BRC.init() after register_all_features(); running here
+  -- would warn on every hyphenated feature key because _features is still empty.
 end
+
+--- Exposed for testing; not part of public API.
+BRC._validate_config_keys = validate_config_keys
 
 --- Process a feature config: Load defaults, then override w BRC.Config
 function BRC.process_feature_config(feature)
@@ -4542,7 +4593,7 @@ BRC.Hotkey = {}
 BRC.Hotkey.BRC_FEATURE_NAME = "hotkey"
 BRC.Hotkey.Config = {
   key = { keycode = BRC.KEYS.NPenter, name = "[NPenter]" },
-  skip_keycode = BRC.KEYS.ESC,
+  skip_keycode = BRC.KEYS.ESC, -- ESC keycode
   equip_hotkey = true, -- Offer to equip after picking up equipment
   wait_for_safety = true, -- Don't expire the hotkey with monsters in view
   explore_clears_queue = true, -- Clear the hotkey queue on explore
@@ -4868,7 +4919,7 @@ end
 ---------------------------------------------------------------------------------------------------
 
 ---- Local constants ----
-BRC.VERSION = "1.2.1"
+BRC.VERSION = "1.3.0"
 BRC.MIN_CRAWL_VERSION = "0.34"
 
 local HOOK_FUNCTIONS = {
@@ -5040,6 +5091,29 @@ function BRC.is_feature_module(f)
     and #f.BRC_FEATURE_NAME > 0
 end
 
+--- Feature module tables for config validation: active registrations plus any module present in
+--- the environment but skipped by BRC.register (disabled-by-default) and tables nested under
+--- BRC (e.g. BRC.Data), which are not top-level globals. Different from get_registered_features().
+function BRC.get_all_feature_modules()
+  local modules = {}
+  for name, mod in pairs(BRC.get_registered_features()) do
+    modules[name] = mod
+  end
+  for _, value in pairs(_G) do
+    if BRC.is_feature_module(value) then
+      modules[value.BRC_FEATURE_NAME] = value
+    end
+  end
+  if type(BRC) == "table" then
+    for _, value in pairs(BRC) do
+      if BRC.is_feature_module(value) then
+        modules[value.BRC_FEATURE_NAME] = value
+      end
+    end
+  end
+  return modules
+end
+
 -- BRC.register(): Return true if success, false if error, nil if feature is disabled
 function BRC.register(f)
   if not BRC.is_feature_module(f) then
@@ -5136,6 +5210,8 @@ function BRC.init(config_name)
 
   BRC.mpr.debug("Register features...")
   register_all_features()
+
+  BRC._validate_config_keys()
 
   BRC.mpr.debug("Initialize features...")
   safe_call_all_hooks(HOOK_FUNCTIONS.init)
@@ -5435,8 +5511,9 @@ function f_announce_hp_mp.ready()
   local mhp_delta = mhp - ad_prev.mhp
   local mmp_delta = mmp - ad_prev.mmp
 
-  -- Calc damage taken, with starting point being mhp * (prev hp / prev mhp)
-  local expected_hp = mhp * (hp / mhp)
+  -- Calc damage taken: scale prev HP to current max HP, then compare to actual HP.
+  -- Guard against startup (ad_prev.mhp == 0) by falling back to hp so damage_taken = 0.
+  local expected_hp = ad_prev.mhp > 0 and mhp * (ad_prev.hp / ad_prev.mhp) or hp
   local damage_taken = expected_hp - hp
 
   ad_prev.hp = hp
@@ -5672,10 +5749,16 @@ function f_display_realtime.ready()
   dr_total_time = dr_total_time + you.real_time() - last_time
   local cycle = dr_total_time // f_display_realtime.Config.interval_s
   if cycle > last_cycle then
-    local time_str = "Game time: "
-    if dr_total_time > 3600 then time_str = time_str .. (dr_total_time // 3600) .. ":" end
+    local h = dr_total_time // 3600
     local remain = dr_total_time % 3600
-    time_str = time_str .. (remain // 60) .. ":" .. (remain % 60)
+    local m = remain // 60
+    local s = remain % 60
+    local time_str
+    if h > 0 then
+      time_str = string.format("Game time: %d:%02d:%02d", h, m, s)
+    else
+      time_str = string.format("Game time: %d:%02d", m, s)
+    end
 
     BRC.mpr.white(BRC.txt.wrap(time_str, f_display_realtime.Config.emoji))
     last_cycle = cycle
@@ -5847,12 +5930,13 @@ fr_bad_durations = BRC.Data.persist("fr_bad_durations", util.copy_table(BRC.BAD_
 local MAX_TURNS_TO_WAIT = 300
 
 ---- Local variables ----
-local recovery_start_turn
+-- recovery_start_turn is a module field (not local) for test observability
+local M = f_fully_recover
 local explore_after_recovery
 
 ---- Initialization ----
 function f_fully_recover.init()
-  recovery_start_turn = nil
+  M.recovery_start_turn = nil
   explore_after_recovery = nil
 
   BRC.opt.macro(BRC.util.get_cmd_key("CMD_EXPLORE") or "o", "macro_brc_explore", true)
@@ -5910,8 +5994,8 @@ local function do_cmd_wrapper(cmd)
 end
 
 local function complete_recovery()
-  local turns = you.turns() - recovery_start_turn
-  recovery_start_turn = nil
+  local turns = you.turns() - M.recovery_start_turn
+  M.recovery_start_turn = nil
   if turns > 0 then
     you.stop_activity()
     BRC.mpr.lightgreen(string.format("Fully recovered (%d turns)", turns))
@@ -5927,16 +6011,13 @@ local function start_recovery(cmd)
   end
 
   if fully_recovered() then
-    if recovery_start_turn ~= nil then
+    if M.recovery_start_turn ~= nil then
       complete_recovery()
     else
       do_cmd_wrapper(cmd)
     end
-  elseif not you.feel_safe() then
-    recovery_start_turn = nil
-    BRC.mpr.lightred("A monster is nearby!")
   else
-    recovery_start_turn = you.turns()
+    M.recovery_start_turn = you.turns()
     explore_after_recovery = cmd == "CMD_EXPLORE"
     do_cmd_wrapper("CMD_REST")
   end
@@ -5954,7 +6035,7 @@ end
 
 ---- Crawl hook functions ----
 function f_fully_recover.c_message(text, channel)
-  if recovery_start_turn == nil then return end
+  if M.recovery_start_turn == nil then return end
   if channel == "plain" and (
     text:contains("You start resting.") or
     text:contains("You start waiting.") or
@@ -5967,22 +6048,22 @@ function f_fully_recover.c_message(text, channel)
   -- For any non-duration/recovery message, abort the recovery entirely.
   you.stop_activity()
   if channel ~= "duration" and channel ~= "recovery" then
-    recovery_start_turn = nil
+    M.recovery_start_turn = nil
   end
 end
 
 function f_fully_recover.ready()
-  if recovery_start_turn == nil then return end
+  if M.recovery_start_turn == nil then return end
   if fully_recovered() then
     complete_recovery()
   elseif not you.feel_safe() then
-    recovery_start_turn = nil
+    M.recovery_start_turn = nil
     you.stop_activity()
-  elseif you.turns() - recovery_start_turn > MAX_TURNS_TO_WAIT then
+  elseif you.turns() - M.recovery_start_turn > MAX_TURNS_TO_WAIT then
     BRC.mpr.error("fully-recover timed out after " .. MAX_TURNS_TO_WAIT .. " turns.", true)
     BRC.mpr.error("fr_bad_durations:")
     remove_statuses_from_list()
-    recovery_start_turn = nil
+    M.recovery_start_turn = nil
     you.stop_activity()
   else
     do_cmd_wrapper("CMD_REST")
@@ -6155,6 +6236,11 @@ end
 --- Replace the old inscription with the current one, preserving prefix/suffix
 local function update_inscription(orig, cur)
   local first = orig:find(cur:sub(1, 4))
+  -- Handle format migration between DPS= and Dmg= modes (e.g. when skip_dps config changes)
+  if not first then
+    if cur:sub(1, 4) == "Dmg=" then first = orig:find("DPS=")
+    elseif cur:sub(1, 4) == "DPS=" then first = orig:find("Dmg=") end
+  end
   if not first then return cur .. "; " .. orig end
 
   local _, last = orig:find("A%+%d+")
@@ -6736,8 +6822,8 @@ f_pickup_alert.Config.Pickup = {
 } -- f_pickup_alert.Config.Pickup (do not remove this comment)
 
 f_pickup_alert.Config.Alert = {
-  armour_sensitivity = 1.0, -- Adjust all armour alerts; 0 to disable all (typical range 0.5-2.0)
-  weapon_sensitivity = 1.0, -- Adjust all weapon alerts; 0 to disable all (typical range 0.5-2.0)
+  armour_sensitivity = 1.0, -- [0.5-2.0] Adjust all armour alerts; 0 to disable all
+  weapon_sensitivity = 1.0, -- [0.5-2.0] Adjust all weapon alerts; 0 to disable all
   orbs = true,
   staff_resists = true,
   talismans = true,
@@ -6821,8 +6907,8 @@ f_pickup_alert.Config.Tuning.Armour = {
   },
 
   encumb_penalty_weight = 0.7, -- [0-2.0] Penalty to heavy armour when training magic/ranged
-  early_xl = 6, -- Alert all usable runed body armour if XL <= early_xl
-  diff_body_ego_is_good = false, -- More alerts for diff_ego in body armour (skips min_gain check)
+  early_xl = 6, -- Alert any usable runed body armour when XL <= `early_xl`
+  diff_body_ego_is_good = false, -- More body_armour alerts for diff_ego (no min_gain check)
 } -- f_pickup_alert.Config.Tuning.Armour (do not remove this comment)
 
 --[[
@@ -6845,7 +6931,7 @@ f_pickup_alert.Config.Tuning.Weap.Alert = {
   pure_dps = 1.0, -- Alert if DPS ratio > pure_dps
   gain_ego = 0.8, -- Gaining ego; Alert if DPS ratio > gain_ego
   new_ego = 0.8, -- Get ego not in inventory; Alert if DPS ratio > new_ego
-  low_skill_penalty_damping = 8, -- [0-20] Reduces penalty to weapons of lower-trained schools
+  low_skill_penalty_damping = 8, -- [0-20] Reduce penalty to lower-trained weapons
 
   -- Alerts for 2-handed weapons, when carrying 1-handed
   AddHand = {
@@ -6857,7 +6943,7 @@ f_pickup_alert.Config.Tuning.Weap.Alert = {
   -- Alerts for good early weapons of all types
   Early = {
     xl = 7, -- Alert early weapons if XL <= xl
-    skill = { factor = 1.5, offset = 2.0 }, -- Ignore weapons with skill_diff > XL*factor+offset
+    skill = { factor = 1.5, offset = 2.0 }, -- Ignore weapons w skill_diff > XL*fact+offset
     branded_min_plus = 4, -- Alert branded weapons with plus >= branded_min_plus
   },
 
@@ -6866,7 +6952,7 @@ f_pickup_alert.Config.Tuning.Weap.Alert = {
     xl = 14, -- Alert strong ranged weapons if XL <= xl
     min_plus = 7, -- Alert ranged weapons with plus >= min_plus
     branded_min_plus = 4, -- Alert branded ranged weapons with plus >= branded_min_plus
-    max_shields = 8.0, -- Alert 2h ranged, despite a wearing shield, if shield_skill <= max_shields
+    max_shields = 8.0, -- Require max_shields skill to block 2h ranged alerts
   },
 } -- f_pickup_alert.Config.Tuning.Weap.Alert (do not remove this comment)
 
@@ -7313,8 +7399,10 @@ function f_pa_data.remember_alert(it)
   local cur_val = tonumber(pa_items_alerted[name])
   if not cur_val or value > cur_val then pa_items_alerted[name] = value end
 
-  -- Add lesser versions of same item, to avoid alerting an inferior item
-  if BRC.eq.get_ego(it) and not BRC.eq.is_risky(it) and not BRC.it.is_talisman(it) then
+  -- Add lesser versions of same item, to avoid alerting an inferior item.
+  -- Use name comparison instead of get_ego(it) because ego() returns nil for floor items
+  -- even when the item is visibly branded (DCSS API limitation for unequipped items).
+  if name ~= it.name("db") and not BRC.eq.is_risky(it) and not BRC.it.is_talisman(it) then
     -- Add plain unbranded version
     name = it.name("db")
     cur_val = tonumber(pa_items_alerted[name])
