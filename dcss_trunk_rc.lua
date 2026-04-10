@@ -171,7 +171,7 @@ brc_config_testing = {
     disabled = false,
     inscribe_weapons = true, -- Inscribe weapon stats on pickup
     inscribe_armour = true, -- Inscribe armour stats on pickup
-    dmg_type = "scoring", -- unbranded, plain, branded, scoring
+    dmg_type = "4", -- unbranded, plain, branded, scoring
     skip_dps = false, -- Skip DPS in weapon inscriptions
     prefix_staff_dmg = false, -- Special prefix for magical staves
   },
