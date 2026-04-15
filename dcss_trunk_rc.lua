@@ -2070,7 +2070,7 @@ ai += staff of necromancy:rN+
 
 # magical staff
 : if you.race() ~= "Gnoll" then
-ai += staff of (fire|cold|alchemy|air|earth|conjurationnecromancy):, !a
+ai += staff of (fire|cold|alchemy|air|earth|conjuration|necromancy):, !a
 ai += (the.*staff):!a
 ai += (Majin-Bo|Elemental Staff):!a
 : end
