@@ -1822,6 +1822,7 @@ more += encounter.*(scorpion)(?! (zombie|draugr|simulacr))
 
 : if you.xl() <= 7 then
 # unusual_monster_items += spear,(?<!demon) trident,sling,shortbow,orcbow
+more += monster_warning:wielding.*devious
 more += encounter.*(?<!spectral) (marrowcuda|phantom|bombardier beetle|ice beast|jell(y|ies)|iguana|hound|black bear|sky beast|electric eel|sleepcap)(?! (zombie|draugr|simulacr))
 more += Another marrowcuda is drawn to the feast!
 flash += Another marrowcuda is drawn to the feast!
@@ -4899,7 +4900,7 @@ end
 ---------------------------------------------------------------------------------------------------
 
 ---- Local constants ----
-BRC.VERSION = "1.3.0"
+BRC.VERSION = "1.3.1"
 BRC.MIN_CRAWL_VERSION = "0.34"
 
 local HOOK_FUNCTIONS = {
