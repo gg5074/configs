@@ -871,13 +871,14 @@ menu ^= lightcyan:(scarf of invisibility|\+(Inv|Blink))
 msc := message_colour
 msc ^= white:(Done waiting|Done exploring|(start|finish) putting on)
 msc ^= lightgrey:(You start (resting|waiting)|continue putting on| miss | misses |no damage|fail to reach past|returns to the grave|disappears in a puff of smoke|removing your)
-msc ^= yellow:(You feel a bit more experienced|Something appears at your feet|Autopickup disabled for|You hear an? |The.*leaves your sight|Partly explored|You continue winding your clockwork bee)
+msc ^= yellow:(You feel a bit more experienced|Something appears at your feet|Autopickup disabled for|You hear an? |The (?!butterfly).*leaves your sight|Partly explored|You continue winding your clockwork bee)
 msc ^= lightred:(You encounter)
 
 msc += mute:Search for what.*(~D|in_shop|ransp)
 msc += mute:There is an open door here
 msc += mute:You swap places with (your|(?-i:[A-Z]))
 msc += mute:(Your.*|The butterfly) leaves your sight
+msc += mute:The butterfly is (distracted by your dazzling golden aura|no longer dazed)
 msc += mute:Your.*is recalled
 msc += mute:What are your orders
 msc += mute:t - Shout!
