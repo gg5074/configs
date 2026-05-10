@@ -1870,7 +1870,7 @@ note_messages += Game time:..?:(0|30):0
 
 dump_order  = header,hiscore,stats,misc,apostles,mutations,overview,inventory,skills,spells
 dump_order += messages,screenshot,monlist,kills
-dump_order += notes,vaults,skill_gains,action_counts,turns_by_place
+dump_order += notes,vaults,skill_gains,action_counts,turns_by_place,piety_info,dlua_errors
 
 ##############
 # Autopickup #
