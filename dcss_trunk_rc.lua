@@ -2286,6 +2286,7 @@ end
 }
 macros += M \{NP.} ===smart_stairs
 
+# Lua error: Cannot currently process new keys (there is pending input)
 # reddit.com/r/dcss/comments/1qzzy2w/xdminsys_noise_guide/
 # local insisted = crawl.yesno("You don't feel safe! Still shout? (y/n)", true, "n")
 {
