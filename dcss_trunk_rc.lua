@@ -870,8 +870,8 @@ menu ^= lightcyan:(scarf of invisibility|\+(Inv|Blink))
 
 msc := message_colour
 msc ^= white:(Done waiting|Done exploring|(start|finish) putting on)
-msc ^= lightgrey:(You start (resting|waiting)|continue putting on| miss | misses |no damage|fail to reach past|returns to the grave|disappears in a puff of smoke|removing your)
-msc ^= yellow:(You feel a bit more experienced|Something appears at your feet|Autopickup disabled for|You hear an? |The (?!butterfly).*leaves your sight|Partly explored|You continue winding your clockwork bee)
+msc ^= lightgrey:(You start (resting|waiting)|continue putting on| misses |but does no damage|returns to the grave|disappears in a puff of smoke|removing your)
+msc ^= yellow:( miss |You hit .* but do no damage|You fail to reach past|You feel a bit more experienced|Something appears at your feet|Autopickup disabled for|You hear an? |The (?!butterfly).*leaves your sight|Partly explored|You continue winding your clockwork bee)
 msc ^= lightred:(You encounter)
 
 msc += mute:Search for what.*(~D|in_shop|ransp)
