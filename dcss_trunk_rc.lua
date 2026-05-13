@@ -2389,7 +2389,7 @@ macros += M S *f<<scrol\{32}||\{32}potio>>\{32}&&\{32}!!iden\{32}&&\{32}!!~D\{32
 # ["]: Jewellery, Orbs
 macros += M " *f<<jewell\{32}||\{32}orb>>\{32}&&\{32}!!statu\{32}&&\{32}!!carri\{13}
 
-# [_]: Artefacts (!!Talismans)
+# [_]: Artefacts
 macros += M _ *f<<artef>>\{32}&&\{32}!!talis\{32}&&\{32}!!carri\{13}
 
 # [-]: Dragon Scales, Runed Items
@@ -2444,7 +2444,6 @@ macros += M 8 zh
 macros += M 9 zi
 macros += M 0 zj
 
-# github.com/brianfaires/crawl-rc/blob/main/rc/macros.rc
 # "K1" level-map context keymap (during the `X` view only)
 # "K2" targeting context keymap (during targeting and `x` view)
 # "K3" confirmation context keymap (when responding to a y/n prompt)
