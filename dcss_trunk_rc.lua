@@ -8,16 +8,6 @@ BRC.Config = {}
 -- Specify a config by name, or "ask" to prompt at start of each new game
 BRC.Config.to_use = "Explicit" -- Testing, Explicit
 
--- Testing:
---  ["drop-inferior"] = {
---    disabled = true,
---  ["pickup-alert"] = {
---    disabled = true,
---    Pickup = {
---      weapons = false,
---      staves = false,
---      hotkey_travel = false,
-
 }
 ##################################### End lua/core/_header.lua ####################################
 ###################################################################################################
@@ -153,13 +143,13 @@ brc_config_testing = {
   },
 
   ["drop-inferior"] = {
-    disabled = true,
+    disabled = false,
     msg_on_inscribe = true, -- Show a message when an item is marked for drop
     hotkey_drop = true, -- BRC hotkey drops all items on the drop list
   },
 
   ["exclude-dropped"] = {
-    disabled = true,
+    disabled = false,
     not_weapon_scrolls = true, -- Don't exclude enchant/brand scrolls if holding enchantable weapon
   },
 
@@ -208,17 +198,17 @@ brc_config_testing = {
 
   ---- Large config sections ----
   ["pickup-alert"] = {
-    disabled = true,
+    disabled = false,
     Pickup = {
       armour = true,
-      weapons = false,
+      weapons = true,
       weapons_pure_upgrades_only = true, -- Only pick up better versions of same exact weapon
-      staves = false,
+      staves = true,
     },
 
     Alert = {
-      armour_sensitivity = 0.9, -- [0.5-2.0] Adjust all armour alerts; 0 to disable
-      weapon_sensitivity = 0.9, -- [0.5-2.0] Adjust all weapon alerts; 0 to disable
+      armour_sensitivity = 1.0, -- Adjust all armour alerts; 0 to disable all (range 0.5-2.0)
+      weapon_sensitivity = 1.0, -- Adjust all weapon alerts; 0 to disable all (range 0.5-2.0)
       orbs = true,
       staff_resists = true,
       talismans = false,
@@ -800,7 +790,7 @@ sound_pack += https://osp.nemelex.cards/build/latest.zip:["init.txt"]
 
 sound_pack += https://sound-packs.nemelex.cards/DCSS-UST/v1.0.1.zip
 
-# record_wtrec = true
+record_wtrec = true
 
 #######################
 ### Mini Map Colors ###
