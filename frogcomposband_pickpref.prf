@@ -50,6 +50,8 @@ potions:of life#!kq
 potions:of *healing*#!kq
 potions:restore mana#!kq
 
+!scrolls:identify
+
 ?:[NOT [EQU $CLASS Berserker]]
 scrolls:artifact creation#!*
 scrolls:of destruction#!*
@@ -303,7 +305,7 @@ Iron Spike#@vz
 V:6:0x01:0x6A:0x5A:0xCD
 
 #
-#*** マクロ（[\e]は[Esc]、[\r]は[Enter]、[\t]は[Tab]、[\s]は[スペース]、[^]は[Ctrl]）
+#*** マクロ（[\e]は[Esc]、[\r]は[Enter]、[\t]は[Tab]、[\s]は[スペース]、[^]は[Ctrl]）、yはプロンプトに干渉
 #
 
 #Powers
@@ -324,16 +326,24 @@ P:\[F7]
 A:\e\eUh
 P:\[F8]
 A:\e\eUi
+P:\[F9]
+A:\e\eJj
+P:\[F10]
+A:\e\eJk
 
 #Spells
 A:\e\ema
-P:x
+P:X
 A:\e\emb
-P:O
-A:\e\emc
-P:P
-A:\e\emd
 P:Y
+A:\e\emc
+P:O
+A:\e\emd
+P:K
+A:\e\eme
+P:P
+A:\e\emf
+P:N
 
 #Tab射撃
 A:\e\efa*5
@@ -341,8 +351,16 @@ P:\t
 
 #レベルの高いモンスターを見る（[*]キー: 視界内の近くのモンスターを見る）
 A:\e\el+r
-P:N
+P:x
 
 #回復するまで休む
 A:\e\eR\r
 P:\[shift-KP_5]
+
+#トラベル、下り階段
+A:\e\e`>
+P:^D
+
+#トラベル、上り階段
+A:\e\e`<
+P:^U
