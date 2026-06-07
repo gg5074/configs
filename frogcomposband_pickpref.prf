@@ -50,6 +50,7 @@ potions:of life#!kq
 potions:of *healing*#!kq
 potions:restore mana#!kq
 
+!potions:tsuyoshi special
 !scrolls:identify
 
 ?:[NOT [EQU $CLASS Berserker]]
@@ -317,7 +318,7 @@ V:6:0x01:0x6A:0x5A:0xCD
 #Powers
 A:\e\eUa*5
 P:\[F1]
-A:\e\eUb
+A:\e\eUb*5
 P:\[F2]
 A:\e\eUc
 P:\[F3]
@@ -354,6 +355,10 @@ C:0:N
 #Tab射撃
 A:\e\efa*5
 P:\t
+
+#ヘルプ、コマンド
+A:\e\e?cb
+C:0:h
 
 #レベルの高いモンスターを見る（[*]キー: 視界内の近くのモンスターを見る）
 A:\e\el+r
