@@ -7,8 +7,9 @@
 #
 #*** クエストの情報
 #
-#6,12,24,38,44,56,62,76,88階、ランダムクエスト
+#ランダムクエストは6,12,24,38,44,56,62,76,88階ではなく階はランダム、
 
+# raw.githubusercontent.com/hengband/hengband/refs/heads/develop/autopick_eng.txt
 #########################################
 # Consumables
 #########################################
@@ -51,6 +52,7 @@ potions:of *healing*#!kq
 potions:restore mana#!kq
 
 !potions:tsuyoshi special
+
 !scrolls:identify
 
 ?:[NOT [EQU $CLASS Berserker]]
@@ -282,6 +284,11 @@ Iron Spike#@vz
 !cursed nameless common items
 ?:1
 
+?:[GEQ $LEVEL 20]
+!nameless weapons:) (+0,+0)
+!nameless armors:,+0]
+?:1
+
 #If you are using the enhanced get command (auto_get_objects)
 #then I recommend the following 3 rules for the *entire* game.
 ?:[LEQ $LEVEL 50]
@@ -302,8 +309,10 @@ Iron Spike#@vz
 !worthless items
 #!unusable items
 
+
 # カラー '青'（青っぽい紫に変えた）
 V:6:0x01:0x6A:0x5A:0xCD
+
 
 #
 #*** マクロ（[\e]は[Esc]、[\r]は[Enter]、[\t]は[Tab]、[\s]は[スペース]、[^]は[Ctrl]）
