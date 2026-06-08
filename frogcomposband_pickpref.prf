@@ -1,14 +1,10 @@
 #***
-#***  You have activated the Mogaminator for the first time.
-#***  Since user preferences have not yet been created,
 #***  the default settings are loaded from lib/pref/pickpref.prf.
 #***
 
-#
-#*** クエストの情報
-#
 #ランダムクエストは6,12,24,38,44,56,62,76,88階ではなく階はランダム、
 
+# raw.githubusercontent.com/Gliktch/froxcomposband/refs/heads/main/lib/pref/pickpref.prf
 # raw.githubusercontent.com/hengband/hengband/refs/heads/develop/autopick_eng.txt
 #########################################
 # Consumables
@@ -96,8 +92,11 @@ rods:heroic speed#@zs!sdk
 ?staves:speed#@us!sdk
 ?staves:destruction#@ud!sdk
 ?staves:confusing lights#@uz!sdk
+?staves:genocide#@ug!sdk
+?staves:restore mana#@um!sdk
 ?wands:rocket#@ar!sdk
 ?wands:disintegrate#@ad!sdk
+?wands:annihilation#@ah!sdk
 ?:1
 
 ?:[AND [LEQ $LEVEL 45] [NOT [EQU $CLASS Berserker]] ]
@@ -292,6 +291,7 @@ Iron Spike#@v0
 !nameless weapons:) (+0,+0)
 !nameless shooters:) (+0,+0)
 !nameless armors:,+0]
+!nameless icky weapons
 ?:1
 
 #If you are using the enhanced get command (auto_get_objects)
@@ -406,7 +406,7 @@ P:\t
 
 #射撃
 A:\e\efa*5
-P:h
+C:0:h
 
 #ヘルプ、コマンド
 #A:\e\e?cb
