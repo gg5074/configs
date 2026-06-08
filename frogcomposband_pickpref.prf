@@ -152,6 +152,7 @@ mirror shield
 #########################################
 # Weaponry
 #########################################
+#auto-quiver: =g=w
 
 weapons:poison needle
 diamond edge
@@ -260,7 +261,7 @@ skeletons
 ?:[EQU $CLASS Ninja Ninja-Lawyer]
 ego lights:of darkness
 feanorian
-Iron Spike#@vz
+Iron Spike#@v0
 ?:1
 
 ~average items:feanorian lamp
@@ -278,14 +279,18 @@ Iron Spike#@vz
 !nameless common shooters
 
 ?:[GEQ $LEVEL 20]
+~nameless common weapons more value than 1000
+~nameless common shooters more value than 1000
+~nameless common armors more value than 1000
 !average common weapons
 !average common shooters
 !average common armors
 !cursed nameless common items
-?:1
-
-?:[GEQ $LEVEL 20]
+!nameless common weapons                                                                              
+!nameless common shooters
+!nameless common armors
 !nameless weapons:) (+0,+0)
+!nameless shooters:) (+0,+0)
 !nameless armors:,+0]
 ?:1
 
@@ -324,20 +329,38 @@ V:6:0x01:0x6A:0x5A:0xCD
 # A:<str>
 # C:0:<key>
 
+#縦横に17、斜めに12移動
+A:22222222222222222
+P:\[alt-KP_2]
+A:44444444444444444
+P:\[alt-KP_4]
+A:66666666666666666
+P:\[alt-KP_6]
+A:88888888888888888
+P:\[alt-KP_8]
+A:111111111111
+P:\[alt-KP_1]
+A:333333333333
+P:\[alt-KP_3]
+A:777777777777
+P:\[alt-KP_7]
+A:999999999999
+P:\[alt-KP_9]
+
 #Powers
 A:\e\eUa*5
 P:\[F1]
 A:\e\eUb*5
 P:\[F2]
-A:\e\eUc
+A:\e\eUc*5
 P:\[F3]
-A:\e\eUd
+A:\e\eUd*5
 P:\[F4]
-A:\e\eUe
+A:\e\eUe*5
 P:\[F5]
-A:\e\eUf
+A:\e\eUf*5
 P:\[F6]
-A:\e\eUg
+A:\e\eUg*5
 P:\[F7]
 A:\e\eUh
 P:\[F8]
@@ -361,17 +384,48 @@ C:0:P
 A:\e\emf
 C:0:N
 
-#Tab射撃
-A:\e\efa*5
+#トラベル
+A:\e\e`
+P:,
+
+#トラベル、Home
+A:\e\e]hJ
+P:^H
+
+#トラベル、アイテム
+A:\e\eH
+P:.
+
+#自動拾い
+A:\e\e^G
+P:@
+
+#Tab攻撃
+A:\e\e;*5
 P:\t
 
+#射撃
+A:\e\efa*5
+P:h
+
 #ヘルプ、コマンド
-A:\e\e?cb
-C:0:h
+#A:\e\e?cb
+#C:0:h
+
+#キャラクターシート、耐性
+A:\e\eCr
+P::
+
+#情報、ペットのコスト
+A:\e\e~p
+P:_
 
 #レベルの高いモンスターを見る（[*]キー: 視界内の近くのモンスターを見る）
 A:\e\el+r
 C:0:x
+#
+A:\e\el-r
+C:0:y
 
 #回復するまで休む
 A:\e\eR\r
