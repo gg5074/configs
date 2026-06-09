@@ -1,11 +1,14 @@
-#***
-#***  the default settings are loaded from lib/pref/pickpref.prf.
-#***
-
-#ランダムクエストは6,12,24,38,44,56,62,76,88階ではなく階はランダム、
-
+# yasd.fans/frogcomposbandhelpfile/editor
 # raw.githubusercontent.com/Gliktch/froxcomposband/refs/heads/main/lib/pref/pickpref.prf
 # raw.githubusercontent.com/hengband/hengband/refs/heads/develop/autopick_eng.txt
+
+# !  Destroy
+# ;  Prompt to pick up
+# ~ Leave on the floor
+# (  Don't display this item on the M map
+# ?  Automatically identify this item
+# Nameless: Applies to all objects that are neither artifacts nor ego items.
+
 #########################################
 # Consumables
 #########################################
@@ -291,7 +294,6 @@ Iron Spike#@v0
 !nameless weapons:) (+0,+0)
 !nameless shooters:) (+0,+0)
 !nameless armors:,+0]
-!nameless icky weapons
 ?:1
 
 #If you are using the enhanced get command (auto_get_objects)
@@ -329,7 +331,7 @@ V:6:0x01:0x6A:0x5A:0xCD
 # A:<str>
 # C:0:<key>
 
-#縦横に17、斜めに12移動
+#縦横に17、斜めに12移動（*破壊*の杖の範囲: 縦横は距離13-17、斜めには最大で距離12）
 A:22222222222222222
 P:\[alt-KP_2]
 A:44444444444444444
@@ -408,23 +410,18 @@ P:\t
 A:\e\efa*5
 C:0:h
 
-#ヘルプ、コマンド
-#A:\e\e?cb
-#C:0:h
-
 #キャラクターシート、耐性
-A:\e\eCr
+A:Cr
 P::
 
 #情報、ペットのコスト
-A:\e\e~p
+A:~p
 P:_
 
-#レベルの高いモンスターを見る（[*]キー: 視界内の近くのモンスターを見る）
+#調べる
 A:\e\el+r
 C:0:x
-#
-A:\e\el-r
+A:\e\el++r
 C:0:y
 
 #回復するまで休む
@@ -438,3 +435,5 @@ P:^D
 #トラベル、上り階段
 A:\e\e`<
 P:^U
+
+#ランダムクエストは6,12,24,38,44,56,62,76,88階ではなく階はランダム、
