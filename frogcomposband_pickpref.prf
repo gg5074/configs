@@ -1,5 +1,6 @@
 # yasd.fans/frogcomposbandhelpfile/editor
 # raw.githubusercontent.com/Gliktch/froxcomposband/refs/heads/main/lib/pref/pickpref.prf
+# raw.githubusercontent.com/Gliktch/froxcomposband/refs/heads/main/lib/pref/pref-mac.prf
 # raw.githubusercontent.com/hengband/hengband/refs/heads/develop/autopick_eng.txt
 
 # !  Destroy
@@ -19,6 +20,8 @@ mushroom of restoring#!E
 ~?unidentified items:mushroom
 ~mushroom
 ?:1
+
+!mushroom of disease
 
 ?:[LEQ $LEVEL 35]
 potions:resist heat and cold#!kq
@@ -74,6 +77,8 @@ scrolls:banish
 ?unidentified amulets
 #!identified rings
 #!identified amulets
+
+!staves:identify
 
 ?:[AND [EQU $SELLING Off] [EQU $CLASS Berserker]]
 !nameless shooters
@@ -294,7 +299,22 @@ Iron Spike#@v0
 !nameless weapons:) (+0,+0)
 !nameless shooters:) (+0,+0)
 !nameless armors:,+0]
+
+?:[GEQ $LEVEL 10]
+!shovel
+!pickaxe
 ?:1
+
+#Control-Keypad (lib/pref/pref-mac.prf) -- wield {@0} and tunnel
+#T:KP_0:18
+#T:KP_9:28
+#A:\e\ew0\s\s\\+1
+#P:^_CO19\r
+#Control-Keypad-Zero -- wield {@0}
+#A:\e\ew0\s
+#P:^_CO18\r
+~shovel#@w0
+~pickaxe#@w0
 
 #If you are using the enhanced get command (auto_get_objects)
 #then I recommend the following 3 rules for the *entire* game.
@@ -360,7 +380,7 @@ A:\e\e`>
 P:^D
 
 #トラベル、上り階段
-A:\e\e`<
+A:\e\e`<<
 P:^U
 
 #トラベル
