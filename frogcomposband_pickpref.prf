@@ -21,9 +21,13 @@ mushroom of restoring#!E
 
 !mushroom of disease
 
+identified items:mushroom
+unidentified items:mushroom
+
 ?:[LEQ $LEVEL 35]
 potions:resist heat and cold#!kq
 ?:1
+
 potions:resistance#!kq
 potions:stone skin#!k
 potions:heroism
@@ -53,8 +57,9 @@ potions:restore mana#!kq
 
 !potions:tsuyoshi special
 !scrolls:identify
-unidentified potions
-unidentified scrolls
+
+identified items:potions
+unidentified items:potions
 
 ?:[NOT [EQU $CLASS Berserker]]
 scrolls:artifact creation#!*
@@ -65,6 +70,8 @@ scrolls:forest creation
 scrolls:wall of stone
 scrolls:acquirement#!*
 scrolls:banish
+identified items:scrolls
+unidentified items:scrolls
 ?:1
 
 #########################################
@@ -304,10 +311,10 @@ Iron Spike#@v0
 ?:1
 
 #Control-Keypad (lib/pref/pref-mac.prf) -- wield {@0} and tunnel
-#T:KP_0:18
-#T:KP_9:28
+#T:KP_0:18, T:KP_9:28
 #A:\e\ew0\s\s\\+1
 #P:^_CO19\r
+#
 #Control-Keypad-Zero -- wield {@0}
 #A:\e\ew0\s
 #P:^_CO18\r
@@ -386,12 +393,12 @@ P:^U
 A:\e\e`>
 P:^D
 
-#トラベル、アイテム
-A:\e\eH
+#トラベル、アイテム、自動拾い
+A:\e\eH^G
 P:.
 
-#自動拾い
-A:\e\e^G
+#自動拾い、トラベル、アイテム
+A:\e\e^GH
 P:@
 
 #縦横に17、斜めに12移動（*破壊*の杖の範囲: 縦横は距離13-17、斜めには最大で距離12）
