@@ -3,12 +3,10 @@
 # raw.githubusercontent.com/Gliktch/froxcomposband/refs/heads/main/lib/pref/pref-mac.prf
 # raw.githubusercontent.com/hengband/hengband/refs/heads/develop/autopick_eng.txt
 
-# !  Destroy
 # ;  Prompt to pick up
 # ~ Leave on the floor
 # (  Don't display this item on the M map
 # ?  Automatically identify this item
-# Nameless: Applies to all objects that are neither artifacts nor ego items.
 
 #########################################
 # Consumables
@@ -54,8 +52,9 @@ potions:of *healing*#!kq
 potions:restore mana#!kq
 
 !potions:tsuyoshi special
-
 !scrolls:identify
+unidentified potions
+unidentified scrolls
 
 ?:[NOT [EQU $CLASS Berserker]]
 scrolls:artifact creation#!*
@@ -73,10 +72,10 @@ scrolls:banish
 #########################################
 #identified rings more value than 5000
 #identified amulets more value than 5000
-?unidentified rings
-?unidentified amulets
 #!identified rings
 #!identified amulets
+unidentified rings
+unidentified amulets
 
 !staves:identify
 
@@ -115,9 +114,9 @@ rods:heroic speed#@zs!sdk
 wizardstaff
 ?:1
 
-?unidentified rods
-?unidentified staves
-?unidentified wands
+unidentified rods
+unidentified wands
+unidentified staves
 
 #########################################
 # Artifacts
@@ -159,7 +158,6 @@ mirror shield
 #########################################
 # Weaponry
 #########################################
-#auto-quiver: =g=w
 
 weapons:poison needle
 diamond edge
@@ -345,18 +343,15 @@ V:6:0x01:0x6A:0x5A:0xCD
 #*** マクロ（[\e]は[Esc]、[\r]は[Enter]、[\t]は[Tab]、[\s]は[スペース]、[^]は[Ctrl]、[\]は[\\]、[^]は[\^]）
 #
 
-#自動拾い
-A:\e\e^G
-P:@
-
-#Tabで攻撃
+#Tabで近づいて攻撃
 A:\e\e;*5
 P:\t
 
-#射撃
+#射撃、スロットa
 A:\e\efa*5
 C:0:h
-A:\e\efa*
+#射撃、スロットb
+A:\e\efb*5
 C:0:y
 
 #キャラクターシート、耐性
@@ -375,14 +370,6 @@ C:0:x
 A:\e\eR\r
 P:\[shift-KP_5]
 
-#トラベル、下り階段
-A:\e\e`>
-P:^D
-
-#トラベル、上り階段
-A:\e\e`<<
-P:^U
-
 #トラベル
 A:\e\e`
 P:,
@@ -391,9 +378,21 @@ P:,
 A:\e\e]hJ
 P:^H
 
+#トラベル、上り階段
+A:\e\e`<
+P:^U
+
+#トラベル、下り階段
+A:\e\e`>
+P:^D
+
 #トラベル、アイテム
 A:\e\eH
 P:.
+
+#自動拾い
+A:\e\e^G
+P:@
 
 #縦横に17、斜めに12移動（*破壊*の杖の範囲: 縦横は距離13-17、斜めには最大で距離12）
 A:22222222222222222
@@ -428,9 +427,9 @@ A:\e\emf
 C:0:N
 
 #Powers
-A:\e\eUa*5
+A:\e\eUa
 P:\[F1]
-A:\e\eUb*5
+A:\e\eUb
 P:\[F2]
 A:\e\eUc*5
 P:\[F3]
