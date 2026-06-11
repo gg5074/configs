@@ -13,6 +13,7 @@
 #########################################
 mushroom of restoring#!E
 ~mushroom of hallucination
+~ration of food
 
 ?:[EQU $RACE Snotling Doppelganger]
 ~?unidentified items:mushroom
@@ -20,6 +21,7 @@ mushroom of restoring#!E
 ?:1
 
 !mushroom of disease
+!mushroom of confusion
 
 identified items:mushroom
 unidentified items:mushroom
@@ -354,10 +356,10 @@ V:6:0x01:0x6A:0x5A:0xCD
 A:\e\e;*5
 P:\t
 
-#射撃、スロットa
+#射撃1
 A:\e\efa*5
 C:0:h
-#射撃、スロットb
+#射撃2
 A:\e\efb*5
 C:0:y
 
@@ -370,12 +372,17 @@ A:\e\e~p
 P:_
 
 #調べる
-A:\e\e*r
+#A:\e\e*r
+A:\e\el+r
 C:0:x
 
 #回復するまで休む
 A:\e\eR\r
 P:\[shift-KP_5]
+
+#ターンを進める
+A:\e\eR15\r
+P:Z
 
 #トラベル
 A:\e\e`
