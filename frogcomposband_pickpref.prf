@@ -11,9 +11,11 @@
 #########################################
 # Consumables
 #########################################
+~ration of food
+~elvish waybread
+
 mushroom of restoring#!E
 ~mushroom of hallucination
-~ration of food
 
 ?:[EQU $RACE Snotling Doppelganger]
 ~?unidentified items:mushroom
@@ -167,6 +169,7 @@ mirror shield
 #########################################
 # Weaponry
 #########################################
+#10ポンド未満のポールアームでない武器は両手で扱えない
 
 weapons:poison needle
 diamond edge
@@ -182,6 +185,16 @@ rune sword
 
 ?:[EQU $CLASS Mauler]
 weapons more weight than 39
+?:1
+
+#?:$AUTOREGISTER
+# *Warning!* The lines below will be deleted later.
+# Keep them by cut & paste if you need them for future characters.
+#(!average ammo:^rounded pebble$
+?:[GEQ $LEVEL 15]
+!average ammo:arrow (3d4) (+0,+0)
+!average ammo:rounded pebble (2d3) (+0,+0)
+!average ammo:iron shot (3d3) (+0,+0)
 ?:1
 
 ?:[AND [EQU $CLASS Weaponmaster] [EQU $SPECIALITY Bows] ]
@@ -375,6 +388,10 @@ P:)
 #キャラクターシート、耐性
 A:\e\eCr
 P::
+
+#Dumpを出力してセーブ終了
+A:\e\eC|\r\e^X
+P:#
 
 #情報、ペットのコスト
 A:\e\e~p
