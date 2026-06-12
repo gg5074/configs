@@ -341,7 +341,7 @@ Iron Spike#@v0
 
 ~special items
 !worthless items
-#!unusable items
+!unusable items
 
 
 # カラー '青'（青っぽい紫に変えた）
@@ -362,6 +362,15 @@ C:0:h
 #射撃2
 A:\e\efb*5
 C:0:y
+#射撃3
+A:\e\efc*5
+P:'
+#射撃4
+A:\e\efd*5
+P:(
+#射撃5
+A:\e\efe*5
+P:)
 
 #キャラクターシート、耐性
 A:\e\eCr
