@@ -361,16 +361,17 @@ Iron Spike#@v0
 # カラー '青'（青っぽい紫に変えた）
 V:6:0x01:0x6A:0x5A:0xCD
 
+
 #
-#低層で酸・劣化・放射性廃棄物の攻撃を持つモンスターを紫（0x0a）で表示する
+#低層で劣化・酸・放射性廃棄物の攻撃を持つモンスターを紫で表示する
 #
 
-#元から紫の一般モンスター
+#元から紫（0x0a）の一般モンスター
 #Zephyr Lord、Colour out of space、Quantum dot、Vore、Devilfish、Durahan、Demonite、Chameleon、Chameleon Lord
-#graf-new.prfに載っていないユニーク: The Variant Maintainer、Boldog, the Merciless
+#graf-new.prfに載っていないユニークは適用外: The Variant Maintainer、Boldog, the Mercilessのほかにもいる？
 # github.com/Gliktch/froxcomposband/blob/main/lib/pref/graf-new.prf
 
-#Disenchantment
+#Disenchantment（劣化）
 # Disenchanter eye
 R:104:0x0a/0x9D
 # Disenchanter mold
@@ -379,10 +380,10 @@ R:192:0x0a/0x84
 R:399:0x0a/0x96
 # Devilfish
 R:918:0x0a/0x6C
-# Undead devilfish
+# Undead devilfish ※Nexus（因果混乱）のブレスも
 R:913:0x0a/0xA3
 
-#Acid
+#Acid（酸）
 # Giant slug
 R:120:0x0a/0x90
 # Baby black dragon
@@ -390,12 +391,12 @@ R:166:0x0a/0x80
 # Baby multi-hued dragon
 R:204:0x0a/0x83
 
-#Toxic Waste
+#Toxic Waste（放射性廃棄物）
 # Chaos mushroom
 R:904:0x0a/0x2C
 
 #
-#変愚蛮怒1.7.2用ユニーク色分けパッチ: ユニークと要注意モンスター6体
+#ユニーク色分けパッチ: ユニークと要注意モンスター6体、変愚蛮怒1.7.2用
 # roguelike.namekuji.jp/index.html?siryo_patch.html
 #
 
