@@ -367,7 +367,7 @@ V:6:0x01:0x6A:0x5A:0xCD
 
 #元から紫の一般モンスター
 #Zephyr Lord、Colour out of space、Quantum dot、Vore、Devilfish、Durahan、Demonite、Chameleon、Chameleon Lord
-#graf-new.prfに載っていないユニーク: The Variant Maintainer 
+#graf-new.prfに載っていないユニーク: The Variant Maintainer、Boldog, the Merciless
 # github.com/Gliktch/froxcomposband/blob/main/lib/pref/graf-new.prf
 
 #Disenchantment
@@ -395,7 +395,7 @@ R:204:0x0a/0x83
 R:904:0x0a/0x2C
 
 #
-#1.7.2用ユニーク色分けパッチ: ユニークと要注意モンスター6体
+#変愚蛮怒1.7.2用ユニーク色分けパッチ: ユニークと要注意モンスター6体
 # roguelike.namekuji.jp/index.html?siryo_patch.html
 #
 
