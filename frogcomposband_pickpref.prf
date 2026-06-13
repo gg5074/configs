@@ -192,7 +192,8 @@ weapons more weight than 39
 # Keep them by cut & paste if you need them for future characters.
 #(!average ammo:^rounded pebble$
 ?:[GEQ $LEVEL 15]
-!average ammo:arrow (3d4) (+0,+0)
+#!average ammo:^arrow (3d4) (+0,+0)
+!average ammo:^arrow
 !average ammo:rounded pebble (2d3) (+0,+0)
 !average ammo:iron shot (3d3) (+0,+0)
 ?:1
@@ -980,7 +981,7 @@ A:\e\eCr
 P::
 
 #Dump出力
-A:\e\eC|\r\s\r
+A:\e\eC|\r\n
 P:#
 
 #情報、ペットのコスト
