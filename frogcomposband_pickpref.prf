@@ -1,3 +1,83 @@
+#
+#*** Quests
+#
+# raw.githubusercontent.com/sulkasormi/frogcomposband/refs/heads/master/src/changes
+# github.com/Gliktch/froxcomposband/blob/main/lib/edit/q_info.txt
+# github.com/Gliktch/froxcomposband/tree/main/lib/edit
+# yasd.fans/frogcomposbandhelpfile/dungeon
+# nikheizen.github.io/pages/rewards.html
+
+#
+# Random Quests (Angband)
+# 10個のクエスト、階は6,12,24,38,44,56,62,76,88ではなくランダム
+#
+
+#
+# Fixed Quests
+#
+# 5: The Thieves' Hideout (Outpost, Mayor), {good} or {excellent} Class-suited item; or a {good} longsword for many classes
+# 5: Trouble at Home (Outpost)
+# 5: Pest Control (Outpost, Mayor), {good} or {excellent} Class-suited item
+# 10: Mushrooms (Thalos)
+# 12: Cop Quest (Anambar)
+# 15: I Hate Snakes! (Morivant)
+# 15: The Compost Heap (Outpost)
+# 18: Bear Problem (Outpost)
+# 20: The Orc Camp (Anambar), a Cloak of Stealth
+# 20: Tidy the Laboratory (Thalos)
+# 20: Shadow Fairies (Thalos)
+# 22: The Stranger (Telmora)
+# 22: Old Man Willow Quest (Outpost, Inn)
+# 22: Cyclops's Lair (Thalos)
+# 24: Doom Quest I (Angwil), Elemental Ring or Charm
+# 25: The Old Barracks (Morivant)
+# 25: The Mimic's Treasure (Morivant, Thieves' Guild), Ring of Protection or Amulet of Trickery
+# 25: Tengu and Death Swords (Morivant, Thieves' Guild), Ring of Protection, Elemental Charm, or Dagger of Westernesse
+# 25: The Dark Elven Lords (Morivant, Inn)
+# 25: Vapor Quest (Outpost, Castle), Rod of Detection
+# 27: Clear the Tunnels (Anambar)
+# 30: Smugglers' Den (Anambar)
+# 30: Ghost Town (Morivant)
+# 30: Troll Slayer (Morivant)
+# 32: Swamp Lights (Telmora)
+# 32: The Old Watchtower (Thalos)
+# 33: Dinosaur Quest (Anambar)
+# 35: The Vault (Telmora)
+# 35: The Barrow Downs (Telmora), Discount at Library, Beastmaster, and Weaponmaster (Cloak of Merry is a guaranteed spawn in the level)
+# 35: The Shopkeeper's Secret (Morivant)
+# 36: Giant Slayer (Morivant)
+# 38: The Sand Pit (Angwil)
+
+#
+# Dungeons
+#
+# 9: Warrens
+# 18: Hideout
+# 20: Icky cave
+# 27: Tidal cave
+# 28: Labyrinth, a Rod: Recall (2/2)
+# 32: Orc cave
+# 35: Camelot
+# 36: Troll cave
+# 40: Witch Wood
+# 40: Lonely Mountain
+# 45: Chameleon cave
+
+#
+# Arena (Gladiator Ring, Thalos)
+#
+# 5: Hill giant, Stack of Potions: Speed
+# 10: Dark elven lord, Stack of Potions: Healing
+# 15: Angel, Rod: Detect Monsters (2/2)
+# 20: Ogre shaman, Scroll: Acquirement
+# 21: Biclops, Potion: Self Knowledge
+# 22: Mature multi-hued dragon, Stack of Scrolls: Rune of Protection
+
+
+
+#
+#*** Mogaminator
+#
 # yasd.fans/frogcomposbandhelpfile/editor
 # raw.githubusercontent.com/Gliktch/froxcomposband/refs/heads/main/lib/pref/pickpref.prf
 # raw.githubusercontent.com/Gliktch/froxcomposband/refs/heads/main/lib/pref/pref-mac.prf
@@ -132,7 +212,6 @@ unidentified staves
 #########################################
 # Artifacts
 #########################################
-
 ?unidentified artifact items
 ?unidentified ego items
 
@@ -143,7 +222,6 @@ unidentified staves
 #########################################
 # Armor
 #########################################
-
 power dragon
 balance dragon
 t-shirt
@@ -169,7 +247,8 @@ mirror shield
 #########################################
 # Weaponry
 #########################################
-#10ポンド未満のポールアームでない武器は両手で扱えない
+# 10ポンド未満のポールアームでない武器は両手で扱えない
+# yasd.fans/frogcomposbandhelpfile/attack
 
 weapons:poison needle
 diamond edge
@@ -216,7 +295,6 @@ weapons more weight than 39
 #########################################
 # Corpses
 #########################################
-
 ?:[EQU $RACE Possessor]
 ~wanted corpses#Wanted!kkk
 wanted skeletons#Wanted!kkk
@@ -240,7 +318,6 @@ corpses
 #########################################
 # Spellbooks
 #########################################
-
 ?:[AND [EQU $SELLING Off] [NOT [EQU $CLASS Skillmaster]]]
 !unreadable spellbooks
 ?:1
@@ -270,7 +347,6 @@ second realm's third spellbooks#@mg!k
 #########################################
 # Auto-ID Unaware and Collecting Items
 #########################################
-
 ?unaware items
 
 collecting potions
@@ -280,7 +356,6 @@ collecting scrolls
 #########################################
 # Destroy Junk
 #########################################
-
 ?:[EQU $CLASS Archer]
 junk:^broken skull
 junk:^broken bone
@@ -326,19 +401,19 @@ Iron Spike#@v0
 !pickaxe
 ?:1
 
-#Control-Keypad (lib/pref/pref-mac.prf) -- wield {@0} and tunnel
-#T:KP_0:18, T:KP_9:28
-#A:\e\ew0\s\s\\+1
-#P:^_CO19\r
-#
-#Control-Keypad-Zero -- wield {@0}
-#A:\e\ew0\s
-#P:^_CO18\r
+# Control-Keypad (lib/pref/pref-mac.prf) -- wield {@0} and tunnel
+# T:KP_0:18, T:KP_9:28
+# A:\e\ew0\s\s\\+1
+# P:^_CO19\r
+
+# Control-Keypad-Zero -- wield {@0}
+# A:\e\ew0\s
+# P:^_CO18\r
 ~shovel#@w0
 ~pickaxe#@w0
 
-#If you are using the enhanced get command (auto_get_objects)
-#then I recommend the following 3 rules for the *entire* game.
+# If you are using the enhanced get command (auto_get_objects)
+# then I recommend the following 3 rules for the *entire* game.
 ?:[LEQ $LEVEL 50]
 (unsensed armors
 (unsensed weapons
@@ -358,7 +433,11 @@ Iron Spike#@v0
 !unusable items
 
 
+
+#
 # github.com/Gliktch/froxcomposband/blob/main/lib/pref/colors.prf
+#
+
 # カラー '青'（青っぽい紫に変えた）
 #V:6:0x01:0x6A:0x5A:0xCD
 
@@ -371,19 +450,21 @@ V:6:0x01:0x00:0xBF:0xFF
 V:8:0x08:0x95:0x95:0x95
 
 
+
 #
-#低層で劣化・酸・放射性廃棄物の攻撃を持つモンスターを紫で表示する
+# 低層で劣化・酸・放射性廃棄物の攻撃を持つモンスターを紫で表示する
 #
 # 属性攻撃逆引表
 # roguelike.namekuji.jp/index.html?data_resist.html
 #
 
-#元から紫（0x0a）の一般モンスター
-#Zephyr Lord、Colour out of space、Quantum dot、Vore、Devilfish、Durahan、Demonite、Chameleon、Chameleon Lord
-#graf-new.prfに載っていないユニークは適用外: The Variant Maintainer、Boldog, the Mercilessのほかにもいる？
+# 元から紫（0x0a）の一般モンスター:
+# Zephyr Lord、Colour out of space、Quantum dot、Vore、Devilfish、Durahan、Demonite、Chameleon、Chameleon Lord
+#
+# graf-new.prfに載っていないユニークは適用外: The Variant Maintainer、Boldog, the Mercilessなど
 # github.com/Gliktch/froxcomposband/blob/main/lib/pref/graf-new.prf
 
-#Disenchantment（劣化）
+# Disenchantment（劣化）
 # Disenchanter eye
 R:104:0x0a/0x9D
 # Disenchanter mold
@@ -395,7 +476,7 @@ R:918:0x0a/0x6C
 # Undead devilfish ※Nexus（因果混乱）のブレスも
 R:913:0x0a/0xA3
 
-#Acid（酸）
+# Acid（酸）
 # Giant slug
 R:120:0x0a/0x90
 # Baby black dragon
@@ -403,12 +484,12 @@ R:166:0x0a/0x80
 # Baby multi-hued dragon
 R:204:0x0a/0x83
 
-#Toxic Waste（放射性廃棄物）
+# Toxic Waste（放射性廃棄物）
 # Chaos mushroom
 R:904:0x0a/0x2C
 
 #
-#ユニーク色分けパッチ: ユニークと要注意モンスター6体、変愚蛮怒1.7.2用
+# ユニーク色分けパッチ: ユニークと要注意モンスター6体、変愚蛮怒1.7.2用
 # roguelike.namekuji.jp/index.html?siryo_patch.html
 #
 
@@ -965,11 +1046,9 @@ R:1079:0x0A/0x71
 R:1080:0x0A/0x2C
 
 
-#ランダムクエストは6,12,24,38,44,56,62,76,88階ではなく階はランダム、
-
 
 #
-#*** マクロ（[\e]は[Esc]、[\r]は[Enter]、[\t]は[Tab]、[\s]は[スペース]、[^]は[Ctrl]、[\]は[\\]、[^]は[\^]）
+#*** マクロ（[\e]は[Esc]、[\r]は[Enter]、[\t]は[Tab]、[\s]は[スペース]、[^]は[Ctrl]、[\]キーは[\\]、[^]は[\^]）
 #
 # 通常のキーをマクロトリガーとして使用するとそのキーの通常の動作が妨げられる
 #
@@ -977,80 +1056,80 @@ R:1080:0x0A/0x2C
 # A:<str>
 # C:0:<key>
 
-#Tabで近づいて攻撃
+# Tab: 近づく、攻撃する
 A:\e\e;*5
 P:\t
 
-#射撃1
+# 射撃1
 A:\e\efa*5
 C:0:h
-#射撃2
+# 射撃2
 A:\e\efb*5
 C:0:y
-#射撃3
+# 射撃3
 A:\e\efc*5
 P:'
-#射撃4
+# 射撃4
 A:\e\efd*5
 P:(
-#射撃5
+# 射撃5
 A:\e\efe*5
 P:)
 
-#キャラクターシート、耐性
+# Resistances/Abilities
 A:\e\eCr
 P::
 
-#Dump出力
+# Dumpを出力
 A:\e\eC|\r\n
 P:#
 
-#情報、ペットのコスト
+# ペットのコスト
 A:\e\e~p
 P:_
 
-#調べる
+# モンスターを見る
 #A:\e\e*r
 A:\e\el+r
 C:0:x
 
-#回復するまで休む
+# 回復するまで休む
 A:\e\eR\r
 P:\[shift-KP_5]
 
-#ターンを進める
+# ターンを進める
 A:\e\eR15\r
 P:Z
 
-#トラベル
+# トラベルコマンド
 A:\e\e`
 P:,
 
-#トラベル再開
+# トラベルを再開
 A:\e\eJ
 C:0:j
 
-#トラベル、Home
+# トラベル、Home
 A:\e\e]hJ
 P:^H
 
-#トラベル、上り階段
+# トラベル、上り階段
 A:\e\e`<
 P:^U
 
-#トラベル、下り階段
+# トラベル、下り階段
 A:\e\e`>
 P:^D
 
-#トラベル、アイテム
+# トラベル、アイテム
 A:\e\eH
 P:.
 
-#自動拾い
+# Auto-Get nearby objects
 A:\e\e^G
 P:@
 
-#縦横に17、斜めに12移動（*破壊*の杖の範囲: 縦横は距離13-17、斜めには最大で距離12）
+# 縦横に17、斜めに12移動（*破壊*の杖の範囲: 縦横は距離13-17、斜めは最大で距離12）
 A:22222222222222222
 P:\[alt-KP_2]
 A:44444444444444444
@@ -1068,7 +1147,7 @@ P:\[alt-KP_7]
 A:999999999999
 P:\[alt-KP_9]
 
-#Spells
+# Spells
 A:\e\ema
 C:0:X
 A:\e\emb
@@ -1082,7 +1161,7 @@ C:0:P
 A:\e\emf
 C:0:N
 
-#Powers
+# Powers
 A:\e\eUa
 P:\[F1]
 
@@ -1094,10 +1173,8 @@ P:\[F3]
 
 A:\e\eUd*5
 P:\[F4]
-
 A:\e\eUe*5
 P:\[F5]
-
 A:\e\eUf*5
 P:\[F6]
 A:\e\eUg*5
