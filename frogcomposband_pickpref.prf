@@ -1147,39 +1147,19 @@ R:1080:0x0A/0x2C
 # A:<str>
 # C:0:<key>
 
-# Tab: 近づく、攻撃する
-A:\e\e;*5
-P:\t
-
-# 射撃1
-A:\e\efa*5
-C:0:h
-# 射撃2
-A:\e\efb*5
-C:0:y
-# 射撃3
-A:\e\efc*5
-P:'
-# 射撃4
-A:\e\efd*5
-P:(
-# 射撃5
-A:\e\efe*5
-P:)
-
-# Resistances/Abilities
+# [:]: キャラクターシート、Resistances/Abilities
 A:\e\eCr
 P::
 
-# Dumpを出力
+# [#]: Dumpを出力
 A:\e\eC|\r\n
 P:#
 
-# ペットのコスト
+# [_]: ペットのコスト
 A:\e\e~p
 P:_
 
-# モンスターを見る
+# [x]: モンスターを見る
 #A:\e\e*r
 A:\e\el+r
 C:0:x
@@ -1192,7 +1172,7 @@ P:\[shift-KP_5]
 A:\e\eR15\r
 P:Z
 
-# トラベルコマンド
+# [,]: Travel to location
 A:\e\e`
 P:,
 
@@ -1212,11 +1192,11 @@ P:^U
 A:\e\e`>
 P:^D
 
-# トラベル、アイテム
+# [.]: トラベル、アイテム
 A:\e\eH
 P:.
 
-# Auto-Get nearby objects
+# [@]: Auto-Get nearby objects
 A:\e\e^G
 P:@
 
@@ -1238,27 +1218,33 @@ P:\[alt-KP_7]
 A:999999999999
 P:\[alt-KP_9]
 
-# Spells
-A:\e\ema
-C:0:X
-A:\e\emb
-C:0:Y
-A:\e\emc
-C:0:O
-A:\e\emd
-C:0:K
-A:\e\eme
-C:0:P
-A:\e\emf
-C:0:N
+# [Tab]: 近づく、攻撃する
+A:\e\e;*5
+P:\t
 
+# [h]: 射撃a
+A:\e\efa*5
+C:0:h
+# [y]: 射撃b
+A:\e\efb*5
+C:0:y
+# [']: 射撃c
+A:\e\efc*5
+P:'
+# [(]: 射撃d
+A:\e\efd*5
+P:(
+# [)]: 射撃e
+A:\e\efe*5
+P:)
+
+#
 # Powers
+#
 A:\e\eUa
 P:\[F1]
-
 A:\e\eUbaa
 P:\[F2]
-
 A:\e\eUbs
 P:\[F3]
 
@@ -1268,6 +1254,7 @@ A:\e\eUe*5
 P:\[F5]
 A:\e\eUf*5
 P:\[F6]
+
 A:\e\eUg*5
 P:\[F7]
 A:\e\eUh*5
@@ -1277,3 +1264,20 @@ P:\[F9]
 A:\e\eJj
 P:\[F10]
 A:\e\eJk
+
+#
+# Spells
+#
+A:\e\ema
+C:0:X
+A:\e\emb
+C:0:Y
+A:\e\emc
+C:0:O
+
+A:\e\emd
+C:0:K
+A:\e\eme
+C:0:P
+A:\e\emf
+C:0:N
