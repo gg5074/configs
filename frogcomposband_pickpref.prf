@@ -15,8 +15,8 @@
 #
 # Fixed Quests
 #
+# 5: Trouble at Home (Outpost, Inn)
 # 5: The Thieves' Hideout (Outpost, Mayor), {good} or {excellent} Class-suited item; or a {good} longsword for many classes
-# 5: Trouble at Home (Outpost)
 # 5: Pest Control (Outpost, Mayor), {good} or {excellent} Class-suited item
 # 10: Mushrooms (Thalos)
 # 12: Cop Quest (Anambar)
@@ -47,6 +47,27 @@
 # 35: The Shopkeeper's Secret (Morivant)
 # 36: Giant Slayer (Morivant)
 # 38: The Sand Pit (Angwil)
+# 40: Crystal Quest (Anambar)
+# 40: Staff Recovery (Thalos)
+# 42: Dragon Quest (Angwil)
+# 42: The Elven Embassy (Morivant)
+# 45: Dark Academy (Thalos)
+# 45: The Haunted House (Outpost)
+# 45: The Cloning Pits (Thalos)
+# 50: The Old Castle (Outpost)
+# 50: The Mountain Shrine (Telmora)
+# 50: Clear the Wreckage (Thalos)
+# 55: Facing the Books (Angwil)
+# 55: The Underground City (Morivant)
+# 55: Doom Quest II (Angwil)
+# 55: The Renegade Sorcerer (Thalos)
+# 55: The Mystery of Apina Island (Anambar)
+# 55: Eddies in the Space-Time Continuum (Zul)
+# 60: The Volcano (Telmora)
+# 66: Dragon Slayer (Morivant)
+# 70: The Killer in the Cellar (Anambar)
+# 70: Eric's Stronghold (Telmora)
+# 72: Demon Slayer (Morivant)
 
 #
 # Dungeons
@@ -62,16 +83,52 @@
 # 40: Witch Wood
 # 40: Lonely Mountain
 # 45: Chameleon cave
+# 50: Eyrie
+# 50: Anti-melee cave
+# 50: Battlefield
+# 50: Snow castle 
+# 60: Volcano
+# 60: Crystal castle
+# 65: Castle
+# 70: Graveyard
+# 72: Dragon's lair
+# 75: Numenor
+# 80: Mine
+# 80: Arena
+# 80: Disaster area
+# 88: Asgard
+# 90: Mount Olympus
+# 92: Pyramidal mound
+# 92: Mount Meru
+# 96: R'lyeh
 
 #
 # Arena (Gladiator Ring, Thalos)
 #
 # 5: Hill giant, Stack of Potions: Speed
+# 8: Berserker, Rod: Detect Traps (2/2)
 # 10: Dark elven lord, Stack of Potions: Healing
 # 15: Angel, Rod: Detect Monsters (2/2)
 # 20: Ogre shaman, Scroll: Acquirement
 # 21: Biclops, Potion: Self Knowledge
 # 22: Mature multi-hued dragon, Stack of Scrolls: Rune of Protection
+# 24: Elder thing, Wand: Drain Life (6/6)
+# 25: Ettin, Scroll: *Enchant Weapon*
+# 26: Vampire lord, Rod: Detection (2/2)
+# 27: Barney the Dinosaur, Scroll: Genocide
+# 28: Groo the Wanderer, Stack of Scrolls: Mundanity
+# 29: Dark elven sorceror, Wand: Meteor (6/6)
+# 30: Iron lich, Potion: New Life
+# 31: Greater titan, Potion: *Enlightenment*
+# 32: Greater balrog, Rod: Enlightenment (2/2)
+# 33: Nightwalker, Rod: Disintegration Beam (2/2)
+# 34: Shambler, Staff: Holiness (6/6)
+# 35: Black reaver, Scroll: *Acquirement*
+# 36: Fenghuang, Staff: Restore Mana(6/6)
+# 37: Great Wyrm of Power, Rod: Angelic Healing (2/2)
+# 38: Great Wyrm of Power, 1 Million AU + Champion Status
+# 39: The Metal Babble, Scroll: Artifact Creation
+# 40: The Metal Babble, ***TRUEWINNER***
 
 
 
@@ -431,6 +488,38 @@ Iron Spike#@v0
 ~special items
 !worthless items
 !unusable items
+
+
+
+#
+# 壁の#や%を擬似グラフィック画像に変更する
+# lib/pref/font-win.prf
+#
+
+# Magma (slate / solid block)
+F:50:2/127:LIT
+F:52:2/127:LIT
+
+# Mountain (umber / solid block)
+F:97:7/127:LIT
+F:98:7/127:LIT
+
+# Quartz (light slate / solid block)
+F:51:9/127:LIT
+F:53:9/127:LIT
+
+# Secret door (white / solid block)
+F:48:1/127
+
+# Granite walls & permanent rock (white / solid block)
+F:56:1/127:LIT
+F:57:1/127:LIT
+F:58:1/127:LIT
+F:59:1/127:LIT
+F:60:15/127:LIT
+F:61:15/127:LIT
+F:62:15/127:LIT
+F:63:15/127:LIT
 
 
 
