@@ -1151,11 +1151,15 @@ R:1080:0x0A/0x2C
 #
 # yasd.fans/frogcomposbandhelpfile/command#OriginalKeyset
 
+# [$]: キャラクターシート、Home（Reload Mogaminator prefsの[$]に上書き）
+A:\e\eCh
+P:$
+
 # [:]: キャラクターシート、Resistances/Abilities（Take notesの[:]に上書き）
 A:\e\eCr
 P::
 
-# [#]: Dumpを出力
+# [#]: キャラクターシート、Dumpを出力
 A:\e\eC|\r\n
 P:#
 
@@ -1188,11 +1192,11 @@ C:0:j
 A:\e\e]hJ
 P:^H
 
-# トラベル、上り階段
+# トラベル、階段<
 A:\e\e`<
 P:^U
 
-# トラベル、下り階段
+# トラベル、階段>
 A:\e\e`>
 P:^D
 
