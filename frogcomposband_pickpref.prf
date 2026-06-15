@@ -87,7 +87,8 @@
 # 50: Eyrie
 # 50: Anti-melee cave
 # 50: Battlefield
-# 50: Snow castle 
+# 50: Snow castle
+# 50: Anti-magic cave
 # 60: Volcano
 # 60: Crystal castle
 # 65: Castle
@@ -105,7 +106,7 @@
 # 96: R'lyeh
 
 #
-# Arena (Gladiator Ring, Thalos)
+# Arena (the Gladiator Ring, Thalos)
 #
 # 5: Hill giant, Stack of Potions: Speed
 # 8: Berserker, Rod: Detect Traps (2/2)
@@ -1147,8 +1148,10 @@ R:1080:0x0A/0x2C
 # キーマップ定義の挿入
 # A:<str>
 # C:0:<key>
+#
+# yasd.fans/frogcomposbandhelpfile/command#OriginalKeyset
 
-# [:]: キャラクターシート、Resistances/Abilities
+# [:]: キャラクターシート、Resistances/Abilities（Take notesの[:]に上書き）
 A:\e\eCr
 P::
 
@@ -1156,7 +1159,7 @@ P::
 A:\e\eC|\r\n
 P:#
 
-# [_]: ペットのコスト
+# [_]: ペットのコスト（Edit/activate Mogaminator prefsの[_]に上書き）
 A:\e\e~p
 P:_
 
@@ -1169,15 +1172,15 @@ C:0:x
 A:\e\eR\r
 P:\[shift-KP_5]
 
-# ターンを進める
+# ターンを進める（Inscribe an objectの[Z]に上書き）
 A:\e\eR15\r
 P:Z
 
-# [,]: Travel to location
+# [,]: Travel to location（Stay stillの[,]に上書き）
 A:\e\e`
 P:,
 
-# トラベルを再開
+# トラベルを再開（Jam a doorの[j]に上書き）
 A:\e\eJ
 C:0:j
 
@@ -1193,11 +1196,11 @@ P:^U
 A:\e\e`>
 P:^D
 
-# [.]: トラベル、アイテム
+# [.]: Travel to interesting item（Runの[.]に上書き）
 A:\e\eH
 P:.
 
-# [@]: Auto-Get nearby objects
+# [@]: Auto-Get nearby objects（Interact with macrosの[@]に上書き）
 A:\e\e^G
 P:@
 
@@ -1229,13 +1232,13 @@ C:0:h
 # [y]: 射撃b
 A:\e\efb*5
 C:0:y
-# [']: 射撃c
+# [']: 射撃c（Playback recorded commandの[']に上書き）
 A:\e\efc*5
 P:'
 # [(]: 射撃d
 A:\e\efd*5
 P:(
-# [)]: 射撃e
+# [)]: 射撃e（Create screen dumpの[)]に上書き）
 A:\e\efe*5
 P:)
 
