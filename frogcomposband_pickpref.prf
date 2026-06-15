@@ -531,10 +531,15 @@ F:63:15/127:LIT
 # github.com/Gliktch/froxcomposband/blob/main/lib/pref/colors.prf
 #
 
+"
 # カラー '青'（青っぽい紫に変えた）
 #V:6:0x01:0x6A:0x5A:0xCD
+"
 
+#
+# 白、オレンジ、黄は変更なし
 # rhea.hatenadiary.jp/entry/2021/12/06/114100
+#
 # カラー '青灰色'
 V:2:0x03:0x9F:0xA6:0xB5
 # カラー '赤'
