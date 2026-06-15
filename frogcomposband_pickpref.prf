@@ -551,12 +551,6 @@ V:8:0x08:0x95:0x95:0x95
 # roguelike.namekuji.jp/index.html?data_resist.html
 #
 
-# 元から紫（0x0a）の一般モンスター:
-# Zephyr Lord、Colour out of space、Quantum dot、Vore、Devilfish、Durahan、Demonite、Chameleon、Chameleon Lord
-#
-# graf-new.prfに載っていないユニークは適用外: The Variant Maintainer、Boldog, the Mercilessなど
-# github.com/Gliktch/froxcomposband/blob/main/lib/pref/graf-new.prf
-
 # Disenchantment（劣化）
 # Disenchanter eye
 R:104:0x0a/0x9D
@@ -584,6 +578,12 @@ R:904:0x0a/0x2C
 #
 # ユニーク色分けパッチ: ユニークと要注意モンスター6体、変愚蛮怒1.7.2用
 # roguelike.namekuji.jp/index.html?siryo_patch.html
+#
+# graf-new.prfに載っていないユニークは適用外: The Variant Maintainer、Boldog, the Merciless、Arthur Pendragon
+# github.com/Gliktch/froxcomposband/blob/main/lib/pref/graf-new.prf
+#
+# 元から紫（0x0a）の一般モンスター:
+# Zephyr Lord、Colour out of space、Quantum dot、Vore、Devilfish、Durahan、Demonite、Chameleon、Chameleon Lord
 #
 
 # 幽体獣
