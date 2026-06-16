@@ -470,6 +470,7 @@ Iron Spike#@v0
 # Control-Keypad-Zero -- wield {@0}
 # A:\e\ew0\s
 # P:^_CO18\r
+
 ~shovel#@w0
 ~pickaxe#@w0
 
@@ -1168,7 +1169,7 @@ R:1080:0x0A/0x2C
 #
 # 通常のキーをマクロトリガーとして使用するとそのキーの通常の動作が妨げられる
 #
-# キーマップ定義の挿入
+# キーマップ定義
 # A:<str>
 # C:0:<key>
 #
@@ -1186,7 +1187,7 @@ P::
 A:\e\eC|\r\n
 P:#
 
-# [_]: ペットのコスト（Edit/activate Mogaminator prefsの[_]に上書き）
+# [_]: ペットの維持費（Edit/activate Mogaminator prefsの[_]に上書き）
 A:\e\e~p
 P:_
 
