@@ -25,7 +25,7 @@
 # 18: Bear Problem (Outpost)
 # 20: The Orc Camp (Anambar), a Cloak of Stealth
 # 20: Tidy the Laboratory (Thalos, Royal Lyceum)
-# 20: Shadow Fairies (Thalos)
+# 20: Shadow Fairies (Thalos, Palace)
 # 22: The Stranger (Telmora)
 # 22: Old Man Willow Quest (Outpost, Inn)
 # 22: Cyclops's Lair (Thalos)
@@ -36,6 +36,7 @@
 # 25: The Dark Elven Lords (Morivant, Inn)
 # 25: Vapor Quest (Outpost, Castle), Rod of Detection
 # 27: Clear the Tunnels (Anambar)
+# 27: Djinni's Cavern (Thalos, Palace)
 # 30: Smugglers' Den (Anambar)
 # 30: Ghost Town (Morivant)
 # 30: Troll Slayer (Morivant)
@@ -154,7 +155,7 @@
 # Consumables
 #########################################
 ~ration of food
-~elvish waybread
+elvish waybread
 
 mushroom of restoring#!E
 ~mushroom of hallucination
@@ -200,6 +201,8 @@ potions:of healing#!kq
 potions:of life#!kq
 potions:of *healing*#!kq
 potions:restore mana#!kq
+
+~potions:salt water
 
 !potions:tsuyoshi special
 !scrolls:identify
