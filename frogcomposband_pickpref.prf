@@ -24,7 +24,7 @@
 # 15: The Compost Heap (Outpost)
 # 18: Bear Problem (Outpost)
 # 20: The Orc Camp (Anambar), a Cloak of Stealth
-# 20: Tidy the Laboratory (Thalos)
+# 20: Tidy the Laboratory (Thalos, Royal Lyceum)
 # 20: Shadow Fairies (Thalos)
 # 22: The Stranger (Telmora)
 # 22: Old Man Willow Quest (Outpost, Inn)
@@ -49,6 +49,7 @@
 # 38: The Sand Pit (Angwil)
 # 40: Crystal Quest (Anambar)
 # 40: Staff Recovery (Thalos)
+# 40: Basilisk Cave (Thalos, Royal Lyceum)
 # 42: Dragon Quest (Angwil)
 # 42: The Elven Embassy (Morivant)
 # 45: Dark Academy (Thalos)
@@ -72,7 +73,7 @@
 #
 # Dungeons
 #
-# 9: Warrens
+# 9: Warrens ※1階をRecall先にしておく
 # 18: Hideout
 # 20: Icky cave
 # 27: Tidal cave
@@ -1185,7 +1186,7 @@ A:\e\eCr
 P::
 
 # [#]: キャラクターシート、Dumpを出力
-A:\e\eC|\r\n
+A:\e\eC|\r
 P:#
 
 # [_]: ペットの維持費（Edit/activate Mogaminator prefsの[_]に上書き）
