@@ -34,7 +34,7 @@
 # 25: The Mimic's Treasure (Morivant, Thieves' Guild), Ring of Protection or Amulet of Trickery
 # 25: Tengu and Death Swords (Morivant, Thieves' Guild), Ring of Protection, Elemental Charm, or Dagger of Westernesse
 # 25: The Dark Elven Lords (Morivant, Inn)
-# 25: Vapor Quest (Outpost, Castle), Rod of Detection
+# 25: Vapor Quest (Outpost, Inn), Rod of Detection
 # 27: Clear the Tunnels (Anambar)
 # 27: Djinni's Cavern (Thalos, Palace)
 # 30: Smugglers' Den (Anambar)
@@ -1182,11 +1182,11 @@ R:1080:0x0A/0x2C
 
 # [$]: キャラクターシート、Home（Reload Mogaminator prefsの[$]に上書き）
 A:\e\eCh
-P:$
+C:0:$
 
 # [:]: キャラクターシート、Resistances/Abilities（Take notesの[:]に上書き）
 A:\e\eCr
-P::
+C:0::
 
 # [#]: キャラクターシート、Dumpを出力
 A:\e\eC|\r
@@ -1194,7 +1194,7 @@ P:#
 
 # [_]: ペットの維持費（Edit/activate Mogaminator prefsの[_]に上書き）
 A:\e\e~p
-P:_
+C:0:_
 
 # [x]: モンスターを見る
 #A:\e\e*r
@@ -1207,11 +1207,11 @@ P:\[shift-KP_5]
 
 # ターンを進める（Inscribe an objectの[Z]に上書き）
 A:\e\eR15\r
-P:Z
+C:0:Z
 
 # [,]: Travel to location（Stay stillの[,]に上書き）
 A:\e\e`
-P:,
+C:0:,
 
 # トラベルを再開（Jam a doorの[j]に上書き）
 A:\e\eJ
@@ -1231,11 +1231,11 @@ P:^D
 
 # [.]: Travel to interesting item（Runの[.]に上書き）
 A:\e\eH
-P:.
+C:0:.
 
 # [@]: Auto-Get nearby objects（Interact with macrosの[@]に上書き）
 A:\e\e^G
-P:@
+C:0:@
 
 # 縦横に17、斜めに12移動（*破壊*の杖の範囲: 縦横は距離13-17、斜めは最大で距離12）
 A:22222222222222222
