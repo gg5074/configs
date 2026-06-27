@@ -332,14 +332,17 @@ weapons more weight than 39
 ?:1
 
 #?:$AUTOREGISTER
-# *Warning!* The lines below will be deleted later.
-# Keep them by cut & paste if you need them for future characters.
 #(!average ammo:^rounded pebble$
-?:[GEQ $LEVEL 15]
 #!average ammo:^arrow (3d4) (+0,+0)
+
+?:[GEQ $LEVEL 15]
 !average ammo:^arrow
 !average ammo:rounded pebble (2d3) (+0,+0)
 !average ammo:iron shot (3d3) (+0,+0)
+?:1
+
+?:[EQU $CLASS Archer]
+ammo:arrow#=g
 ?:1
 
 ?:[AND [EQU $CLASS Weaponmaster] [EQU $SPECIALITY Bows] ]
