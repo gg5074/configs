@@ -30,10 +30,10 @@
 # 22: Old Man Willow Quest (Outpost, Inn)
 # 22: Cyclops's Lair (Thalos)
 # 24: Doom Quest I (Angwil), Elemental Ring or Charm
-# 25: The Old Barracks (Morivant)
+# 25: The Old Barracks (Morivant, Castle)
 # 25: The Mimic's Treasure (Morivant, Thieves' Guild), Ring of Protection or Amulet of Trickery
 # 25: Tengu and Death Swords (Morivant, Thieves' Guild), Ring of Protection, Elemental Charm, or Dagger of Westernesse
-# 25: The Dark Elven Lords (Morivant, Inn)
+# 25: The Dark Elven Lords (Morivant, Thieves' Guild)
 # 25: Vapor Quest (Outpost, Inn), Rod of Detection
 # 27: Clear the Tunnels (Anambar)
 # 27: Djinni's Cavern (Thalos, Palace)
@@ -45,7 +45,7 @@
 # 33: Dinosaur Quest (Anambar)
 # 35: The Vault (Telmora)
 # 35: The Barrow Downs (Telmora), Discount at Library, Beastmaster, and Weaponmaster (Cloak of Merry is a guaranteed spawn in the level)
-# 35: The Shopkeeper's Secret (Morivant)
+# 35: The Shopkeeper's Secret (Morivant, Castle)
 # 36: Giant Slayer (Morivant)
 # 38: The Sand Pit (Angwil)
 # 40: Crystal Quest (Anambar)
@@ -165,6 +165,7 @@ mushroom of restoring#!E
 ~mushroom
 ?:1
 
+!mushroom of sickness
 !mushroom of disease
 !mushroom of confusion
 
