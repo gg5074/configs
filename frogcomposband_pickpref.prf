@@ -538,6 +538,57 @@ F:63:15/127:LIT
 
 
 #
+# 判別しにくいシンボル,(0x2C)、#(0x23)、$(0x24)をx(0x78)に置き換える
+#
+# Monster attr/char definitions
+# pastebin.com/raw/ZL9fzW4y
+#
+
+# Shrieker mushroom patch
+R:40:0x0C/0x78
+
+# Yellow mushroom patch
+R:47:0x0B/0x78
+
+# Spotted mushroom patch
+R:72:0x03/0x78
+
+# Creeping copper coins
+R:85:0x07/0x78
+
+# Purple mushroom patch
+R:108:0x0A/0x78
+
+# Creeping silver coins
+R:117:0x02/0x78
+
+# Clear mushroom patch
+R:184:0x01/0x78
+
+# Creeping gold coins
+R:195:0x0B/0x78
+
+# Creeping mithril coins
+R:239:0x0E/0x78
+
+# Huorn
+R:329:0x05/0x78
+
+# Magic mushroom patch
+R:267:0x0E/0x78
+
+# Creeping adamantite coins
+R:423:0x0D/0x78
+
+# Flying Spaghetti Monster
+R:1080:0x0B/0x78
+
+# The Hoard
+R:1090:0x0B/0x78
+
+
+
+#
 # github.com/Gliktch/froxcomposband/blob/main/lib/pref/colors.prf
 #
 
