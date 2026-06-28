@@ -20,7 +20,7 @@
 # 5: Pest Control (Outpost, Mayor), {good} or {excellent} Class-suited item
 # 10: Mushrooms (Thalos)
 # 12: Cop Quest (Anambar)
-# 15: I Hate Snakes! (Morivant)
+# 15: I Hate Snakes! (Morivant, Castle)
 # 15: The Compost Heap (Outpost)
 # 18: Bear Problem (Outpost)
 # 20: The Orc Camp (Anambar), a Cloak of Stealth
@@ -38,15 +38,15 @@
 # 27: Clear the Tunnels (Anambar)
 # 27: Djinni's Cavern (Thalos, Palace)
 # 30: Smugglers' Den (Anambar)
-# 30: Ghost Town (Morivant)
-# 30: Troll Slayer (Morivant)
+# 30: Ghost Town (Morivant, Castle)
+# 30: Troll Slayer (Morivant, Fighters' Hall)
 # 32: Swamp Lights (Telmora)
-# 32: The Old Watchtower (Thalos)
+# 32: The Old Watchtower (Thalos, Palace)
 # 33: Dinosaur Quest (Anambar)
 # 35: The Vault (Telmora)
 # 35: The Barrow Downs (Telmora), Discount at Library, Beastmaster, and Weaponmaster (Cloak of Merry is a guaranteed spawn in the level)
 # 35: The Shopkeeper's Secret (Morivant, Castle)
-# 36: Giant Slayer (Morivant)
+# 36: Giant Slayer (Morivant, Fighters' Hall)
 # 38: The Sand Pit (Angwil)
 # 40: Crystal Quest (Anambar)
 # 40: Staff Recovery (Thalos)
@@ -60,16 +60,16 @@
 # 50: The Mountain Shrine (Telmora)
 # 50: Clear the Wreckage (Thalos)
 # 55: Facing the Books (Angwil)
-# 55: The Underground City (Morivant)
+# 55: The Underground City (Morivant, Castle)
 # 55: Doom Quest II (Angwil)
 # 55: The Renegade Sorcerer (Thalos)
 # 55: The Mystery of Apina Island (Anambar)
 # 55: Eddies in the Space-Time Continuum (Zul)
 # 60: The Volcano (Telmora)
-# 66: Dragon Slayer (Morivant)
+# 66: Dragon Slayer (Morivant, Fighters' Hall)
 # 70: The Killer in the Cellar (Anambar)
 # 70: Eric's Stronghold (Telmora)
-# 72: Demon Slayer (Morivant)
+# 72: Demon Slayer (Morivant, Fighters' Hall)
 
 #
 # Dungeons
@@ -169,8 +169,8 @@ mushroom of restoring#!E
 !mushroom of disease
 !mushroom of confusion
 
-identified items:mushroom
-unidentified items:mushroom
+~identified items:mushroom
+~unidentified items:mushroom
 
 ?:[LEQ $LEVEL 35]
 potions:resist heat and cold#!kq
