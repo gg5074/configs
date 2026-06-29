@@ -1,7 +1,6 @@
 #
 #*** Quests
 #
-# raw.githubusercontent.com/sulkasormi/frogcomposband/refs/heads/master/src/changes
 # github.com/Gliktch/froxcomposband/tree/main/lib/edit
 # yasd.fans/frogcomposbandhelpfile/dungeon
 # nikheizen.github.io/pages/rewards.html
@@ -506,6 +505,46 @@ Iron Spike#@v0
 
 
 #
+# github.com/Gliktch/froxcomposband/blob/main/lib/pref/colors.prf
+#
+
+#
+# カラー '青'（青っぽい紫に変えた）
+#V:6:0x01:0x6A:0x5A:0xCD
+#
+
+#
+# 白、オレンジ、黄は変更なし
+# rhea.hatenadiary.jp/entry/2021/12/06/114100
+#
+# カラー '青灰色'
+V:2:0x03:0x9F:0xA6:0xB5
+# カラー '赤'
+V:4:0x04:0xFF:0x00:0x00
+# カラー '緑'
+V:5:0x02:0x00:0xBF:0x60
+# カラー '青'
+V:6:0x01:0x00:0xBF:0xFF
+# カラー '琥珀色'
+V:7:0x06:0xC0:0x84:0x00
+# カラー '灰色'
+V:8:0x08:0x95:0x95:0x95
+# カラー '明青灰色'
+V:9:0x0B:0xDB:0xDF:0xE4
+# カラー '紫'
+V:10:0x05:0xFF:0x55:0xFF
+# カラー '明るい赤'
+V:12:0x0D:0xFF:0x55:0x55
+# カラー '明るい緑'
+V:13:0x0A:0x55:0xFF:0x55
+# カラー '明るい青'
+V:14:0x09:0x00:0xFF:0xFF
+# カラー '明琥珀色'
+V:15:0x06:0xE4:0xC0:0x7A
+
+
+
+#
 # 壁の#や%を擬似グラフィック画像に変更する
 # lib/pref/font-win.prf
 #
@@ -547,85 +586,32 @@ F:63:15/127:LIT
 
 # Shrieker mushroom patch
 R:40:0x0C/0x78
-
 # Yellow mushroom patch
 R:47:0x0B/0x78
-
 # Spotted mushroom patch
 R:72:0x03/0x78
-
 # Creeping copper coins
 R:85:0x07/0x78
-
 # Purple mushroom patch
 R:108:0x0A/0x78
-
 # Creeping silver coins
 R:117:0x02/0x78
-
 # Clear mushroom patch
 R:184:0x01/0x78
-
 # Creeping gold coins
 R:195:0x0B/0x78
-
 # Creeping mithril coins
 R:239:0x0E/0x78
-
 # Huorn
 R:329:0x05/0x78
-
 # Magic mushroom patch
 R:267:0x0E/0x78
-
 # Creeping adamantite coins
 R:423:0x0D/0x78
-
 # Flying Spaghetti Monster
 R:1080:0x0B/0x78
-
 # The Hoard
 R:1090:0x0B/0x78
-
-
-
-#
-# github.com/Gliktch/froxcomposband/blob/main/lib/pref/colors.prf
-#
-
-#
-# カラー '青'（青っぽい紫に変えた）
-#V:6:0x01:0x6A:0x5A:0xCD
-#
-
-#
-# 白、オレンジ、黄は変更なし
-# rhea.hatenadiary.jp/entry/2021/12/06/114100
-#
-# カラー '青灰色'
-V:2:0x03:0x9F:0xA6:0xB5
-# カラー '赤'
-V:4:0x04:0xFF:0x00:0x00
-# カラー '緑'
-V:5:0x02:0x00:0xBF:0x60
-# カラー '青'
-V:6:0x01:0x00:0xBF:0xFF
-# カラー '琥珀色'
-V:7:0x06:0xC0:0x84:0x00
-# カラー '灰色'
-V:8:0x08:0x95:0x95:0x95
-# カラー '明青灰色'
-V:9:0x0B:0xDB:0xDF:0xE4
-# カラー '紫'
-V:10:0x05:0xFF:0x55:0xFF
-# カラー '明るい赤'
-V:12:0x0D:0xFF:0x55:0x55
-# カラー '明るい緑'
-V:13:0x0A:0x55:0xFF:0x55
-# カラー '明るい青'
-V:14:0x09:0x00:0xFF:0xFF
-# カラー '明琥珀色'
-V:15:0x06:0xE4:0xC0:0x7A
 
 
 
@@ -660,474 +646,323 @@ R:204:0x0a/0x83
 # Chaos mushroom ※シンボル,(0x2C)をx(0x78)に置き換え
 R:904:0x0a/0x78
 
+
+
 #
 # 変愚蛮怒1.7.2にいないユニークモンスターを紫で表示する
 #
 
 # Mauhur, the Orc Captain
 R:1072:0x0a/0x6F
-
 # Meng You, the Brother of Meng Huo
 R:1073:0x0a/0x70
-
 # Lady Zhurong, the Avatar of Flame Spirit
 R:1074:0x0C/0x70
-
 # Dailai Dongzhu, Captain of Southerings
 R:1075:0x0a/0x70
-
 # King Duosi, the Chief of Southerings
 R:1076:0x0a/0x70
-
 # King Mulu, the Chief of Southerings
 R:1077:0x0a/0x70
-
 # Wutugu, the Chief of Southerings
 R:1078:0x0a/0x50
-
 # Talos, Masterwork Spellwarp Automaton
 R:1086:0x0a/0x67
-
 # The Variant Maintainer
 R:1094:0x0a/0x70
-
 # Zeus, King of the Olympians
 R:1096:0x0a/0x50
-
 # Poseidon, Lord of Seas and Storm
 R:1097:0x0a/0x50
-
 # Hades, Ruler of the Underworld
 R:1098:0x0a/0x50
-
 # Athena, the Goddess of Wisdom
 R:1099:0x0a/0x50
-
 # Ares, the God of War
 R:1100:0x0a/0x50
-
 # Hermes, the Messenger God
 R:1101:0x0a/0x50
-
 # Apollo, the Sun God
 R:1102:0x0a/0x50
-
 # Artemis, the Moon Goddess
 R:1103:0x0a/0x50
-
 # Hephaestus, the Smith God
 R:1104:0x0a/0x50
-
 # Hera, Queen of the Gods
 R:1105:0x0a/0x50
-
 # Demeter, the Goddess of Nature
 R:1106:0x0a/0x50
-
 # Aphrodite, the Goddess of Love
 R:1107:0x0a/0x50
-
 # The Questing Beast
 R:1122:0x0a/0x71
-
 # Typhoeus, the Storm Giant
 R:1127:0x0a/0x50
-
 # The Multi-hued Centipede
 R:1132:0x0a/0x63
-
 # Takeminakata, Drastic Measures
 R:1133:0x0a/0x70
-
 # Kotoshiro, the Oracle
 R:1134:0x0a/0x70
-
 # Okuninushi, the Conqueror
 R:1135:0x0a/0x70
-
 # Omoikane, Spirit of Wisdom
 R:1136:0x0a/0x70
-
 # Takemikazuchi, the Thunder
 R:1137:0x0a/0x70
-
 # Izanami, Spirit of Yomi
 R:1138:0x0a/0x70
-
 # Izanagi, the Spirit
 R:1139:0x0a/0x70
-
 # Susanoo, the Angry
 R:1140:0x0a/0x70
-
 # Tsukuyomi, Spirit of Moon
 R:1141:0x0a/0x70
-
 # Amaterasu, Spirit of Sun
 R:1142:0x0a/0x70
-
 # Aude
 R:1148:0x0a/0x70
-
 # Helga
 R:1149:0x0a/0x70
-
 # Nebiros, the Marquis
 R:1160:0x0a/0x42
-
 # Atropos, the Sister of Fate
 R:1161:0x0a/0x70
-
 # King Ghidora
 R:1165:0x0a/0x44
-
 # Thanatos, God of Death
 R:1166:0x0a/0x50
-
 # The Diamond Dragon
 R:1167:0x0a/0x44
-
 # Umbaba-Samahongo
 R:1170:0x0a/0x52
-
 # Michael, the Guardian Overlord
 R:1179:0x0a/0x41
-
 # Tik'srvzllat
 R:1180:0x0a/0x47
-
 # Dor
 R:1181:0x0a/0x65
-
 # Balcmeg, the Relentless
 R:1182:0x0a/0x6F
-
 # Lug, the Grotesque
 R:1183:0x0a/0x6F
-
 # Boldog, the Merciless
 R:1184:0x0a/0x6F
-
 # Othrod, Lord of the Orcs
 R:1185:0x0a/0x6F
-
 # Orcogar, Son of Orcobal
 R:1186:0x0a/0x6F
-
 # Orcobal the Mighty
 R:1187:0x0a/0x6F
-
 # Master Tonberry
 R:1089:0x0a/0x68
-
 # The Maw of Hell
 R:1191:0x0a/0x76
-
 # Wiruin, the Maelstrom
 R:1192:0x0a/0x76
-
 # The Storm of Unmagic
 R:1193:0x0a/0x76
-
 # Beelzebub, Lord of the Flies
 R:1194:0x0a/0x49
-
 # Lucifer, Father of Lies
 R:1195:0x0a/0x41
-
 # The Lurking Horror
 R:1196:0x0a/0x48
-
 # The Shadow Fiend
 R:1197:0x0a/0x55
-
 # Pandemonium
 R:1200:0x0a/0x45
-
 # Jack the Ripper
 R:1204:0x0a/0x70
-
 # The Babbage Analytical Engine
 R:1205:0x0a/0x67
-
 # The Marquis de la Tour
 R:1206:0x0a/0x70
-
 # The Etheric Dimensional Phase Automaton
 R:1207:0x0a/0x67
-
 # The Midnight Dragon
 R:1214:0x0a/0x44
-
 # The Nightmare Dragon
 R:1215:0x0a/0x44
-
 # Justshorn, Sorcerer-King of the Sheeple
 R:1225:0x0a/0x70
-
 # Zoopi, the Cube King
 R:1229:0x0a/0x6A
-
 # Festivus, the Teenage Offscreen Ninja Drolem
 R:1230:0x0a/0x67
-
 # Implorington III
 R:1231:0x0a/0x70
-
 # Lorgan, Chief of the Easterlings
 R:1232:0x0a/0x70
-
 # Muru-Siloch, the Spinning Abomination
 R:1233:0x0a/0x76
-
 # Xylibbogaz, the Disembodied Mouth
 R:1234:0x0a/0x66
-
 # Moe, the Cyclops
 R:1236:0x0a/0x50
-
 # Scrupiox, the Nightcrawler
 R:1238:0x0a/0x57
-
 # The Ancient Roc of Okeldad
 R:1239:0x0a/0x42
-
 # Nidaros the Clairvoyant
 R:1240:0x0a/0x70
-
 # Anubis, Keeper of the Balance
 R:1242:0x0a/0x48
-
 # Ammit, the Devourer
 R:1243:0x0a/0x48
-
 # Horus, the Ancient
 R:1244:0x0a/0x42
-
 # Apophis, the Primordial Chaos
 R:1245:0x0a/0x4A
-
 # Thoth, the Voice of Ra
 R:1246:0x0a/0x59
-
 # Sekhmet the Mistress of Fury
 R:1247:0x0a/0x66
-
 # Huitzilonevada, the Feathered Boa
 R:1248:0x0a/0x4A
-
 # Polyphemus, the Blind Cyclops
 R:1250:0x0a/0x50
-
 # Mathmag, the Prince of Whales
 R:1251:0x0a/0x6C
-
 # Metatron, the High Angel
 R:1253:0x0a/0x41
-
 # Kundry, Queen of the Lost Haven
 R:1254:0x0a/0x70
-
 # Gazhak, the Ogre Tyrant
 R:1255:0x0a/0x4F
-
 # Baba Yaga
 R:1256:0x0a/0x4F
-
 # Wadjet the Protector
 R:1257:0x0a/0x4A
-
 # Nekhbet, the Vulture Mother
 R:1258:0x0a/0x42
-
 # Osiris, the Reborn
 R:1259:0x0a/0x7A
-
 # Seth, the Disintegrator
 R:1260:0x0a/0x48
-
 # Lutogaida, the Spellmistress of Rarfus
 R:1261:0x0a/0x70
-
 # Eskimo
 R:1262:0x0a/0x70
-
 # Isis, the Great Goddess
 R:1263:0x0a/0x70
-
 # Nephthys, Lady of the Night
 R:1264:0x0a/0x70
-
 # Ptah, the Divine Craftsman
 R:1265:0x0a/0x68
-
 # Amun, the Mysterious
 R:1266:0x0a/0x71
-
 # Hathor, the Heavenly Cow
 R:1271:0x0a/0x71
-
 # Akuvalt the Deceiver
 R:1274:0x0a/0x55
-
 # Untamo the Cruel
 R:1275:0x0a/0x70
-
 # Aegir, God-King of the Sea Giants
 R:1277:0x0a/0x50
-
 # Herringfolt, the Great Wild Boar
 R:1278:0x0a/0x71
-
 # Gragomani, the Leprechaun Prophet
 R:1285:0x0a/0x68
-
 # Castamir the Usurper
 R:1286:0x0a/0x70
-
 # Iku-Turso
 R:1288:0x0a/0x48
-
 # Lord Bovin of the High Tower
 R:1289:0x0a/0x70
-
 # Nizukil, Prince of Rats
 R:1299:0x0a/0x72
-
 # Jack of Lanterns
 R:1302:0x0a/0x70
-
 # The Resurrection Machine
 R:1303:0x0a/0x67
-
 # Spulga, the Troll Priestess
 R:1304:0x0a/0x54
-
 # Pryftidustulyx, the Communist Dragon
 R:1305:0x0a/0x44
-
 # The Wicked Witch of the South-East
 R:1306:0x0a/0x70
-
 # Sadie the Rainbow Serpent
 R:1331:0x0a/0x4A
-
 # Freyr, Lord of Plenty
 R:1342:0x0a/0x50
-
 # Odin, the All-Father
 R:1343:0x0a/0x50
-
 # Hugin, the Scheming Raven
 R:1346:0x0a/0x42
-
 # Heimdall, Guardian of Bifrost
 R:1348:0x0a/0x50
-
 # Thor, the Thunderer
 R:1349:0x0a/0x50
-
 # Tyr, the One-Armed God
 R:1350:0x0a/0x50
-
 # Vidarr, the Silent Avenger
 R:1351:0x0a/0x50
-
 # Freyja, Lady of the Slain
 R:1352:0x0a/0x50
-
 # Njord, Lord of the Vanir
 R:1353:0x0a/0x50
-
 # Frigg, Queen of Asgard
 R:1354:0x0a/0x50
-
 # Skadi, the Huntress
 R:1355:0x0a/0x50
-
 # Ratatosk, the World-Tree Squirrel
 R:1357:0x0a/0x72
-
 # Ullur, the Archer-God
 R:1358:0x0a/0x50
-
 # Magni, Son of Thor
 R:1359:0x0a/0x50
-
 # Vasuki, the Serpent King
 R:1360:0x0a/0x6E
-
 # Shesha, the Infinite
 R:1361:0x0a/0x6E
-
 # Mahishasura, the Buffalo Demon
 R:1362:0x0a/0x55
-
 # Agni, the Threefold Fire
 R:1363:0x0a/0x45
-
 # Hanuman, the Monkey God
 R:1364:0x0a/0x59
-
 # Vayu, the Embodied Wind
 R:1365:0x0a/0x45
-
 # Karthikeya, the Six-Headed Warrior
 R:1366:0x0a/0x50
-
 # Sugriva, Lord of Kishkindha
 R:1368:0x0a/0x59
-
 # Vali, King of the Vanaras
 R:1369:0x0a/0x59
-
 # Rama, the Exiled Prince
 R:1370:0x0a/0x70
-
 # Krishna, Avatar of Vishnu
 R:1371:0x0a/0x70
-
 # Vishnu, the Preserver
 R:1372:0x0a/0x50
-
 # Lakshmi, the Goddess of Prosperity
 R:1373:0x0a/0x50
-
 # Varuna, Lord of Water
 R:1376:0x0a/0x50
-
 # Ganesha, the Elephant God
 R:1378:0x0a/0x48
-
 # Yama, Lord of the Dead
 R:1379:0x08/0x50
-
 # Shiva, the Destroyer
 R:1380:0x0a/0x50
-
 # Nandi, the Bull of Shiva
 R:1381:0x0a/0x71
-
 # Parvati, the Goddess of Hidden Power
 R:1382:0x0a/0x50
-
 # Durga, the Goddess of War
 R:1383:0x0a/0x50
-
 # Kali, Mother of Rage
 R:1384:0x0a/0x50
-
 # Jambavan, King of the Beasts
 R:1385:0x0a/0x71
-
 # Brahma, the Creating Spirit
 R:1389:0x0a/0x50
-
 # Saraswati, Goddess of Knowledge
 R:1390:0x0a/0x50
-
 # Indra, the Heavenly King of Meru
 R:1391:0x0a/0x50
+
 
 
 #
@@ -1785,6 +1620,7 @@ A:\e\e;*5
 P:\t
 
 
+
 # [h]: 攻撃呪文1
 A:\e\emaa*5
 C:0:h
@@ -1800,6 +1636,7 @@ P:(
 # [)]: 攻撃呪文e（Create screen dumpの[)]に上書き）
 A:\e\emfe*5
 P:)
+
 
 
 #
@@ -1818,6 +1655,7 @@ A:\e\embe
 C:0:P
 A:\e\embf
 C:0:N
+
 
 
 #
@@ -1848,12 +1686,12 @@ P:\[F10]
 A:\e\eJk
 
 
+
 #
-# Archer用マクロ
+# Archer用のマクロ
 #
 
 ?:[EQU $CLASS Archer]
-
 # [h]: 射撃a
 A:\e\efa*5
 C:0:h
@@ -1869,5 +1707,4 @@ P:(
 # [)]: 射撃e（Create screen dumpの[)]に上書き）
 A:\e\efe*5
 P:)
-
 ?:1
