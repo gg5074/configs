@@ -578,7 +578,7 @@ F:63:15/127:LIT
 
 #
 # 判別しにくいシンボル,(0x2C)、#(0x23)、$(0x24)のモンスター13体をx(0x78)に置き換える
-# ※オプションのeasy_mimicsでMimic、Cloaker、Death Sword、Wall Monsterはxに置き換え
+# ※Mimic、Cloaker、Death Sword、Wall Monsterはオプションのeasy_mimicsでx表示
 # ※Chaos mushroomと空飛ぶスパゲッティ・モンスターは紫表示の項目
 #
 # Monster attr/char definitions
@@ -617,7 +617,7 @@ R:1090:0x0B/0x78
 
 
 #
-# 低層で劣化・酸・放射性廃棄物の攻撃を持つモンスターを紫で表示する
+# 低層で劣化・酸・放射性廃棄物の攻撃を持つモンスター9体を紫で表示する
 #
 # 属性攻撃逆引表
 # roguelike.namekuji.jp/index.html?data_resist.html
@@ -967,14 +967,14 @@ R:1391:0x0a/0x50
 
 
 #
-# ユニーク色分けパッチ: ユニーク268体と要注意モンスター6体、変愚蛮怒1.7.2用
+# ユニーク色分けパッチ: 要注意モンスター6体とユニーク268体、変愚蛮怒1.7.2用
 # roguelike.namekuji.jp/index.html?siryo_patch.html
 # graf-new.prfに載っていないユニークは適用外
 # github.com/Gliktch/froxcomposband/blob/main/lib/pref/graf-new.prf
 #
-# 元から紫（0x0a）の一般モンスター:
-# Zephyr Lord、Colour out of space、Quantum dot、Vore、Devilfish、Durahan、Demonite、Chameleon、Chameleon Lord
-#
+# 元から紫（0x0a）の一般モンスター15体
+# 変愚蛮怒にいる: Zephyr Lord、Colour out of space、Quantum dot、Vore、Devilfish、Durahan、Demonite、Chameleon、Chameleon Lord
+# 変愚蛮怒にいない: Sexy Swimsuit、Blinking light、Winged Horror、Nexus spider、Death Scythe、Ultimate Magus
 
 # 幽体獣
 R:385:0x0a/0x47
