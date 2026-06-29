@@ -766,6 +766,12 @@ R:1141:0x0a/0x70
 # Amaterasu, Spirit of Sun
 R:1142:0x0a/0x70
 
+# Aude
+R:1148:0x0a/0x70
+
+# Helga
+R:1149:0x0a/0x70
+
 # Nebiros, the Marquis
 R:1160:0x0a/0x42
 
@@ -780,6 +786,9 @@ R:1166:0x0a/0x50
 
 # The Diamond Dragon
 R:1167:0x0a/0x44
+
+# Umbaba-Samahongo
+R:1170:0x0a/0x52
 
 # Michael, the Guardian Overlord
 R:1179:0x0a/0x41
@@ -808,6 +817,9 @@ R:1186:0x0a/0x6F
 # Orcobal the Mighty
 R:1187:0x0a/0x6F
 
+# Master Tonberry
+R:1089:0x0a/0x68
+
 # The Maw of Hell
 R:1191:0x0a/0x76
 
@@ -828,6 +840,9 @@ R:1196:0x0a/0x48
 
 # The Shadow Fiend
 R:1197:0x0a/0x55
+
+# Pandemonium
+R:1200:0x0a/0x45
 
 # Jack the Ripper
 R:1204:0x0a/0x70
@@ -916,6 +931,9 @@ R:1254:0x0a/0x70
 # Gazhak, the Ogre Tyrant
 R:1255:0x0a/0x4F
 
+# Baba Yaga
+R:1256:0x0a/0x4F
+
 # Wadjet the Protector
 R:1257:0x0a/0x4A
 
@@ -930,6 +948,9 @@ R:1260:0x0a/0x48
 
 # Lutogaida, the Spellmistress of Rarfus
 R:1261:0x0a/0x70
+
+# Eskimo
+R:1262:0x0a/0x70
 
 # Isis, the Great Goddess
 R:1263:0x0a/0x70
@@ -964,11 +985,17 @@ R:1285:0x0a/0x68
 # Castamir the Usurper
 R:1286:0x0a/0x70
 
+# Iku-Turso
+R:1288:0x0a/0x48
+
 # Lord Bovin of the High Tower
 R:1289:0x0a/0x70
 
 # Nizukil, Prince of Rats
 R:1299:0x0a/0x72
+
+# Jack of Lanterns
+R:1302:0x0a/0x70
 
 # The Resurrection Machine
 R:1303:0x0a/0x67
