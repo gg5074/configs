@@ -1623,12 +1623,13 @@ P:\t
 
 
 #
-# Armageddon
+# Armageddon:
 # Book of Elements
 # Earth, Wind and Fire
 # Path of Destruction
 #
 
+?:[EQU $REALM1 Armageddon]
 # [h]: Lightning Bolt, 攻撃呪文1
 A:\e\emaa*5
 C:0:h
@@ -1644,6 +1645,7 @@ P:(
 # [)]: Breathe Lightning, 攻撃呪文5
 A:\e\emcc*5
 P:)
+?:1
 
 
 
@@ -1653,12 +1655,13 @@ P:)
 #
 
 #
-# Sorcery
+# Sorcery:
 # Beginner's Handbook
 # Master Sorcerer's Hand Profic
 # Pattern Sorcery
 #
 
+?:[EQU $REALM2 Sorcery]
 # Detect Monsters
 A:\e\emea
 C:0:X
@@ -1707,6 +1710,7 @@ P:^R
 # Dimension Door
 A:\e\emgg
 P:^M
+?:1
 
 #
 # 残っているCtrlキー:B ,C, L, N, Y, Z
