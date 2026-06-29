@@ -1621,40 +1621,60 @@ P:\t
 
 
 
-# [h]: 攻撃呪文1
+#
+# Armageddon
+# Book of Elements
+# Earth, Wind and Fire
+# Path of Destruction
+#
+
+# [h]: Lightning Bolt, 攻撃呪文1
 A:\e\emaa*5
 C:0:h
-# [y]: 攻撃呪文2
+# [y]: Lightning Ball, 攻撃呪文2
 A:\e\emae*5
 C:0:y
-# [']: 攻撃呪文3（Playback recorded commandの[']に上書き）
+# [']: Shard Bolt, 攻撃呪文3
 A:\e\emba*5
 P:'
-# [(]: 攻撃呪文4
-A:\e\emfd*5
+# [(]: Breathe Lightning, 攻撃呪文4
+A:\e\emcc*5
 P:(
-# [)]: 攻撃呪文e（Create screen dumpの[)]に上書き）
-A:\e\emfe*5
+# [)]: Breathe Plasma, 攻撃呪文5
+A:\e\emcg*5
 P:)
 
 
 
 #
 # Spells
+# nikheizen.github.io/pages/spellbooks.html
 #
+
+#
+# Sorcery
+# Beginner's Handbook
+#
+
+# Detect Monsters
 A:\e\emba
 C:0:X
+# Phase Door
 A:\e\embb
-C:0:Y
-A:\e\embc
-C:0:O
-
-A:\e\embd
-C:0:K
-A:\e\embe
 C:0:P
-A:\e\embf
+# Detect Doors and Traps
+A:\e\embc
+C:0:K
+
+# Light Area
+A:\e\embd
+C:0:Y
+# Confuse Monster
+A:\e\embe
 C:0:N
+# Teleport
+A:\e\embf
+C:0:O
 
 
 
