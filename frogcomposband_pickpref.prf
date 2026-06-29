@@ -1638,11 +1638,11 @@ C:0:y
 # [']: Shard Bolt, 攻撃呪文3
 A:\e\emba*5
 P:'
-# [(]: Breathe Lightning, 攻撃呪文4
-A:\e\emcc*5
+# [(]: Water Ball, 攻撃呪文4
+A:\e\emccb*5
 P:(
-# [)]: Breathe Plasma, 攻撃呪文5
-A:\e\emcg*5
+# [)]: Breathe Lightning, 攻撃呪文5
+A:\e\emcc*5
 P:)
 
 
@@ -1655,27 +1655,62 @@ P:)
 #
 # Sorcery
 # Beginner's Handbook
+# Master Sorcerer's Hand Profic
+# Pattern Sorcery
 #
 
 # Detect Monsters
-A:\e\emba
+A:\e\emea
 C:0:X
 # Phase Door
-A:\e\embb
+A:\e\emeb
 C:0:P
 # Detect Doors and Traps
-A:\e\embc
+A:\e\emec
 C:0:K
 
 # Light Area
-A:\e\embd
+A:\e\emed
 C:0:Y
 # Confuse Monster
-A:\e\embe
+A:\e\emee*
 C:0:N
 # Teleport
-A:\e\embf
+A:\e\emef
 C:0:O
+
+# Magic Mapping
+A:\e\emfa
+P:^R
+# Teleport Away
+A:\e\emfe*
+P:^A
+# Haste Self
+A:\e\emff
+P:^O
+# Identify True
+A:\e\emfg
+P:^I
+
+# Stair Creation
+A:\e\emga
+P:^K
+# Sense Minds
+A:\e\emge*
+P:^E
+# Teleport to Town
+A:\e\emgf
+P:^J
+# Word of Recall
+A:\e\emgg
+P:^R
+# Dimension Door
+A:\e\emgg
+P:^M
+
+#
+# 残っているCtrlキー:B ,C, L, N, Y, Z
+#
 
 
 
