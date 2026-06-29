@@ -154,7 +154,7 @@
 # Consumables
 #########################################
 ~ration of food
-elvish waybread
+~elvish waybread
 
 mushroom of restoring#!E
 ~mushroom of hallucination
@@ -233,7 +233,7 @@ unidentified items:scrolls
 unidentified rings
 unidentified amulets
 
-!staves:identify
+~staves:identify
 
 ?:[AND [EQU $SELLING Off] [EQU $CLASS Berserker]]
 !nameless shooters
@@ -577,7 +577,8 @@ F:63:15/127:LIT
 
 
 #
-# 判別しにくいシンボル,(0x2C)、#(0x23)、$(0x24)をx(0x78)に置き換える
+# 判別しにくいシンボル,(0x2C)、#(0x23)、$(0x24)のモンスター13体をx(0x78)に置き換える
+# ※オプションのeasy_mimicsでMimic、Cloaker、Death Sword、Wall Monsterはxに置き換え
 # ※Chaos mushroomと空飛ぶスパゲッティ・モンスターは紫表示の項目
 #
 # Monster attr/char definitions
@@ -649,7 +650,7 @@ R:904:0x0a/0x78
 
 
 #
-# 変愚蛮怒1.7.2にいないユニークモンスターを紫で表示する
+# 変愚蛮怒にいないユニークモンスター154体を紫で表示する
 #
 
 # Mauhur, the Orc Captain
@@ -966,7 +967,7 @@ R:1391:0x0a/0x50
 
 
 #
-# ユニーク色分けパッチ: ユニークと要注意モンスター6体、変愚蛮怒1.7.2用
+# ユニーク色分けパッチ: ユニーク268体と要注意モンスター6体、変愚蛮怒1.7.2用
 # roguelike.namekuji.jp/index.html?siryo_patch.html
 # graf-new.prfに載っていないユニークは適用外
 # github.com/Gliktch/froxcomposband/blob/main/lib/pref/graf-new.prf
