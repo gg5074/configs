@@ -577,9 +577,9 @@ F:63:15/127:LIT
 
 
 #
-# 判別しにくいシンボル,(0x2C)、#(0x23)、$(0x24)のモンスター13体をx(0x78)に置き換える
+# 判別しにくいシンボル,(0x2C)、#(0x23)、$(0x24)のモンスター12体をx(0x78)に置き換える
 # ※Mimic、Cloaker、Death Sword、Wall Monsterはオプションのeasy_mimicsでx表示
-# ※Chaos mushroomと空飛ぶスパゲッティ・モンスターは紫表示の項目
+# ※Chaos mushroomとFlying Spaghetti Monsterは紫表示の項目
 #
 # Monster attr/char definitions
 # pastebin.com/raw/ZL9fzW4y
@@ -609,8 +609,6 @@ R:329:0x05/0x78
 R:267:0x0E/0x78
 # Creeping adamantite coins
 R:423:0x0D/0x78
-# Flying Spaghetti Monster
-R:1080:0x0B/0x78
 # The Hoard
 R:1090:0x0B/0x78
 
@@ -650,23 +648,9 @@ R:904:0x0a/0x78
 
 
 #
-# 変愚蛮怒にいないユニークモンスター154体を紫で表示する
+# 変愚蛮怒にいないユニークモンスター147体を紫で表示する
 #
 
-# Mauhur, the Orc Captain
-R:1072:0x0a/0x6F
-# Meng You, the Brother of Meng Huo
-R:1073:0x0a/0x70
-# Lady Zhurong, the Avatar of Flame Spirit
-R:1074:0x0C/0x70
-# Dailai Dongzhu, Captain of Southerings
-R:1075:0x0a/0x70
-# King Duosi, the Chief of Southerings
-R:1076:0x0a/0x70
-# King Mulu, the Chief of Southerings
-R:1077:0x0a/0x70
-# Wutugu, the Chief of Southerings
-R:1078:0x0a/0x50
 # Talos, Masterwork Spellwarp Automaton
 R:1086:0x0a/0x67
 # The Variant Maintainer
@@ -969,12 +953,11 @@ R:1391:0x0a/0x50
 #
 # ユニーク色分けパッチ: 要注意モンスター6体とユニーク268体、変愚蛮怒1.7.2用
 # roguelike.namekuji.jp/index.html?siryo_patch.html
-# graf-new.prfに載っていないユニークは適用外
-# github.com/Gliktch/froxcomposband/blob/main/lib/pref/graf-new.prf
 #
 # 元から紫（0x0a）の一般モンスター15体
 # 変愚蛮怒にいる: Zephyr Lord、Colour out of space、Quantum dot、Vore、Devilfish、Durahan、Demonite、Chameleon、Chameleon Lord
 # 変愚蛮怒にいない: Sexy Swimsuit、Blinking light、Winged Horror、Nexus spider、Death Scythe、Ultimate Magus
+#
 
 # 幽体獣
 R:385:0x0a/0x47
@@ -1525,7 +1508,7 @@ R:1077:0x0A/0x70
 R:1078:0x0A/0x50
 # 『見えざるピンクのユニコーン』
 R:1079:0x0A/0x71
-# 『空飛ぶスパゲッティ・モンスター』 ※シンボル,(0x2C)をx(0x78)に置き換え
+# Flying Spaghetti Monster, 『空飛ぶスパゲッティ・モンスター』 ※シンボル,(0x2C)をx(0x78)に置き換え
 R:1080:0x0A/0x78
 
 
