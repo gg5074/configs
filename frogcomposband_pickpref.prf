@@ -655,7 +655,7 @@ R:904:0x0a/0x78
 
 
 #
-# 変愚蛮怒にいないユニークモンスター147体を紫で表示する
+# ユニークモンスター147体を紫で表示する（R:1086から）
 #
 
 # Talos, Masterwork Spellwarp Automaton
@@ -958,12 +958,13 @@ R:1391:0x0a/0x50
 
 
 #
-# ユニーク色分けパッチ: 要注意モンスターとユニーク268体、変愚蛮怒1.7.2用
+# ユニーク色分けパッチ（変愚蛮怒1.7.2用）
+# 要注意モンスター7体とユニーク268体（R:1080まで）
 # roguelike.namekuji.jp/index.html?siryo_patch.html
 #
 # 元から紫（0x0a）の一般モンスター15体
-# 変愚蛮怒にいる: Zephyr Lord、Colour out of space、Quantum dot、Vore、Devilfish、Durahan、Demonite、Chameleon、Chameleon Lord
-# 変愚蛮怒にいない: Sexy Swimsuit、Blinking light、Winged Horror、Nexus spider、Death Scythe、Ultimate Magus
+# R:1041まで: Zephyr Lord、Colour out of space、Quantum dot、Vore、Devilfish、Durahan、Demonite、Chameleon、Chameleon Lord
+# R:1083から: Sexy Swimsuit、Blinking light、Winged Horror、Nexus spider、Death Scythe、Ultimate Magus
 #
 
 # Ghoulking
@@ -1524,11 +1525,14 @@ R:1080:0x0A/0x78
 
 
 #
-#*** マクロ（[\e]は[Esc]、[\r]は[Enter]、[\t]は[Tab]、[\s]は[スペース]、[^]は[Ctrl]、[\]キーは[\\]、[^]は[\^]）
+#*** キーマップ定義
+# [\e]は[Esc]、[\r]は[Enter]、[\t]は[Tab]、[\s]は[スペース]、[^]は[Ctrl]、[\]キーは[\\]、[^]は[\^]
 # yasd.fans/frogcomposbandhelpfile/command#OriginalKeyset
 #
+# 使っていないCtrlキー:B ,C, L, N, Y, Z
+#
 
-# [ ]: スペースキーでキャンセル
+# [Space]: スペースキーで[Esc][Esc][Esc]
 A:\e\e\e
 C:0:\s
 
@@ -1536,17 +1540,17 @@ C:0:\s
 A:\e\ei
 C:0:\r
 
-# [$]: キャラクターシート、Home（Reload Mogaminator prefsの[$]に上書き）
-A:\e\eCh
-C:0:$
+# [#]: キャラクターシート、Dumpを出力
+A:\e\eC|\r
+C:0:#
 
 # [:]: キャラクターシート、Resistances/Abilities（Take notesの[:]に上書き）
 A:\e\eCr
 C:0::
 
-# [#]: キャラクターシート、Dumpを出力
-A:\e\eC|\r
-C:0:#
+# [$]: キャラクターシート、Home（Reload Mogaminator prefsの[$]に上書き）
+A:\e\eCh
+C:0:$
 
 # [_]: ペットの維持費（Edit/activate Mogaminator prefsの[_]に上書き）
 A:\e\e~p
@@ -1618,6 +1622,35 @@ C:0:\t
 
 
 #
+# 射撃
+#
+
+?:[EQU $CLASS Archer]
+# [h]: スロットa
+A:\e\efa*5
+C:0:h
+# [y]: スロットb
+A:\e\efb*5
+C:0:y
+# [']: スロットc（Playback recorded commandの[']に上書き）
+A:\e\efc*5
+C:0:'
+# [(]: スロットd
+A:\e\efd*5
+C:0:(
+# [)]: スロットe（Create screen dumpの[)]に上書き）
+A:\e\efe*5
+C:0:)
+?:1
+
+
+
+#
+# 攻撃呪文
+# nikheizen.github.io/pages/spellbooks.html
+#
+
+#
 # Armageddon:
 # Book of Elements
 # Earth, Wind and Fire
@@ -1625,19 +1658,19 @@ C:0:\t
 #
 
 ?:[EQU $REALM1 Armageddon]
-# [h]: Lightning Bolt, 攻撃呪文1
+# [h]: Lightning Bolt
 A:\e\emaa*5
 C:0:h
-# [y]: Lightning Ball, 攻撃呪文2
+# [y]: Lightning Ball
 A:\e\emae*5
 C:0:y
-# [']: Shard Bolt, 攻撃呪文3
+# [']: Shard Bolt,
 A:\e\emba*5
 C:0:'
-# [(]: Water Ball, 攻撃呪文4
+# [(]: Water Ball
 A:\e\emccb*5
 C:0:(
-# [)]: Breathe Lightning, 攻撃呪文5
+# [)]: Breathe Lightning
 A:\e\emcc*5
 C:0:)
 ?:1
@@ -1645,8 +1678,7 @@ C:0:)
 
 
 #
-# Spells
-# nikheizen.github.io/pages/spellbooks.html
+# 補助呪文
 #
 
 #
@@ -1707,11 +1739,11 @@ A:\e\emgg
 C:0:^M
 ?:1
 
-#
-# 残っているCtrlキー:B ,C, L, N, Y, Z
-#
 
 
+#
+#*** マクロ
+#
 
 #
 # Powers
@@ -1739,27 +1771,3 @@ P:\[F9]
 A:\e\eJj
 P:\[F10]
 A:\e\eJk
-
-
-
-#
-# Archer用のマクロ
-#
-
-?:[EQU $CLASS Archer]
-# [h]: 射撃a
-A:\e\efa*5
-C:0:h
-# [y]: 射撃b
-A:\e\efb*5
-C:0:y
-# [']: 射撃c（Playback recorded commandの[']に上書き）
-A:\e\efc*5
-C:0:'
-# [(]: 射撃d
-A:\e\efd*5
-C:0:(
-# [)]: 射撃e（Create screen dumpの[)]に上書き）
-A:\e\efe*5
-C:0:)
-?:1
