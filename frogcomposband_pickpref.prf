@@ -1526,10 +1526,11 @@ R:1080:0x0A/0x78
 
 #
 #*** キーマップ定義
+#
 # [\e]は[Esc]、[\r]は[Enter]、[\t]は[Tab]、[\s]は[スペース]、[^]は[Ctrl]、[\]キーは[\\]、[^]は[\^]
 # yasd.fans/frogcomposbandhelpfile/command#OriginalKeyset
 #
-# 使っていないCtrlキー:B ,C, L, N, Y, Z
+# 使っていないCtrlキー: B ,C, L, N, Y, Z
 #
 
 # [Space]: スペースキーで[Esc][Esc][Esc]
