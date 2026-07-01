@@ -154,8 +154,8 @@
 #########################################
 # Consumables
 #########################################
-# @uq!uや@zaと刻む
-# github.com/gg5074/configs/blob/main/gensoband_picktype.prf
+# ?:[EQU $CLASS Mage High-Mage Sorcerer Blue-Mage Mirror-Master Elementalist]
+# github.com/gg5074/configs/blob/main/hengband_picktype.prf
 
 ~ration of food
 ~elvish waybread
@@ -230,6 +230,9 @@ unidentified items:scrolls
 #########################################
 # Devices
 #########################################
+# 地震の杖#半径10,@uq!u
+# github.com/gg5074/configs/blob/main/gensoband_picktype.prf
+
 #identified rings more value than 5000
 #identified amulets more value than 5000
 #!identified rings
@@ -1522,14 +1525,16 @@ R:1080:0x0A/0x78
 
 #
 #*** マクロ（[\e]は[Esc]、[\r]は[Enter]、[\t]は[Tab]、[\s]は[スペース]、[^]は[Ctrl]、[\]キーは[\\]、[^]は[\^]）
-#
-# 通常のキーをマクロトリガーとして使用するとそのキーの通常の動作が妨げられる
-#
-# キーマップ定義
-# A:<str>
-# C:0:<key>
-#
 # yasd.fans/frogcomposbandhelpfile/command#OriginalKeyset
+#
+
+# [ ]: スペースキーでキャンセル
+A:\e\e\e
+C:0:\s
+
+# [Enter]: Enterキーでインベントリ
+A:\e\ei
+C:0:\r
 
 # [$]: キャラクターシート、Home（Reload Mogaminator prefsの[$]に上書き）
 A:\e\eCh
@@ -1541,7 +1546,7 @@ C:0::
 
 # [#]: キャラクターシート、Dumpを出力
 A:\e\eC|\r
-P:#
+C:0:#
 
 # [_]: ペットの維持費（Edit/activate Mogaminator prefsの[_]に上書き）
 A:\e\e~p
@@ -1554,7 +1559,7 @@ C:0:x
 
 # 回復するまで休む
 A:\e\eR\r
-P:\[shift-KP_5]
+C:0:\[shift-KP_5]
 
 # ターンを進める（Inscribe an objectの[Z]に上書き）
 A:\e\eR15\r
@@ -1570,15 +1575,15 @@ C:0:j
 
 # トラベル、Home
 A:\e\e]hJ
-P:^H
+C:0:^H
 
 # トラベル、階段<
 A:\e\e`<
-P:^U
+C:0:^U
 
 # トラベル、階段>
 A:\e\e`>
-P:^D
+C:0:^D
 
 # [.]: Travel to interesting item（Runの[.]に上書き）
 A:\e\eH
@@ -1590,25 +1595,25 @@ C:0:@
 
 # 縦横に17、斜めに12移動（*破壊*の杖の範囲: 縦横は距離13-17、斜めは最大で距離12）
 A:22222222222222222
-P:\[alt-KP_2]
+C:0:\[alt-KP_2]
 A:44444444444444444
-P:\[alt-KP_4]
+C:0:\[alt-KP_4]
 A:66666666666666666
-P:\[alt-KP_6]
+C:0:\[alt-KP_6]
 A:88888888888888888
-P:\[alt-KP_8]
-A:111111111111
+C:0:\[alt-KP_8]
+C:0:111111111111
 P:\[alt-KP_1]
-A:333333333333
+C:0:333333333333
 P:\[alt-KP_3]
-A:777777777777
+C:0:777777777777
 P:\[alt-KP_7]
 A:999999999999
-P:\[alt-KP_9]
+C:0:\[alt-KP_9]
 
 # [Tab]: 近づく、攻撃する
 A:\e\e;*5
-P:\t
+C:0:\t
 
 
 
@@ -1628,13 +1633,13 @@ A:\e\emae*5
 C:0:y
 # [']: Shard Bolt, 攻撃呪文3
 A:\e\emba*5
-P:'
+C:0:'
 # [(]: Water Ball, 攻撃呪文4
 A:\e\emccb*5
-P:(
+C:0:(
 # [)]: Breathe Lightning, 攻撃呪文5
 A:\e\emcc*5
-P:)
+C:0:)
 ?:1
 
 
@@ -1674,32 +1679,32 @@ C:0:O
 
 # Magic Mapping
 A:\e\emfa
-P:^R
+C:0:^R
 # Teleport Away
 A:\e\emfe*
-P:^A
+C:0:^A
 # Haste Self
 A:\e\emff
-P:^O
+C:0:^O
 # Identify True
 A:\e\emfg
-P:^I
+C:0:^I
 
 # Stair Creation
 A:\e\emga
-P:^K
+C:0:^K
 # Sense Minds
 A:\e\emge*
-P:^E
+C:0:^E
 # Teleport to Town
 A:\e\emgf
-P:^J
+C:0:^J
 # Word of Recall
 A:\e\emgg
-P:^R
+C:0:^R
 # Dimension Door
 A:\e\emgg
-P:^M
+C:0:^M
 ?:1
 
 #
@@ -1750,11 +1755,11 @@ A:\e\efb*5
 C:0:y
 # [']: 射撃c（Playback recorded commandの[']に上書き）
 A:\e\efc*5
-P:'
+C:0:'
 # [(]: 射撃d
 A:\e\efd*5
-P:(
+C:0:(
 # [)]: 射撃e（Create screen dumpの[)]に上書き）
 A:\e\efe*5
-P:)
+C:0:)
 ?:1
