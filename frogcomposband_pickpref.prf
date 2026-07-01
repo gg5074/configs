@@ -9,6 +9,7 @@
 #
 # Random Quests (Angband)
 # 10個のクエスト、階は6,12,24,38,44,56,62,76,88ではなくランダム
+# 20階でAlberich the Nibelung Kingが出た
 #
 
 #
@@ -153,6 +154,9 @@
 #########################################
 # Consumables
 #########################################
+# @uq!uや@zaと刻む
+# github.com/gg5074/configs/blob/main/gensoband_picktype.prf
+
 ~ration of food
 ~elvish waybread
 
@@ -951,13 +955,16 @@ R:1391:0x0a/0x50
 
 
 #
-# ユニーク色分けパッチ: 要注意モンスター6体とユニーク268体、変愚蛮怒1.7.2用
+# ユニーク色分けパッチ: 要注意モンスターとユニーク268体、変愚蛮怒1.7.2用
 # roguelike.namekuji.jp/index.html?siryo_patch.html
 #
 # 元から紫（0x0a）の一般モンスター15体
 # 変愚蛮怒にいる: Zephyr Lord、Colour out of space、Quantum dot、Vore、Devilfish、Durahan、Demonite、Chameleon、Chameleon Lord
 # 変愚蛮怒にいない: Sexy Swimsuit、Blinking light、Winged Horror、Nexus spider、Death Scythe、Ultimate Magus
 #
+
+# Ghoulking
+R:483:0x0a/0x7A
 
 # 幽体獣
 R:385:0x0a/0x47
