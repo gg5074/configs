@@ -1527,13 +1527,13 @@ R:1080:0x0A/0x78
 #
 #*** キーマップ定義
 #
-# [\e]は[Esc]、[\r]は[Enter]、[\t]は[Tab]、[\s]は[スペース]、[^]は[Ctrl]、[\]キーは[\\]、[^]は[\^]
+# [\e]は[Esc]、[\r]は[Enter]、[\t]は[Tab]、[\s]は[Space]、[^]は[Ctrl]、[\]キーは[\\]、[^]は[\^]
 # yasd.fans/frogcomposbandhelpfile/command#OriginalKeyset
 #
 # 使っていないCtrlキー: B ,C, L, N, Y, Z
 #
 
-# [Space]: スペースキーで[Esc][Esc][Esc]
+# [Space]: Spaceキーで[Esc][Esc][Esc]
 A:\e\e\e
 C:0:\s
 
@@ -1541,15 +1541,15 @@ C:0:\s
 A:\e\ei
 C:0:\r
 
-# [#]: キャラクターシート、Dumpを出力
+# [#]: Character、Dumpを出力
 A:\e\eC|\r
 C:0:#
 
-# [:]: キャラクターシート、Resistances/Abilities（Take notesの[:]に上書き）
+# [:]: Character、Resistances/Abilities（Take notesの[:]に上書き）
 A:\e\eCr
 C:0::
 
-# [$]: キャラクターシート、Home（Reload Mogaminator prefsの[$]に上書き）
+# [$]: Character、Home（Reload Mogaminator prefsの[$]に上書き）
 A:\e\eCh
 C:0:$
 
@@ -1566,7 +1566,7 @@ C:0:x
 A:\e\eR\r
 C:0:\[shift-KP_5]
 
-# ターンを進める（Inscribe an objectの[Z]に上書き）
+# 15ターン経過させる（Inscribe an objectの[Z]に上書き）
 A:\e\eR15\r
 C:0:Z
 
