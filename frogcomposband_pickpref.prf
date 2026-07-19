@@ -1571,7 +1571,7 @@ R:1080:0x0A/0x78
 
 
 #
-#*** キーマップ定義
+#*** キーマップ定義とマクロ
 #
 # [\e]は[Esc]、[\r]は[Enter]、[\t]は[Tab]、[\s]は[Space]、[^]は[Ctrl]、[\]キーは[\\]、[^]は[\^]
 # yasd.fans/frogcomposbandhelpfile/command#OriginalKeyset
@@ -1743,29 +1743,29 @@ A:\e\emfa
 P:^R
 # Teleport Away
 A:\e\emfe*
-C:0:^A
+P:^A
 # Haste Self
 A:\e\emff
-C:0:^O
+P:^O
 # Identify True
 A:\e\emfg
-C:0:^I
+P:^I
 
 # Stair Creation
 A:\e\emga
-C:0:^K
+P:^K
 # Sense Minds
 A:\e\emge*
-C:0:^E
+P:^E
 # Teleport to Town
 A:\e\emgf
-C:0:^J
+P:^J
 # Word of Recall
 A:\e\emgg
-C:0:^R
+P:^R
 # Dimension Door
 A:\e\emgg
-C:0:^M
+P:^M
 ?:1
 
 
