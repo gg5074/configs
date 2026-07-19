@@ -23,6 +23,7 @@
 # 15: I Hate Snakes! (Morivant, Castle)
 # 15: The Compost Heap (Outpost)
 # 18: Bear Problem (Outpost)
+# 18: Sewer (Outpost)
 # 20: The Orc Camp (Anambar, Mayor), a Cloak of Stealth
 # 20: Tidy the Laboratory (Thalos, Royal Lyceum)
 # 20: Shadow Fairies (Thalos, Palace)
@@ -159,6 +160,11 @@
 
 !wooden torch
 
+?:[EQU $RACE Skeleton]
+!ration of food
+!elvish waybread
+?:1
+
 ~ration of food
 ~elvish waybread
 
@@ -175,7 +181,7 @@ mushroom of restoring#!E
 !mushroom of confusion
 
 ~identified items:mushroom
-~unidentified items:mushroom
+unidentified items:mushroom
 
 ?:[EQU $CLASS Mage High-Mage Gray-Mage Yellow-Mage Sorcerer Blue-Mage Mirror-Master]
 # 殴らない職業では不要
@@ -634,7 +640,7 @@ R:1090:0x0a/0x78
 
 
 #
-# 低層で劣化・酸・放射性廃棄物の攻撃を持つモンスター9体を紫で表示する
+# 低層で劣化・酸・放射性廃棄物の攻撃を持つモンスター8体を紫で表示する
 #
 # 属性攻撃逆引表
 # roguelike.namekuji.jp/index.html?data_resist.html
@@ -643,8 +649,6 @@ R:1090:0x0a/0x78
 # Disenchantment（劣化）
 # Disenchanter eye
 R:104:0x0a/0x9D
-# Disenchanter mold
-R:192:0x0a/0x84
 # Disenchanter beast
 R:399:0x0a/0x96
 # Devilfish
@@ -654,7 +658,7 @@ R:913:0x0a/0xA3
 
 # Acid（酸）
 # Giant slug
-R:120:0x0a/0x90
+R:120:0x0a/0x77
 # Baby black dragon
 R:166:0x0a/0x80
 # Baby multi-hued dragon
