@@ -616,8 +616,8 @@ R:329:0x05/0x78
 R:267:0x0E/0x78
 # Creeping adamantite coins
 R:423:0x0D/0x78
-# The Hoard
-R:1090:0x0B/0x78
+# The Hoard ※ ユニークモンスター、紫(0x0a)で表示
+R:1090:0x0a/0x78
 
 
 
@@ -655,8 +655,11 @@ R:904:0x0a/0x78
 
 
 #
-# ユニークモンスター147体を紫で表示する（R:1086から）
+# ユニークモンスター158体を紫で表示する
 #
+
+# Metal Babble
+R:871:0x0a/0x6A
 
 # Talos, Masterwork Spellwarp Automaton
 R:1086:0x0a/0x67
@@ -686,6 +689,20 @@ R:1105:0x0a/0x50
 R:1106:0x0a/0x50
 # Aphrodite, the Goddess of Love
 R:1107:0x0a/0x50
+# Arthur Pendragon
+R:1111:0x0a/0x70
+# Sir Lancelot
+R:1112:0x0a/0x70
+# Sir Gawain
+R:1113:0x0a/0x70
+# Sir Galahad
+R:1114:0x0a/0x70
+# Sir Gareth
+R:1115:0x0a/0x70
+# Sir Kay
+R:1116:0x0a/0x70
+# Mordred
+R:1119:0x0a/0x70
 # The Questing Beast
 R:1122:0x0a/0x71
 # Typhoeus, the Storm Giant
@@ -722,6 +739,8 @@ R:1160:0x0a/0x42
 R:1161:0x0a/0x70
 # King Ghidora
 R:1165:0x0a/0x44
+# Mothra
+R:1164:0x0a/0x49
 # Thanatos, God of Death
 R:1166:0x0a/0x50
 # The Diamond Dragon
@@ -764,6 +783,8 @@ R:1196:0x0a/0x48
 R:1197:0x0a/0x55
 # Pandemonium
 R:1200:0x0a/0x45
+# Countess Bathory
+R:1201:0x0a/0x56
 # Jack the Ripper
 R:1204:0x0a/0x70
 # The Babbage Analytical Engine
@@ -862,6 +883,8 @@ R:1286:0x0a/0x70
 R:1288:0x0a/0x48
 # Lord Bovin of the High Tower
 R:1289:0x0a/0x70
+# The Gospel of Mug
+R:1292:0x0a/0x78
 # Nizukil, Prince of Rats
 R:1299:0x0a/0x72
 # Jack of Lanterns
@@ -935,7 +958,7 @@ R:1376:0x0a/0x50
 # Ganesha, the Elephant God
 R:1378:0x0a/0x48
 # Yama, Lord of the Dead
-R:1379:0x08/0x50
+R:1379:0x0a/0x50
 # Shiva, the Destroyer
 R:1380:0x0a/0x50
 # Nandi, the Bull of Shiva
@@ -1538,8 +1561,8 @@ A:\e\e\e
 C:0:\s
 
 # [Enter]: Enterキーでインベントリ
-A:\e\ei
-C:0:\r
+#A:\e\ei
+#C:0:\r
 
 # [#]: Character、Dumpを出力
 A:\e\eC|\r
@@ -1562,9 +1585,9 @@ C:0:_
 A:\e\el+r
 C:0:x
 
-# 回復するまで休む
+# 回復するまで休む ※キーマップ定義(C:0:\[shift-KP_5])にすると機能しない
 A:\e\eR\r
-C:0:\[shift-KP_5]
+P:\[shift-KP_5]
 
 # 15ターン経過させる（Inscribe an objectの[Z]に上書き）
 A:\e\eR15\r
