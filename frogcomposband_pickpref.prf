@@ -154,7 +154,7 @@
 #########################################
 # Consumables
 #########################################
-# ?:[EQU $CLASS Mage High-Mage Sorcerer Blue-Mage Mirror-Master Elementalist]
+# MPのない職業では不要
 # github.com/gg5074/configs/blob/main/hengband_picktype.prf
 
 ~ration of food
@@ -174,6 +174,12 @@ mushroom of restoring#!E
 
 ~identified items:mushroom
 ~unidentified items:mushroom
+
+?:[EQU $CLASS Mage High-Mage Gray-Mage Yellow-Mage Sorcerer Blue-Mage Mirror-Master]
+# 殴らない職業では不要
+!potions:heroism
+!potions:berserk strength
+?:1
 
 ?:[LEQ $LEVEL 35]
 potions:resist heat and cold#!kq
