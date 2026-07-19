@@ -18,12 +18,12 @@
 # 5: Trouble at Home (Outpost, Inn)
 # 5: The Thieves' Hideout (Outpost, Mayor), {good} or {excellent} Class-suited item; or a {good} longsword for many classes
 # 5: Pest Control (Outpost, Mayor), {good} or {excellent} Class-suited item
-# 10: Mushrooms (Thalos)
-# 12: Cop Quest (Anambar)
+# 10: Mushrooms (Thalos, Royal Lyceum)
+# 12: Cop Quest (Anambar, Police Station)
 # 15: I Hate Snakes! (Morivant, Castle)
 # 15: The Compost Heap (Outpost)
 # 18: Bear Problem (Outpost)
-# 20: The Orc Camp (Anambar), a Cloak of Stealth
+# 20: The Orc Camp (Anambar, Mayor), a Cloak of Stealth
 # 20: Tidy the Laboratory (Thalos, Royal Lyceum)
 # 20: Shadow Fairies (Thalos, Palace)
 # 22: The Stranger (Telmora)
@@ -37,7 +37,7 @@
 # 25: Vapor Quest (Outpost, Inn), Rod of Detection
 # 27: Clear the Tunnels (Anambar)
 # 27: Djinni's Cavern (Thalos, Palace)
-# 30: Smugglers' Den (Anambar)
+# 30: Smugglers' Den (Anambar, Police Station)
 # 30: Ghost Town (Morivant, Castle)
 # 30: Troll Slayer (Morivant, Fighters' Hall)
 # 32: Swamp Lights (Telmora)
@@ -156,6 +156,8 @@
 #########################################
 # MPのない職業では不要
 # github.com/gg5074/configs/blob/main/hengband_picktype.prf
+
+!wooden torch
 
 ~ration of food
 ~elvish waybread
@@ -665,10 +667,10 @@ R:904:0x0a/0x78
 
 
 #
-# ユニークモンスター160体を紫で表示する
+# ユニークモンスター161体を紫で表示する
 #
 
-# この2体は0x0aに変更しても反映されない？
+# 0x0aに変更しても反映されない
 # Null the Living Void
 R:803:0x0a/0x78
 # Metal Babble
@@ -800,6 +802,8 @@ R:1197:0x0a/0x55
 R:1200:0x0a/0x45
 # Countess Bathory
 R:1201:0x0a/0x56
+# The Grand Inquisitor
+R:1203:0x0a/0x70
 # Jack the Ripper
 R:1204:0x0a/0x70
 # The Babbage Analytical Engine
