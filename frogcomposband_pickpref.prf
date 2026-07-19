@@ -659,9 +659,10 @@ R:904:0x0a/0x78
 
 
 #
-# ユニークモンスター161体を紫で表示する
+# ユニークモンスター160体を紫で表示する
 #
 
+# この2体は0x0aに変更しても反映されない？
 # Null the Living Void
 R:803:0x0a/0x78
 # Metal Babble
@@ -739,6 +740,8 @@ R:1142:0x0a/0x70
 R:1148:0x0a/0x70
 # Helga
 R:1149:0x0a/0x70
+# Gertrude
+R:1150:0x0a/0x70
 # Nebiros, the Marquis
 R:1160:0x0a/0x42
 # Atropos, the Sister of Fate
@@ -1727,7 +1730,7 @@ C:0:O
 
 # Magic Mapping
 A:\e\emfa
-C:0:^R
+P:^R
 # Teleport Away
 A:\e\emfe*
 C:0:^A
