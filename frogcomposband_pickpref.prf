@@ -584,7 +584,7 @@ F:63:15/127:LIT
 
 
 #
-# 判別しにくいシンボル,(0x2C)、#(0x23)、$(0x24)のモンスター12体をx(0x78)に置き換える
+# 判別しにくいシンボル,(0x2C)、#(0x23)、$(0x24)、/(0x2F)、{(0x7B)のモンスター14体をx(0x78)に置き換える
 # ※Mimic、Cloaker、Death Sword、Wall Monsterはオプションのeasy_mimicsでx表示
 # ※Chaos mushroomとFlying Spaghetti Monsterは紫表示の項目
 #
@@ -616,6 +616,10 @@ R:329:0x05/0x78
 R:267:0x0E/0x78
 # Creeping adamantite coins
 R:423:0x0D/0x78
+# Hand grenade
+R:1023:0x04/0x78
+# Death Scythe
+R:1084:0x0A/0x78
 # The Hoard ※ ユニークモンスター、紫(0x0a)で表示
 R:1090:0x0a/0x78
 
@@ -655,9 +659,11 @@ R:904:0x0a/0x78
 
 
 #
-# ユニークモンスター158体を紫で表示する
+# ユニークモンスター161体を紫で表示する
 #
 
+# Null the Living Void
+R:803:0x0a/0x78
 # Metal Babble
 R:871:0x0a/0x6A
 
@@ -799,6 +805,8 @@ R:1214:0x0a/0x44
 R:1215:0x0a/0x44
 # Justshorn, Sorcerer-King of the Sheeple
 R:1225:0x0a/0x70
+# Basement Cat
+R:1227:0x0a/0x66
 # Zoopi, the Cube King
 R:1229:0x0a/0x6A
 # Festivus, the Teenage Offscreen Ninja Drolem
@@ -875,6 +883,8 @@ R:1275:0x0a/0x70
 R:1277:0x0a/0x50
 # Herringfolt, the Great Wild Boar
 R:1278:0x0a/0x71
+# Aijem, the Walrus
+R:1281:0x0a/0x71
 # Gragomani, the Leprechaun Prophet
 R:1285:0x0a/0x68
 # Castamir the Usurper
