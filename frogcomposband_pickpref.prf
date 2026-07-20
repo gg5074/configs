@@ -1012,11 +1012,16 @@ R:1391:0x0a/0x50
 # 要注意モンスター7体とユニーク268体（R:1080まで）
 # roguelike.namekuji.jp/index.html?siryo_patch.html
 #
-# 元から紫（0x0a）の一般モンスター15体
-# R:1041まで: Zephyr Lord、Colour out of space、Quantum dot、Vore、Devilfish、Durahan、Demonite、Chameleon、Chameleon Lord
+# 元から紫（0x0a）の一般モンスター16体
+# R:1041まで: Disenchanter mold、Zephyr Lord、Colour out of space、Quantum dot、Vore、Devilfish、Durahan、Demonite、Chameleon、Chameleon Lord
 # R:1083から: Sexy Swimsuit、Blinking light、Winged Horror、Nexus spider、Death Scythe、Ultimate Magus
 #
 
+#
+# Disease攻撃は10%で耐久減少、さらに10%で最大値減少、耐久維持で防げない
+# Disease攻撃を持つほかの一般モンスター:
+# Undead mass、Ghoul、Greater mummy、Servant of Glaaki、Cave Gorm、Great unclean one、Mangy looking leper、Nurgling、Beast of Nurgle、Plaguebearer of Nurgle
+#
 # Ghoulking
 R:483:0x0a/0x7A
 
