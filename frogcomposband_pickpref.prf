@@ -362,8 +362,8 @@ weapons more weight than 39
 
 ?:[GEQ $LEVEL 15]
 !average ammo:^arrow
-!average ammo:rounded pebble (2d3) (+0,+0)
-!average ammo:iron shot (3d3) (+0,+0)
+!average ammo:^rounded pebble
+!average ammo:^iron shot
 ?:1
 
 ?:[EQU $CLASS Archer]
@@ -1703,12 +1703,15 @@ C:0:)
 # [h]: Lightning Bolt
 A:\e\emaa*5
 C:0:h
+# [']: Lightning Bolt*
+A:\e\emaa*
+C:0:'
 # [y]: Lightning Ball
 A:\e\emae*5
 C:0:y
-# [']: Shard Bolt,
+# [k]: Shard Bolt
 A:\e\emba*5
-C:0:'
+C:0:k
 # [(]: Water Ball
 A:\e\emccb*5
 C:0:(
