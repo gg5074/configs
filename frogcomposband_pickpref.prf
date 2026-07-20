@@ -183,6 +183,8 @@ mushroom of restoring#!E
 ~identified items:mushroom
 unidentified items:mushroom
 
+!potions:sleep
+
 ?:[EQU $CLASS Mage High-Mage Gray-Mage Yellow-Mage Sorcerer Blue-Mage Mirror-Master]
 # 殴らない職業では不要
 !potions:heroism
@@ -255,6 +257,8 @@ unidentified rings
 unidentified amulets
 
 ~staves:identify
+!staves:heal monster
+!staves:haste monster
 
 ?:[AND [EQU $SELLING Off] [EQU $CLASS Berserker]]
 !nameless shooters
@@ -1585,7 +1589,7 @@ R:1080:0x0A/0x78
 # [\e]は[Esc]、[\r]は[Enter]、[\t]は[Tab]、[\s]は[Space]、[^]は[Ctrl]、[\]キーは[\\]、[^]は[\^]
 # yasd.fans/frogcomposbandhelpfile/command#OriginalKeyset
 #
-# 使っていないCtrlキー: B ,C, L, N, Y, Z
+# 使っていないCtrlキー: C, N, R, Y, Z
 #
 
 # [Space]: Spaceキーで[Esc][Esc][Esc]
@@ -1593,8 +1597,8 @@ A:\e\e\e
 C:0:\s
 
 # [Enter]: Enterキーでインベントリ
-#A:\e\ei
-#C:0:\r
+A:\e\ei
+C:0:\r
 
 # [#]: Character、Dumpを出力
 A:\e\eC|\r
@@ -1749,7 +1753,7 @@ C:0:O
 
 # Magic Mapping
 A:\e\emfa
-P:^R
+P:^L
 # Teleport Away
 A:\e\emfe*
 P:^A
@@ -1769,19 +1773,17 @@ P:^E
 # Teleport to Town
 A:\e\emgf
 P:^J
+
+# \rが^B^M^Rと干渉する？
 # Word of Recall
-A:\e\emgg
-P:^R
+#A:\e\emgg
+#P:^B
 # Dimension Door
-A:\e\emgg
-P:^M
+#A:\e\emgh
+#P:^M
 ?:1
 
 
-
-#
-#*** マクロ
-#
 
 # 縦横に17、斜めに12移動（*破壊*の杖の範囲: 縦横は距離13-17、斜めは最大12）
 A:22222222222222222
@@ -1792,11 +1794,11 @@ A:66666666666666666
 P:\[alt-KP_6]
 A:88888888888888888
 P:\[alt-KP_8]
-P:111111111111
+A:111111111111
 P:\[alt-KP_1]
-P:333333333333
+A:333333333333
 P:\[alt-KP_3]
-P:777777777777
+A:777777777777
 P:\[alt-KP_7]
 A:999999999999
 P:\[alt-KP_9]
