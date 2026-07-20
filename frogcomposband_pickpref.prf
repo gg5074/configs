@@ -160,6 +160,10 @@
 
 !wooden torch
 
+?:[LEQ $LEVEL 25]
+!flask of oil
+?:1
+
 ?:[EQU $RACE Skeleton]
 !ration of food
 !elvish waybread
@@ -257,8 +261,8 @@ unidentified rings
 unidentified amulets
 
 ~staves:identify
-!staves:heal monster
-!staves:haste monster
+!wands:heal monster
+!wands:haste monster
 
 ?:[AND [EQU $SELLING Off] [EQU $CLASS Berserker]]
 !nameless shooters
@@ -644,7 +648,7 @@ R:1090:0x0a/0x78
 
 
 #
-# 低層で劣化・酸・放射性廃棄物の攻撃を持つモンスター8体を紫で表示する
+# 低層で劣化・酸・放射性廃棄物の攻撃を持つモンスター9体を紫で表示する
 #
 # 属性攻撃逆引表
 # roguelike.namekuji.jp/index.html?data_resist.html
@@ -667,6 +671,8 @@ R:120:0x0a/0x77
 R:166:0x0a/0x80
 # Baby multi-hued dragon
 R:204:0x0a/0x83
+# Rust monster
+R:284:0x0a/0x71
 
 # Toxic Waste（放射性廃棄物）
 # Chaos mushroom ※シンボル,(0x2C)をx(0x78)に置き換え
