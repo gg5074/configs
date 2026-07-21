@@ -194,6 +194,7 @@ unidentified items:mushroom
 # 殴らない職業では不要
 !potions:heroism
 !potions:berserk strength
+!scrolls:monster confusion
 ?:1
 
 ?:[LEQ $LEVEL 35]
@@ -262,8 +263,9 @@ unidentified rings
 unidentified amulets
 
 ~staves:identify
-!staves:heal monster
-!staves:haste monster
+
+!wands:heal monster
+!wands:haste monster
 
 ?:[AND [EQU $SELLING Off] [EQU $CLASS Berserker]]
 !nameless shooters
