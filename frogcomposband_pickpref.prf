@@ -183,6 +183,7 @@ mushroom of restoring#!E
 !mushroom of sickness
 !mushroom of disease
 !mushroom of confusion
+!mushroom of poison
 
 ~identified items:mushroom
 unidentified items:mushroom
@@ -261,8 +262,8 @@ unidentified rings
 unidentified amulets
 
 ~staves:identify
-!wands:heal monster
-!wands:haste monster
+!staves:heal monster
+!staves:haste monster
 
 ?:[AND [EQU $SELLING Off] [EQU $CLASS Berserker]]
 !nameless shooters
