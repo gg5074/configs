@@ -1600,7 +1600,7 @@ R:1080:0x0A/0x78
 # ^B, ^M, ^Rは(special - return)の\rと同じ扱い？
 #
 
-# [Enter]: Enterキーでインベントリ
+# [Enter]: Enterキーでインベントリ ※Enterキーはオプションでコマンドメニュー
 #A:\e\ei
 #C:0:\r
 
