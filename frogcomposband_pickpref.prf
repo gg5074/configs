@@ -1596,12 +1596,12 @@ R:1080:0x0A/0x78
 # [\e]は[Esc]、[\r]は[Enter]、[\t]は[Tab]、[\s]は[Space]、[^]は[Ctrl]、[\]キーは[\\]、[^]は[\^]
 # yasd.fans/frogcomposbandhelpfile/command#OriginalKeyset
 #
-# 使っていないCtrlキー: C, N, R, Y, Z
+# 使っていないCtrlキー: ^N, ^Y ※^B^M^Rは(special - return)で\rと同じ扱い？
 #
 
 # [Enter]: Enterキーでインベントリ
-A:\e\ei
-C:0:\r
+#A:\e\ei
+#C:0:\r
 
 # [#]: Character、Dumpを出力
 A:\e\eC|\r
@@ -1780,13 +1780,12 @@ P:^E
 A:\e\emgf
 P:^J
 
-# \rが^B^M^Rと干渉する？
 # Word of Recall
-#A:\e\emgg
-#P:^B
+A:\e\emgg
+P:^C
 # Dimension Door
-#A:\e\emgh
-#P:^M
+A:\e\emgh
+P:^Z
 ?:1
 
 
