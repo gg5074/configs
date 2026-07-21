@@ -1629,8 +1629,8 @@ C:0:x
 A:\e\eR\r
 P:\[shift-KP_5]
 
-# 15ターン経過させる（Inscribe an objectに上書き）
-A:\e\eR15\r
+# 時間を経過させる（Inscribe an objectに上書き）
+A:\e\eR30\r
 C:0:Z
 
 # [Space]: Travel to location
