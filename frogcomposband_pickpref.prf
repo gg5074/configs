@@ -1599,10 +1599,6 @@ R:1080:0x0A/0x78
 # 使っていないCtrlキー: C, N, R, Y, Z
 #
 
-# [Space]: Spaceキーで[Esc][Esc][Esc]
-A:\e\e\e
-C:0:\s
-
 # [Enter]: Enterキーでインベントリ
 A:\e\ei
 C:0:\r
@@ -1636,9 +1632,9 @@ P:\[shift-KP_5]
 A:\e\eR15\r
 C:0:Z
 
-# [,]: Travel to location（Stay stillの[,]に上書き）
+# [Space]: Travel to location
 A:\e\e`
-C:0:,
+C:0:\s
 
 # トラベルを再開（Jam a doorの[j]に上書き）
 A:\e\eJ
