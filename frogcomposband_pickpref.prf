@@ -15,8 +15,8 @@
 #
 # Fixed Quests
 #
-# 5: Trouble at Home (Outpost, Inn)
 # 5: The Thieves' Hideout (Outpost, Mayor), {good} or {excellent} Class-suited item; or a {good} longsword for many classes
+# 5: Trouble at Home (Outpost, Inn)
 # 5: Pest Control (Outpost, Mayor), {good} or {excellent} Class-suited item
 # 10: Mushrooms (Thalos, Royal Lyceum)
 # 12: Cop Quest (Anambar, Police Station)
@@ -24,17 +24,17 @@
 # 15: The Compost Heap (Outpost)
 # 18: Bear Problem (Outpost)
 # 18: Sewer (Outpost)
-# 20: The Orc Camp (Anambar, Mayor), a Cloak of Stealth
-# 20: Tidy the Laboratory (Thalos, Royal Lyceum)
 # 20: Shadow Fairies (Thalos, Palace)
+# 20: Tidy the Laboratory (Thalos, Royal Lyceum)
+# 20: The Orc Camp (Anambar, Mayor), a Cloak of Stealth
 # 22: The Stranger (Telmora)
 # 22: Old Man Willow Quest (Outpost, Inn)
 # 22: Cyclops's Lair (Thalos)
 # 24: Doom Quest I (Angwil), Elemental Ring or Charm
-# 25: The Old Barracks (Morivant, Castle)
-# 25: The Mimic's Treasure (Morivant, Thieves' Guild), Ring of Protection or Amulet of Trickery
 # 25: Tengu and Death Swords (Morivant, Thieves' Guild), Ring of Protection, Elemental Charm, or Dagger of Westernesse
+# 25: The Mimic's Treasure (Morivant, Thieves' Guild), Ring of Protection or Amulet of Trickery
 # 25: The Dark Elven Lords (Morivant, Thieves' Guild)
+# 25: The Old Barracks (Morivant, Castle)
 # 25: Vapor Quest (Outpost, Inn), Rod of Detection
 # 27: Clear the Tunnels (Anambar)
 # 27: Djinni's Cavern (Thalos, Palace)
@@ -180,6 +180,7 @@ mushroom of restoring#!E
 ~mushroom
 ?:1
 
+!mushroom of unhealth
 !mushroom of sickness
 !mushroom of disease
 !mushroom of confusion
@@ -263,6 +264,9 @@ unidentified rings
 unidentified amulets
 
 ~staves:identify
+
+!staves:heal monster
+!staves:haste monsters
 
 !wands:heal monster
 !wands:haste monster
