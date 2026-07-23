@@ -15,8 +15,8 @@
 #
 # Instant Coffee
 #
-# 5: The Thieves' Hideout (Count), {good} or {excellent} Class-suited item; or a {good} longsword for many classes
-# 5: Pest Control (Inn), {good} or {excellent} Class-suited item
+# 5: The Thieves' Hideout (Count)
+# 5: Pest Control (Inn)
 # 24: Doom Quest I (Inn), Elemental Ring or Charm
 # 25: The Mimic's Treasure (Thieves' Guild), Ring of Protection or Amulet of Trickery
 # 25: Vapor Quest (Count), Rod of Detection ※NexusとToxic Wasteの攻撃
@@ -28,7 +28,7 @@
 #
 # Fixed Quests
 #
-# 5: The Thieves' Hideout (Outpost, Mayor), {good} or {excellent} Class-suited item; or a {good} longsword for many classes
+# 5: The Thieves' Hideout (Outpost, Mayor), a {good} longsword
 # 5: Trouble at Home (Outpost, Inn)
 # 5: Pest Control (Outpost, Mayor), {good} or {excellent} Class-suited item
 # 10: Mushrooms (Thalos, Royal Lyceum)
@@ -652,18 +652,26 @@ R:184:0x01/0x78
 R:195:0x0B/0x78
 # Creeping mithril coins
 R:239:0x0E/0x78
-# Huorn
-R:329:0x05/0x78
-# Magic mushroom patch
-R:267:0x0E/0x78
+# Huorn ※白(0x01)で表示
+R:329:0x01/0x78
+# Magic mushroom patch ※白(0x01)で表示
+R:267:0x01/0x78
 # Creeping adamantite coins
 R:423:0x0D/0x78
 # Hand grenade
 R:1023:0x04/0x78
 # Death Scythe
 R:1084:0x0A/0x78
-# The Hoard ※ ユニークモンスター、紫(0x0a)で表示
+# The Hoard ※ユニークモンスター、紫(0x0a)で表示
 R:1090:0x0a/0x78
+
+
+
+#
+# 白(0x01)で表示する
+#
+# Warg
+R:257:0x01/0x43
 
 
 
