@@ -13,6 +13,19 @@
 #
 
 #
+# Instant Coffee
+#
+# 5: The Thieves' Hideout (Count), {good} or {excellent} Class-suited item; or a {good} longsword for many classes
+# 5: Pest Control (Inn), {good} or {excellent} Class-suited item
+# 24: Doom Quest I (Inn), Elemental Ring or Charm
+# 25: The Mimic's Treasure (Thieves' Guild), Ring of Protection or Amulet of Trickery
+# 25: Vapor Quest (Count), Rod of Detection ※NexusとToxic Wasteの攻撃
+# 32: The Old Watchtower (Trump Tower)
+# 42: Dragon Quest
+# 50: The Old Castle
+# 55: Doom Quest II
+
+#
 # Fixed Quests
 #
 # 5: The Thieves' Hideout (Outpost, Mayor), {good} or {excellent} Class-suited item; or a {good} longsword for many classes
@@ -35,7 +48,7 @@
 # 25: The Mimic's Treasure (Morivant, Thieves' Guild), Ring of Protection or Amulet of Trickery
 # 25: The Dark Elven Lords (Morivant, Thieves' Guild)
 # 25: The Old Barracks (Morivant, Castle)
-# 25: Vapor Quest (Outpost, Inn), Rod of Detection
+# 25: Vapor Quest (Outpost, Inn), Rod of Detection ※NexusとToxic Wasteの攻撃
 # 27: Clear the Tunnels (Anambar)
 # 27: Djinni's Cavern (Thalos, Palace)
 # 30: Smugglers' Den (Anambar, Police Station)
