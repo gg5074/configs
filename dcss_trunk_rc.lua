@@ -1414,6 +1414,7 @@ more += Wisps of shadow swirl around
 # Monsters doing things
 more += monster_warning:wielding.*of distortion
 more += There is.*feeling in your soul
+more += The.*weaves a phantasmal image
 more += wretched star pulses
 more += Strange energies course through your body
 more += (?<!Your).*conjures an orb of pure magic
