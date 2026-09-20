@@ -1414,7 +1414,6 @@ more += Wisps of shadow swirl around
 # Monsters doing things
 more += monster_warning:wielding.*of distortion
 more += There is.*feeling in your soul
-more += The.*weaves a phantasmal image
 more += wretched star pulses
 more += Strange energies course through your body
 more += (?<!Your).*conjures an orb of pure magic
@@ -1600,6 +1599,7 @@ flash += You pick up a manual of
 unusual_monster_items += ( the [^acrobat]|distortion|chaos|silver)
 more += encounter.*(undying armour(y|ies)|wendigo|antique champion|moths? of wrath|torpor snail|nekomata|oblivion hound|protean progenitor|acid blob|entropy weaver|ghost moth|death knight|apocalypse crab|eyes? of devastation)(?! (zombie|draugr|simulacr))
 more += The undying armouty arms its allies with
+more += The nekomata weaves a phantasmal image and fires it at you
 
 more += The Royal Jelly spits out another jelly
 more += The dying Royal Jelly
