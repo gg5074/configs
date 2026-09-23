@@ -981,8 +981,8 @@ force_spell_targeter += Silence
 confirm_action += Conjure Ball Lightning, Chain Lightning
 : end
 
-# Blink[^bolt]
-confirm_action += Potion Petition, Call Merchant, ^Blink$, Silence, Maxwell's Capacitive Coupling, Sublimation of Blood, Borgnjor's Revivification, Death's Door
+# Blink[^bolt], ^Blink$
+confirm_action += Potion Petition, Call Merchant, Silence, Maxwell's Capacitive Coupling, Sublimation of Blood, Borgnjor's Revivification, Death's Door
 
 ############
 # Messages #
@@ -1764,6 +1764,7 @@ more += The broodmother summons spiders!
 more += encounter.*(minotaur|water nymph|azure jell|anaconda|shambling mangrove|thorn hunter|bloated husk|ghost crab|ironbound thunderhulk|polterguardian)(?! (zombie|draugr|simulacr))
 flash += The water rises up and strikes you
 more += Thorny briars emerge from the ground
+more += The bennu renews itself in a burst of flame!
 : end
 
 
