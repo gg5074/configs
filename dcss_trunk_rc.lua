@@ -838,6 +838,10 @@ tile_realtime_anim = true
 tile_show_player_species = true
 : end
 
+: if you.race() == "Gnoll" then
+tile_player_tile = tile:MONS_crazy_yiuf
+: end
+
 tile_player_status_icons = slow, constr, fragile, petr, mark, will/2, haste, weak, corr, might, brill, -move
 
 cloud_status = true
