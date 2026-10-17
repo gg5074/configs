@@ -2332,7 +2332,7 @@ macros += M . *f<<case\{32}to\{32}th\{32}||\{32}gate\{32}to\{32}||\{32}hole\{32}
 macros += M \{4} ?:
 
 # Ctrl-E:
-: if you.god() ~= "Hepliaklqana" or you.transform() ~= "jade" then
+: if you.god() ~= "Hepliaklqana" and you.transform() ~= "jade" then
 macros += M \{5} x+k\{27}
 : end
 
