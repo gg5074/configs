@@ -842,6 +842,12 @@ tile_show_player_species = true
 tile_player_tile = tile:MONS_crazy_yiuf
 : end
 
+# github.com/crawl/crawl/tree/master/crawl-ref/source/rltiles/player/felids
+# cat1, cat6, cat9
+: if you.race() == "Felid" then
+tile_player_tile = tile:felid_6
+: end
+
 tile_player_status_icons = slow, constr, fragile, petr, mark, will/2, haste, weak, corr, might, brill, -move
 
 cloud_status = true
@@ -1061,6 +1067,7 @@ stop += You see here.*scrolls? of enchant armour
 : end
 
 more += You have reached level
+more += Extra life!
 more += press f on the ability menu to create your gizmo
 flash += press f on the ability menu to create your gizmo
 more += You (can|may) now (?!stomp|pass|merge)
@@ -1349,7 +1356,7 @@ more += Your surroundings.*(different|flicker)
 more += You.*re suddenly pulled into a different region
 
 : if you.transform() ~= "storm" then
-more += You blink
+more += You blink (?!free)
 : end
 
 flash += danger:You feel strangely .*stable
@@ -2325,11 +2332,11 @@ macros += M . *f<<case\{32}to\{32}th\{32}||\{32}gate\{32}to\{32}||\{32}hole\{32}
 macros += M \{4} ?:
 
 # Ctrl-E:
-: if you.god() ~= "Hepliaklqana" then
+: if you.god() ~= "Hepliaklqana" or you.transform() ~= "jade" then
 macros += M \{5} x+k\{27}
 : end
 
-: if you.god() == "Hepliaklqana" then
+: if you.god() == "Hepliaklqana" or you.transform() == "jade" then
 macros += M \{5} x-k\{27}
 : end
 
