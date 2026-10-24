@@ -834,7 +834,8 @@ tile_font_msg_family = UD デジタル 教科書体 N-B
 tile_font_lbl_family = UD デジタル 教科書体 N-B
 tile_realtime_anim = true
 
-: if you.race() ~= "Felid" and you.race() ~= "Gargoyle" and you.race() ~= "Gale Centaur" and you.race() ~= "Human" then
+# dungeoncrawlchili.org/changesInDCChili.php
+: if you.race() ~= "Felid" and you.race() ~= "Gargoyle" and you.race() ~= "Gale Centaur" and you.race() ~= "Human" and you.race() ~= "Fairy" then
 tile_show_player_species = true
 : end
 
@@ -1037,8 +1038,8 @@ more -= You are unaffected
 stop ^= Your.*disappears in a puff of smoke,Your spellspark servitor fades away,Your battlesphere wavers and loses cohesion
 
 stop += You see here the
-more += You see here.*(of experience|of acquirement)
-flash += You see here.*(of experience|of acquirement)
+more += You see here.*(of experience|of acquirement|of gain|of beneficial)
+flash += You see here.*(of experience|of acquirement|of gain|of beneficial)
 stop += - (a|[2-6]) scrolls? of brand weapon
 stop += - (a|[2-7]) scrolls? of enchant weapon
 stop += - (a|[2-8]) scrolls? of revelation
