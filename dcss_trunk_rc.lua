@@ -835,6 +835,8 @@ tile_font_lbl_family = UD デジタル 教科書体 N-B
 tile_realtime_anim = true
 
 # dungeoncrawlchili.org/changesInDCChili.php
+opt-out_coaching-help = yes
+
 : if you.race() ~= "Felid" and you.race() ~= "Gargoyle" and you.race() ~= "Gale Centaur" and you.race() ~= "Human" and you.race() ~= "Fairy" then
 tile_show_player_species = true
 : end
@@ -871,7 +873,7 @@ menu ^= lightcyan:(scarf of invisibility|\+(Inv|Blink))
 
 msc := message_colour
 msc ^= white:(Done waiting|Done exploring|(start|finish) putting on)
-msc ^= lightgrey:(You start (resting|waiting)|continue putting on|misses you|you but does no damage|returns to the grave|disappears in a puff of smoke|removing your)
+msc ^= lightgrey:(You start (resting|waiting)|continue putting on|misses you|you but does no damage|returns to the grave|disappears in a puff of smoke|removing your|You begin to imbue|You continue imbuing)
 msc ^= yellow:(miss |The.*misses (the|(?-i:[A-Z]))|You hit.*but do no damage|The.*hits (the|(?-i:[A-Z])).*but does no damage|You fail to reach past|You feel a bit more experienced|Something appears at your feet|Autopickup disabled for|You hear an? |The (?!butterfly).*leaves your sight|Partly explored|You continue winding your clockwork bee)
 msc ^= lightred:(You encounter)
 
