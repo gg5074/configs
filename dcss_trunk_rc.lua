@@ -1994,7 +1994,7 @@ ai += scrolls? of enchant weapon:@r5, ToHit Dex/2+1d(FighS+1)+1d(WeaS+1)
 
 # Allow brand weapon scrolls (and randarts) to produce the new brands
 # github.com/crawl/crawl/commit/092f012dacd1664b29e7f4c764571602c4b3ef34
-ai += scrolls? of brand weapon:13.3% FlmFrzHvVnPro, 6.6% DrnElcSpcVmpChaos
+ai += scrolls? of (brand weapon|bless item):13.3% FlmFrzHvVnPro, 6.6% DrnElcSpcVmpChaos
 
 ai += scrolls? of fear:Q*f, 40Will90% 60Will73% ++41-80
 ai += scrolls? of silence:30Turns
