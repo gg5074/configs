@@ -44,6 +44,7 @@ brc_config_testing = {
     flame = { factor = 1.25, offset = 0 },
     freeze = { factor = 1.25, offset = 0 },
     heavy = { factor = 1.8, offset = 0 },    -- Speed is accounted for elsewhere
+    vorpal = { factor = 1.17, offset = 0 },    -- crawl.chaosforge.org/Vorpal
     pain = { factor = 1.0, offset = you.skill("Necromancy") / 2 },
     spect = { factor = 1.35, offset = 0 },    -- Fudged down for increased incoming damage
     sunder = { factor = 1.2, offset = 0 },
@@ -432,6 +433,7 @@ brc_config_explicit = {
     flame = { factor = 1.25, offset = 0 },
     freeze = { factor = 1.25, offset = 0 },
     heavy = { factor = 1.8, offset = 0 },    -- Speed is accounted for elsewhere
+    vorpal = { factor = 1.17, offset = 0 },    -- crawl.chaosforge.org/Vorpal
     pain = { factor = 1.0, offset = you.skill("Necromancy") / 2 },
     spect = { factor = 1.35, offset = 0 },    -- Fudged down for increased incoming damage
     sunder = { factor = 1.2, offset = 0 },
@@ -1803,7 +1805,7 @@ more += encounter.*(hydra) simulacr
 
 : if you.xl() <= 13 then
 unusual_monster_items += (paralysis|roots|light)
-unusual_monster_items += (devious|draining|vampiric|spectral|\+[5-9]|heavy)
+unusual_monster_items += (devious|draining|vampiric|spectral|\+[5-9]|heavy|vorpal)
 more += encounter.*(?<!spectral) (manticore|two-headed ogre|kobold geomancer|tengu|lindwurm|(ice|rust) devil|(fire|earth) elemental|lava snake|efreet|boulder beetle|hornet|black mamba|cane toad|komodo dragon|skyshark)(?! (zombie|draugr|simulacr))
 flash += encounter.*(skeletal warrior|death yak|elephant)(?! (zombie|draugr|simulacr))
 : end
@@ -4357,6 +4359,7 @@ BRC.Configs.Default.BrandBonus = {
   flame = { factor = 1.25, offset = 0 },
   freeze = { factor = 1.25, offset = 0 },
   heavy = { factor = 1.8, offset = 0 },    -- Speed is accounted for elsewhere
+  vorpal = { factor = 1.17, offset = 0 },    -- crawl.chaosforge.org/Vorpal
   pain = { factor = 1.0, offset = you.skill("Necromancy") / 2 },
   spect = { factor = 1.7, offset = 0 },    -- Fudged down for increased incoming damage
   sunder = { factor = 1.2, offset = 0 },
