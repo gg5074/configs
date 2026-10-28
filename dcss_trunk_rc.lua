@@ -2089,10 +2089,14 @@ ai += (Majin-Bo|Elemental Staff):!a
 ai += protean talisman:Shp 6 ScarabRimehornSporeMedusa
 ai += inkwell talisman:0-7 -WeapShieAllArmo, !P
 ai += quill talisman:0-7 -Aux, !P
+ai += vision talisman:0-7 -HelmGlovRing, !P
+ai += gecko talisman:0-7 -BodyGlovBootBard, !P
 ai += scarab talisman:8-14 -WeapShieAllArmo, !P
 ai += rimehorn talisman:8-14 -WeapShieAllArmo, !P
 ai += spore talisman:8-14 -OffhanBoot, !P
 ai += medusa talisman:8-14 -HelmCloa, !P
+ai += jade talisman:8-14 -HelmCloa, !P
+ai += mist talisman:8-14 -Helm, !P
 ai += spider talisman:12-20 -WeapShieAllArmo, !P
 ai += serpent talisman:12-20 -WeapOffhanBodyGlovBootCloaBard, !P
 ai += lupine talisman:12-20 -GlovBootBard, !P
@@ -2621,7 +2625,7 @@ you.set_training_target("Ice Magic",18)
 you.set_training_target("Earth Magic",18)
 you.set_training_target("Invocations",6)
 you.set_training_target("Evocations",3)
-you.set_training_target("Shapeshifting",7)
+you.set_training_target("Shapeshifting",8)
 crawl.sendkeys("m","C","c","a")
 end
 end
