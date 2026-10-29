@@ -839,12 +839,8 @@ tile_realtime_anim = true
 # dungeoncrawlchili.org/changesInDCChili.php
 opt-out_coaching-help = yes
 
-: if you.race() ~= "Felid" and you.race() ~= "Gargoyle" and you.race() ~= "Gale Centaur" and you.race() ~= "Human" and you.race() ~= "Fairy" then
+: if you.race() ~= "Felid" and you.race() ~= "Gargoyle" and you.race() ~= "Gale Centaur" and you.race() ~= "Human" and you.race() ~= "Fairy" and you.race() ~= "Silent Spectre" then
 tile_show_player_species = true
-: end
-
-: if you.race() == "Gnoll" then
-tile_player_tile = tile:MONS_crazy_yiuf
 : end
 
 # github.com/crawl/crawl/tree/master/crawl-ref/source/rltiles/player/felids
@@ -980,7 +976,7 @@ skill_focus = false
 explore_delay = 1
 rest_delay = -1
 travel_delay = -1
-view_delay = 550
+view_delay = 600
 level_map_cursor_step = 8
 warn_hatches = true
 explore_stop = greedy_pickup_smart
