@@ -1040,6 +1040,8 @@ stop ^= Your.*disappears in a puff of smoke,Your spellspark servitor fades away,
 stop += You see here the
 more += You see here.*(of experience|of acquirement|of gain|of beneficial)
 flash += You see here.*(of experience|of acquirement|of gain|of beneficial)
+more += - (a|[2-6]).*(of experience|of acquirement|of gain|of beneficial)
+flash += - (a|[2-6]).*(of experience|of acquirement|of gain|of beneficial)
 stop += - (a|[2-6]) scrolls? (of brand weapon|of bless item)
 stop += - (a|[2-7]) scrolls? of enchant weapon
 stop += - (a|[2-8]) scrolls? of revelation
@@ -2113,7 +2115,7 @@ ai += storm talisman:23-27 -WeapShieAllArmoFly, !P
 ai += talisman of death:26-27, !P
 
 : if you.xl() > 4 then
-ai += (?<!the) \+0 (dagger|short sword|club|whip|giant club|giant spiked|hand axe|spear|sling|shortbow|(?<!tremor)stone|animal skin|robe|leather armour) (?!"|of):~~DROP_ME
+ai += (?<!the) \+0 (dagger|short sword|club|leiomano|whip|giant club|giant spiked|hand axe|spear|sling|shortbow|(?<!tremor)stone|animal skin|robe|leather armour) (?!"|of):~~DROP_ME
 : end
 
 : if you.xl() > 8 then
@@ -2199,6 +2201,14 @@ consumable_shortcut += dart:abcdefghijklmnopqrstuwxyz
 consumable_shortcut += potion of mutation:t
 consumable_shortcut += scroll of noise:n
 consumable_shortcut += scroll of revelation:R
+
+# dungeoncrawlchili.org/changesInDCChili.php
+consumable_shortcut += potion of agility:y
+consumable_shortcut += potion of gain strength:s
+consumable_shortcut += potion of gain dexterity:d
+consumable_shortcut += potion of gain intelligence:i
+consumable_shortcut += potion of beneficial mutation:u
+consumable_shortcut += scroll of bless item:W
 
 ##############
 ### Macros ###
