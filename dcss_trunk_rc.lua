@@ -1511,6 +1511,7 @@ more += seems to grow stronger
 # more += suddenly seems more resistant
 
 # Interrupts
+stop += Lucky!
 more += Lucky!
 more += You don't.*that spell
 more += You fail to use your ability
@@ -2080,6 +2081,8 @@ ai += staff of (fire|cold|alchemy|air|earth|conjuration|necromancy):, !a
 ai += (the.*staff):!a
 ai += (Majin-Bo|Elemental Staff):!a
 : end
+
+# ai += Storm Queen's Shield:, 33% 3d7 1/2AC
 
 # github.com/crawl/crawl/tree/master/crawl-ref/source/dat/forms
 ai += protean talisman:Shp 6 ScarabRimehornSporeMedusa
