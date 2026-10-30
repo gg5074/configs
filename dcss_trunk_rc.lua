@@ -1987,6 +1987,10 @@ ai += potions? of invisibility:15-54T, MonsSH/3, HuInt+8%Pos, -6EV -6ToHit Block
 ai += potions? of resistance:10-29T, rFirColPoiCorEle
 ai += potions? of berserk rage:10-19T, ImmuneSleep
 
+ai += potions? of gain strength:Strong 1, 2
+ai += potions? of gain dexterity:Agile 1, 2
+ai += potions? of gain intelligence:Clever 1, 2
+
 ai += scrolls? of identify:@r1, 26%Iden 13%Common 4.7%Uncom, 18.4%Curi 10%Common 6.4%Uncom
 ai += scrolls? of teleportation:@r2, 3-5T, Zot8-14T
 ai += scrolls? of blinking:@r3, UnableTreeMesm-Tele
