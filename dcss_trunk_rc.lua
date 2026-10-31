@@ -2303,7 +2303,7 @@ function smart_stairs()
         crawl.sendkeys(">")
     elseif feat:find("stairs_up") or feat:find("hatch_up") or feat:find("exit") or feat:find("return") then
         crawl.sendkeys("<")
-    elseif feat:find("portal") or feat:find("transporter") or feat:find("shop") or feat:find("transit") or feat:find("altar") then
+    elseif feat:find("portal") or feat:find("transporter") or feat:find("shop") or feat:find("transit") or feat:find("altar") or feat:find("catalyst") then
         crawl.sendkeys(">")
     else
         crawl.mpr("No stairs here.")
