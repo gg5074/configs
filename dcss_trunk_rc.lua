@@ -1241,6 +1241,7 @@ more += Press the corresponding letter to learn more about a god
 
 more += Found a faded altar of an unknown god
 more += Found a staircase to the Ecumenical Temple
+more += Found a purified mutation catalyst
 
 : if you.xl() <= 10 then
 flash += Found.*(Ashenzari|Beogh|Cheibriados|Fedhas|Gozag|Hepliaklqana|Ignis|Jiyva|Makhleb|Nemelex|Okawaru|Qazlal|Ru|Trog|Uskayaw|Wu Jian|Yredelemnul)
@@ -1737,7 +1738,7 @@ more += encounter.*(chonchon|oni incarcerator|undertaker|demonspawn warmonger|dr
 
 : if you.xl() <= 24 then
 more += hits you[^r].*of (distortion|chaos)
-more += encounter.*(air elemental|tengu reaver|(deep elf|draconian) annihilator|void ooze|orb guardian)(?! (zombie|draugr|simulacr))
+more += encounter.*(air elemental|tengu reaver|(deep elf|draconian) annihilator|void ooze)(?! (zombie|draugr|simulacr))
 more += encounter.*(?<!spectral) (lich|shadow dragon|walking.*tome|juggernaut|caustic shrike|wyrmhole|spriggan berserker)(?! (zombie|draugr|simulacr))
 flash += encounter.*(spriggan berserker)(?! (zombie|draugr|simulacr))
 more += The spriggan berserker.*Trog
@@ -1748,7 +1749,7 @@ flash += encounter.*(imperial myrmidons|necromancer)(?! (zombie|draugr|simulacr)
 : end
 
 : if you.xl() <= 22 then
-more += encounter.*(glass eye|war gargoyle|crystal guardian)
+more += encounter.*(glass eye|war gargoyle|crystal guardian|orb guardian)
 more += encounter.*(deep elf master archer|vault (warden|sentinel)|merfolk (avatar|siren))(?! (zombie|draugr|simulacr))
 more += encounter.*(executioner|guardian serpent|draconian shifter|ironbound (convoker|preserver)|deep troll shaman|death cob)(?! (zombie|draugr|simulacr))
 more += encounter.*(bone dragon|kobold fleshcrafter|phantasmal warrior|iron giant)(?! (zombie|draugr|simulacr))
