@@ -1256,7 +1256,9 @@ more += Found a purified mutation catalyst
 
 # github.com/crawl/crawl/blob/master/crawl-ref/source/dat/des/altar/nemelex_the_gamble.des
 # dur=500 + crawl.random2(500)
+flash += Care to risk it all for some fabulous prizes, mortal?
 more += Beware! This is a limited time offer!
+flash += Beware! This is a limited time offer!
 
 : if you.xl() <= 10 then
 flash += Found.*(Ashenzari|Beogh|Cheibriados|Fedhas|Gozag|Hepliaklqana|Ignis|Jiyva|Makhleb|Nemelex|Okawaru|Qazlal|Ru|Trog|Uskayaw|Wu Jian|Yredelemnul)
