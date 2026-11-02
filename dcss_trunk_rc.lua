@@ -844,6 +844,7 @@ tile_show_player_species = true
 : end
 
 # github.com/crawl/crawl/tree/master/crawl-ref/source/rltiles/player/felids
+# crawl.dcss.io/crawl/rcfiles/crawl-git/rypofalem.rc
 --cat1 felid
 --cat2 felid_1
 --cat4 felid_2
@@ -1252,6 +1253,10 @@ more += Press the corresponding letter to learn more about a god
 more += Found a faded altar of an unknown god
 more += Found a staircase to the Ecumenical Temple
 more += Found a purified mutation catalyst
+
+# github.com/crawl/crawl/blob/master/crawl-ref/source/dat/des/altar/nemelex_the_gamble.des
+# dur=500 + crawl.random2(500)
+more += Beware! This is a limited time offer!
 
 : if you.xl() <= 10 then
 flash += Found.*(Ashenzari|Beogh|Cheibriados|Fedhas|Gozag|Hepliaklqana|Ignis|Jiyva|Makhleb|Nemelex|Okawaru|Qazlal|Ru|Trog|Uskayaw|Wu Jian|Yredelemnul)
@@ -1886,6 +1891,7 @@ note_messages += Welcome\, .*custom seed, Welcome\, .*Dungeon Descent, Welcome\,
 note_messages += and a teleportation trap
 note_messages += Yredelemnul refuses to let your conquest be stopped by a trick of the earth!, 's soul is now yours, Your bound.*is destroyed!
 note_messages += Ashenzari warns you in time for you to avoid it
+note_messages += Beware! This is a limited time offer!
 note_messages += Lucky!
 note_messages += Game time:..?:(0|30):0
 
