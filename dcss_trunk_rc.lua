@@ -2028,6 +2028,7 @@ ai += (?<!tremor)stone:0.4 1 3 Thr 0 3 6
 ai += boomerang:@f2@Q2, F2, 5%
 ai += (?<!silver) javelin:@f3@Q3, H, 5%
 ai += silver javelin:@f6@Q6, 5%
+ai += large rock:13(1.7) Thr10 Str25
 ai += throwing net:@f7, MonsEV/(2+Size), Mulch (1d4)/9% 8Dmg (1d4)/T 
 ai += poisoned dart:@f1@Q1, F1
 ai += curare-tipped dart:@f8, 16.7%
