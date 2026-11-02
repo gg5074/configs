@@ -2065,6 +2065,9 @@ ai += lightning rod:(2+PreUses)d(0.75*Evo+46.25)/3, 2d16(Evo1)
 ai += Gell's gravitambourine:Evo 9.5 23.2
 ai += flux bauble:5-14 -WeapShieBodyGlov, !v
 
+# crawl.chaosforge.org/Centipede_bauble
+ai += centpede bauble:4-13, !v
+
 : if you.god() ~= "Ashenzari" then
 ai += of fire resistance:rF+
 ai += of cold resistance:rC+
