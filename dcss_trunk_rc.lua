@@ -1622,7 +1622,9 @@ flash += You pick up a manual of
 # Uniques and baddies
 # github.com/crawl/crawl/blob/master/crawl-ref/source/dat/des/builder/uniques.des
 # github.com/crawl/crawl/blob/master/crawl-ref/source/mon-gear.cc
-unusual_monster_items += ( the [^acrobat]|distortion|chaos|silver)
+# disto/chaos/curare or vulnerable:holy_ are already highlighted by default
+
+unusual_monster_items += ( the [^acrobat]|silver)
 more += encounter.*(undying armour(y|ies)|wendigo|antique champion|moths? of wrath|torpor snail|nekomata|oblivion hound|protean progenitor|acid blob|entropy weaver|ghost moth|death knight|apocalypse crab|eyes? of devastation)(?! (zombie|draugr|simulacr))
 more += The undying armouty arms its allies with
 more += The nekomata weaves a phantasmal image and fires it at you
