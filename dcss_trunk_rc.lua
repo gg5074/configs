@@ -844,7 +844,17 @@ tile_show_player_species = true
 : end
 
 # github.com/crawl/crawl/tree/master/crawl-ref/source/rltiles/player/felids
-# cat1, cat6, cat9
+--cat1 felid
+--cat2 felid_1
+--cat4 felid_2
+--cat5 felid_3
+--cat7 felid_4
+--cat8 felid_5
+--cat9 felid_6
+--cat3 felid_silly
+--cat6 felid_silly_1
+--cat10 felid_silly_2
+
 : if you.race() == "Felid" then
 tile_player_tile = tile:felid_6
 : end
@@ -2210,12 +2220,13 @@ consumable_shortcut += scroll of noise:n
 consumable_shortcut += scroll of revelation:R
 
 # dungeoncrawlchili.org/changesInDCChili.php
-consumable_shortcut += potion of agility:y
-consumable_shortcut += potion of gain strength:s
-consumable_shortcut += potion of gain dexterity:d
-consumable_shortcut += potion of gain intelligence:i
-consumable_shortcut += potion of beneficial mutation:u
-consumable_shortcut += scroll of bless item:W
+# Options error: Unknown consumable type
+# consumable_shortcut += potion of agility:y
+# consumable_shortcut += potion of gain strength:s
+# consumable_shortcut += potion of gain dexterity:d
+# consumable_shortcut += potion of gain intelligence:i
+# consumable_shortcut += potion of beneficial mutation:u
+# consumable_shortcut += scroll of bless item:W
 
 ##############
 ### Macros ###
