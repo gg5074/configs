@@ -7953,7 +7953,12 @@ end
 
 function f_pa_misc.pickup_staff(it)
   if f_pa_data.already_alerted(it) then return false end
-  if BRC.you.skill(BRC.it.get_staff_school(it)) == 0 then return false end
+
+  -- Skip staves unknown to BRC (e.g. staff of summoning)
+  local school = BRC.it.get_staff_school(it)
+  if not school then return false end
+
+  if BRC.you.skill(school) == 0 then return false end
 
   local qualname = it.name("qual")
   local max_slots = BRC.you.num_eq_slots(it)
