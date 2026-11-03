@@ -2746,7 +2746,7 @@ BRC.LARGE_RACES = { "Armataur", "Gale Centaur", "Naga", "Oni", "Troll" }
 BRC.MAGIC_SCHOOLS = {
   air = "Air Magic", alchemy = "Alchemy", chemistry = "Alchemy", cold = "Ice Magic",
   conjuration = "Conjurations", death = "Necromancy", earth = "Earth Magic", fire = "Fire Magic",
-  necromancy = "Necromancy",
+  necromancy = "Necromancy", ice = "Ice Magic",
 } -- BRC.MAGIC_SCHOOLS (do not remove this comment)
 
 BRC.TRAINING_SKILLS = {
