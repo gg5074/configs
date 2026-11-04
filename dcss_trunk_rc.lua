@@ -1755,7 +1755,7 @@ flash += The morphogenic ooze releases spores at you
 flash += The creeping plasmodium launches a sporangium
 
 : if you.xl() <= 26 then
-more += encounter.*(chonchon|oni incarcerator|undertaker|demonspawn warmonger|draconian stormcaller|(ancient|dread) lich|cognitogaunt|shard shrike)
+more += encounter.*(chonchon|oni incarcerator|undertaker|demonspawn warmonger|draconian stormcaller|(ancient|dread) lich|ancient champion|cognitogaunt|shard shrike)
 : end
 
 : if you.xl() <= 24 then
