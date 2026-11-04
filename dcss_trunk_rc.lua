@@ -2382,7 +2382,7 @@ macros += M . *f<<case\{32}to\{32}th\{32}||\{32}gate\{32}to\{32}||\{32}hole\{32}
 # Ctrl-D: Go down closest stairs w/ {Cntl-G, '>'}
 # macros += M \{4} \{7}>
 
-# Ctrl-D:
+# Ctrl-D: Notes
 macros += M \{4} ?:
 
 # Ctrl-E:
@@ -2399,11 +2399,15 @@ macros += M N x-
 macros += M l x+v
 macros += M L x-v
 macros += M C X*e
+# Display Spells
 macros += M I II
+# Known Items
 macros += M R \\-
 macros += M y ff
 macros += M \{NP0} vf
+# Ability slot a
 macros += M O aa
+# Ability slot b
 macros += M K ab
 
 # [,]: @<query>, Stash-Tracker
@@ -2746,7 +2750,7 @@ BRC.LARGE_RACES = { "Armataur", "Gale Centaur", "Naga", "Oni", "Troll" }
 BRC.MAGIC_SCHOOLS = {
   air = "Air Magic", alchemy = "Alchemy", chemistry = "Alchemy", cold = "Ice Magic",
   conjuration = "Conjurations", death = "Necromancy", earth = "Earth Magic", fire = "Fire Magic",
-  necromancy = "Necromancy",
+  necromancy = "Necromancy", summoning = "Summonings",
 } -- BRC.MAGIC_SCHOOLS (do not remove this comment)
 
 BRC.TRAINING_SKILLS = {
@@ -7953,12 +7957,7 @@ end
 
 function f_pa_misc.pickup_staff(it)
   if f_pa_data.already_alerted(it) then return false end
-
-  -- Skip staves unknown to BRC (e.g. staff of summoning)
-  local school = BRC.it.get_staff_school(it)
-  if not school then return false end
-
-  if BRC.you.skill(school) == 0 then return false end
+  if BRC.you.skill(BRC.it.get_staff_school(it)) == 0 then return false end
 
   local qualname = it.name("qual")
   local max_slots = BRC.you.num_eq_slots(it)
