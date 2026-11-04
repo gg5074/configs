@@ -2644,18 +2644,10 @@ my_feature.BRC_FEATURE_NAME = "my-feature" -- This registers my_feature with BRC
 my_feature.Config = {
 } -- always put a comment after a lone '}' (or else crawl's RC parser breaks)
 
-if c_persist.my_feature_skills_opened == nil then
-    c_persist.my_feature_skills_opened = false
-end
-
+local need_skills_opened = true
 function my_feature.ready()
-    if you.turns() == 0
-        and you.race() ~= "Gnoll"
-        and you.race() ~= "Djinni"
-        and not c_persist.my_feature_skills_opened then
-
-        c_persist.my_feature_skills_opened = true
-
+if you.turns() == 0 and you.race() ~= "Gnoll" and you.race() ~= "Djinni" and need_skills_opened then
+need_skills_opened = false
 crawl.sendkeys("!d3" .. string.char(13) .. "Chili:Medusa/Moccasin" .. string.char(13))
 crawl.sendkeys("!d4" .. string.char(13) .. "Temple:D4-7" .. string.char(13))
 crawl.sendkeys("!d10" .. string.char(13) .. "L D12 O D15 S V4 E U/V5/Cr/Ab/He M Z4 Zig7" .. string.char(13))
