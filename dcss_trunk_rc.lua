@@ -892,19 +892,22 @@ msc += mute:You swap places with (your|(?-i:[A-Z]))
 msc += mute:(Your.*|The butterfly) leaves your sight
 msc += mute:The butterfly is (distracted by your dazzling golden aura|no longer dazed)
 msc += mute:Your.*is recalled
+
+# Lua Error: Safe Shout
+# msc += mute:Cannot currently process new keys
+# - crawl.process_keys(shout_keys)
+# + crawl.sendkeys(shout_keys)
+
 # msc += mute:What are your orders
-msc += mute:t - Shout!
-msc += mute:Shift-Dir - straight line
-msc += mute: - help\, Dir - move target
-msc += mute:Anything else - Cancel
+# msc += mute:t - Shout!
+# msc += mute:Shift-Dir - straight line
+# msc += mute: - help\, Dir - move target
+# msc += mute:Anything else - Cancel
 
 # BRC: Waypoint \\d (re-)?assigned
 # Waypoint 9 assigned to D:1, (8) Lair:5   (9) Orc:2
 # msc += mute:Waypoint.*assigned
 # msc += mute:^\(8-9) [A-Z]
-
-# Lua Error: Safe Shout
-# msc += mute:Cannot currently process new keys
 
 # : if you.branch() == "Gauntlet" or you.branch() == "Necropolis" or you.branch() == "Trove" or you.branch() == "Temple" then
 # msc += mute:Found a transporter
@@ -2351,8 +2354,7 @@ local shout_keys = "tt"
 
 function shout()
   -- crawl.do_commands({'CMD_WAIT'})
-  -- crawl.sendkeys(shout_keys)
-  crawl.process_keys(shout_keys)
+  crawl.sendkeys(shout_keys)
 end
 
 function safe_shout()
