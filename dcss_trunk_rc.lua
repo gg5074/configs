@@ -1730,7 +1730,7 @@ flash += encounter.*(deathcap|soul eater|vampire bloodprince|alderking)
 : end
 
 # Holy/Dispel Undead
-: if you.race() == "Mummy" or you.race() == "Demonspawn" or you.race() == "Revenant" or you.race() == "Poltergeist" or you.transform() == "death" or you.transform() == "vampire" then
+: if you.race() == "Mummy" or you.race() == "Demonspawn" or you.race() == "Revenant" or you.race() == "Poltergeist" or you.transform() == "death" or you.transform() == "vampire" or you.race() == "Silent Spectre" then
 flash += encounter.*(?<!angel|daeva|fravashi) is wielding.*of holy
 more += encounter.*(demonspawn black sun|revenant soulmonger|ushabti|alderking|burial acolyte)
 : end
@@ -2235,7 +2235,7 @@ gear_slot ^= ( hat |cloak|scarf|pair of gloves|pair of boots):ABCDEFGHIJKLMNOPQR
 gear_slot ^= orb:ABCDEFGHIJKLMNOPQRSTUVWXYZ
 gear_slot ^= amulet:ABCDEFGHIJKLMNOPQRSTUVWXYZ
 gear_slot ^= talisman:ABCDEFGHIJKLMNOPQRSTUVWXYZ
-gear_slot ^= flux bauble:ABCDEFGHIJKLMNOPQRSTUVWXYZ
+gear_slot ^= bauble:ABCDEFGHIJKLMNOPQRSTUVWXYZ
 
 # github.com/crawl/crawl/blob/master/crawl-ref/source/dat/defaults/consumable_shortcuts.txt
 consumable_shortcut += javelin:abcdefghijklmnopqrstuwxyz
@@ -2747,9 +2747,9 @@ BRC.SPELLBOOKS = {
 } -- BRC.SPELLBOOKS (do not remove this comment)
 
 ---- Races ----
-BRC.UNDEAD_RACES = { "Demonspawn", "Mummy", "Poltergeist", "Revenant" }
+BRC.UNDEAD_RACES = { "Demonspawn", "Mummy", "Poltergeist", "Revenant", "Silent Spectre" }
 BRC.NONLIVING_RACES = { "Djinni", "Gargoyle" }
-BRC.POIS_RES_RACES = { "Djinni", "Gargoyle", "Mummy", "Naga", "Poltergeist", "Revenant" }
+BRC.POIS_RES_RACES = { "Djinni", "Gargoyle", "Mummy", "Naga", "Poltergeist", "Revenant", "Silent Spectre" }
 BRC.LITTLE_RACES = { "Spriggan" }
 BRC.SMALL_RACES = { "Kobold", "Fairy" }
 BRC.LARGE_RACES = { "Armataur", "Gale Centaur", "Naga", "Oni", "Troll" }
@@ -2783,7 +2783,7 @@ BRC.PORTAL_FEATURE_NAMES = {
 
 ---- Egos ----
 BRC.RISKY_EGOS = { "antimagic", "chaos", "distort", "harm", "heavy", "Infuse", "Ponderous" }
-BRC.NON_ELEMENTAL_DMG_EGOS = { "distort", "heavy", "spect" }
+BRC.NON_ELEMENTAL_DMG_EGOS = { "distort", "heavy", "spect", "vorpal" }
 BRC.ADJECTIVE_EGOS = { -- Egos whose English modifier comes before item name
   antimagic = "antimagic", heavy = "heavy", spectralising = "spectral", vampirism = "vampiric"
 } -- BRC.ADJECTIVE_EGOS (do not remove this comment)
@@ -5641,6 +5641,7 @@ function f_answer_prompts.c_answer_prompt(prompt)
   if prompt == "Die?" then return false end
 
   if prompt:contains("Really fire") and prompt:contains("your spellforged") then return true end
+  if prompt:contains("Really blast") and prompt:contains("your spellforged") then return true end
   if prompt:contains("Really refrigerate") and prompt:contains("your spellforged") then return true end
   if prompt:contains("Permafrost Eruption might hit") and prompt:contains("servitor") then return true end
   if prompt:contains("Plasma Beam") and prompt:contains("might") then return true end
