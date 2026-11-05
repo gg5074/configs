@@ -2339,7 +2339,7 @@ function smart_stairs()
     local feat = view.feature_at(0, 0)
     if feat:find("stairs_down") or feat:find("hatch_down") or feat:find("enter") then
         crawl.sendkeys(">")
-    elseif feat:find("stairs_up") or feat:find("hatch_up") or feat:find("exit") or feat:find("return") then
+    elseif feat:find("stairs_up") or feat:find("hatch_up") or feat:find("exit") or feat:find("return") or feat:find("catalyst") then
         crawl.sendkeys("<")
     elseif feat:find("portal") or feat:find("transporter") or feat:find("shop") or feat:find("transit") or feat:find("altar") or feat:find("catalyst") then
         crawl.sendkeys(">")
