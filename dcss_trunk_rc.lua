@@ -882,8 +882,11 @@ menu := menu_colour
 
 msc := message_colour
 msc ^= white:(Done waiting|Done exploring|(start|finish) putting on)
-msc ^= lightgrey:(You start (resting|waiting)|continue putting on|misses you|you but does no damage|returns to the grave|disappears in a puff of smoke|removing your|You begin to imbue|You continue imbuing)
-msc ^= yellow:(miss |The.*misses (the|(?-i:[A-Z]))|You hit.*but do no damage|The.*hits (the|(?-i:[A-Z])).*but does no damage|You fail to reach past|You feel a bit more experienced|Something appears at your feet|Autopickup disabled for|You hear an? |The (?!butterfly).*leaves your sight|Partly explored|You continue winding your clockwork bee)
+msc ^= lightgrey:(You start (resting|waiting)|continue putting on|misses you|you but does no damage|returns to the grave|disappears in a puff of smoke)
+msc ^= lightgrey:(removing your|You begin to imbue|You continue imbuing)
+msc ^= yellow:(miss |The.*misses (the|(?-i:[A-Z]))|You hit.*but do no damage|The.*hits (the|(?-i:[A-Z])).*but does no damage|You fail to reach past)
+msc ^= yellow:(You feel a bit more experienced|Something appears at your feet|Autopickup disabled for|You hear an? |The (?!butterfly).*leaves your sight)
+msc ^= yellow:(Partly explored|You continue winding your clockwork bee)
 msc ^= lightred:(You encounter)
 
 msc += mute:Search for what.*(~D|in_shop|ransp)
@@ -1894,10 +1897,12 @@ note_messages += You pass through the gate
 note_messages += cast.*Abyss
 note_messages += Welcome\, .*custom seed, Welcome\, .*Dungeon Descent, Welcome\, .*Dungeon Sprint, BOSS, LIGHTNING ROUND!
 note_messages += and a teleportation trap
+note_messages += 6 star piety! Maybe ditch that amulet soon.
 note_messages += Yredelemnul refuses to let your conquest be stopped by a trick of the earth!, 's soul is now yours, Your bound.*is destroyed!
 note_messages += Ashenzari warns you in time for you to avoid it
 note_messages += Beware! This is a limited time offer!
 note_messages += Lucky!
+note_messages += The walls and floor vibrate strangely for a moment
 note_messages += Game time:..?:(0|30):0
 
 dump_order  = header,hiscore,stats,misc,apostles,mutations,overview,inventory,skills,spells
