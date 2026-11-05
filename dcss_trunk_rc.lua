@@ -79,7 +79,7 @@ brc_config_testing = {
       enter_ice_cave = "frozen archway", enter_necropolis = "phantasmal passage",
       enter_ossuary = "sand-covered staircase", enter_sewer = "glowing drain",
       enter_trove = "trove of treasure", enter_volcano = "dark tunnel",
-      enter_wizlab = "magical portal", enter_ziggurat = "ziggurat",
+      enter_wizlab = "magical portal", enter_ziggurat = "ziggurat", enter_gulch = "mutagenic drain",
     },
   },
 
@@ -468,7 +468,7 @@ brc_config_explicit = {
       enter_ice_cave = "frozen archway", enter_necropolis = "phantasmal passage",
       enter_ossuary = "sand-covered staircase", enter_sewer = "glowing drain",
       enter_trove = "trove of treasure", enter_volcano = "dark tunnel",
-      enter_wizlab = "magical portal", enter_ziggurat = "ziggurat",
+      enter_wizlab = "magical portal", enter_ziggurat = "ziggurat", enter_gulch = "mutagenic drain",
     },
   },
 
@@ -1242,7 +1242,7 @@ stop += timed_portal:
 flash += You hear.*very (nearby|distant)
 more += You hear.*(quick|urgent|loud (creaking of a portcullis|crackling of a melting archway)|rising multitudes|rapid|thunderous|frantic|ear-piercing|full choir)
 flash += You hear.*(quick|urgent|loud (creaking of a portcullis|crackling of a melting archway)|rising multitudes|rapid|thunderous|frantic|ear-piercing|full choir)
-more += Found.*(bazaar|trove|phantasmal|sand-covered|glowing drain|flagged portal|gauntlet|frozen archway|dark tunnel|crumbling gateway|ruined gateway|magical portal|ziggurat)
+more += Found.*(bazaar|trove|phantasmal|sand-covered|glowing drain|flagged portal|gauntlet|frozen archway|dark tunnel|crumbling gateway|ruined gateway|magical portal|ziggurat|mutagenic drain)
 flash += volcano erupts with a roar
 more += You enter a wizard's laboratory
 more += The walls (briefly|violently) shake
@@ -2777,7 +2777,7 @@ BRC.WEAP_SCHOOLS = {
 BRC.HELL_BRANCHES = { "Coc", "Dis", "Geh", "Hell", "Tar" }
 BRC.PORTAL_FEATURE_NAMES = {
   "Bailey", "Bazaar", "Desolation", "Gauntlet", "IceCv", "Necropolis", "Ossuary",
-  "Sewer", "Trove", "Volcano", "Wizlab", "Zig",
+  "Sewer", "Trove", "Volcano", "Wizlab", "Zig", "Gulch",
 } -- BRC.PORTAL_FEATURE_NAMES (do not remove this comment)
 
 ---- Egos ----
@@ -4658,7 +4658,7 @@ BRC.Hotkey.Config = {
     enter_ice_cave = "frozen archway", enter_necropolis = "phantasmal passage",
     enter_ossuary = "sand-covered staircase", enter_sewer = "glowing drain",
     enter_trove = "trove of treasure", enter_volcano = "dark tunnel",
-    enter_wizlab = "magical portal", enter_ziggurat = "ziggurat",
+    enter_wizlab = "magical portal", enter_ziggurat = "ziggurat", enter_gulch = "mutagenic drain",
   },
 } -- BRC.Hotkey.Config (do not remove this comment)
 
