@@ -1282,9 +1282,10 @@ flash += Found.*(Vehumet|Sif Muna)
 flash += Found.*(The Shining One|Zin)
 : end
 
+# github.com/crawl/crawl/blob/master/crawl-ref/source/feature-data.h
 stop += There is a portal to a secret trove of treasure here
 stop += Found a runed translucent door
-flash += There is a (staircase to the (?!Ecumenical)|Orcish|gate to|hole to|gate leading to|gateway (?!back|out))
+flash += There is a (staircase to the (?!Ecumenical)|Orcish|Snake|gate to|hole to|gate leading to|gateway (?!back|out))
 
 # Abyss
 more += Found a gateway leading.*Abyss
