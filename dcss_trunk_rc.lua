@@ -1898,7 +1898,8 @@ note_messages += You pass through the gate
 note_messages += cast.*Abyss
 note_messages += Welcome\, .*custom seed, Welcome\, .*Dungeon Descent, Welcome\, .*Dungeon Sprint, BOSS, LIGHTNING ROUND!
 note_messages += and a teleportation trap
-note_messages += 6 star piety! Maybe ditch that amulet soon.
+# Reached ****** piety under
+# note_messages += 6 star piety! Maybe ditch that amulet soon.
 note_messages += Yredelemnul refuses to let your conquest be stopped by a trick of the earth!, 's soul is now yours, Your bound.*is destroyed!
 note_messages += Ashenzari warns you in time for you to avoid it
 note_messages += Beware! This is a limited time offer!
@@ -7143,7 +7144,7 @@ end
 --- This is used to trick the UI into highlighting a stack for autopickup.
 -- Since this is called from autopickup(), there's no way to differentiate items of the same name.
 local function is_top_of_marked_stack(it)
-  if last_stack_check_turn + 2 < you.turns() then
+  if last_stack_check_turn + 3 < you.turns() then
     last_stack_check_turn = you.turns()
     mark_stacked_items()
   end
