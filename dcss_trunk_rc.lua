@@ -1898,8 +1898,6 @@ note_messages += You pass through the gate
 note_messages += cast.*Abyss
 note_messages += Welcome\, .*custom seed, Welcome\, .*Dungeon Descent, Welcome\, .*Dungeon Sprint, BOSS, LIGHTNING ROUND!
 note_messages += and a teleportation trap
-# Reached ****** piety under
-# note_messages += 6 star piety! Maybe ditch that amulet soon.
 note_messages += Yredelemnul refuses to let your conquest be stopped by a trick of the earth!, 's soul is now yours, Your bound.*is destroyed!
 note_messages += Ashenzari warns you in time for you to avoid it
 note_messages += Beware! This is a limited time offer!
