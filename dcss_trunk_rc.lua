@@ -883,7 +883,7 @@ menu := menu_colour
 msc := message_colour
 msc ^= white:(Done waiting|Done exploring|(start|finish) putting on)
 msc ^= lightgrey:(You start (resting|waiting)|continue putting on|misses you|you but does no damage|returns to the grave|disappears in a puff of smoke)
-msc ^= lightgrey:(removing your|You begin to imbue|You continue imbuing)
+msc ^= lightgrey:(removing your|You begin to imbue|You continue imbuing|\[BRC)
 msc ^= yellow:(miss |The.*misses (the|(?-i:[A-Z]))|You hit.*but do no damage|The.*hits (the|(?-i:[A-Z])).*but does no damage|You fail to reach past)
 msc ^= yellow:(You feel a bit more experienced|Something appears at your feet|Autopickup disabled for|You hear an? |The (?!butterfly).*leaves your sight)
 msc ^= yellow:(Partly explored|You continue winding your clockwork bee)
@@ -1286,6 +1286,7 @@ flash += Found.*(The Shining One|Zin)
 stop += There is a portal to a secret trove of treasure here
 stop += Found a runed translucent door
 flash += There is a (staircase to the (?!Ecumenical)|Orcish|Snake|gate to|hole to|gate leading to|gateway (?!back|out))
+more += Found a staircase to the Orcish Mines
 
 # Abyss
 more += Found a gateway leading.*Abyss
