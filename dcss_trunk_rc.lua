@@ -2638,7 +2638,8 @@ bindkey = [Y] CMD_MAP_EXIT_MAP
 # BRC.active = true
 bindkey = [~] CMD_LUA_CONSOLE
 macros += M & ~BRC.unregister("pickup-alert")\{13}\{27}
-macros += M % ~BRC.active\{32}=\{32}false\{13}\{27}
+macros += M % ~BRC.register("pickup-alert")\{13}\{27}
+# macros += M % ~BRC.active\{32}=\{32}false\{13}\{27}
 
 ############################### End rc/main.rc ###############################
 
