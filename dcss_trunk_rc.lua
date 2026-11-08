@@ -3241,7 +3241,7 @@ function BRC.mpr.warning(message, context)
 end
 
 function BRC.mpr.info(message, context)
-  log_message(message, context, BRC.COL.darkgrey)
+  log_message(message, context, BRC.COL.lightgrey)
 end
 
 function BRC.mpr.debug(message, context)
