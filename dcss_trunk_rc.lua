@@ -886,7 +886,7 @@ msc ^= lightgrey:(You start (resting|waiting)|continue putting on|misses you|you
 msc ^= lightgrey:(removing your|You begin to imbue|You continue imbuing)
 msc ^= yellow:(miss |The.*misses (the|(?-i:[A-Z]))|You hit.*but do no damage|The.*hits (the|(?-i:[A-Z])).*but does no damage|You fail to reach past)
 msc ^= yellow:(You feel a bit more experienced|Something appears at your feet|Autopickup disabled for|You hear an? |The (?!butterfly).*leaves your sight)
-msc ^= yellow:(Partly explored|You continue winding your clockwork bee)
+msc ^= yellow:(Partly explored|You continue winding your clockwork bee|red threat-level)
 msc ^= lightred:(You encounter)
 
 msc += mute:Search for what.*(~D|in_shop|ransp)
