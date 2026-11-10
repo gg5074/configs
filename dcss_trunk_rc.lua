@@ -896,16 +896,12 @@ msc += mute:(Your.*|The butterfly) leaves your sight
 msc += mute:The butterfly is (distracted by your dazzling golden aura|no longer dazed)
 msc += mute:Your.*is recalled
 
-# Lua Error: Safe Shout
-# msc += mute:Cannot currently process new keys
-# - crawl.process_keys(shout_keys)
-# + crawl.sendkeys(shout_keys)
-
 # msc += mute:What are your orders
 # msc += mute:t - Shout!
+# msc += mute:Anything else - Cancel
+
 # msc += mute:Shift-Dir - straight line
 # msc += mute: - help\, Dir - move target
-# msc += mute:Anything else - Cancel
 
 # BRC: Waypoint \\d (re-)?assigned
 # Waypoint 9 assigned to D:1, (8) Lair:5   (9) Orc:2
@@ -2352,6 +2348,9 @@ end
 }
 macros += M \{NP.} ===smart_stairs
 
+# Lua Error: Safe Shout
+# - crawl.process_keys(shout_keys)
+# + crawl.sendkeys(shout_keys)
 # Lua error: Cannot currently process new keys (there is pending input)
 # reddit.com/r/dcss/comments/1qzzy2w/xdminsys_noise_guide/
 # local insisted = crawl.yesno("You don't feel safe! Still shout? (y/n)", true, "n")
