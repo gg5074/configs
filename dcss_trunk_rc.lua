@@ -900,7 +900,10 @@ msc += mute:Your.*is recalled
 # msc += mute:t - Shout!
 # msc += mute:Anything else - Cancel
 
-# msc += mute:Shift-Dir - straight line
+# Fire:
+# Press: ? - help, Shift-Dir - straight line
+msc += mute:Shift-Dir - straight line
+
 # msc += mute: - help\, Dir - move target
 
 # BRC: Waypoint \\d (re-)?assigned
