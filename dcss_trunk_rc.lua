@@ -1715,14 +1715,14 @@ flash += encounter.*(hell sentinel|hellion|draconian scorcher|flayed ghost)
 
 # Miasma Breath/Death Rattle
 : if you.race() ~= "Gargoyle" and you.race() ~= "Revenant" and you.race() ~= "Poltergeist" and you.race() ~= "Mummy" and you.race() ~= "Djinni" then
-more += encounter.*(death drake|putrid mouth|ushabti)(?! (zombie|draugr|simulacr))
-flash += encounter.*(death drake|putrid mouth|ushabti)(?! (zombie|draugr|simulacr))
+more += encounter.*(death drake|putrid mouth|ushabtiu?)(?! (zombie|draugr|simulacr))
+flash += encounter.*(death drake|putrid mouth|ushabtiu?)(?! (zombie|draugr|simulacr))
 : end
 
 # Torment/Drain Life/Siphon Essence
 : if not (you.race() == "Mummy" or you.race() == "Revenant" or you.race() == "Poltergeist" or you.transform() == "death") then
-more += encounter.*(royal mumm|mummy priest|tzitzimitl)
-flash += encounter.*(royal mumm|mummy priest|tzitzimitl)
+more += encounter.*(royal mumm|mummy priest|tzitzi(mitl|meh))
+flash += encounter.*(royal mumm|mummy priest|tzitzi(mitl|meh))
 more += encounter.*(tormentor|curse toe|curse skull)
 flash += encounter.*(tormentor|curse toe|curse skull)
 more += encounter.*(deathcap|soul eater|vampire bloodprince|alderking)
@@ -1732,7 +1732,7 @@ flash += encounter.*(deathcap|soul eater|vampire bloodprince|alderking)
 # Holy/Dispel Undead
 : if you.race() == "Mummy" or you.race() == "Demonspawn" or you.race() == "Revenant" or you.race() == "Poltergeist" or you.transform() == "death" or you.transform() == "vampire" or you.race() == "Silent Spectre" then
 flash += encounter.*(?<!angel|daeva|fravashi) is wielding.*of holy
-more += encounter.*(demonspawn black sun|revenant soulmonger|ushabti|alderking|burial acolyte)
+more += encounter.*(demonspawn black sun|revenant soulmonger|ushabtiu?|alderking|burial acolyte)
 : end
 
 : if you.branch() ~= "Pandemonium" and you.race() == "Mummy" or you.race() == "Demonspawn" or you.race() == "Revenant" or you.race() == "Poltergeist" or you.transform() == "death" or you.transform() == "vampire" then
