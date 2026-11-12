@@ -1792,7 +1792,7 @@ flash += slime creatures merge to form a (very large|enormous|titanic)
 : end
 
 : if you.xl() <= 20 then
-more += encounter.*(boggart|bunyips|deep elf (elementalist|death mage)|balrug|stone giant|ironbound beastmaster)(?! (zombie|draugr|simulacr))
+more += encounter.*(boggart|bunyips|deep elf (elementalist|death mage|death magi)|balrug|stone giant|ironbound beastmaster)(?! (zombie|draugr|simulacr))
 more += encounter.*(?<!spectral) (formless jellyfish|broodmother|spark wasp|orb spider|merfolk (aquamancer|javelineer|impaler)|nagaraja)(?! (zombie|draugr|simulacr))
 # Paralysis/Petrify/Banish
 more += encounter.*(fenstrider witch|orc sorcerer|ogre mage|occultist|great orbs? of eyes|sphinx)(?! (zombie|draugr|simulacr))
