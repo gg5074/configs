@@ -904,7 +904,8 @@ msc += mute:Your.*is recalled
 # Press: ? - help, Shift-Dir - straight line
 msc += mute:Shift-Dir - straight line
 
-# msc += mute: - help\, Dir - move target
+# Evoke wielded 
+msc += mute: - help\, Dir - move target
 
 # BRC: Waypoint \\d (re-)?assigned
 # Waypoint 9 assigned to D:1, (8) Lair:5   (9) Orc:2
@@ -1189,6 +1190,21 @@ more += god:will now unseal the treasures of the Slime Pits
 more += god:Jiyva alters your body
 
 # Xom
+more += Xom grants you
+more += Xom meddles with your body plan.
+more += "Let's see how stretchy you are!"
+more += Xom crams your mind full of knowledge.
+more += Xom blesses you with excessive genetic potential.
+more += A polyhedron of chaotic magic now fights alongside you.
+more += "Serve the mortal, my children!"
+more += Xom momentarily opens a gate.
+more += A lumbering aparatus takes shape within a cloud of fumes.
+more += You call forth a shade to shield your allies.
+more += Xom plays with reality for a moment.
+more += Xom makes a sudden noise!
+more += Xom creates an obstacle course for you.
+more += "Hum-dee-hum-dee-hum..."
+
 # crawl.chaosforge.org/Chaos_Knight_of_Xom_Guide#Xom_rc_file
 # github.com/crawl/crawl/commit/41e759f0eee4a68cb4becd82386d540ef17e162c
 # github.com/crawl/crawl/commit/db04a1d58d73a1da99ae1d7e338ac4ec6a89585e
@@ -1380,7 +1396,14 @@ more += invokes.*trap
 flash += invokes.*trap
 
 # Translocations
+: if you.god() ~= "Xom" then
 more += Your surroundings.*(different|flicker)
+: end
+
+: if you.god() == "Xom" then
+flash += Your surroundings.*(different|flicker)
+: end
+
 more += You.*re suddenly pulled into a different region
 
 : if you.transform() ~= "storm" then
