@@ -1190,31 +1190,38 @@ more += god:will now unseal the treasures of the Slime Pits
 more += god:Jiyva alters your body
 
 # Xom
+# github.com/crawl/crawl/compare/db921c01400c...9be42e2d0ba5
+# github.com/crawl/crawl/commit/41e759f0eee4a68cb4becd82386d540ef17e162c
+# github.com/crawl/crawl/commit/db04a1d58d73a1da99ae1d7e338ac4ec6a89585e
+# github.com/crawl/crawl/commit/0c9ac3fb94f1a3405762e005e397097afb7e35be
 more += Xom grants you
 more += Xom meddles with your body plan.
 more += "Let's see how stretchy you are!"
 more += Xom crams your mind full of knowledge.
 more += Xom blesses you with excessive genetic potential.
 more += A polyhedron of chaotic magic now fights alongside you.
+more += Protean flesh bursts from your body and begins taking on the form of
+more += You feel like a master of disguise.
 more += "Serve the mortal, my children!"
 more += Xom momentarily opens a gate.
 more += A lumbering aparatus takes shape within a cloud of fumes.
 more += You call forth a shade to shield your allies.
 more += Xom displaces most of your magic for a moment.
+more += Xom lights up the force fireworks!
 more += Xom adds fresh vegetables to this Dungeon dish.
 more += The dungeon churns and shimmers intensely around you.
 more += Xom plays with reality for a moment.
+more += The ground around you becomes liquefied!
+more += "Go forth and redecorate, my child!"
 more += Xom makes a sudden noise!
 more += Xom reshapes the earth.
+more += "Ka-crash!"
 more += Xom creates an obstacle course for you.
 more += "Which is real and which is illusion?"
 more += "Hum-dee-hum-dee-hum..."
 more += You hear Xom's maniacal laughter.
 
 # crawl.chaosforge.org/Chaos_Knight_of_Xom_Guide#Xom_rc_file
-# github.com/crawl/crawl/commit/41e759f0eee4a68cb4becd82386d540ef17e162c
-# github.com/crawl/crawl/commit/db04a1d58d73a1da99ae1d7e338ac4ec6a89585e
-# github.com/crawl/crawl/commit/0c9ac3fb94f1a3405762e005e397097afb7e35be
 more += .* erupts in a glittering mayhem of colour
 more += "Time to have some fun!"
 more += "Fight to survive, mortal."
