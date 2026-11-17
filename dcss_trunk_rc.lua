@@ -1200,10 +1200,16 @@ more += "Serve the mortal, my children!"
 more += Xom momentarily opens a gate.
 more += A lumbering aparatus takes shape within a cloud of fumes.
 more += You call forth a shade to shield your allies.
+more += Xom displaces most of your magic for a moment.
+more += Xom adds fresh vegetables to this Dungeon dish.
+more += The dungeon churns and shimmers intensely around you.
 more += Xom plays with reality for a moment.
 more += Xom makes a sudden noise!
+more += Xom reshapes the earth.
 more += Xom creates an obstacle course for you.
+more += "Which is real and which is illusion?"
 more += "Hum-dee-hum-dee-hum..."
+more += You hear Xom's maniacal laughter.
 
 # crawl.chaosforge.org/Chaos_Knight_of_Xom_Guide#Xom_rc_file
 # github.com/crawl/crawl/commit/41e759f0eee4a68cb4becd82386d540ef17e162c
