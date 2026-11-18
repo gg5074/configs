@@ -1229,6 +1229,7 @@ more += "Go forth and redecorate, my child!"
 more += Xom makes a sudden noise!
 more += Xom reshapes the earth.
 more += "Ka-crash!"
+more += "Boo!"
 more += Xom creates an obstacle course for you.
 more += "Which is real and which is illusion?"
 more += "Hum-dee-hum-dee-hum..."
