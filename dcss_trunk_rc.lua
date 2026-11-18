@@ -1197,6 +1197,7 @@ more += god:Jiyva alters your body
 
 msc += mute:Xom almost notices you.
 msc += mute:Xom's attention almost turns to you for a moment.
+msc += mute:Xom's power almost touches on you for a moment.
 
 more += Xom grants you
 more += Xom meddles with your body plan.
@@ -1210,22 +1211,27 @@ more += Protean flesh bursts from your body and begins taking on the form of
 more += You feel like a master of disguise.
 more += "Serve the mortal, my children!"
 more += Xom momentarily opens a gate.
+more += Xom's power flows through you!
 more += Xom bribes nearby enemies with the offer of a rainbow trout.
 
-# Alistair's Walking Alembic
 : if you.god() == "Xom" then
+# Alistair's Walking Alembic
 more += A lumbering aparatus takes shape within a cloud of fumes.
+# Death Channel
+more += Malign forces permeate your being, awaiting release.
 : end
 
 more += You call forth a shade to shield your allies.
 more += Xom displaces most of your magic for a moment.
 more += Xom lights up the force fireworks!
 more += Xom adds fresh vegetables to this Dungeon dish.
+more += Xom incites some dramatic evolution in the adjacent floor mould.
 more += The dungeon churns and shimmers intensely around you.
 more += Xom plays with reality for a moment.
 more += The ground around you becomes liquefied!
 more += "This place needs a little more atmosphere."
 more += "Go forth and redecorate, my child!"
+more += "Go forth and destroy!"
 more += Xom makes a sudden noise!
 more += Xom reshapes the earth.
 more += "Ka-crash!"
