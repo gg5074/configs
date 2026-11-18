@@ -1194,6 +1194,10 @@ more += god:Jiyva alters your body
 # github.com/crawl/crawl/commit/41e759f0eee4a68cb4becd82386d540ef17e162c
 # github.com/crawl/crawl/commit/db04a1d58d73a1da99ae1d7e338ac4ec6a89585e
 # github.com/crawl/crawl/commit/0c9ac3fb94f1a3405762e005e397097afb7e35be
+
+msc += mute:Xom almost notices you.
+msc += mute:Xom's attention almost turns to you for a moment.
+
 more += Xom grants you
 more += Xom meddles with your body plan.
 more += "Let's see how stretchy you are!"
@@ -1201,12 +1205,18 @@ more += Xom crams your mind full of knowledge.
 more += Xom blesses you with excessive genetic potential.
 more += A polyhedron of chaotic magic now fights alongside you.
 more += Xom raises dopplegangers of enemies you slay yourself.
+more += You manifest.*spells as you rampage.
 more += Protean flesh bursts from your body and begins taking on the form of
 more += You feel like a master of disguise.
 more += "Serve the mortal, my children!"
 more += Xom momentarily opens a gate.
 more += Xom bribes nearby enemies with the offer of a rainbow trout.
+
+# Alistair's Walking Alembic
+: if you.god() == "Xom" then
 more += A lumbering aparatus takes shape within a cloud of fumes.
+: end
+
 more += You call forth a shade to shield your allies.
 more += Xom displaces most of your magic for a moment.
 more += Xom lights up the force fireworks!
@@ -1214,6 +1224,7 @@ more += Xom adds fresh vegetables to this Dungeon dish.
 more += The dungeon churns and shimmers intensely around you.
 more += Xom plays with reality for a moment.
 more += The ground around you becomes liquefied!
+more += "This place needs a little more atmosphere."
 more += "Go forth and redecorate, my child!"
 more += Xom makes a sudden noise!
 more += Xom reshapes the earth.
@@ -1366,6 +1377,7 @@ more += unholy channel is weakening
 # github.com/crawl/crawl/blob/master/crawl-ref/source/beam.cc
 flash += mutation:
 more += You are dangerously contaminated with residual magic
+more += You sometimes pull newly seen creatures towards you
 more += The horns on your head grow some more
 more += The horns on your head shrink a bit
 more += You feel vulnerable to
