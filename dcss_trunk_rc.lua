@@ -1213,14 +1213,6 @@ more += "Serve the mortal, my children!"
 more += Xom momentarily opens a gate.
 more += Xom's power flows through you!
 more += Xom bribes nearby enemies with the offer of a rainbow trout.
-
-: if you.god() == "Xom" then
-# Alistair's Walking Alembic
-more += A lumbering aparatus takes shape within a cloud of fumes.
-# Death Channel
-more += Malign forces permeate your being, awaiting release.
-: end
-
 more += You call forth a shade to shield your allies.
 more += Xom displaces most of your magic for a moment.
 more += Xom lights up the force fireworks!
@@ -1958,7 +1950,7 @@ note_messages += and a teleportation trap
 note_messages += Yredelemnul refuses to let your conquest be stopped by a trick of the earth!, 's soul is now yours, Your bound.*is destroyed!
 note_messages += Ashenzari warns you in time for you to avoid it
 note_messages += Beware! This is a limited time offer!
-note_messages += Lucky!
+# note_messages += Lucky!
 note_messages += The walls and floor vibrate strangely for a moment
 note_messages += Game time:..?:(0|30):0
 
