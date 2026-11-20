@@ -1221,8 +1221,15 @@ more += Xom incites some dramatic evolution in the adjacent floor mould.
 more += The dungeon churns and shimmers intensely around you.
 more += Xom plays with reality for a moment.
 more += The ground around you becomes liquefied!
+
+# Cloud trail
 more += "This place needs a little more atmosphere."
 more += "Go forth and redecorate, my child!"
+: if you.xl() <= 10 then
+flash += "This place needs a little more atmosphere."
+flash += "Go forth and redecorate, my child!"
+: end
+
 more += "Go forth and destroy!"
 more += Xom makes a sudden noise!
 more += Xom reshapes the earth.
