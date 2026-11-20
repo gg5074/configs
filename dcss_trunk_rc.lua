@@ -1225,7 +1225,7 @@ more += The ground around you becomes liquefied!
 # Cloud trail
 more += "This place needs a little more atmosphere."
 more += "Go forth and redecorate, my child!"
-: if you.xl() <= 10 then
+: if you.xl() <= 12 then
 flash += "This place needs a little more atmosphere."
 flash += "Go forth and redecorate, my child!"
 : end
@@ -1238,7 +1238,6 @@ more += "Boo!"
 more += Xom creates an obstacle course for you.
 more += "Which is real and which is illusion?"
 more += "Hum-dee-hum-dee-hum..."
-more += You hear Xom's maniacal laughter.
 
 # crawl.chaosforge.org/Chaos_Knight_of_Xom_Guide#Xom_rc_file
 more += .* erupts in a glittering mayhem of colour
