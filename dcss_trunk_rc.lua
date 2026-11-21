@@ -1225,7 +1225,7 @@ more += The ground around you becomes liquefied!
 # Cloud trail
 more += "This place needs a little more atmosphere."
 more += "Go forth and redecorate, my child!"
-: if you.xl() <= 12 then
+: if you.xl() <= 15 then
 flash += "This place needs a little more atmosphere."
 flash += "Go forth and redecorate, my child!"
 : end
@@ -1599,6 +1599,7 @@ more += You don't.*that spell
 more += You fail to use your ability
 more += You miscast.*(Blink|Borgnjor|Door|Invisibility)
 flash += You miscast
+more += The power to cast.*wells up from within.
 more += You can't (read|drink|do)
 more += You cannot.*while unable to breathe
 more += You cannot.*in your current state
@@ -1976,7 +1977,7 @@ autopickup = $?!+:"/}(♦
 ae := autopickup_exceptions
 ae += <rune of
 
-ae = <of noise
+ae = <of noise, tremorstones
 
 # : if not (you.race() == "Mummy" or you.race() == "Revenant" or you.race() == "Poltergeist") then
 # ae = <of mutation, of lignification, granite talisman, talisman of death
@@ -5713,6 +5714,7 @@ function f_answer_prompts.c_answer_prompt(prompt)
   if prompt:contains("Really conjure a freezing cloud near your ") then return true end
   if prompt:contains("into that cloud of flame") and you.res_fire() == 3 then return true end
   if prompt:contains("into that cloud of freezing vapour") and you.res_cold() == 3 then return true end
+  if prompt:contains("Really go through this one-way escape hatch") then return true end
   if prompt:contains("into a travel-excluded") then return true end
   if prompt:contains("icy armour will break") then return true end
   
