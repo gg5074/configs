@@ -2689,18 +2689,18 @@ bindkey = [Y] CMD_MAP_EXIT_MAP
 
 # BRC management
 # github.com/brianfaires/crawl-rc?tab=readme-ov-file#in-game-commands
-# BRC.unregister("pickup-alert")
 # BRC.unregister("inscribe-stats")
 # BRC.unregister("hotkey")
 # BRC.Data.reset() 
 # BRC.active = false
 # BRC.active = true
-bindkey = [~] CMD_LUA_CONSOLE
-macros += M & ~BRC.unregister("pickup-alert")\{13}\{27}
-macros += M % ~BRC.active\{32}=\{32}false\{13}\{27}
 
-# [BRC] (Error) Tried to register a non-feature module! Module contents: "pickup-alert"
-# macros += M % ~BRC.register("pickup-alert")\{13}\{27}
+bindkey = [~] CMD_LUA_CONSOLE
+
+macros += M & ~BRC.unregister("pickup-alert")\{13}\{27}
+
+# macros += M % ~BRC.active\{32}=\{32}false\{13}\{27}
+macros += M % ~BRC.reset()\{13}\{27}
 
 ############################### End rc/main.rc ###############################
 
@@ -5796,7 +5796,7 @@ function f_drop_inferior.c_assign_invletter(it)
       if it.is_weapon then
         local inv_plus = tonumber(inv.plus) or 0
         local it_plus = tonumber(it.plus) or 0
- 
+
         if inv_plus <= it_plus then
 
           inscribe_drop(inv)
