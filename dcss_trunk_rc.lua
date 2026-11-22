@@ -5716,6 +5716,7 @@ function f_answer_prompts.c_answer_prompt(prompt)
   if prompt:contains("into that cloud of freezing vapour") and you.res_cold() == 3 then return true end
   if prompt:contains("Really go through this one-way escape hatch") then return true end
   if prompt:contains("into a travel-excluded") then return true end
+  if prompt:contains("Your frozen ramparts") then return true end
   if prompt:contains("icy armour will break") then return true end
   
   if prompt:contains("cheaper one?") and you.branch() ~= "Bazaar" then
