@@ -889,6 +889,7 @@ msc ^= yellow:(You feel a bit more experienced|Something appears at your feet|Au
 msc ^= yellow:(Partly explored|You continue winding your clockwork bee|red threat-level)
 msc ^= lightred:(You encounter)
 
+msc += mute:for a list of commands and other information.
 msc += mute:Search for what.*(~D|in_shop|ransp)
 msc += mute:There is an open door here
 msc += mute:You swap places with (your|(?-i:[A-Z]))
@@ -1621,7 +1622,7 @@ more += You assume a fearsome visage
 flash += is a mimic
 flash += (?<!into|through) a shaft
 
-more += (?<!raiju|beast) bursts into living lightning
+more += (?<!raiju|beast|wasp) bursts into living lightning
 more += blinks into view
 flash += (?<!Your )draconian.*blinks!
 more += is devoured by a tear in reality
