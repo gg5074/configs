@@ -5794,7 +5794,11 @@ function f_drop_inferior.c_assign_invletter(it)
     local not_worse = inv_ego == it_ego or not inv_ego or BRC.eq.is_risky(inv)
     if not_worse and not inv.artefact and inv.subtype() == it.subtype() then
       if it.is_weapon then
-        if inv.plus <= (it.plus or 0) then
+        local inv_plus = tonumber(inv.plus) or 0
+        local it_plus = tonumber(it.plus) or 0
+ 
+        if inv_plus <= it_plus then
+
           inscribe_drop(inv)
           marked_something = true
         end
