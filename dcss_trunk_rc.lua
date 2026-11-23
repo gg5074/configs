@@ -1309,7 +1309,7 @@ more += Found a purified mutation catalyst
 
 # github.com/crawl/crawl/blob/master/crawl-ref/source/dat/des/altar/nemelex_the_gamble.des
 # dur=500 + crawl.random2(500)
-flash += Care to risk it all for some fabulous prizes, mortal?
+flash += Care to risk it all for some fabulous prizes
 more += Beware! This is a limited time offer!
 flash += Beware! This is a limited time offer!
 
